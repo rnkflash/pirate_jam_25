@@ -38,12 +38,7 @@ public class Main : MonoBehaviour
             G.run.maxHealth = 15;
             G.run.health = G.run.maxHealth;
 
-            G.run.deck.Add(new CardId(E.Id<BarrackCard>()));
-            G.run.deck.Add(new CardId(E.Id<ArcheryRangeCard>()));
-            G.run.deck.Add(new CardId(E.Id<MageGuildCard>()));
-            G.run.deck.Add(new CardId(E.Id<BarrackCard>()));
-            G.run.deck.Add(new CardId(E.Id<BarrackCard>()));
-            G.run.deck.Add(new CardId(E.Id<ArcheryRangeCard>()));
+            //G.run.deck.Add(new CardId(E.Id<ArcheryRangeCard>()));
         }
 
         G.main = this;
@@ -57,11 +52,15 @@ public class Main : MonoBehaviour
         G.ui.DisableInput();
 
         G.fader.FadeOut();
+        
+        yield return G.ui.Unsay();
 
+        /*
         if (G.run.level < levelSeq.Count)
             yield return LoadLevel(CMS.Get<CMSEntity>(levelSeq[G.run.level]));
         else
             SceneManager.LoadScene("_game/tinypack/end_screen");
+        */
 
         deck.Clear();
         hand.Clear();
@@ -113,6 +112,8 @@ public class Main : MonoBehaviour
         yield return DiscardHand();
 
         yield return DrawHand();
+
+        G.camera.UIHit();
 
         G.hud.EnableHud();
     }

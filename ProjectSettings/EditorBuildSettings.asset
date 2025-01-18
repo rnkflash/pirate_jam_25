@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_game/tinypack/title_screen.unity
     guid: b6eb60fa896f5ed4da0e065c60368e99
   - enabled: 1
