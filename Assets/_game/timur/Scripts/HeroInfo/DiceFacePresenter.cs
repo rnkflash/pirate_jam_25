@@ -8,7 +8,7 @@
         {
             _diceFaceModel = model;
             _view = view;
-            _view.SetImage(model.image);
+            _view.SetImage(model.sprite);
             _view.SetColor(model.colorValue);
         }
     }

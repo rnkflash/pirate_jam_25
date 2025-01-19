@@ -7,24 +7,36 @@ namespace _game
     {
         private IHeroPanelView _view;
         public HeroHealthPresenter heroHealthPresenter { get; }
-        private SquadModel _squadModel;
+        private Model _model;
         private int _index;
+        private bool _selected;
 
-        public HeroPanelPresenter(IHeroPanelView view, SquadModel squadModel, int index)
+        public HeroPanelPresenter(IHeroPanelView view, Model model, int index)
         {
             _index = index;
-            _squadModel = squadModel;
+            _model = model;
+            _model.OnClickWeapon += OnHeroClickk;
             _view = view;
-            _view.SetName(_squadModel.weapons[index].name);
-            _view.SetSprite(_squadModel.weapons[index].body.sprite);
+            _view.SetName(_model.weapons[index].name);
+            _view.SetSprite(_model.weapons[index].body.sprite);
             _view.OnClick += OnHeroClick;
-            heroHealthPresenter = new HeroHealthPresenter(_view.GetHeroHealthView(), _squadModel.weapons[index].body.health);
+            heroHealthPresenter = new HeroHealthPresenter(_view.GetHeroHealthView(), _model.weapons[index].body.health);
+        }
+
+        private void OnHeroClickk(int index, WeaponModel _)
+        {
+            if (index != _index && _selected)
+            {
+                _selected = !_selected;
+                _view.SetState(_selected);
+            }
         }
 
         private void OnHeroClick()
         {
-            Debug.Log("timur hero click");
-            _squadModel.ClickOnWeapon(_index);
+            _selected = !_selected;
+            _view.SetState(_selected);
+            _model.ClickOnWeapon(_index);
         }
 
         public void Release()

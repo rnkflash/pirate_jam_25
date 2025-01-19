@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fae34c593544b1ebd54a7b743b422a6, type: 3}
   m_Name: Hero_1
   m_EditorClassIdentifier: 
-  id: 0
-  image: {fileID: 6894999169920593895, guid: b33ea77e33b960f4dbbdc7ab27a70565, type: 3}
+  id: 1
+  sprite: {fileID: 6937817954938267909, guid: b5f53b66e17efca459edf56ede4f6312, type: 3}

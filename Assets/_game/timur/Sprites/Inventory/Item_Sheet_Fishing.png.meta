@@ -1,0 +1,3419 @@
+fileFormatVersion: 2
+guid: 8b0148b4b43fc774b85cca70b057a123
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4704409670836736971
+    second: Item_Sheet_Fishing_0
+  - first:
+      213: 2694645029710043184
+    second: Item_Sheet_Fishing_1
+  - first:
+      213: -7017742632374968677
+    second: Item_Sheet_Fishing_2
+  - first:
+      213: -5697548450911668493
+    second: Item_Sheet_Fishing_3
+  - first:
+      213: 7960954499921760309
+    second: Item_Sheet_Fishing_4
+  - first:
+      213: 7653199181676192074
+    second: Item_Sheet_Fishing_5
+  - first:
+      213: -935293991946655390
+    second: Item_Sheet_Fishing_6
+  - first:
+      213: 6566936200481412743
+    second: Item_Sheet_Fishing_7
+  - first:
+      213: 537419761726222066
+    second: Item_Sheet_Fishing_8
+  - first:
+      213: 4563007483067551716
+    second: Item_Sheet_Fishing_9
+  - first:
+      213: 4850674663743625103
+    second: Item_Sheet_Fishing_10
+  - first:
+      213: 1687571403474600741
+    second: Item_Sheet_Fishing_11
+  - first:
+      213: 3510105209368723048
+    second: Item_Sheet_Fishing_12
+  - first:
+      213: 6290554753972309033
+    second: Item_Sheet_Fishing_13
+  - first:
+      213: -5790987962998137947
+    second: Item_Sheet_Fishing_14
+  - first:
+      213: 370686746014923289
+    second: Item_Sheet_Fishing_15
+  - first:
+      213: -7691372872455018389
+    second: Item_Sheet_Fishing_16
+  - first:
+      213: 457140719691644837
+    second: Item_Sheet_Fishing_17
+  - first:
+      213: -7217108196605182419
+    second: Item_Sheet_Fishing_18
+  - first:
+      213: -4131499008272833564
+    second: Item_Sheet_Fishing_19
+  - first:
+      213: 468205430332023293
+    second: Item_Sheet_Fishing_20
+  - first:
+      213: 6055504547008293715
+    second: Item_Sheet_Fishing_21
+  - first:
+      213: 8940524197723678782
+    second: Item_Sheet_Fishing_22
+  - first:
+      213: -7524119500535654657
+    second: Item_Sheet_Fishing_23
+  - first:
+      213: 5976404129452876192
+    second: Item_Sheet_Fishing_24
+  - first:
+      213: -3625054521402956048
+    second: Item_Sheet_Fishing_25
+  - first:
+      213: 6741039318979805186
+    second: Item_Sheet_Fishing_26
+  - first:
+      213: 2841488575443510620
+    second: Item_Sheet_Fishing_27
+  - first:
+      213: 1301067789563122195
+    second: Item_Sheet_Fishing_28
+  - first:
+      213: -866697522344090868
+    second: Item_Sheet_Fishing_29
+  - first:
+      213: -7909427529289500943
+    second: Item_Sheet_Fishing_30
+  - first:
+      213: 5076836708362359644
+    second: Item_Sheet_Fishing_31
+  - first:
+      213: -5552204718301514590
+    second: Item_Sheet_Fishing_32
+  - first:
+      213: -1754431799724017606
+    second: Item_Sheet_Fishing_33
+  - first:
+      213: -6345887540914676031
+    second: Item_Sheet_Fishing_34
+  - first:
+      213: 8336342200202602236
+    second: Item_Sheet_Fishing_35
+  - first:
+      213: 5426039767215903465
+    second: Item_Sheet_Fishing_36
+  - first:
+      213: 1626713975452035929
+    second: Item_Sheet_Fishing_37
+  - first:
+      213: -6033978749405354012
+    second: Item_Sheet_Fishing_38
+  - first:
+      213: -3492647567045621939
+    second: Item_Sheet_Fishing_39
+  - first:
+      213: -4097171116151857167
+    second: Item_Sheet_Fishing_40
+  - first:
+      213: 5764431974968861403
+    second: Item_Sheet_Fishing_41
+  - first:
+      213: 4763603397537445175
+    second: Item_Sheet_Fishing_42
+  - first:
+      213: 7241505951102195633
+    second: Item_Sheet_Fishing_43
+  - first:
+      213: -6077898414637202538
+    second: Item_Sheet_Fishing_44
+  - first:
+      213: -9170785966415889756
+    second: Item_Sheet_Fishing_45
+  - first:
+      213: -3360505458510044832
+    second: Item_Sheet_Fishing_46
+  - first:
+      213: -2899886226853606475
+    second: Item_Sheet_Fishing_47
+  - first:
+      213: 875819714249952529
+    second: Item_Sheet_Fishing_48
+  - first:
+      213: -6900628958804719441
+    second: Item_Sheet_Fishing_49
+  - first:
+      213: -1730983909621425552
+    second: Item_Sheet_Fishing_50
+  - first:
+      213: -3682789294927731954
+    second: Item_Sheet_Fishing_51
+  - first:
+      213: -6402180031048526670
+    second: Item_Sheet_Fishing_52
+  - first:
+      213: 1448038498386874240
+    second: Item_Sheet_Fishing_53
+  - first:
+      213: 2955528482289817745
+    second: Item_Sheet_Fishing_54
+  - first:
+      213: -6373202316982533507
+    second: Item_Sheet_Fishing_55
+  - first:
+      213: -4928075251179202311
+    second: Item_Sheet_Fishing_56
+  - first:
+      213: 8511809423427166489
+    second: Item_Sheet_Fishing_57
+  - first:
+      213: -8930321508459675969
+    second: Item_Sheet_Fishing_58
+  - first:
+      213: 492374821055335103
+    second: Item_Sheet_Fishing_59
+  - first:
+      213: 3606749767575753626
+    second: Item_Sheet_Fishing_60
+  - first:
+      213: -5611409433980473806
+    second: Item_Sheet_Fishing_61
+  - first:
+      213: -1987739495395657937
+    second: Item_Sheet_Fishing_62
+  - first:
+      213: 1827371204757059393
+    second: Item_Sheet_Fishing_63
+  - first:
+      213: 2400626076210783842
+    second: Item_Sheet_Fishing_64
+  - first:
+      213: 5186139400705422919
+    second: Item_Sheet_Fishing_65
+  - first:
+      213: -790112751925180244
+    second: Item_Sheet_Fishing_66
+  - first:
+      213: 6555003371472292315
+    second: Item_Sheet_Fishing_67
+  - first:
+      213: -6854060072012257694
+    second: Item_Sheet_Fishing_68
+  - first:
+      213: -6925031465724687622
+    second: Item_Sheet_Fishing_69
+  - first:
+      213: 6515967116251266237
+    second: Item_Sheet_Fishing_70
+  - first:
+      213: 1148661391286651787
+    second: Item_Sheet_Fishing_71
+  - first:
+      213: -1377815776415217416
+    second: Item_Sheet_Fishing_72
+  - first:
+      213: -5228309783580222527
+    second: Item_Sheet_Fishing_73
+  - first:
+      213: -5969164069157455296
+    second: Item_Sheet_Fishing_74
+  - first:
+      213: -6592755044138338410
+    second: Item_Sheet_Fishing_75
+  - first:
+      213: 8398736655423638969
+    second: Item_Sheet_Fishing_76
+  - first:
+      213: -8075329335914322971
+    second: Item_Sheet_Fishing_77
+  - first:
+      213: -3731236364110517640
+    second: Item_Sheet_Fishing_78
+  - first:
+      213: -2202793967045208008
+    second: Item_Sheet_Fishing_79
+  - first:
+      213: -4975243264451610826
+    second: Item_Sheet_Fishing_80
+  - first:
+      213: -4696077408698482238
+    second: Item_Sheet_Fishing_81
+  - first:
+      213: -1559803707399336158
+    second: Item_Sheet_Fishing_82
+  - first:
+      213: 7655411673681881607
+    second: Item_Sheet_Fishing_83
+  - first:
+      213: -2514424080745483656
+    second: Item_Sheet_Fishing_84
+  - first:
+      213: 1078523237387868755
+    second: Item_Sheet_Fishing_85
+  - first:
+      213: 7840956481709280834
+    second: Item_Sheet_Fishing_86
+  - first:
+      213: -6193557687603282360
+    second: Item_Sheet_Fishing_87
+  - first:
+      213: -2177384024195773341
+    second: Item_Sheet_Fishing_88
+  - first:
+      213: -142027467144259607
+    second: Item_Sheet_Fishing_89
+  - first:
+      213: 7091091474867602379
+    second: Item_Sheet_Fishing_90
+  - first:
+      213: -7489875585196934562
+    second: Item_Sheet_Fishing_91
+  - first:
+      213: -7862083946929834874
+    second: Item_Sheet_Fishing_92
+  - first:
+      213: -7726153330411348388
+    second: Item_Sheet_Fishing_93
+  - first:
+      213: 6557499251807234533
+    second: Item_Sheet_Fishing_94
+  - first:
+      213: -3281468696554993963
+    second: Item_Sheet_Fishing_95
+  - first:
+      213: -8404493702273985700
+    second: Item_Sheet_Fishing_96
+  - first:
+      213: -759735652008304214
+    second: Item_Sheet_Fishing_97
+  - first:
+      213: 9008040193008227115
+    second: Item_Sheet_Fishing_98
+  - first:
+      213: -3162193568264004856
+    second: Item_Sheet_Fishing_99
+  - first:
+      213: 2704497942471083359
+    second: Item_Sheet_Fishing_100
+  - first:
+      213: -6314936842226375837
+    second: Item_Sheet_Fishing_101
+  - first:
+      213: 7088853628598341678
+    second: Item_Sheet_Fishing_102
+  - first:
+      213: 5174461457592929622
+    second: Item_Sheet_Fishing_103
+  - first:
+      213: 2555558387975476036
+    second: Item_Sheet_Fishing_104
+  - first:
+      213: -8823043305119221886
+    second: Item_Sheet_Fishing_105
+  - first:
+      213: -5451479923471609129
+    second: Item_Sheet_Fishing_106
+  - first:
+      213: 6567452354356017943
+    second: Item_Sheet_Fishing_107
+  - first:
+      213: 794002815804043399
+    second: Item_Sheet_Fishing_108
+  - first:
+      213: -5417309348172017737
+    second: Item_Sheet_Fishing_109
+  - first:
+      213: -8411480536774884257
+    second: Item_Sheet_Fishing_110
+  - first:
+      213: -4381377438717441016
+    second: Item_Sheet_Fishing_111
+  - first:
+      213: 4485084907058330338
+    second: Item_Sheet_Fishing_112
+  - first:
+      213: -986525292588732468
+    second: Item_Sheet_Fishing_113
+  - first:
+      213: -7543135828729651642
+    second: Item_Sheet_Fishing_114
+  - first:
+      213: -7374447435937073124
+    second: Item_Sheet_Fishing_115
+  - first:
+      213: 2741534610781905441
+    second: Item_Sheet_Fishing_116
+  - first:
+      213: -6894826831650561158
+    second: Item_Sheet_Fishing_117
+  - first:
+      213: 5223889895257343785
+    second: Item_Sheet_Fishing_118
+  - first:
+      213: 7846831219217882469
+    second: Item_Sheet_Fishing_119
+  - first:
+      213: 2350580852521053940
+    second: Item_Sheet_Fishing_120
+  - first:
+      213: -8896602199794327244
+    second: Item_Sheet_Fishing_121
+  - first:
+      213: 7792941067601428388
+    second: Item_Sheet_Fishing_122
+  - first:
+      213: 7248154753857933135
+    second: Item_Sheet_Fishing_123
+  - first:
+      213: 7735042025320125397
+    second: Item_Sheet_Fishing_124
+  - first:
+      213: -7680428306329779541
+    second: Item_Sheet_Fishing_125
+  - first:
+      213: 5297563052972832915
+    second: Item_Sheet_Fishing_126
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 162
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53c2dd3545496beb0800000000000000
+      internalID: -4704409670836736971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 175
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03893afa06d456520800000000000000
+      internalID: 2694645029710043184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_2
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 170
+        width: 28
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9edc28e148fb9e90800000000000000
+      internalID: -7017742632374968677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_3
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 162
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f635dceedd3ee0b0800000000000000
+      internalID: -5697548450911668493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_4
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 175
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53052e050fdfa7e60800000000000000
+      internalID: 7960954499921760309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_5
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 163
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a41ae1b7b10a53a60800000000000000
+      internalID: 7653199181676192074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_6
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 162
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2696679d11b2503f0800000000000000
+      internalID: -935293991946655390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_7
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 175
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78619546ea1722b50800000000000000
+      internalID: 6566936200481412743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_8
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 163
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fe67f80d6c457700800000000000000
+      internalID: 537419761726222066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_9
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 162
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4efc0b7412f035f30800000000000000
+      internalID: 4563007483067551716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_10
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 175
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f871d6d18ee015340800000000000000
+      internalID: 4850674663743625103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_11
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 163
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 523063510457b6710800000000000000
+      internalID: 1687571403474600741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_12
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 162
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86ebba0371666b030800000000000000
+      internalID: 3510105209368723048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_13
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 162
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92c0aae483a8c4750800000000000000
+      internalID: 6290554753972309033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_14
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 162
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5abdeee212742afa0800000000000000
+      internalID: -5790987962998137947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_15
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 162
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91a3a2ba1a1f42500800000000000000
+      internalID: 370686746014923289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_16
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 162
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b682e368f11c24590800000000000000
+      internalID: -7691372872455018389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_17
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 162
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5af36910017185600800000000000000
+      internalID: 457140719691644837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_18
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 164
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2eb9c3455ea7db90800000000000000
+      internalID: -7217108196605182419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_19
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 164
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e3e406aa87f9a6c0800000000000000
+      internalID: -4131499008272833564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_20
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 161
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df169d4bb566f7600800000000000000
+      internalID: 468205430332023293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_21
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 162
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35b21345d49790450800000000000000
+      internalID: 6055504547008293715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_22
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 163
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e38aa1f836f131c70800000000000000
+      internalID: 8940524197723678782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_23
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 166
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff69bf2cd25f49790800000000000000
+      internalID: -7524119500535654657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_24
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 136
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a1673234e370f250800000000000000
+      internalID: 5976404129452876192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_25
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 138
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f66a508e1831bdc0800000000000000
+      internalID: -3625054521402956048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_26
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 130
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2008bb88b8bfc8d50800000000000000
+      internalID: 6741039318979805186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_27
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 133
+        width: 7
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5524a4fdcefe6720800000000000000
+      internalID: 2841488575443510620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_28
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 133
+        width: 12
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 312dc91e2425e0210800000000000000
+      internalID: 1301067789563122195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_29
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 138
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0328f4023fd8f3f0800000000000000
+      internalID: -866697522344090868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_30
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 135
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f6f00c61911c3290800000000000000
+      internalID: -7909427529289500943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_31
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 131
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c531a98861c847640800000000000000
+      internalID: 5076836708362359644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_32
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 129
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a4f36db93b92f2b0800000000000000
+      internalID: -5552204718301514590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_33
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 130
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a38fcc2d29107a7e0800000000000000
+      internalID: -1754431799724017606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_34
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 130
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ce143b47e0eee7a0800000000000000
+      internalID: -6345887540914676031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_35
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 130
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf6ac213013a0b370800000000000000
+      internalID: 8336342200202602236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_36
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 130
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e21c0e7b6a2d4b40800000000000000
+      internalID: 5426039767215903465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_37
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 131
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95b6bf1fdbf339610800000000000000
+      internalID: 1626713975452035929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_38
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 136
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e7207bfb40034ca0800000000000000
+      internalID: -6033978749405354012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_39
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 136
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d470d98ea8f978fc0800000000000000
+      internalID: -3492647567045621939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_40
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 148
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ff17cdd39ce327c0800000000000000
+      internalID: -4097171116151857167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_41
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 130
+        width: 10
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd22ce707506fff40800000000000000
+      internalID: 5764431974968861403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_42
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 136
+        width: 22
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73530192d08bb1240800000000000000
+      internalID: 4763603397537445175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_43
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 134
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b7d25e9b4ffe7460800000000000000
+      internalID: 7241505951102195633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_44
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 132
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 693c3ae0897f6aba0800000000000000
+      internalID: -6077898414637202538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_45
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 133
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aab4a0a0c2dab080800000000000000
+      internalID: -9170785966415889756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_46
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 130
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0616fb717161d51d0800000000000000
+      internalID: -3360505458510044832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_47
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 103
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bbc75747d881c7d0800000000000000
+      internalID: -2899886226853606475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_48
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 99
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11d072bc369872c00800000000000000
+      internalID: 875819714249952529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_49
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 105
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa8cba7e58a0c30a0800000000000000
+      internalID: -6900628958804719441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_50
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 100
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07a191b2e4f4af7e0800000000000000
+      internalID: -1730983909621425552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_51
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 103
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e03a83506aa14ecc0800000000000000
+      internalID: -3682789294927731954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_52
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 99
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b4d0459e23e627a0800000000000000
+      internalID: -6402180031048526670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_53
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 105
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08f807d9757781410800000000000000
+      internalID: 1448038498386874240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_54
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 100
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1981f6ede75240920800000000000000
+      internalID: 2955528482289817745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_55
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 104
+        width: 27
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d724f866246dd87a0800000000000000
+      internalID: -6373202316982533507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_56
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 100
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f8d11b4ba5fb9bb0800000000000000
+      internalID: -4928075251179202311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_57
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 100
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 911e237b295002670800000000000000
+      internalID: 8511809423427166489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_58
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 100
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbefa3627ef111480800000000000000
+      internalID: -8930321508459675969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_59
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 100
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fba89518a4445d600800000000000000
+      internalID: 492374821055335103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_60
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 101
+        width: 29
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a935312edcfbd0230800000000000000
+      internalID: 3606749767575753626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_61
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 99
+        width: 29
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23e615ea9d44022b0800000000000000
+      internalID: -5611409433980473806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_62
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 99
+        width: 27
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f277deed5712a64e0800000000000000
+      internalID: -1987739495395657937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_63
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 100
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 147725ccd602c5910800000000000000
+      internalID: 1827371204757059393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_64
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 99
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 266651f72bcb05120800000000000000
+      internalID: 2400626076210783842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_65
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 98
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74634bebe4ed8f740800000000000000
+      internalID: 5186139400705422919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_66
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 97
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca84ef863a4f805f0800000000000000
+      internalID: -790112751925180244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_67
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 65
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd9081226dc08fa50800000000000000
+      internalID: 6555003371472292315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_68
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 69
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 266658acdac71e0a0800000000000000
+      internalID: -6854060072012257694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_69
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 65
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afac313829855ef90800000000000000
+      internalID: -6925031465724687622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_70
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 65
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbc7844b19d5d6a50800000000000000
+      internalID: 6515967116251266237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_71
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 66
+        width: 23
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8bc8d2137dd0ff00800000000000000
+      internalID: 1148661391286651787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_72
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 65
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f887d0f9d301ece0800000000000000
+      internalID: -1377815776415217416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_73
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 66
+        width: 23
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cb500ed3ff4177b0800000000000000
+      internalID: -5228309783580222527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_74
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 65
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04a38d3b7e4492da0800000000000000
+      internalID: -5969164069157455296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_75
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 66
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69738fe9734d184a0800000000000000
+      internalID: -6592755044138338410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_76
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 67
+        width: 26
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bd049c5d7e4e8470800000000000000
+      internalID: 8398736655423638969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_77
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 64
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e3298001caaeef80800000000000000
+      internalID: -8075329335914322971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_78
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 68
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87a2c28bb4cf73cc0800000000000000
+      internalID: -3731236364110517640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_79
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 67
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83895e0de8a1e61e0800000000000000
+      internalID: -2202793967045208008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_80
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 69
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 637f4376c9264fab0800000000000000
+      internalID: -4975243264451610826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_81
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 67
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c14ac84a7e24deb0800000000000000
+      internalID: -4696077408698482238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_82
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 66
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22f0025dac67a5ae0800000000000000
+      internalID: -1559803707399336158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_83
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 71
+        width: 26
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70aef2b6b5c7d3a60800000000000000
+      internalID: 7655411673681881607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_84
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 67
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8723a7cde98fa1dd0800000000000000
+      internalID: -2514424080745483656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_85
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 69
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35a128e8b2fa7fe00800000000000000
+      internalID: 1078523237387868755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_86
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 66
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24e049f706ca0dc60800000000000000
+      internalID: 7840956481709280834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_87
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 33
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84e348619101c0aa0800000000000000
+      internalID: -6193557687603282360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_88
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 36
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36c433a24c068c1e0800000000000000
+      internalID: -2177384024195773341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_89
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 33
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e7948865ca670ef0800000000000000
+      internalID: -142027467144259607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_90
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 38
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc3c84d402e986260800000000000000
+      internalID: 7091091474867602379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_91
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 37
+        width: 29
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5a377c96dd9e0890800000000000000
+      internalID: -7489875585196934562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_92
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 37
+        width: 29
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68432fc2e4444e290800000000000000
+      internalID: -7862083946929834874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_93
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 37
+        width: 29
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5e51ac1b7037c490800000000000000
+      internalID: -7726153330411348388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_94
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 36
+        width: 29
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e92cde83dae00b50800000000000000
+      internalID: 6557499251807234533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_95
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 38
+        width: 30
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d686404b91e572d0800000000000000
+      internalID: -3281468696554993963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_96
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 36
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5393f6b18d3d5b80800000000000000
+      internalID: -8404493702273985700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_97
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 36
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa168d22370e475f0800000000000000
+      internalID: -759735652008304214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_98
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 37
+        width: 28
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2352b234dcf20d70800000000000000
+      internalID: 9008040193008227115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_99
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 37
+        width: 28
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80b599424b1ad14d0800000000000000
+      internalID: -3162193568264004856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_100
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 37
+        width: 28
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5583c4bc8e488520800000000000000
+      internalID: 2704497942471083359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_101
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 39
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 363e1146666dc58a0800000000000000
+      internalID: -6314936842226375837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_102
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 39
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e20d75d11daa06260800000000000000
+      internalID: 7088853628598341678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_103
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 38
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65dc6cbb7416fc740800000000000000
+      internalID: 5174461457592929622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_104
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 38
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4435c0e50da277320800000000000000
+      internalID: 2555558387975476036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_105
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 38
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 287fa784cd04e8580800000000000000
+      internalID: -8823043305119221886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_106
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 39
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d21d4d84e37854b0800000000000000
+      internalID: -5451479923471609129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_107
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 4
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71b71b4de17442b50800000000000000
+      internalID: 6567452354356017943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_108
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 6
+        width: 27
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 780f8aaaa5dd40b00800000000000000
+      internalID: 794002815804043399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_109
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 5
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bfcdc799d9d1d4b0800000000000000
+      internalID: -5417309348172017737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_110
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 7
+        width: 27
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f54cb6a840b644b80800000000000000
+      internalID: -8411480536774884257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_111
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 4
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80c065ade683233c0800000000000000
+      internalID: -4381377438717441016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_112
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 6
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ea7da0c5f83e3e30800000000000000
+      internalID: 4485084907058330338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_113
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 6
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccf6f4529782f42f0800000000000000
+      internalID: -986525292588732468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_114
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 8
+        width: 22
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64e1c04dde5615790800000000000000
+      internalID: -7543135828729651642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_115
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 6
+        width: 22
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c183e26e023b8a990800000000000000
+      internalID: -7374447435937073124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_116
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 8
+        width: 21
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12228170433eb0620800000000000000
+      internalID: 2741534610781905441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_117
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 4
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a73e2a7e687a050a0800000000000000
+      internalID: -6894826831650561158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_118
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 6
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9270190be2cfe7840800000000000000
+      internalID: 5223889895257343785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_119
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 7
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56d5de96b6b85ec60800000000000000
+      internalID: 7846831219217882469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_120
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 2
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fe2a5ad4d0fe9020800000000000000
+      internalID: 2350580852521053940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_121
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 9
+        width: 24
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 431ec4d7f6be88480800000000000000
+      internalID: -8896602199794327244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_122
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 8
+        width: 24
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4afbfe9bc96162c60800000000000000
+      internalID: 7792941067601428388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_123
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 9
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4fc2c4a85e969460800000000000000
+      internalID: 7248154753857933135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_124
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 4
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d39ce17db3685b60800000000000000
+      internalID: 7735042025320125397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_125
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 6
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba2cb56e523a96590800000000000000
+      internalID: -7680428306329779541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Sheet_Fishing_126
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 6
+        width: 28
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 398fdab6789b48940800000000000000
+      internalID: 5297563052972832915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Item_Sheet_Fishing_0: -4704409670836736971
+      Item_Sheet_Fishing_1: 2694645029710043184
+      Item_Sheet_Fishing_10: 4850674663743625103
+      Item_Sheet_Fishing_100: 2704497942471083359
+      Item_Sheet_Fishing_101: -6314936842226375837
+      Item_Sheet_Fishing_102: 7088853628598341678
+      Item_Sheet_Fishing_103: 5174461457592929622
+      Item_Sheet_Fishing_104: 2555558387975476036
+      Item_Sheet_Fishing_105: -8823043305119221886
+      Item_Sheet_Fishing_106: -5451479923471609129
+      Item_Sheet_Fishing_107: 6567452354356017943
+      Item_Sheet_Fishing_108: 794002815804043399
+      Item_Sheet_Fishing_109: -5417309348172017737
+      Item_Sheet_Fishing_11: 1687571403474600741
+      Item_Sheet_Fishing_110: -8411480536774884257
+      Item_Sheet_Fishing_111: -4381377438717441016
+      Item_Sheet_Fishing_112: 4485084907058330338
+      Item_Sheet_Fishing_113: -986525292588732468
+      Item_Sheet_Fishing_114: -7543135828729651642
+      Item_Sheet_Fishing_115: -7374447435937073124
+      Item_Sheet_Fishing_116: 2741534610781905441
+      Item_Sheet_Fishing_117: -6894826831650561158
+      Item_Sheet_Fishing_118: 5223889895257343785
+      Item_Sheet_Fishing_119: 7846831219217882469
+      Item_Sheet_Fishing_12: 3510105209368723048
+      Item_Sheet_Fishing_120: 2350580852521053940
+      Item_Sheet_Fishing_121: -8896602199794327244
+      Item_Sheet_Fishing_122: 7792941067601428388
+      Item_Sheet_Fishing_123: 7248154753857933135
+      Item_Sheet_Fishing_124: 7735042025320125397
+      Item_Sheet_Fishing_125: -7680428306329779541
+      Item_Sheet_Fishing_126: 5297563052972832915
+      Item_Sheet_Fishing_13: 6290554753972309033
+      Item_Sheet_Fishing_14: -5790987962998137947
+      Item_Sheet_Fishing_15: 370686746014923289
+      Item_Sheet_Fishing_16: -7691372872455018389
+      Item_Sheet_Fishing_17: 457140719691644837
+      Item_Sheet_Fishing_18: -7217108196605182419
+      Item_Sheet_Fishing_19: -4131499008272833564
+      Item_Sheet_Fishing_2: -7017742632374968677
+      Item_Sheet_Fishing_20: 468205430332023293
+      Item_Sheet_Fishing_21: 6055504547008293715
+      Item_Sheet_Fishing_22: 8940524197723678782
+      Item_Sheet_Fishing_23: -7524119500535654657
+      Item_Sheet_Fishing_24: 5976404129452876192
+      Item_Sheet_Fishing_25: -3625054521402956048
+      Item_Sheet_Fishing_26: 6741039318979805186
+      Item_Sheet_Fishing_27: 2841488575443510620
+      Item_Sheet_Fishing_28: 1301067789563122195
+      Item_Sheet_Fishing_29: -866697522344090868
+      Item_Sheet_Fishing_3: -5697548450911668493
+      Item_Sheet_Fishing_30: -7909427529289500943
+      Item_Sheet_Fishing_31: 5076836708362359644
+      Item_Sheet_Fishing_32: -5552204718301514590
+      Item_Sheet_Fishing_33: -1754431799724017606
+      Item_Sheet_Fishing_34: -6345887540914676031
+      Item_Sheet_Fishing_35: 8336342200202602236
+      Item_Sheet_Fishing_36: 5426039767215903465
+      Item_Sheet_Fishing_37: 1626713975452035929
+      Item_Sheet_Fishing_38: -6033978749405354012
+      Item_Sheet_Fishing_39: -3492647567045621939
+      Item_Sheet_Fishing_4: 7960954499921760309
+      Item_Sheet_Fishing_40: -4097171116151857167
+      Item_Sheet_Fishing_41: 5764431974968861403
+      Item_Sheet_Fishing_42: 4763603397537445175
+      Item_Sheet_Fishing_43: 7241505951102195633
+      Item_Sheet_Fishing_44: -6077898414637202538
+      Item_Sheet_Fishing_45: -9170785966415889756
+      Item_Sheet_Fishing_46: -3360505458510044832
+      Item_Sheet_Fishing_47: -2899886226853606475
+      Item_Sheet_Fishing_48: 875819714249952529
+      Item_Sheet_Fishing_49: -6900628958804719441
+      Item_Sheet_Fishing_5: 7653199181676192074
+      Item_Sheet_Fishing_50: -1730983909621425552
+      Item_Sheet_Fishing_51: -3682789294927731954
+      Item_Sheet_Fishing_52: -6402180031048526670
+      Item_Sheet_Fishing_53: 1448038498386874240
+      Item_Sheet_Fishing_54: 2955528482289817745
+      Item_Sheet_Fishing_55: -6373202316982533507
+      Item_Sheet_Fishing_56: -4928075251179202311
+      Item_Sheet_Fishing_57: 8511809423427166489
+      Item_Sheet_Fishing_58: -8930321508459675969
+      Item_Sheet_Fishing_59: 492374821055335103
+      Item_Sheet_Fishing_6: -935293991946655390
+      Item_Sheet_Fishing_60: 3606749767575753626
+      Item_Sheet_Fishing_61: -5611409433980473806
+      Item_Sheet_Fishing_62: -1987739495395657937
+      Item_Sheet_Fishing_63: 1827371204757059393
+      Item_Sheet_Fishing_64: 2400626076210783842
+      Item_Sheet_Fishing_65: 5186139400705422919
+      Item_Sheet_Fishing_66: -790112751925180244
+      Item_Sheet_Fishing_67: 6555003371472292315
+      Item_Sheet_Fishing_68: -6854060072012257694
+      Item_Sheet_Fishing_69: -6925031465724687622
+      Item_Sheet_Fishing_7: 6566936200481412743
+      Item_Sheet_Fishing_70: 6515967116251266237
+      Item_Sheet_Fishing_71: 1148661391286651787
+      Item_Sheet_Fishing_72: -1377815776415217416
+      Item_Sheet_Fishing_73: -5228309783580222527
+      Item_Sheet_Fishing_74: -5969164069157455296
+      Item_Sheet_Fishing_75: -6592755044138338410
+      Item_Sheet_Fishing_76: 8398736655423638969
+      Item_Sheet_Fishing_77: -8075329335914322971
+      Item_Sheet_Fishing_78: -3731236364110517640
+      Item_Sheet_Fishing_79: -2202793967045208008
+      Item_Sheet_Fishing_8: 537419761726222066
+      Item_Sheet_Fishing_80: -4975243264451610826
+      Item_Sheet_Fishing_81: -4696077408698482238
+      Item_Sheet_Fishing_82: -1559803707399336158
+      Item_Sheet_Fishing_83: 7655411673681881607
+      Item_Sheet_Fishing_84: -2514424080745483656
+      Item_Sheet_Fishing_85: 1078523237387868755
+      Item_Sheet_Fishing_86: 7840956481709280834
+      Item_Sheet_Fishing_87: -6193557687603282360
+      Item_Sheet_Fishing_88: -2177384024195773341
+      Item_Sheet_Fishing_89: -142027467144259607
+      Item_Sheet_Fishing_9: 4563007483067551716
+      Item_Sheet_Fishing_90: 7091091474867602379
+      Item_Sheet_Fishing_91: -7489875585196934562
+      Item_Sheet_Fishing_92: -7862083946929834874
+      Item_Sheet_Fishing_93: -7726153330411348388
+      Item_Sheet_Fishing_94: 6557499251807234533
+      Item_Sheet_Fishing_95: -3281468696554993963
+      Item_Sheet_Fishing_96: -8404493702273985700
+      Item_Sheet_Fishing_97: -759735652008304214
+      Item_Sheet_Fishing_98: 9008040193008227115
+      Item_Sheet_Fishing_99: -3162193568264004856
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

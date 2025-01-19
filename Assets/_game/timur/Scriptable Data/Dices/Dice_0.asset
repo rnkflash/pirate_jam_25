@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fae34c593544b1ebd54a7b743b422a6, type: 3}
-  m_Name: Hero_3
+  m_Name: Dice_0
   m_EditorClassIdentifier: 
-  id: 3
-  sprite: {fileID: -4178046375966092550, guid: 46d6929be4477854b8e2157ebe507220, type: 3}
+  id: 0
+  sprite: {fileID: 5364075792921141791, guid: 646860d451a14c64fb138ea97af4b342, type: 3}
