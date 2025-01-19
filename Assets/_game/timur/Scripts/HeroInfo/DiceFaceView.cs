@@ -8,9 +8,9 @@ namespace _game.HeroInfo
         [SerializeField] private Image _image;
         [SerializeField] private Image _colorImage;
 
-        public void SetImage(Image image)
+        public void SetImage(Sprite image)
         {
-            _image = image;
+            _image.sprite = image;
         }
 
         public void SetColor(Color color)
@@ -21,7 +21,7 @@ namespace _game.HeroInfo
 
     public interface IDiceFaceView
     {
-        void SetImage(Image image);
+        void SetImage(Sprite image);
         void SetColor(Color color);
     }
 }

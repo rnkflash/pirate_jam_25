@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _game
 {
@@ -6,6 +7,6 @@ namespace _game
     public class ItemData : ScriptableObject
     {
         public int id;
-        public Sprite image;
+        public Sprite sprite;
     }
 }

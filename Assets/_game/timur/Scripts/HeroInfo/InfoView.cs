@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using _game.Inventory;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -26,13 +27,18 @@ namespace _game.HeroInfo
         [Header("General")] 
         [SerializeField] private CanvasGroup _canvasGroup;
 
+        [Header("Inventory")] 
+        [SerializeField] private InventoryView _view;
+        
+        private Vector2 _originalAnchoredPosition;
+        private RectTransform _rectTransform;
+
         private void Awake()
         {
-            _originalPosition = gameObject.transform.position;
+            _rectTransform = GetComponent<RectTransform>();
+            _originalAnchoredPosition = _rectTransform.anchoredPosition;
         }
-
-
-        private Vector3 _originalPosition;
+        
         public void SetWeaponName(string name)
         {
             _weaponNameText.text = name;
@@ -43,12 +49,12 @@ namespace _game.HeroInfo
             _weaponImage.sprite = image;
         }
 
-        public void SetDiceFacesView(DiceList diceFaces)
+        public void SetDiceFacesView(List<DiceFaceModel> diceFaces)
         {
-            for (int i = 0; i < diceFaces.diceFaces.Count; i++)
+            for (int i = 0; i < diceFaces.Count; i++)
             {
-                _diceFaces[i].SetImage(diceFaces.diceFaces[i].image);
-                _diceFaces[i].SetColor(diceFaces.diceFaces[i].colorValue);
+                _diceFaces[i].SetImage(diceFaces[i].sprite);
+                _diceFaces[i].SetColor(diceFaces[i].colorValue);
             }
         }
 
@@ -62,21 +68,20 @@ namespace _game.HeroInfo
             _bodyNameText.text = name;
         }
 
+        public HeroHealthView GetHeroHealthView() => _heroHealthView;
+
         public void SetShowState(bool state)
         {
-            Debug.Log("timur STATE " + state);
             if (state)
             {
-                // Опустить объект на 30 единиц по оси Y от исходной позиции
-                Vector3 loweredPosition = _originalPosition + new Vector3(0f, -30f, 0f);
-                gameObject.transform.position = loweredPosition;
+                // Смещаем панель вниз на 30 по оси Y относительно родителя
+                Vector2 loweredPosition = _originalAnchoredPosition + new Vector2(0f, -30f);
+                _rectTransform.anchoredPosition = loweredPosition;
 
-                // Настроить CanvasGroup до запуска анимации
                 _canvasGroup.interactable = true;
                 _canvasGroup.alpha = 1f;
 
-                // Поднять объект обратно до исходной позиции по кривой
-                gameObject.transform.DOMoveY(_originalPosition.y, 0.18f)
+                _rectTransform.DOAnchorPosY(_originalAnchoredPosition.y, 0.18f)
                     .SetEase(Ease.OutBack)
                     .OnStart(() =>
                     {
@@ -84,49 +89,67 @@ namespace _game.HeroInfo
                     })
                     .OnComplete(() =>
                     {
-                        Debug.Log("Tween completed (state true)");
-                        // Восстановить точную исходную позицию
-                        gameObject.transform.position = _originalPosition;
+                        // Гарантируем восстановление исходной позиции
+                        _rectTransform.anchoredPosition = _originalAnchoredPosition;
                     });
             }
             else
             {
-                // Вычислить цель для опускания: на 30 единиц ниже текущей позиции
-                float targetY = gameObject.transform.position.y - 30f;
+                // Вычисляем целевую позицию по оси Y для опускания
+                float targetY = _rectTransform.anchoredPosition.y - 30f;
 
-                // Запустить анимацию опускания объекта
-                gameObject.transform.DOMoveY(targetY, 0.11f)
-                    .SetEase(Ease.OutBounce)
-                    .OnStart(() =>
+                // Запускаем параллельные tween: для движения и для затухания
+                Sequence sequence = DOTween.Sequence();
+
+                // Добавляем tween перемещения по оси Y используя RectTransform
+                sequence.Join(
+                    _rectTransform.DOAnchorPosY(targetY, 0.11f)
+                        .SetEase(Ease.OutBounce)
+                );
+
+                // Добавляем tween для изменения прозрачности CanvasGroup
+                sequence.Join(
+                    _canvasGroup.DOFade(0f, 0.11f)
+                );
+
+                sequence.OnStart(() =>
                     {
                         Debug.Log("Tween started (state false)");
                     })
                     .OnComplete(() =>
                     {
-                        Debug.Log("Tween completed (state false)");
-                        // Отключить взаимодействие и скрыть объект
+                        // По завершении отключаем взаимодействие и восстанавливаем позицию
                         _canvasGroup.interactable = false;
                         _canvasGroup.alpha = 0f;
-                        // Восстановить исходную позицию после завершения анимации
-                        gameObject.transform.position = _originalPosition;
+                        _rectTransform.anchoredPosition = _originalAnchoredPosition;
                     });
             }
         }
-
-
+        
         public List<DiceFaceView> GetDiceFaces() => _diceFaces;
+        public event Action OnInventoryClicked;
+        public IInventoryView GetInventoryView() => _view;
+
+        public void OnInventoryButtonClicked()
+        {
+            OnInventoryClicked?.Invoke();
+        }
     }
 
     public interface IInfoView
     {
         void SetWeaponName(string name);
         void SetWeaponImage(Sprite image);
-        void SetDiceFacesView(DiceList diceFaces);
+        void SetDiceFacesView(List<DiceFaceModel> diceFaces);
         void SetBodyImage(Image image);
         void SetBodyName(string name);
+        HeroHealthView GetHeroHealthView();
 
         void SetShowState(bool state);
 
         List<DiceFaceView> GetDiceFaces();
+        
+        event Action OnInventoryClicked;
+        IInventoryView GetInventoryView();
     }
 }
