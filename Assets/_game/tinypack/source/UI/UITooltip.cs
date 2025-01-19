@@ -1,3 +1,4 @@
+using _game.rnk.Scripts.battleSystem;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -28,7 +29,7 @@ public class UITooltip : MonoBehaviour
     {
         if (gameObject.activeSelf)
         {
-            if (G.drag_card != null)
+            if (G.drag_dice != null)
                 Hide();
             
             _rectTransform.anchoredPosition = G.hud.MousePos();
