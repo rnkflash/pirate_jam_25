@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,13 @@ namespace _game
         [SerializeField] private Image _heroImage;
         [SerializeField] private HeroHealthView _heroHealthView;
 
+        public void SetSprite(Sprite sprite)
+        {
+            _heroImage.sprite = sprite;
+        }
+
+        public event Action OnClick;
+
         public IHeroHealthView GetHeroHealthView() => _heroHealthView;
 
         public void SetName(string name)
@@ -19,7 +27,7 @@ namespace _game
 
         public void FakeClick()
         {
-            Debug.Log("timur CLICK!");
+            OnClick?.Invoke();
         }
     }
 
@@ -27,5 +35,7 @@ namespace _game
     {
         IHeroHealthView GetHeroHealthView();
         void SetName(string name);
+        void SetSprite(Sprite sprite);
+        event Action OnClick;
     }
 }
