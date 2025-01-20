@@ -2,6 +2,5 @@
 {
     public class TagDefend : EntityComponentDefinition
     {
-        public int value;
     }
 }

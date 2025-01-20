@@ -45,10 +45,11 @@ namespace _game.rnk.Scripts.battleSystem
                 new UselessStaff()
             ));
 
+            var enemyModel = new NakedMan();
             G.run.enemies.Add(new EnemyState()
             {
-                health = 5,
-                bodyState = new BodyState() { model = new NakedMan() }
+                health = enemyModel.Get<TagHealth>().health,
+                bodyState = new BodyState() { model = enemyModel }
             });
             G.run.enemies[^1].diceStates.Add(new DiceState()
             {
@@ -57,8 +58,8 @@ namespace _game.rnk.Scripts.battleSystem
             });
             G.run.enemies.Add(new EnemyState()
             {
-                health = 5,
-                bodyState = new BodyState() { model = new NakedMan() }
+                health = enemyModel.Get<TagHealth>().health,
+                bodyState = new BodyState() { model = enemyModel }
             });
             G.run.enemies[^1].diceStates.Add(new DiceState()
             {

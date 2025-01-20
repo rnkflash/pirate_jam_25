@@ -27,7 +27,8 @@ namespace _game.rnk.Scripts.battleSystem
 
         Tween punchTween;
         bool isMouseOver;
-        
+        BlankFace blank = new BlankFace();
+
         void Awake()
         {
             draggable = GetComponent<DraggableSmoothDamp>();
@@ -42,6 +43,8 @@ namespace _game.rnk.Scripts.battleSystem
             if (diceState.owner is CharacterState characterState)
                 colorProvider = characterState.weaponState.model;
             view.bg.color = colorProvider.Get<TagTint>().color;
+
+            ChangeFace();
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -91,15 +94,13 @@ namespace _game.rnk.Scripts.battleSystem
 
         string TryGetSomethingDesc()
         {
-            if (state != null)
-            {
-                var desc = "";
-                if (state.model.Is<TagName>(out var tn)) desc += tn.loc + ". ";
-                if (state.model.Is<TagDescription>(out var td)) desc += td.loc;
-                return desc;
-            }
-
-            return null;
+            if (state == null) return null;
+            
+            var desc = "";
+            var face = GetFace();
+            if (face.Is<TagName>(out var tn)) desc += tn.loc + ". \n";
+            if (face.Is<TagDescription>(out var td)) desc += td.loc;
+            return desc;
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -116,7 +117,7 @@ namespace _game.rnk.Scripts.battleSystem
         
             G.hud.tooltip.Hide();
         }
-        
+
         public void Roll()
         {
             StopAllCoroutines();
@@ -125,36 +126,51 @@ namespace _game.rnk.Scripts.battleSystem
 
         IEnumerator RollAnimation()
         {
-            var value = state.rollValue;
-            var rollTimes = 1 + Random.Range(0, state.model.Get<TagSides>().sides);
+            var rollTimes = Random.Range(2, 6);
             for (int i = 0; i < rollTimes; i++)
             {
-                value = RollDice();
+                RollDice();
+                G.audio.Play<SFX_Roll>();
+                Punch();
                 yield return new WaitForSeconds(0.15f);
             }
-            state.rollValue = value;
         }
 
-        BlankFace blank = new BlankFace();
-        
-        public void ChangeFace(int idx)
+        public void ChangeFace()
         {
-            view.valueText.text = idx.ToString();
-            var faces = state.model.Get<TagDefaultFaces>().faces;
-            var face = faces[idx] ?? blank;
+            var face = GetFace();
             if (face.Is<TagSprite>(out var sprite))
             {
+                SpriteUtil.SetImageAlpha(view.sprite, 1f);
                 view.sprite.sprite = sprite.sprite;
+            }
+            else
+            {
+                SpriteUtil.SetImageAlpha(view.sprite, 0f);
+            }
+            view.valueText.text = "X";
+            
+            if (face.Is<TagValue>(out var value))
+            {
+                view.valueText.text = value.value.ToString();
             }
         }
 
-        int RollDice()
+        FaceBase GetFace()
         {
-            var value = 1 + Random.Range(0, state.model.Get<TagSides>().sides);
-            ChangeFace(value);
-            G.audio.Play<SFX_Roll>();
-            Punch();
-            return value;
+            var faces = state.model.Get<TagDefaultFaces>().faces;
+            return faces[state.rollValue] ?? blank;
+        }
+
+        int lastRoll;
+        void RollDice()
+        {
+            lastRoll = state.rollValue;
+            while (state.rollValue == lastRoll)
+            {
+                state.rollValue = 1 + Random.Range(0, state.model.Get<TagSides>().sides);    
+            }
+            ChangeFace();
         }
 
         public void Punch()

@@ -10,6 +10,8 @@ namespace _game.rnk.Scripts.util
     public static class TextStuff
     {
         public static string Pinkish = "#75428f";
+        public static string Reddish = "#e82f2f";
+        public static string Blueish = "#2a81e6";
         public static string Greenish = "#32a852";
         public static string Orange = "#FF7700";
 

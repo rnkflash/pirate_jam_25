@@ -1,5 +1,7 @@
 using _game.rnk.Scripts.battleSystem;
 using _game.rnk.Scripts.tags;
+using _game.rnk.Scripts.util;
+using Engine.Math;
 
 namespace _game.rnk.Scripts.dice.face
 {
@@ -17,10 +19,12 @@ namespace _game.rnk.Scripts.dice.face
         
         void Init(int value)
         {
-            Define<TagName>().loc = "Heal face";
-            Define<TagDescription>().loc = $"add {value} hp to target";
-            Define<TagDefend>().value = value;
+            Define<TagName>().loc = "Heal";
+            Define<TagDescription>().loc = "Add " + value.ToString().Color(TextStuff.Greenish) + " hp to target";
+            Define<TagHeal>();
+            Define<TagValue>().value = value;
             Define<TagSprite>().sprite = SpriteUtil.Load("art/dice_sprites", "dice_heal");
         }
     }
+
 }

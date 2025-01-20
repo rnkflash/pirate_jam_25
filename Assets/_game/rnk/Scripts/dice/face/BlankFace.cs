@@ -7,8 +7,8 @@ namespace _game.rnk.Scripts.dice.face
     {
         public BlankFace()
         {
-            Define<TagName>().loc = "blank face";
-            Define<TagDescription>().loc = "does nothing";
+            Define<TagName>().loc = "Blank";
+            Define<TagDescription>().loc = "Do nothing";
             Define<TagBlank>();
         }
     }

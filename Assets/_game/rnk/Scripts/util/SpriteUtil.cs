@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public static class SpriteUtil
 {
@@ -25,5 +26,12 @@ public static class SpriteUtil
     public static Sprite[] LoadSpriteSheet(string glitchManager)
     {
         return Resources.LoadAll<Sprite>(glitchManager);
+    }
+
+    public static void SetImageAlpha(Image img, float alpha)
+    {
+        var tempColor = img.color;
+        tempColor.a = alpha;
+        img.color = tempColor;
     }
 }

@@ -2,6 +2,5 @@
 {
     public class TagAttack : EntityComponentDefinition
     {
-        public int value;
     }
 }
