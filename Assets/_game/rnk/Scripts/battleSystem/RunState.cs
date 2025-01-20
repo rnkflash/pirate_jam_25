@@ -26,6 +26,8 @@ namespace _game.rnk.Scripts.battleSystem
     
     public abstract class BaseCharacterState
     {
+        public int armor;
+        public int maxHealth;
         public int health;
         public DiceZone diceZone;
         public BodyState bodyState;

@@ -28,10 +28,14 @@ namespace _game.rnk.Scripts.battleSystem
         Tween punchTween;
         bool isMouseOver;
         BlankFace blank = new BlankFace();
+        LineRendererUI lineRendererUI;
+        Color ownerColor;
 
         void Awake()
         {
             draggable = GetComponent<DraggableSmoothDamp>();
+            lineRendererUI = GetComponentInChildren<LineRendererUI>();
+            
             Width = origWidth;
         }
 
@@ -42,7 +46,8 @@ namespace _game.rnk.Scripts.battleSystem
             CMSEntity colorProvider = diceState.owner.bodyState.model;
             if (diceState.owner is CharacterState characterState)
                 colorProvider = characterState.weaponState.model;
-            view.bg.color = colorProvider.Get<TagTint>().color;
+            ownerColor = colorProvider.Get<TagTint>().color;
+            view.bg.color = ownerColor;
 
             ChangeFace();
         }
@@ -59,6 +64,11 @@ namespace _game.rnk.Scripts.battleSystem
         {
             if (sortingGroup != null)
                 sortingGroup.sortingOrder = isMouseOver || draggable.isDragging ? 9999 : order;
+
+            if (state.owner.diceZone != null)
+            {
+                lineRendererUI.CreateLine(transform.position, state.owner.diceZone.transform.position, ownerColor);
+            }
         }
 
         public void Leave()
