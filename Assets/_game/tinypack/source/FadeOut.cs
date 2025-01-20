@@ -1,3 +1,4 @@
+using _game.rnk.Scripts.battleSystem;
 using UnityEngine;
 
 public class FadeOut : MonoBehaviour

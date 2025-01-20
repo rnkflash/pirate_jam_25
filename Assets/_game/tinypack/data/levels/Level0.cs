@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _game.rnk.Scripts.battleSystem;
 using Engine.Math;
 
 public class Level0 : CMSEntity
