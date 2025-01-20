@@ -12,13 +12,13 @@ namespace _game.rnk.Scripts.battleSystem
         public TMP_Text healthText;
         public DiceZone diceZone;
 
-        [NonSerialized] public CharacterState state;
+        [NonSerialized] public EnemyState state;
         
-        public void SetState(CharacterState characterState)
+        public void SetState(EnemyState enemyState)
         {
-            state = characterState;
+            state = enemyState;
             avatarImage.sprite = state.bodyState.model.Get<TagSprite>().sprite;
-            nameText.text = state.weaponState.model.Get<TagName>().loc;
+            nameText.text = state.bodyState.model.Get<TagName>().loc;
             healthText.text = "Health " + state.health;
 
             foreach (var diceState in state.diceStates)
@@ -26,9 +26,11 @@ namespace _game.rnk.Scripts.battleSystem
                 CreateDiceObject(diceState);
             }
 
-            healthText.color = state.weaponState.model.Get<TagTint>().color;
+            healthText.color = state.bodyState.model.Get<TagTint>().color;
 
             diceZone.OnClickDice += OnDiceClick;
+
+            enemyState.diceZone = diceZone;
         }
         void OnDestroy()
         {

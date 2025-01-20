@@ -1,4 +1,5 @@
 using _game.rnk.Scripts.battleSystem;
+using UnityEngine;
 
 namespace _game.rnk.Scripts.body
 {
@@ -10,6 +11,7 @@ namespace _game.rnk.Scripts.body
             Define<TagDescription>().loc = "hp 10 attak 666";
             Define<TagSprite>().sprite = SpriteUtil.Load("art/bodies/zombietyan");
             Define<TagHealth>().health = 7;
+            Define<TagTint>().color = Color.magenta;
         }
     }
     
@@ -17,10 +19,11 @@ namespace _game.rnk.Scripts.body
     {
         public NakedMan()
         {
-            Define<TagName>().loc = "Naked man";
-            Define<TagDescription>().loc = "further from the god each day";
+            Define<TagName>().loc = "Kolbaser";
+            Define<TagDescription>().loc = "we are further from the god each day";
             Define<TagSprite>().sprite = SpriteUtil.Load("art/bodies/boer");
             Define<TagHealth>().health = 8;
+            Define<TagTint>().color = Color.red;
         }
     }
 }

@@ -14,24 +14,22 @@ namespace _game.rnk.Scripts.battleSystem
         public List<EnemyState> enemies = new List<EnemyState>();
     }
     
-    public class CharacterState
+    public class CharacterState : BaseCharacterState
     {
-        public int health;
-        public DiceZone zone;
         public WeaponState weaponState;
-        public BodyState bodyState;
-        public List<DiceState> diceStates = new List<DiceState>();
-        public CharacterView view;
     }
     
-    public class EnemyState
+    public class EnemyState : BaseCharacterState
     {
         public bool backLine;
+    }
+    
+    public abstract class BaseCharacterState
+    {
         public int health;
-        public DiceZone zone;
+        public DiceZone diceZone;
         public BodyState bodyState;
         public List<DiceState> diceStates = new List<DiceState>();
-        //public EnemyView view;
     }
 
     public class WeaponState
@@ -47,7 +45,7 @@ namespace _game.rnk.Scripts.battleSystem
     public class DiceState
     {
         public DiceInteractiveObject interactiveObject;
-        public CharacterState owner;
+        public BaseCharacterState owner;
         public DiceBase model;
         public List<ArtefactState> artefacts = new List<ArtefactState>();
     }

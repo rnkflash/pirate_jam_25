@@ -36,8 +36,10 @@ namespace _game.rnk.Scripts.battleSystem
         {
             state = diceState;
             state.interactiveObject = this;
-
-            view.bg.color = diceState.owner.weaponState.model.Get<TagTint>().color;
+            CMSEntity colorProvider = diceState.owner.bodyState.model;
+            if (diceState.owner is CharacterState characterState)
+                colorProvider = characterState.weaponState.model;
+            view.bg.color = colorProvider.Get<TagTint>().color;
         }
 
         public void OnPointerClick(PointerEventData eventData)

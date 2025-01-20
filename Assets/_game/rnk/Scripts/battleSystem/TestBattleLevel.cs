@@ -43,18 +43,26 @@ namespace _game.rnk.Scripts.battleSystem
                 new AnimeTyan(),
                 new UselessStaff()
             ));
-            
+
             G.run.enemies.Add(new EnemyState()
             {
                 health = 5,
                 bodyState = new BodyState() { model = new NakedMan() }
             });
-            
+            G.run.enemies[^1].diceStates.Add(new DiceState()
+            {
+                model = new DiceD6(),
+                owner = G.run.enemies[^1] 
+            });
             G.run.enemies.Add(new EnemyState()
             {
-                backLine = true,
                 health = 5,
                 bodyState = new BodyState() { model = new NakedMan() }
+            });
+            G.run.enemies[^1].diceStates.Add(new DiceState()
+            {
+                model = new DiceD6(),
+                owner = G.run.enemies[^1] 
             });
             
             G.run.inventory.Add(new ArtefactState() { model = new TestArtefact() });
@@ -70,8 +78,8 @@ namespace _game.rnk.Scripts.battleSystem
             };
             character.diceStates.Add(new DiceState()
             {
-                owner = character,
                 model = new DiceD6(),
+                owner = character,
                 artefacts = new List<ArtefactState>() { new ArtefactState() { model = new TestArtefact() } }
             });
             return character;

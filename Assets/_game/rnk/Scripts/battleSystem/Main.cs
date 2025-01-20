@@ -1,10 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using _game.rnk.Scripts.dice;
-using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,10 +14,12 @@ namespace _game.rnk.Scripts.battleSystem
         public Interactor interactor;
 
         public Transform charactersRoot;
+        public Transform enemiesRoot;
     
         public CMSEntity level = new TestBattleLevel();
 
         CharacterView characterViewPrefab;
+        EnemyView enemyViewPrefab;
         
         bool isWin;
         bool skip;
@@ -29,6 +27,7 @@ namespace _game.rnk.Scripts.battleSystem
         void Awake()
         {
             characterViewPrefab = "prefab/CharacterView".Load<CharacterView>();
+            enemyViewPrefab = "prefab/EnemyView".Load<EnemyView>();
             
             interactor = new Interactor();
             interactor.Init();
@@ -166,7 +165,7 @@ namespace _game.rnk.Scripts.battleSystem
 
         void ReturnDice(DiceInteractiveObject dice)
         {
-            var zone = dice.state.owner.view.diceZone;
+            var zone = dice.state.owner.diceZone;
             dice.transform.SetParent(zone.transform);
             zone.Claim(dice);
         }
@@ -223,14 +222,25 @@ namespace _game.rnk.Scripts.battleSystem
             {
                 CreateCharacterView(characterState);
             }
+            
+            foreach (var enemyState in G.run.enemies)
+            {
+                CreateEnemyView(enemyState);
+            }
         }
 
         public CharacterView CreateCharacterView(CharacterState characterState)
         {
             var character = Instantiate(characterViewPrefab, charactersRoot);
-            characterState.view = character;
             character.SetState(characterState);
             return character;
+        }
+        
+        public EnemyView CreateEnemyView(EnemyState enemyState)
+        {
+            var enemy = Instantiate(enemyViewPrefab, enemiesRoot);
+            enemy.SetState(enemyState);
+            return enemy;
         }
 
         void Update()

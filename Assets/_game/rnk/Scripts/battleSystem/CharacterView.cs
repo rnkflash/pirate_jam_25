@@ -29,6 +29,8 @@ namespace _game.rnk.Scripts.battleSystem
             healthText.color = state.weaponState.model.Get<TagTint>().color;
 
             diceZone.OnClickDice += OnDiceClick;
+
+            characterState.diceZone = diceZone;
         }
         void OnDestroy()
         {
