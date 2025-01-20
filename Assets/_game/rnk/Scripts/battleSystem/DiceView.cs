@@ -8,5 +8,6 @@ namespace _game.rnk.Scripts.battleSystem
     {
         public TMP_Text valueText;
         public Image bg;
+        public Image sprite;
     }
 }

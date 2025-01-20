@@ -1,4 +1,5 @@
 ﻿using _game.rnk.Scripts.battleSystem;
+using _game.rnk.Scripts.tags;
 
 namespace _game.rnk.Scripts.artefacts
 {

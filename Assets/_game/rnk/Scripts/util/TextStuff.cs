@@ -1,5 +1,7 @@
 using System;
 using _game.rnk.Scripts.battleSystem;
+using _game.rnk.Scripts.enums;
+using _game.rnk.Scripts.tags;
 using Engine.Math;
 using UnityEngine;
 

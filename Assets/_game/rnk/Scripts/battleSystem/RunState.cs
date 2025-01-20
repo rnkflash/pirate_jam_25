@@ -44,6 +44,7 @@ namespace _game.rnk.Scripts.battleSystem
 
     public class DiceState
     {
+        public int rollValue;
         public DiceInteractiveObject interactiveObject;
         public BaseCharacterState owner;
         public DiceBase model;
@@ -52,6 +53,7 @@ namespace _game.rnk.Scripts.battleSystem
 
     public class ArtefactState
     {
+        public int slotIdx;
         public ArtefactBase model;
     }
 }

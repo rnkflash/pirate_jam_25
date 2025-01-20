@@ -1,4 +1,5 @@
 ﻿using System;
+using _game.rnk.Scripts.tags;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

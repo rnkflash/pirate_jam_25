@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using _game.rnk.Scripts.artefacts;
 using _game.rnk.Scripts.body;
 using _game.rnk.Scripts.dice;
+using _game.rnk.Scripts.tags;
 using _game.rnk.Scripts.weapons;
 
 namespace _game.rnk.Scripts.battleSystem
@@ -65,7 +66,7 @@ namespace _game.rnk.Scripts.battleSystem
                 owner = G.run.enemies[^1] 
             });
             
-            G.run.inventory.Add(new ArtefactState() { model = new TestArtefact() });
+            //G.run.inventory.Add(new ArtefactState() { model = new TestArtefact() });
         }
         
         CharacterState CreateCharacter(BodyBase body, WeaponBase weapon)
@@ -79,8 +80,7 @@ namespace _game.rnk.Scripts.battleSystem
             character.diceStates.Add(new DiceState()
             {
                 model = new DiceD6(),
-                owner = character,
-                artefacts = new List<ArtefactState>() { new ArtefactState() { model = new TestArtefact() } }
+                owner = character
             });
             return character;
         }

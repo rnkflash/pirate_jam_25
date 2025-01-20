@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using _game.rnk.Scripts.artefacts;
+using _game.rnk.Scripts.dice.face;
+using _game.rnk.Scripts.tags;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -118,44 +120,42 @@ namespace _game.rnk.Scripts.battleSystem
         public void Roll()
         {
             StopAllCoroutines();
-            StartCoroutine(ActuallyRoll());
+            StartCoroutine(RollAnimation());
         }
 
-        IEnumerator ActuallyRoll()
+        IEnumerator RollAnimation()
+        {
+            var value = state.rollValue;
+            var rollTimes = 1 + Random.Range(0, state.model.Get<TagSides>().sides);
+            for (int i = 0; i < rollTimes; i++)
+            {
+                value = RollDice();
+                yield return new WaitForSeconds(0.15f);
+            }
+            state.rollValue = value;
+        }
+
+        BlankFace blank = new BlankFace();
+        
+        public void ChangeFace(int idx)
+        {
+            view.valueText.text = idx.ToString();
+            var faces = state.model.Get<TagDefaultFaces>().faces;
+            var face = faces[idx] ?? blank;
+            if (face.Is<TagSprite>(out var sprite))
+            {
+                view.sprite.sprite = sprite.sprite;
+            }
+        }
+
+        int RollDice()
         {
             var value = 1 + Random.Range(0, state.model.Get<TagSides>().sides);
-            
-            view.valueText.text = value.ToString();
-            
+            ChangeFace(value);
             G.audio.Play<SFX_Roll>();
-
             Punch();
-            
-            yield return new WaitForSeconds(0.20f);
-
-            bool valueOverwritten = false;
-            var rollFill = G.main.interactor.FindAll<IRollFilter>();
-            foreach (var rfilter in rollFill)
-            {
-                var newValue = rfilter.OverwriteRoll(state, value);
-                if (newValue != value)
-                {
-                    valueOverwritten = true;
-                    value = newValue;    
-                }
-            }
-
-            if (valueOverwritten)
-            {
-                view.valueText.text = value.ToString();
-            
-                G.audio.Play<SFX_Roll>();
-            
-                Punch();
-            
-                yield return new WaitForSeconds(0.20f);
-            }
-        } 
+            return value;
+        }
 
         public void Punch()
         {

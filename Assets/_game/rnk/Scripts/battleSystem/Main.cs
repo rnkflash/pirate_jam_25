@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using _game.rnk.Scripts.interactor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -83,21 +84,22 @@ namespace _game.rnk.Scripts.battleSystem
             StartCoroutine(ReRollDices());
         }
 
+        public IEnumerator PlayDice(DiceState diceState)
+        {
+            var onPlays = interactor.FindAll<IOnPlayDice>();
+            foreach (var onPlay in onPlays)
+            {
+                yield return onPlay.OnPlayDice(diceState);
+            }
+        }
+
         IEnumerator EndTurnCoroutine()
         {
-            G.hud.DisableHud();
-
-            yield return ReturnAllDices();
-
-            yield return ResetRerolls();
-
-            G.camera.UIHit();
-
-            G.hud.EnableHud();
-
-            yield return new WaitForSeconds(0.25f);
-            
-            yield return RollAllDices();
+            var onEndTurns = interactor.FindAll<IOnEndTurn>();
+            foreach (var onEndTurn in onEndTurns)
+            {
+                yield return onEndTurn.OnEndTurn();
+            }
         }
 
 
@@ -119,15 +121,14 @@ namespace _game.rnk.Scripts.battleSystem
 
         IEnumerator ReRollDices()
         {
-            foreach (var dice in rollDicesZone.objects)
+            var interactors = interactor.FindAll<IOnReroll>();
+            foreach (var onReroll in interactors)
             {
-                dice.Roll();
+                yield return onReroll.OnReroll();
             }
-            
-            yield return new WaitForSeconds(0.2f);
         }
 
-        IEnumerator RollAllDices()
+        public IEnumerator RollAllDices()
         {
             yield return new WaitForEndOfFrame();
             
@@ -152,18 +153,7 @@ namespace _game.rnk.Scripts.battleSystem
             }
         }
 
-        IEnumerator ReturnAllDices()
-        {
-            var copy = rollDicesZone.objects.Select(o => o).ToList();
-            foreach (var dice in copy)
-            {
-                ReturnDice(dice);
-            }
-            
-            yield return new WaitForSeconds(0.2f);
-        }
-
-        void ReturnDice(DiceInteractiveObject dice)
+        public void ReturnDice(DiceInteractiveObject dice)
         {
             var zone = dice.state.owner.diceZone;
             dice.transform.SetParent(zone.transform);
@@ -176,17 +166,7 @@ namespace _game.rnk.Scripts.battleSystem
             rollDicesZone.Claim(dice);
         }
         
-        IEnumerator ResetRerolls()
-        {
-            /*var shuffleAmount = discard.Count;
-            for (int i = 0; i < shuffleAmount; i++)
-            {
-                StartCoroutine(ShuffleDiscardCard());
-                yield return new WaitForSeconds(0.1f);
-            }
-            yield return new WaitUntil(() => discard.Count == 0);*/
-            yield return new WaitForSeconds(0.2f);
-        }
+        
 
         IEnumerator ReturnDice(DiceState diceState)
         {
