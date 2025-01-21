@@ -35,12 +35,12 @@ public class MoveableSmoothDamp : MoveableBase
         }
     }
 
-    bool IsCloseEnough()
+    public new bool IsCloseEnough()
     {
         return Vector3.Distance(transform.position, targetPosition) < 0.01f;
     }
 
-    bool IsMoving()
+    public new bool IsMoving()
     {
         return velocity.magnitude > 0.01f;
     }

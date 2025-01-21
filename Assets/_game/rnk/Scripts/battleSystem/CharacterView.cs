@@ -2,17 +2,21 @@
 using _game.rnk.Scripts.tags;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace _game.rnk.Scripts.battleSystem
 {
-    public class CharacterView : MonoBehaviour
+    public class CharacterView : MonoBehaviour, ISelectable, IPointerClickHandler
     {
         public Image avatarImage;
         public TMP_Text nameText;
         public TMP_Text healthText;
         public DiceZone diceZone;
-
+        
+        public GameObject selection;
+        
+        bool isSelected;
         [NonSerialized] public CharacterState state;
         
         public void SetState(CharacterState characterState)
@@ -20,19 +24,33 @@ namespace _game.rnk.Scripts.battleSystem
             state = characterState;
             avatarImage.sprite = state.bodyState.model.Get<TagSprite>().sprite;
             nameText.text = state.weaponState.model.Get<TagName>().loc;
-            healthText.text = "Health " + state.health;
+            healthText.text = state.health + "/" + state.maxHealth + " +" + state.armor;
 
             foreach (var diceState in state.diceStates)
             {
                 CreateDiceObject(diceState);
             }
 
+            nameText.color = state.weaponState.model.Get<TagTint>().color;
             healthText.color = state.weaponState.model.Get<TagTint>().color;
 
             diceZone.OnClickDice += OnDiceClick;
 
             characterState.diceZone = diceZone;
+            characterState.view = this;
         }
+
+        public bool IsSelected()
+        {
+            return isSelected;
+        }
+
+        public void SetSelected(bool newValue)
+        {
+            isSelected = newValue;
+            selection.SetActive(isSelected);
+        }
+        
         void OnDestroy()
         {
             diceZone.OnClickDice -= OnDiceClick;
@@ -40,7 +58,7 @@ namespace _game.rnk.Scripts.battleSystem
         
         void OnDiceClick(DiceInteractiveObject dice)
         {
-            G.main.ReturnDiceToRollzone(dice);
+            G.main.OnDiceClickInCharacterView(this, dice);
         }
 
         public DiceInteractiveObject CreateDiceObject(DiceState diceState)
@@ -51,6 +69,10 @@ namespace _game.rnk.Scripts.battleSystem
             //instance.transform.localScale = Vector3.one * 0.75f;
             diceZone.Claim(instance);
             return instance;
+        }
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            G.main.CharacterClicked(state);
         }
     }
 }

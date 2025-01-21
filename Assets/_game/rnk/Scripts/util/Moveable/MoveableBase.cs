@@ -1,12 +1,15 @@
 using _game.rnk.Scripts.battleSystem;
 using UnityEngine;
 
-public class MoveableBase : ManagedBehaviour
+public abstract class MoveableBase : ManagedBehaviour
 {
     public Vector3 targetPosition;
-
-    void OnDrawGizmos()
+    public bool IsCloseEnough()
     {
-        //Gizmos.DrawSphere(targetPosition, 0.2f);
+        return false;
+    }
+    public bool IsMoving()
+    {
+        return false;
     }
 }

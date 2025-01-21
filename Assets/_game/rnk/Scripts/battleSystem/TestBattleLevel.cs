@@ -49,6 +49,7 @@ namespace _game.rnk.Scripts.battleSystem
             G.run.enemies.Add(new EnemyState()
             {
                 health = enemyModel.Get<TagHealth>().health,
+                maxHealth = enemyModel.Get<TagHealth>().health,
                 bodyState = new BodyState() { model = enemyModel }
             });
             G.run.enemies[^1].diceStates.Add(new DiceState()
@@ -59,6 +60,7 @@ namespace _game.rnk.Scripts.battleSystem
             G.run.enemies.Add(new EnemyState()
             {
                 health = enemyModel.Get<TagHealth>().health,
+                maxHealth = enemyModel.Get<TagHealth>().health,
                 bodyState = new BodyState() { model = enemyModel }
             });
             G.run.enemies[^1].diceStates.Add(new DiceState()
@@ -75,6 +77,7 @@ namespace _game.rnk.Scripts.battleSystem
             var character = new CharacterState
             {
                 health = body.Get<TagHealth>().health,
+                maxHealth = body.Get<TagHealth>().health,
                 bodyState = new BodyState() { model = body },
                 weaponState = new WeaponState() { model = weapon }
             };

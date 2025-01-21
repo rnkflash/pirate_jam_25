@@ -1,12 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using _game.rnk.Scripts.enums;
 using _game.rnk.Scripts.interactor;
+using _game.rnk.Scripts.tags;
+using _game.rnk.Scripts.util;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace _game.rnk.Scripts.battleSystem
 {
+
     public class Main : MonoBehaviour
     {
         public DiceZone rollDicesZone;
@@ -21,6 +26,9 @@ namespace _game.rnk.Scripts.battleSystem
 
         CharacterView characterViewPrefab;
         EnemyView enemyViewPrefab;
+
+        [NonSerialized] public int reRolls;
+        [NonSerialized] public TurnPhase turnPhase;
         
         bool isWin;
         bool skip;
@@ -44,14 +52,14 @@ namespace _game.rnk.Scripts.battleSystem
                 G.run.inventory.Clear();
             }
             
-            rollDicesZone.OnClickDice += OnClickDice;
+            rollDicesZone.OnClickDice += OnClickDiceInRollzone;
 
             G.main = this;
         }
 
         void OnDestroy()
         {
-            rollDicesZone.OnClickDice -= OnClickDice;
+            rollDicesZone.OnClickDice -= OnClickDiceInRollzone;
         }
 
         IEnumerator Start()
@@ -71,17 +79,179 @@ namespace _game.rnk.Scripts.battleSystem
             G.ui.EnableInput();
             G.hud.EnableHud();
 
-            StartCoroutine(RollAllDices());
-
+            SetTurnPhase(TurnPhase.START_TURN);
         }
-        public void EndTurn()
+
+        void SetTurnPhase(TurnPhase newTurnPhase)
         {
-            StartCoroutine(EndTurnCoroutine());
+            Debug.Log("SetTurnPhase " + newTurnPhase);
+            
+            turnPhase = newTurnPhase;
+
+            switch (turnPhase)
+            {
+                case TurnPhase.START_TURN:
+                    reRolls = 2;
+                    G.hud.RollButtonText.text = "Reroll x " + reRolls;
+                    G.hud.EndTurnButtonText.text = "Next phase";
+                    G.hud.DisableHud();
+                    SetTurnPhase(TurnPhase.ENEMY_ROLL);
+                    break;
+                
+                case TurnPhase.ENEMY_ROLL:
+                    StartCoroutine(EnemyTurn());
+                    break;
+
+                case TurnPhase.FREE_ROLL:
+                    StartCoroutine(PlayerFreeRoll());
+                    break;
+
+                case TurnPhase.RE_ROLL:
+                    G.hud.EnableHud();
+                    
+                    break;
+                
+                case TurnPhase.ENEMY_PLAY:
+                    StartCoroutine(EnemyPlay());
+                    break;
+
+                case TurnPhase.PLAY_DICES:
+                    StartCoroutine(StartPlayDicesPhase());
+                    break;
+
+                case TurnPhase.EXECUTE_DICES:
+                    StartCoroutine(StartExecutePhase());
+                    
+                    break;
+
+                case TurnPhase.CHECK_WIN:
+                    SetTurnPhase(TurnPhase.START_TURN);
+                    break;
+            }
+        }
+        IEnumerator EnemyPlay()
+        {
+            G.hud.DisableHud();
+            var enemyDices = G.run.enemies.SelectMany(
+                cs => cs.diceStates.Select(ds => ds.interactiveObject)
+            ).Reverse().ToList();
+
+            yield return new WaitForSeconds(1.0f);
+            
+            //each enemy dice plays with random target
+
+            //next phase
+            SetTurnPhase(TurnPhase.PLAY_DICES);
+            
+        }
+        IEnumerator PlayerFreeRoll()
+        {
+            var dices = G.run.characters.SelectMany(
+                cs => cs.diceStates.Select(ds => ds.interactiveObject)
+            ).Reverse().ToList();
+
+            yield return ThrowDices(dices);
+
+            yield return new WaitForSeconds(0.2f);
+            
+            yield return RollDices(dices);
+            
+            yield return new WaitForSeconds(0.2f);
+            
+            SetTurnPhase(TurnPhase.RE_ROLL);
         }
         
-        public void ReRoll()
+        IEnumerator EnemyTurn()
         {
-            StartCoroutine(ReRollDices());
+            var enemyDices = G.run.enemies.SelectMany(
+                cs => cs.diceStates.Select(ds => ds.interactiveObject)
+            ).Reverse().ToList();
+
+            yield return ThrowDices(enemyDices);
+
+            yield return new WaitForSeconds(0.2f);
+            
+            yield return RollDices(enemyDices);
+            
+            yield return new WaitForSeconds(0.2f);
+            
+            yield return ReturnDices(enemyDices);
+            
+            //each enemy dice plays with random target
+
+            //next phase
+            SetTurnPhase(TurnPhase.FREE_ROLL);
+
+        }
+        
+        IEnumerator StartExecutePhase()
+        {
+            G.hud.DisableHud();
+
+            yield return ReturnAllDices();
+
+            yield return new WaitForSeconds(0.5f);
+            
+            G.camera.UIHit();
+            
+            yield return new WaitForSeconds(1);
+            
+            SetTurnPhase(TurnPhase.CHECK_WIN);
+
+        }
+        
+        IEnumerator StartPlayDicesPhase()
+        {
+            G.hud.EndTurnButtonText.text = "Execute";
+            G.hud.DisableHud();
+
+            yield return ReturnAllDices();
+
+            G.hud.Enable(G.hud.EndTurnButton);
+        }
+
+        List<DiceInteractiveObject> GetDicesOnRollZOne()
+        {
+            return G.main.rollDicesZone.objects.Select(o => o).ToList();
+        }
+        
+        public IEnumerator ReturnAllDices()
+        {
+            yield return ReturnDices(GetDicesOnRollZOne());
+        }
+
+        public void EndTurnButton()
+        {
+            switch (turnPhase)
+            {
+                case TurnPhase.RE_ROLL:
+                    SetTurnPhase(TurnPhase.ENEMY_PLAY);
+                    break;
+
+                case TurnPhase.PLAY_DICES:
+                    SetTurnPhase(TurnPhase.EXECUTE_DICES);
+                    break;
+            }
+        }
+        
+        public void ReRollButton()
+        {
+            switch (turnPhase)
+            {
+                case TurnPhase.RE_ROLL:
+                {
+                    if (reRolls > 0)
+                    {
+                        reRolls--;
+                        G.hud.RollButtonText.text = "Reroll x " + reRolls;
+                        if (reRolls <= 0)
+                            G.hud.Disable(G.hud.RollButton);
+                    
+                        StartCoroutine(RollDices(GetDicesOnRollZOne()));
+                    }
+                    break;
+                }
+            }
         }
 
         public IEnumerator PlayDice(DiceState diceState)
@@ -114,79 +284,64 @@ namespace _game.rnk.Scripts.battleSystem
             G.drag_dice = null;
         }
         
-        void OnClickDice(DiceInteractiveObject dice)
+        void OnClickDiceInRollzone(DiceInteractiveObject dice)
         {
-            ReturnDice(dice);
-        }
-
-        IEnumerator ReRollDices()
-        {
-            var interactors = interactor.FindAll<IOnReroll>();
-            foreach (var onReroll in interactors)
+            switch (turnPhase)
             {
-                yield return onReroll.OnReroll();
+                case TurnPhase.RE_ROLL:
+                    StartCoroutine(ReturnDices(new List<DiceInteractiveObject>() { dice }));
+                    break;
+
+                case TurnPhase.PLAY_DICES:
+                    
+                    break;
             }
         }
 
-        public IEnumerator RollAllDices()
+        IEnumerator ThrowDices(List<DiceInteractiveObject> dices)
         {
+            if (dices.Count == 0) yield break;
+            
             yield return new WaitForEndOfFrame();
-            
             G.audio.Play<SFX_DiceDraw>();
-
-            var dices = G.run.characters.SelectMany(
-                cs => cs.diceStates.Select(ds => ds.interactiveObject)
-            ).Reverse().ToList();
-            
             foreach (var dice in dices)
             {
-                dice.transform.SetParent(rollDicesZone.transform);
-                rollDicesZone.Claim(dice);
+                MoveDice(dice, rollDicesZone);
                 dice.Punch();
             }
             
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitUntil(() => {
+                return dices.All(d => !d.moveable.IsMoving());
+            });
+        }
+        
+        IEnumerator ReturnDices(List<DiceInteractiveObject> dices)
+        {
+            if (dices.Count == 0) yield break;
             
+            yield return new WaitForEndOfFrame();
+            G.audio.Play<SFX_DiceDraw>();
             foreach (var dice in dices)
             {
-                dice.Roll();    
+                MoveDice(dice, dice.state.owner.diceZone);
+                dice.Punch();
             }
+
+            yield return new WaitUntil(() => {
+                return dices.All(d => !d.moveable.IsMoving());
+            });
         }
 
-        public void ReturnDice(DiceInteractiveObject dice)
+        IEnumerator RollDices(List<DiceInteractiveObject> dices)
         {
-            var zone = dice.state.owner.diceZone;
+            if (dices.Count == 0) yield break;
+            yield return this.WaitAll(dices.Select(d => d.Roll()).ToArray());
+        }
+        
+        void MoveDice(DiceInteractiveObject dice, DiceZone zone)
+        {
             dice.transform.SetParent(zone.transform);
             zone.Claim(dice);
-        }
-
-        public void ReturnDiceToRollzone(DiceInteractiveObject dice)
-        {
-            dice.transform.SetParent(rollDicesZone.transform);
-            rollDicesZone.Claim(dice);
-        }
-        
-        
-
-        IEnumerator ReturnDice(DiceState diceState)
-        {
-            /*cardState.view.Leave();
-            cardState.view.moveable.targetPosition = discardPos.position;
-            cardState.view.scaleRoot.localScale = Vector3.one;
-            cardState.view.scaleRoot.DOScale(0.0f, 0.2f);
-            
-            yield return new WaitForSeconds(0.2f);
-
-            cardState.view.scaleRoot.DOKill();
-            Destroy(cardState.view.gameObject);
-            cardState.view = null;
-            discard.Add(cardState);
-
-            if (removeFromHand)
-            {
-                hand.Remove(cardState);
-            }*/
-            yield return new WaitForSeconds(0.2f);
         }
 
         public IEnumerator LoadLevel(CMSEntity entity)
@@ -263,7 +418,40 @@ namespace _game.rnk.Scripts.battleSystem
                 yield return new WaitForEndOfFrame();
             }
         }
-        
+
+        public void EnemyClicked(EnemyState state)
+        {
+            Debug.Log("enemy was clicked " + state.bodyState.model.Get<TagName>().loc);
+        }
+        public void CharacterClicked(CharacterState state)
+        {
+            Debug.Log("character was clicked " + state.weaponState.model.Get<TagName>().loc);
+        }
+        public void OnDiceClickInCharacterView(CharacterView view, DiceInteractiveObject dice)
+        {
+            switch (turnPhase)
+            {
+                case TurnPhase.RE_ROLL:
+                    StartCoroutine(ThrowDices(new List<DiceInteractiveObject>() { dice })); 
+                    break;
+
+                case TurnPhase.PLAY_DICES:
+                    
+                    //get dice face
+                    //get targets
+                    //highlight targets
+                    //wait for click target or elsewhere
+                    //if click target set dice target and throw dice
+                    //if dice is clicked in rollzone it resets target and returned to owner
+                    //
+                    
+                    break;
+            }
+        }
+        public void OnDiceClickInEnemyView(EnemyView enemyView, DiceInteractiveObject dice)
+        {
+            
+        }
     }
 
     public class Lifetime : MonoBehaviour

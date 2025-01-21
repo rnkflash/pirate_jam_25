@@ -2,6 +2,6 @@
 {
     public enum TurnPhase
     {
-        IDLE, REROLL_DICE, PLAY_DICE  
+        START_TURN, ENEMY_ROLL, FREE_ROLL, RE_ROLL, ENEMY_PLAY, PLAY_DICES, EXECUTE_DICES, CHECK_WIN
     }
 }

@@ -17,11 +17,13 @@ namespace _game.rnk.Scripts.battleSystem
     public class CharacterState : BaseCharacterState
     {
         public WeaponState weaponState;
+        public CharacterView view;
     }
     
     public class EnemyState : BaseCharacterState
     {
         public bool backLine;
+        public EnemyView view;
     }
     
     public abstract class BaseCharacterState

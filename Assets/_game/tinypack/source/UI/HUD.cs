@@ -7,8 +7,11 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
+    public TMP_Text RollButtonText;
+    public TMP_Text EndTurnButtonText;
+    
     public Button RollButton;
-    public Button EndTurn;
+    public Button EndTurnButton;
     public UITooltip tooltip;
 
     void Awake()
@@ -19,13 +22,13 @@ public class HUD : MonoBehaviour
 
     void Start()
     {
-        EndTurn.onClick.AddListener(OnClickEndTurn);
+        EndTurnButton.onClick.AddListener(OnClickEndTurn);
         RollButton.onClick.AddListener(OnClickRollButton);
     }
 
     void OnDestroy()
     {
-        EndTurn.onClick.RemoveAllListeners();
+        EndTurnButton.onClick.RemoveAllListeners();
         RollButton.onClick.RemoveAllListeners();
     }
 
@@ -38,24 +41,38 @@ public class HUD : MonoBehaviour
 
     void OnClickEndTurn()
     {
-        G.main.EndTurn();
+        PunchEndTurn();
+        G.main.EndTurnButton();
     }
     
     void OnClickRollButton()
     {
-        G.main.ReRoll();
+        PunchRollButton();
+        G.main.ReRollButton();
     }
 
     public void DisableHud()
     {
         G.main.rollDicesZone.canDrag = false;
-        EndTurn.interactable = false;
+        EndTurnButton.interactable = false;
+        RollButton.interactable = false;
     }
 
     public void EnableHud()
     {
         G.main.rollDicesZone.canDrag = true;
-        EndTurn.interactable = true;
+        EndTurnButton.interactable = true;
+        RollButton.interactable = true;
+    }
+    
+    public void Disable(Selectable uiElement)
+    {
+        uiElement.interactable = false;
+    }
+
+    public void Enable(Selectable uiElement)
+    {
+        uiElement.interactable = true;
     }
 
     void Update()
@@ -86,6 +103,11 @@ public class HUD : MonoBehaviour
 
     public void PunchEndTurn()
     {
-        G.ui.Punch(EndTurn.transform);
+        G.ui.Punch(EndTurnButton.transform);
+    }
+    
+    public void PunchRollButton()
+    {
+        G.ui.Punch(RollButton.transform);
     }
 }

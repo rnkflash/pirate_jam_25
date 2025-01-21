@@ -330,15 +330,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: End Turn
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: efad73638c3d63548b70c2c7c6b62e86, type: 2}
-  m_sharedMaterial: {fileID: 6003468654185315001, guid: efad73638c3d63548b70c2c7c6b62e86, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a97c0a66bddc4f6418b01bc234f36180, type: 2}
+  m_sharedMaterial: {fileID: -5530798732819667733, guid: a97c0a66bddc4f6418b01bc234f36180, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -355,7 +355,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70.55
+  m_fontSize: 72
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -568,7 +568,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -634,8 +634,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee196960c81c73149b59db593e6c3768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RollButtonText: {fileID: 549700533}
+  EndTurnButtonText: {fileID: 88675409}
   RollButton: {fileID: 753581599}
-  EndTurn: {fileID: 1520998884}
+  EndTurnButton: {fileID: 1520998884}
   tooltip: {fileID: 1275935731}
 --- !u!1 &221525015
 GameObject:
@@ -827,8 +829,8 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 40
-  m_ChildForceExpandWidth: 0
+  m_Spacing: -1000
+  m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
@@ -1497,15 +1499,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Reroll x 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: efad73638c3d63548b70c2c7c6b62e86, type: 2}
-  m_sharedMaterial: {fileID: 6003468654185315001, guid: efad73638c3d63548b70c2c7c6b62e86, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a97c0a66bddc4f6418b01bc234f36180, type: 2}
+  m_sharedMaterial: {fileID: -5530798732819667733, guid: a97c0a66bddc4f6418b01bc234f36180, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1522,7 +1524,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 69.75
+  m_fontSize: 72
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1877,7 +1879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.48359606, g: 0.6981132, b: 0.41052565, a: 1}
+  m_Color: {r: 0.43137255, g: 0.6627451, b: 0.7607843, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3373,7 +3375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.43315125, g: 0.66139257, b: 0.7610062, a: 1}
+  m_Color: {r: 0.48235294, g: 0.69803923, b: 0.4117647, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

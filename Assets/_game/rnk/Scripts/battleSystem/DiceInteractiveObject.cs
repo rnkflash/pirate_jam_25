@@ -25,6 +25,8 @@ namespace _game.rnk.Scripts.battleSystem
         [NonSerialized] public DiceZone zone;
         [NonSerialized] public float Width = 1;
 
+        public Transform lineTarget;
+
         Tween punchTween;
         bool isMouseOver;
         BlankFace blank = new BlankFace();
@@ -65,9 +67,9 @@ namespace _game.rnk.Scripts.battleSystem
             if (sortingGroup != null)
                 sortingGroup.sortingOrder = isMouseOver || draggable.isDragging ? 9999 : order;
 
-            if (state.owner.diceZone != null)
+            if (lineTarget != null)
             {
-                lineRendererUI.CreateLine(transform.position, state.owner.diceZone.transform.position, ownerColor);
+                lineRendererUI.CreateLine(transform.position, lineTarget.position, ownerColor);
             }
         }
 
@@ -128,13 +130,7 @@ namespace _game.rnk.Scripts.battleSystem
             G.hud.tooltip.Hide();
         }
 
-        public void Roll()
-        {
-            StopAllCoroutines();
-            StartCoroutine(RollAnimation());
-        }
-
-        IEnumerator RollAnimation()
+        public IEnumerator Roll()
         {
             var rollTimes = Random.Range(2, 6);
             for (int i = 0; i < rollTimes; i++)
