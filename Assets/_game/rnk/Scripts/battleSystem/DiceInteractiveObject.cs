@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
-using _game.rnk.Scripts.artefacts;
+using System.Collections.Generic;
+using System.Linq;
 using _game.rnk.Scripts.dice.face;
 using _game.rnk.Scripts.tags;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace _game.rnk.Scripts.battleSystem
@@ -20,23 +22,23 @@ namespace _game.rnk.Scripts.battleSystem
         public SortingGroup sortingGroup;
         public int order;
         [SerializeField] float origWidth = 200;
+        public Transform lineRenderersRoot;
 
         [NonSerialized] public DiceState state;
         [NonSerialized] public DiceZone zone;
         [NonSerialized] public float Width = 1;
-
-        public Transform lineTarget;
-
+        
         Tween punchTween;
         bool isMouseOver;
         BlankFace blank = new BlankFace();
-        LineRendererUI lineRendererUI;
         Color ownerColor;
 
+        List<Transform> targets = new List<Transform>();
+        List<LineRendererUI> lineRenderers = new List<LineRendererUI>();
+        
         void Awake()
         {
             draggable = GetComponent<DraggableSmoothDamp>();
-            lineRendererUI = GetComponentInChildren<LineRendererUI>();
             
             Width = origWidth;
         }
@@ -67,9 +69,55 @@ namespace _game.rnk.Scripts.battleSystem
             if (sortingGroup != null)
                 sortingGroup.sortingOrder = isMouseOver || draggable.isDragging ? 9999 : order;
 
-            if (lineTarget != null)
+            if (targets.Count > 0)
             {
-                lineRendererUI.CreateLine(transform.position, lineTarget.position, ownerColor);
+                if (lineRenderers.Count < targets.Count)
+                {
+                    CreateLineRenderers(targets.Count - lineRenderers.Count);
+                }
+                else 
+                if (lineRenderers.Count > targets.Count)
+                {
+                    DestroyLineRenderers(lineRenderers.Count - targets.Count);
+                }
+
+                for (int i = 0; i < targets.Count; i++)
+                {
+                    lineRenderers[i].UpdateLine(transform.position, targets[i].position, ownerColor);
+                }
+            }
+            else
+            {
+                if (lineRenderers.Count > 0)
+                {
+                    DestroyLineRenderers(lineRenderers.Count);
+                }
+            }
+        }
+
+        void DestroyLineRenderers(int count)
+        {
+            var toDelete = Math.Min(count, lineRenderers.Count);
+            for (int i = 0; i < toDelete; i++)
+            {
+                var lr = lineRenderers[i];
+                Destroy(lr.gameObject);
+            }
+            lineRenderers.RemoveRange(0, toDelete);
+        }
+
+        void CreateLineRenderers(int count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                var obj = new GameObject();
+                obj.transform.SetParent(lineRenderersRoot);
+                obj.transform.localPosition = Vector3.zero;
+                var img = obj.AddComponent<Image>();
+                ((RectTransform)obj.transform).sizeDelta = new Vector2(1,1);
+                var comp = obj.AddComponent<LineRendererUI>();
+                comp.Init();
+                lineRenderers.Add(comp);
             }
         }
 
@@ -138,7 +186,7 @@ namespace _game.rnk.Scripts.battleSystem
                 RollDice();
                 G.audio.Play<SFX_Roll>();
                 Punch();
-                yield return new WaitForSeconds(0.15f);
+                yield return new WaitForSeconds(0.2f);
             }
         }
 
@@ -154,15 +202,17 @@ namespace _game.rnk.Scripts.battleSystem
             {
                 SpriteUtil.SetImageAlpha(view.sprite, 0f);
             }
-            view.valueText.text = "X";
             
-            if (face.Is<TagValue>(out var value))
+            if (face.Is<TagAction>(out var action))
             {
-                view.valueText.text = value.value.ToString();
+                if (action.action == ActionType.Blank)
+                    view.valueText.text = "X";
+                else
+                    view.valueText.text = action.value.ToString();
             }
         }
 
-        FaceBase GetFace()
+        public FaceBase GetFace()
         {
             var faces = state.model.Get<TagDefaultFaces>().faces;
             return faces[state.rollValue] ?? blank;
@@ -185,5 +235,14 @@ namespace _game.rnk.Scripts.battleSystem
             punchTween=transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0.2f), 0.2f);
         }
 
+        public void SetTargets(List<ITarget> targets)
+        {
+            this.targets = targets.Select(target => target.GetView().transform).ToList();
+        }
+        
+        public void ClearTargets()
+        {
+            targets.Clear();
+        }
     }
 }

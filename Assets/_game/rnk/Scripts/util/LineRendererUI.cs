@@ -1,12 +1,24 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class LineRendererUI : MonoBehaviour
 {
-    [SerializeField] private RectTransform m_myTransform;
-    [SerializeField] private Image m_image;
+    RectTransform m_myTransform;
+    Image m_image;
+
+    void Start()
+    {
+        Init();
+    }
     
-    public void CreateLine(Vector3 positionOne, Vector3 positionTwo, Color color)
+    public void Init()
+    {
+        m_myTransform = GetComponent<RectTransform>();
+        m_image = GetComponent<Image>();
+    }
+
+    public void UpdateLine(Vector3 positionOne, Vector3 positionTwo, Color color)
     {
         m_image.color = color;
 
@@ -19,5 +31,6 @@ public class LineRendererUI : MonoBehaviour
         Vector2 dir = point1 - point2;
         m_myTransform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
         m_myTransform.localScale = new Vector3(dir.magnitude, 1f, 1f);
+        
     }
 }

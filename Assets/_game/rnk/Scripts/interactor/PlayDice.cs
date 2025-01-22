@@ -10,21 +10,7 @@ namespace _game.rnk.Scripts.interactor
     {
         public IEnumerator OnPlayDice(DiceState state)
         {
-            //TODO: override from artefacts
-            var defaultSlots = state.model.Get<TagDefaultFaces>().faces;
-            var idx = state.rollValue;
-            var slot = defaultSlots[idx] ?? new BlankFace();
-            if (slot.Is<TagAttack>(out var attack))
-            {
-                //TODO: attack something?
-                yield return new WaitForSeconds(0.25f);
-            }
-            
-            if (slot.Is<TagDefend>(out var def))
-            {
-                //TODO: def something?
-                yield return new WaitForSeconds(0.25f);
-            }
+            yield break;
         }
     }
     

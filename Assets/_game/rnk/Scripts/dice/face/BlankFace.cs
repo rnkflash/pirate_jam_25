@@ -1,5 +1,6 @@
 using _game.rnk.Scripts.battleSystem;
 using _game.rnk.Scripts.tags;
+using _game.rnk.Scripts.util;
 
 namespace _game.rnk.Scripts.dice.face
 {
@@ -9,7 +10,9 @@ namespace _game.rnk.Scripts.dice.face
         {
             Define<TagName>().loc = "Blank";
             Define<TagDescription>().loc = "Do nothing";
-            Define<TagBlank>();
+            Define<TagAction>().With(t => {
+                t.action = ActionType.Blank;
+            });
         }
     }
 

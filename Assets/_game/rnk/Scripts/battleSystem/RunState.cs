@@ -3,6 +3,7 @@ using _game.rnk.Scripts.artefacts;
 using _game.rnk.Scripts.body;
 using _game.rnk.Scripts.dice;
 using _game.rnk.Scripts.weapons;
+using UnityEngine;
 
 namespace _game.rnk.Scripts.battleSystem
 {
@@ -18,22 +19,36 @@ namespace _game.rnk.Scripts.battleSystem
     {
         public WeaponState weaponState;
         public CharacterView view;
+        public override MonoBehaviour GetView() => view;
+        public override BaseCharacterState GetState() => this;
     }
     
     public class EnemyState : BaseCharacterState
     {
-        public bool backLine;
         public EnemyView view;
+        public override MonoBehaviour GetView() => view;
+        public override BaseCharacterState GetState() => this;
     }
     
-    public abstract class BaseCharacterState
+    public abstract class BaseCharacterState: ITarget
     {
+        public bool backLine;
         public int armor;
         public int maxHealth;
         public int health;
         public DiceZone diceZone;
         public BodyState bodyState;
         public List<DiceState> diceStates = new List<DiceState>();
+        public abstract MonoBehaviour GetView();
+        public abstract BaseCharacterState GetState();
+        public bool IsBackLine() => backLine;
+    }
+
+    public interface ITarget
+    {
+        public MonoBehaviour GetView();
+        public BaseCharacterState GetState();
+        public bool IsBackLine();
     }
 
     public class WeaponState

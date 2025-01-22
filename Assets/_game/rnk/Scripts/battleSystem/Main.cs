@@ -108,14 +108,13 @@ namespace _game.rnk.Scripts.battleSystem
 
                 case TurnPhase.RE_ROLL:
                     G.hud.EnableHud();
-                    
                     break;
                 
-                case TurnPhase.ENEMY_PLAY:
-                    StartCoroutine(EnemyPlay());
+                case TurnPhase.ENEMY_TARGETING:
+                    StartCoroutine(EnemyPickTargets());
                     break;
 
-                case TurnPhase.PLAY_DICES:
+                case TurnPhase.PLAYER_TARGETING:
                     StartCoroutine(StartPlayDicesPhase());
                     break;
 
@@ -129,26 +128,92 @@ namespace _game.rnk.Scripts.battleSystem
                     break;
             }
         }
-        IEnumerator EnemyPlay()
+        IEnumerator EnemyPickTargets()
         {
             G.hud.DisableHud();
-            var enemyDices = G.run.enemies.SelectMany(
-                cs => cs.diceStates.Select(ds => ds.interactiveObject)
-            ).Reverse().ToList();
+            var enemyDices = GetEnemyDices();
 
             yield return new WaitForSeconds(1.0f);
             
-            //each enemy dice plays with random target
+            var dices = GetEnemyDices();
+            var enemies = G.run.characters;
+            var allies = G.run.enemies;
+            
+            foreach (var dice in dices)
+            {
+                var face = dice.GetFace();
+                if (face.Is<TagAction>(out var action))
+                {
+                    if (action.action == ActionType.Blank)
+                        continue;
+                    
+                    var targets = new List<ITarget>();
+                    switch (action.side)
+                    {
+                        case TargetSide.Enemy:
+                            targets.AddRange(enemies);
+                            break;
+                        case TargetSide.Ally:
+                            targets.AddRange(allies);
+                            break;
+                        case TargetSide.Both:
+                            targets.AddRange(enemies);
+                            targets.AddRange(allies);
+                            break;
+                        case TargetSide.Self:
+                            targets.Add(dice.state.owner);
+                            break;
+                        case TargetSide.None:
+                            break;
+                    }
+
+                    var frontline = targets.FindAll(target => !target.IsBackLine());
+                    var backline = targets.FindAll(target => target.IsBackLine());
+                    switch (action.row)
+                    {
+                        case TargetRow.Front:
+                            targets = frontline.Count == 0 ? backline : frontline;
+                            break;
+
+                        case TargetRow.Back:
+                            targets = backline.Count == 0 ? frontline : backline;
+                            break;
+                    }
+
+                    if (targets.Count > 0)
+                    {
+                        switch (action.area)
+                        {
+                            case TargetArea.Single:
+                                targets = new List<ITarget>() { targets[UnityEngine.Random.Range(0, targets.Count)] };
+                                break;
+
+                            case TargetArea.Row:
+                                if (action.row == TargetRow.Both)
+                                {
+                                    var rows = targets.Select(target => target.IsBackLine()).Distinct().Count();
+                                    if (rows > 1)
+                                    {
+                                        var randomRow = UnityEngine.Random.Range(0, 2);
+                                        targets = targets.FindAll(target => target.IsBackLine() != (randomRow == 0));
+                                    }
+                                }
+                                break;
+                        }    
+                    }
+
+                    if (targets.Count > 0)
+                        dice.SetTargets(targets);
+                }
+            }
 
             //next phase
-            SetTurnPhase(TurnPhase.PLAY_DICES);
+            SetTurnPhase(TurnPhase.PLAYER_TARGETING);
             
         }
         IEnumerator PlayerFreeRoll()
         {
-            var dices = G.run.characters.SelectMany(
-                cs => cs.diceStates.Select(ds => ds.interactiveObject)
-            ).Reverse().ToList();
+            var dices = GetPlayerDices();
 
             yield return ThrowDices(dices);
 
@@ -160,12 +225,10 @@ namespace _game.rnk.Scripts.battleSystem
             
             SetTurnPhase(TurnPhase.RE_ROLL);
         }
-        
+
         IEnumerator EnemyTurn()
         {
-            var enemyDices = G.run.enemies.SelectMany(
-                cs => cs.diceStates.Select(ds => ds.interactiveObject)
-            ).Reverse().ToList();
+            var enemyDices = GetEnemyDices();
 
             yield return ThrowDices(enemyDices);
 
@@ -193,8 +256,13 @@ namespace _game.rnk.Scripts.battleSystem
             yield return new WaitForSeconds(0.5f);
             
             G.camera.UIHit();
+
+            foreach (var dice in GetEnemyDices())
+            {
+                dice.ClearTargets();
+            }
             
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
             
             SetTurnPhase(TurnPhase.CHECK_WIN);
 
@@ -210,6 +278,20 @@ namespace _game.rnk.Scripts.battleSystem
             G.hud.Enable(G.hud.EndTurnButton);
         }
 
+        List<DiceInteractiveObject> GetPlayerDices()
+        {
+            return G.run.characters.SelectMany(
+                cs => cs.diceStates.Select(ds => ds.interactiveObject)
+            ).Reverse().ToList();
+        }
+        
+        List<DiceInteractiveObject> GetEnemyDices()
+        {
+            return G.run.enemies.SelectMany(
+                cs => cs.diceStates.Select(ds => ds.interactiveObject)
+            ).Reverse().ToList();
+        }
+        
         List<DiceInteractiveObject> GetDicesOnRollZOne()
         {
             return G.main.rollDicesZone.objects.Select(o => o).ToList();
@@ -220,37 +302,22 @@ namespace _game.rnk.Scripts.battleSystem
             yield return ReturnDices(GetDicesOnRollZOne());
         }
 
-        public void EndTurnButton()
+        IEnumerator ReRollWithCheck()
         {
-            switch (turnPhase)
-            {
-                case TurnPhase.RE_ROLL:
-                    SetTurnPhase(TurnPhase.ENEMY_PLAY);
-                    break;
+            reRolls--;
+            G.hud.RollButtonText.text = "Reroll x " + reRolls;
+            if (reRolls <= 0)
+                G.hud.Disable(G.hud.RollButton);
+            
+            yield return RollDices(GetDicesOnRollZOne());
 
-                case TurnPhase.PLAY_DICES:
-                    SetTurnPhase(TurnPhase.EXECUTE_DICES);
-                    break;
-            }
-        }
-        
-        public void ReRollButton()
-        {
-            switch (turnPhase)
+            yield return new WaitForEndOfFrame();
+            
+            if (reRolls <= 0)
             {
-                case TurnPhase.RE_ROLL:
-                {
-                    if (reRolls > 0)
-                    {
-                        reRolls--;
-                        G.hud.RollButtonText.text = "Reroll x " + reRolls;
-                        if (reRolls <= 0)
-                            G.hud.Disable(G.hud.RollButton);
-                    
-                        StartCoroutine(RollDices(GetDicesOnRollZOne()));
-                    }
-                    break;
-                }
+                yield return ReturnAllDices();
+                
+                SetTurnPhase(TurnPhase.ENEMY_TARGETING);                            
             }
         }
 
@@ -292,7 +359,7 @@ namespace _game.rnk.Scripts.battleSystem
                     StartCoroutine(ReturnDices(new List<DiceInteractiveObject>() { dice }));
                     break;
 
-                case TurnPhase.PLAY_DICES:
+                case TurnPhase.PLAYER_TARGETING:
                     
                     break;
             }
@@ -435,7 +502,7 @@ namespace _game.rnk.Scripts.battleSystem
                     StartCoroutine(ThrowDices(new List<DiceInteractiveObject>() { dice })); 
                     break;
 
-                case TurnPhase.PLAY_DICES:
+                case TurnPhase.PLAYER_TARGETING:
                     
                     //get dice face
                     //get targets
@@ -451,6 +518,33 @@ namespace _game.rnk.Scripts.battleSystem
         public void OnDiceClickInEnemyView(EnemyView enemyView, DiceInteractiveObject dice)
         {
             
+        }
+        
+        public void EndTurnButton()
+        {
+            switch (turnPhase)
+            {
+                case TurnPhase.RE_ROLL:
+                    SetTurnPhase(TurnPhase.ENEMY_TARGETING);
+                    break;
+
+                case TurnPhase.PLAYER_TARGETING:
+                    SetTurnPhase(TurnPhase.EXECUTE_DICES);
+                    break;
+            }
+        }
+        
+        public void ReRollButton()
+        {
+            switch (turnPhase)
+            {
+                case TurnPhase.RE_ROLL:
+                {
+                    if (reRolls > 0)
+                        StartCoroutine(ReRollWithCheck());
+                    break;
+                }
+            }
         }
     }
 

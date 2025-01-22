@@ -21,9 +21,14 @@ namespace _game.rnk.Scripts.dice.face
         {
             Define<TagName>().loc = "Heal";
             Define<TagDescription>().loc = "Add " + value.ToString().Color(TextStuff.Greenish) + " hp to target";
-            Define<TagHeal>();
-            Define<TagValue>().value = value;
             Define<TagSprite>().sprite = SpriteUtil.Load("art/dice_sprites", "dice_heal");
+            
+            Define<TagAction>().With(t => {
+                t.action = ActionType.Heal;
+                t.side = TargetSide.Ally;
+                t.area = TargetArea.Single;
+                t.value = value;
+            });
         }
     }
 
