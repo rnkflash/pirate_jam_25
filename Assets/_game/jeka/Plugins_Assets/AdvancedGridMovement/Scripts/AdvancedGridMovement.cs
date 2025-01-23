@@ -43,7 +43,7 @@ public class AdvancedGridMovement : MonoBehaviour
     [SerializeField] private AnimationCurve runningHeadBobCurve;
 
     [Header("Maximum step height")]
-    [SerializeField] private float maximumStepHeight = 2.0f;
+    [SerializeField] private float maximumStepHeight = 10.0f;
 
     [Header("Event when the path is blocked")]
     [SerializeField] private UnityEvent blockedEvent;
