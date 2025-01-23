@@ -5,22 +5,22 @@ using _game.rnk.Scripts.tags;
 
 namespace _game.rnk.Scripts.dice
 {
-    public class DiceD6 : DiceBase
+    public class NormalHealerDice : DiceBase
     {
-        public DiceD6()
+        public NormalHealerDice()
         {
-            Define<TagName>().loc = "Balanced Dice";
-            Define<TagDescription>().loc = "has everything";
+            Define<TagName>().loc = "Heal Dice";
+            Define<TagDescription>().loc = "heals mostly";
             Define<TagSides>().sides = 6;
             
             Define<TagDefaultFaces>().faces = new Dictionary<int, FaceBase>()
             {
                 { 0, new AttackFace(1) },
-                { 1, new AttackFace(2) },
-                { 2, new DefFace(1) },
-                { 3, new DefFace(2) },
-                { 4, new HealFace(1) },
-                { 5, new HealFace(2) },
+                { 1, new DefFace(1) },
+                { 2, new HealFace(1) },
+                { 3, new HealFace(2) },
+                { 4, new HealFace(3) },
+                { 5, new HealFace(4) },
                 { 6, new BlankFace() }
             };
         }

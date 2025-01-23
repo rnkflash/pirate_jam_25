@@ -1,9 +1,12 @@
 using System;
 using System.Collections;
 using _game.rnk.Scripts.battleSystem;
+using _game.tinypack.source.UI;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Selectable = UnityEngine.UI.Selectable;
 
 public class HUD : MonoBehaviour
 {
@@ -14,6 +17,10 @@ public class HUD : MonoBehaviour
     public Button EndTurnButton;
     public UITooltip tooltip;
 
+    public SpriteVFX meleeHit;
+    public SpriteVFX armorHit;
+    public SpriteVFX healHit;
+    
     void Awake()
     {
         G.hud = this;

@@ -2,6 +2,8 @@
 using _game.rnk.Scripts.artefacts;
 using _game.rnk.Scripts.body;
 using _game.rnk.Scripts.dice;
+using _game.rnk.Scripts.dice.face;
+using _game.rnk.Scripts.tags;
 using _game.rnk.Scripts.weapons;
 using UnityEngine;
 
@@ -32,6 +34,7 @@ namespace _game.rnk.Scripts.battleSystem
     
     public abstract class BaseCharacterState: ITarget
     {
+        public bool dead;
         public bool backLine;
         public int armor;
         public int maxHealth;
@@ -68,6 +71,8 @@ namespace _game.rnk.Scripts.battleSystem
         public BaseCharacterState owner;
         public DiceBase model;
         public List<ArtefactState> artefacts = new List<ArtefactState>();
+
+        public FaceBase face => model.Get<TagDefaultFaces>().faces[rollValue] ?? new BlankFace();
     }
 
     public class ArtefactState

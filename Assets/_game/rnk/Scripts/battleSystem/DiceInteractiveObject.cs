@@ -30,10 +30,10 @@ namespace _game.rnk.Scripts.battleSystem
         
         Tween punchTween;
         bool isMouseOver;
-        BlankFace blank = new BlankFace();
         Color ownerColor;
+        int lastRoll;
 
-        List<Transform> targets = new List<Transform>();
+        List<ITarget> targets = new List<ITarget>();
         List<LineRendererUI> lineRenderers = new List<LineRendererUI>();
         
         void Awake()
@@ -83,7 +83,7 @@ namespace _game.rnk.Scripts.battleSystem
 
                 for (int i = 0; i < targets.Count; i++)
                 {
-                    lineRenderers[i].UpdateLine(transform.position, targets[i].position, ownerColor);
+                    lineRenderers[i].UpdateLine(transform.position, targets[i].GetView().transform.position, ownerColor);
                 }
             }
             else
@@ -139,9 +139,13 @@ namespace _game.rnk.Scripts.battleSystem
             if (scaleRoot)
             {
                 G.hover_dice = this;
-                scaleRoot.DOKill();
-                //scaleRoot.transform.localScale = Vector3.one * 1.25f;
-                scaleRoot.DOScale(1.25f, 0.2f);
+
+                if (Mathf.Approximately(overrideScale, -1))
+                {
+                    scaleRoot.DOKill();
+                    //scaleRoot.transform.localScale = Vector3.one * 1.25f;
+                    scaleRoot.DOScale(1.25f, 0.2f);    
+                }
             }
 
             if (!draggable.isDragging)
@@ -157,7 +161,7 @@ namespace _game.rnk.Scripts.battleSystem
             if (state == null) return null;
             
             var desc = "";
-            var face = GetFace();
+            var face = state.face;
             if (face.Is<TagName>(out var tn)) desc += tn.loc + ". \n";
             if (face.Is<TagDescription>(out var td)) desc += td.loc;
             return desc;
@@ -171,11 +175,30 @@ namespace _game.rnk.Scripts.battleSystem
 
             if (scaleRoot)
             {
-                scaleRoot.DOKill();
-                scaleRoot.DOScale(1f, 0.2f);
+                if (Mathf.Approximately(overrideScale, -1))
+                {
+                    scaleRoot.DOKill();
+                    scaleRoot.DOScale(1f, 0.2f);
+                }
             }
         
             G.hud.tooltip.Hide();
+        }
+
+        float overrideScale = -1;
+        public void SetScaleOverride(float scale)
+        {
+            overrideScale = scale;
+            if (scaleRoot)
+            {
+                scaleRoot.DOKill();
+                scaleRoot.DOScale(overrideScale, 0.2f);
+            }
+            
+            if (scale == 1.0)
+            {
+                overrideScale = -1;    
+            }
         }
 
         public IEnumerator Roll()
@@ -192,15 +215,15 @@ namespace _game.rnk.Scripts.battleSystem
 
         public void ChangeFace()
         {
-            var face = GetFace();
+            var face = state.face;
             if (face.Is<TagSprite>(out var sprite))
             {
-                SpriteUtil.SetImageAlpha(view.sprite, 1f);
+                view.sprite.SetAlpha(1f);
                 view.sprite.sprite = sprite.sprite;
             }
             else
             {
-                SpriteUtil.SetImageAlpha(view.sprite, 0f);
+                view.sprite.SetAlpha(0f);
             }
             
             if (face.Is<TagAction>(out var action))
@@ -212,13 +235,6 @@ namespace _game.rnk.Scripts.battleSystem
             }
         }
 
-        public FaceBase GetFace()
-        {
-            var faces = state.model.Get<TagDefaultFaces>().faces;
-            return faces[state.rollValue] ?? blank;
-        }
-
-        int lastRoll;
         void RollDice()
         {
             lastRoll = state.rollValue;
@@ -237,12 +253,16 @@ namespace _game.rnk.Scripts.battleSystem
 
         public void SetTargets(List<ITarget> targets)
         {
-            this.targets = targets.Select(target => target.GetView().transform).ToList();
+            this.targets = targets;
         }
         
         public void ClearTargets()
         {
             targets.Clear();
+        }
+        public List<ITarget> GetTargets()
+        {
+            return targets;
         }
     }
 }

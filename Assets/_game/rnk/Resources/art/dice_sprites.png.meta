@@ -136,7 +136,7 @@ TextureImporter:
         width: 35
         height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -193,6 +193,160 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: deadge
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 210
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 629ce45edcf55684d86afe7f4ae7f028
+      internalID: 338348006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deadge2
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 209
+        width: 31
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a539e5701d151cd4bbfb5b54646553f9
+      internalID: 2054155754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: melee_hit
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 204
+        width: 33
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f854d001f3c4ba4cb8a5d6c3000fad7
+      internalID: -478108631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ranged_hit
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 173
+        width: 31
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b5568a5ad3216b45961f2fe8d7af3ce
+      internalID: -1408250725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dice_fireball
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 168
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d94f9150e90cbf428170e305fb6e5b2
+      internalID: -101265227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dice_lightining
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 168
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b1036914e546b84990066afa933503b
+      internalID: -1871307509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dice_range
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 136
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 194395655dcf4d542a1b2a83cdb338f8
+      internalID: -1562021474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -207,12 +361,19 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      deadge: 338348006
+      deadge2: 2054155754
       dice_attack: -8950403893208083806
       dice_def: 6469043848763271064
+      dice_fireball: -101265227
       dice_heal: -9213766036112935347
+      dice_lightining: -1871307509
+      dice_range: -1562021474
       dice_sprites_1: -5489414169785069553
       dice_sprites_2: -1463657393384920941
       dice_sprites_5: -2038704413672483262
+      melee_hit: -478108631
+      ranged_hit: -1408250725
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

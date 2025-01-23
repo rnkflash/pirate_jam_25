@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using _game.rnk.Scripts.enums;
-using _game.rnk.Scripts.interactor;
 using _game.rnk.Scripts.tags;
 using _game.rnk.Scripts.util;
 using UnityEngine;
@@ -48,18 +47,18 @@ namespace _game.rnk.Scripts.battleSystem
             }
             else
             {
-                G.run.characters.Clear();
-                G.run.inventory.Clear();
+                //G.run.characters.Clear();
+                //G.run.inventory.Clear();
             }
             
-            rollDicesZone.OnClickDice += OnClickDiceInRollzone;
+            rollDicesZone.OnClickDice += OnDiceClickedInRollzone;
 
             G.main = this;
         }
 
         void OnDestroy()
         {
-            rollDicesZone.OnClickDice -= OnClickDiceInRollzone;
+            rollDicesZone.OnClickDice -= OnDiceClickedInRollzone;
         }
 
         IEnumerator Start()
@@ -91,6 +90,17 @@ namespace _game.rnk.Scripts.battleSystem
             switch (turnPhase)
             {
                 case TurnPhase.START_TURN:
+                    foreach (var c in G.run.characters)
+                    {
+                        c.armor = 0;
+                        c.GetView().GetComponent<Damageable>().UpdateView();
+                    }
+                    foreach (var c in G.run.enemies)
+                    {
+                        c.armor = 0;
+                        c.GetView().GetComponent<Damageable>().UpdateView();
+                    }
+                    
                     reRolls = 2;
                     G.hud.RollButtonText.text = "Reroll x " + reRolls;
                     G.hud.EndTurnButtonText.text = "Next phase";
@@ -124,10 +134,77 @@ namespace _game.rnk.Scripts.battleSystem
                     break;
 
                 case TurnPhase.CHECK_WIN:
-                    SetTurnPhase(TurnPhase.START_TURN);
+                    isWin = G.run.enemies.FindAll(state => !state.dead).Count == 0;
+                    if (G.run.characters.All(state => state.dead))
+                        StartCoroutine(LoseSequence());
+                    else
+                        EndTurn();
                     break;
             }
         }
+
+        void EndTurn()
+        {
+            if (!isWin)
+            {
+                SetTurnPhase(TurnPhase.START_TURN);
+            }
+            else
+            {
+                StartCoroutine(WinSequence());
+            }
+        }
+
+        IEnumerator WinSequence()
+        {
+            
+            G.hud.DisableHud();
+
+            isWin = true;
+
+            G.ui.win.SetActive(true);
+
+            yield return new WaitForSeconds(1.22f);
+
+            G.ui.win.SetActive(false);
+                
+            G.fader.FadeIn();
+
+            yield return new WaitForSeconds(1f);
+                
+            G.run.battleLevel = new NextBattleLevel();
+                
+            SceneManager.LoadScene(GameSettings.MAIN_SCENE);
+        }
+
+        IEnumerator LoseSequence()
+        {
+            G.audio.Play<SFX_Lose>();
+            G.camera.UIHit();
+            G.ui.defeat.SetActive(true);
+            yield return new WaitForSeconds(5f);
+            G.run = null;
+            SceneManager.LoadScene(GameSettings.MAIN_SCENE);
+        }
+
+        (List<ITarget> allies, List<ITarget> enemies) GetAllTargets(Type baseCharacterState)
+        {
+            var allies = new List<ITarget>();
+            var enemies = new List<ITarget>();
+            if (baseCharacterState == typeof(CharacterState))
+            {
+                allies.AddRange(G.run.characters.FindAll(state => !state.dead));
+                enemies.AddRange(G.run.enemies.FindAll(state => !state.dead));
+            }
+            else
+            {
+                allies.AddRange(G.run.enemies.FindAll(state => !state.dead));
+                enemies.AddRange(G.run.characters.FindAll(state => !state.dead));
+            }
+
+            return (allies, enemies);
+        }
+        
         IEnumerator EnemyPickTargets()
         {
             G.hud.DisableHud();
@@ -136,49 +213,16 @@ namespace _game.rnk.Scripts.battleSystem
             yield return new WaitForSeconds(1.0f);
             
             var dices = GetEnemyDices();
-            var enemies = G.run.characters;
-            var allies = G.run.enemies;
-            
+            var (allies, enemies) = GetAllTargets(typeof(EnemyState));
+
             foreach (var dice in dices)
             {
-                var face = dice.GetFace();
+                var face = dice.state.face;
                 if (face.Is<TagAction>(out var action))
                 {
                     if (action.action == ActionType.Blank)
                         continue;
-                    
-                    var targets = new List<ITarget>();
-                    switch (action.side)
-                    {
-                        case TargetSide.Enemy:
-                            targets.AddRange(enemies);
-                            break;
-                        case TargetSide.Ally:
-                            targets.AddRange(allies);
-                            break;
-                        case TargetSide.Both:
-                            targets.AddRange(enemies);
-                            targets.AddRange(allies);
-                            break;
-                        case TargetSide.Self:
-                            targets.Add(dice.state.owner);
-                            break;
-                        case TargetSide.None:
-                            break;
-                    }
-
-                    var frontline = targets.FindAll(target => !target.IsBackLine());
-                    var backline = targets.FindAll(target => target.IsBackLine());
-                    switch (action.row)
-                    {
-                        case TargetRow.Front:
-                            targets = frontline.Count == 0 ? backline : frontline;
-                            break;
-
-                        case TargetRow.Back:
-                            targets = backline.Count == 0 ? frontline : backline;
-                            break;
-                    }
+                    var targets = GetTargetsForAction(dice.state, enemies, allies);
 
                     if (targets.Count > 0)
                     {
@@ -211,6 +255,52 @@ namespace _game.rnk.Scripts.battleSystem
             SetTurnPhase(TurnPhase.PLAYER_TARGETING);
             
         }
+
+        List<ITarget> GetTargetsForAction(DiceState diceState, List<ITarget> enemies, List<ITarget> allies)
+        {
+            var targets = new List<ITarget>();
+            var face = diceState.face;
+            if (face.Is<TagAction>(out var action) && action.action != ActionType.Blank)
+            {
+                switch (action.side)
+                {
+                    case TargetSide.Enemy:
+                        targets.AddRange(enemies);
+                        break;
+
+                    case TargetSide.Ally:
+                        targets.AddRange(allies);
+                        break;
+
+                    case TargetSide.Both:
+                        targets.AddRange(enemies);
+                        targets.AddRange(allies);
+                        break;
+
+                    case TargetSide.Self:
+                        targets.Add(diceState.owner);
+                        break;
+
+                    case TargetSide.None:
+                        break;
+                }
+
+                var frontline = targets.FindAll(target => !target.IsBackLine());
+                var backline = targets.FindAll(target => target.IsBackLine());
+                switch (action.row)
+                {
+                    case TargetRow.Front:
+                        targets = frontline.Count == 0 ? backline : frontline;
+                        break;
+
+                    case TargetRow.Back:
+                        targets = backline.Count == 0 ? frontline : backline;
+                        break;
+                }
+            }
+            return targets;
+        }
+        
         IEnumerator PlayerFreeRoll()
         {
             var dices = GetPlayerDices();
@@ -250,24 +340,90 @@ namespace _game.rnk.Scripts.battleSystem
         IEnumerator StartExecutePhase()
         {
             G.hud.DisableHud();
+            
+            foreach (var dice in GetPlayerDices())
+            {
+                if (!dice.state.owner.dead)
+                {
+                    if (dice.GetTargets().Count > 0)
+                        dice.Punch();
+                    yield return DiceAction(dice);
+                    if (dice.zone == rollDicesZone)
+                        yield return ReturnDices(new List<DiceInteractiveObject>() { dice });
+                }
+                dice.ClearTargets();
+            }
+            foreach (var dice in GetEnemyDices())
+            {
+                if (!dice.state.owner.dead)
+                {
+                    if (dice.GetTargets().Count > 0)
+                        dice.Punch();
+                    yield return DiceAction(dice);
+                    if (dice.zone == rollDicesZone)
+                        yield return ReturnDices(new List<DiceInteractiveObject>() { dice });
+                }
+                dice.ClearTargets();
+            }
 
             yield return ReturnAllDices();
 
             yield return new WaitForSeconds(0.5f);
             
-            G.camera.UIHit();
-
-            foreach (var dice in GetEnemyDices())
-            {
-                dice.ClearTargets();
-            }
-            
-            yield return new WaitForSeconds(0.5f);
-            
             SetTurnPhase(TurnPhase.CHECK_WIN);
 
         }
-        
+        IEnumerator DiceAction(DiceInteractiveObject dice)
+        {
+            if (dice.state.face.Is<TagAction>(out var action))
+            {
+                switch (action.action)
+                {
+                    case ActionType.Attack:
+                        foreach (var target in dice.GetTargets())
+                        {
+                            var damageable = target.GetView().GetComponent<Damageable>();
+                            if (damageable)
+                            {
+                                yield return damageable.Hit(action.value);
+                                if (damageable.state.dead)
+                                {
+                                    foreach (var diceState in damageable.state.diceStates)
+                                    {
+                                        diceState.interactiveObject.ClearTargets();
+                                    }
+                                }
+                            }
+                        }
+                        break;
+
+                    case ActionType.Heal:
+                        foreach (var target in dice.GetTargets())
+                        {
+                            var damageable = target.GetView().GetComponent<Damageable>();
+                            if (damageable)
+                            {
+                                yield return damageable.Heal(action.value);
+                            }
+                        }
+                        break;
+
+                    case ActionType.Def:
+                        foreach (var target in dice.GetTargets())
+                        {
+                            var damageable = target.GetView().GetComponent<Damageable>();
+                            if (damageable)
+                            {
+                                yield return damageable.Armor(action.value);
+                            }
+                        }
+                        break;
+                }
+            }
+
+            yield return new WaitForSeconds(0.25f);
+        }
+
         IEnumerator StartPlayDicesPhase()
         {
             G.hud.EndTurnButtonText.text = "Execute";
@@ -280,16 +436,15 @@ namespace _game.rnk.Scripts.battleSystem
 
         List<DiceInteractiveObject> GetPlayerDices()
         {
-            return G.run.characters.SelectMany(
+            return G.run.characters.FindAll(state => !state.dead).SelectMany(
                 cs => cs.diceStates.Select(ds => ds.interactiveObject)
             ).Reverse().ToList();
         }
         
         List<DiceInteractiveObject> GetEnemyDices()
         {
-            return G.run.enemies.SelectMany(
-                cs => cs.diceStates.Select(ds => ds.interactiveObject)
-            ).Reverse().ToList();
+            return G.run.enemies.FindAll(state => !state.dead).SelectMany(
+                cs => cs.diceStates.Select(ds => ds.interactiveObject)).Reverse().ToList();
         }
         
         List<DiceInteractiveObject> GetDicesOnRollZOne()
@@ -321,25 +476,6 @@ namespace _game.rnk.Scripts.battleSystem
             }
         }
 
-        public IEnumerator PlayDice(DiceState diceState)
-        {
-            var onPlays = interactor.FindAll<IOnPlayDice>();
-            foreach (var onPlay in onPlays)
-            {
-                yield return onPlay.OnPlayDice(diceState);
-            }
-        }
-
-        IEnumerator EndTurnCoroutine()
-        {
-            var onEndTurns = interactor.FindAll<IOnEndTurn>();
-            foreach (var onEndTurn in onEndTurns)
-            {
-                yield return onEndTurn.OnEndTurn();
-            }
-        }
-
-
         public void StartDrag(DraggableSmoothDamp draggableSmoothDamp)
         {
             G.drag_dice = draggableSmoothDamp.GetComponent<DiceInteractiveObject>();
@@ -351,8 +487,11 @@ namespace _game.rnk.Scripts.battleSystem
             G.drag_dice = null;
         }
         
-        void OnClickDiceInRollzone(DiceInteractiveObject dice)
+        void OnDiceClickedInRollzone(DiceInteractiveObject dice)
         {
+            if (dice.state.owner.dead)
+                return;
+            
             switch (turnPhase)
             {
                 case TurnPhase.RE_ROLL:
@@ -360,7 +499,8 @@ namespace _game.rnk.Scripts.battleSystem
                     break;
 
                 case TurnPhase.PLAYER_TARGETING:
-                    
+                    dice.ClearTargets();
+                    StartCoroutine(ReturnDices(new List<DiceInteractiveObject>() { dice }));
                     break;
             }
         }
@@ -415,19 +555,21 @@ namespace _game.rnk.Scripts.battleSystem
         {
             level = entity;
 
-            if (level.Is<TagExecuteScript>(out var exs))
+            if (level.Is<tags.TagExecuteScript>(out var exs))
             {
                 yield return exs.toExecute();
             }
             
             foreach (var characterState in G.run.characters)
             {
-                CreateCharacterView(characterState);
+                if (characterState.view == null)
+                    CreateCharacterView(characterState);
             }
             
             foreach (var enemyState in G.run.enemies)
             {
-                CreateEnemyView(enemyState);
+                if (enemyState.view == null)
+                    CreateEnemyView(enemyState);
             }
         }
 
@@ -457,13 +599,22 @@ namespace _game.rnk.Scripts.battleSystem
 
             G.ui.debug_text.text = "";
 
-#if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.R))
             {
                 G.run.battleLevel = new TestBattleLevel();
                 SceneManager.LoadScene(GameSettings.MAIN_SCENE);
             }
-#endif
+            
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                isWin = true;
+                EndTurn();
+            }
+            
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                StartCoroutine(LoseSequence());
+            }
         }
         
         public void ShowHud()
@@ -488,14 +639,31 @@ namespace _game.rnk.Scripts.battleSystem
 
         public void EnemyClicked(EnemyState state)
         {
-            Debug.Log("enemy was clicked " + state.bodyState.model.Get<TagName>().loc);
+            if (state.dead) return;
+            
+            if (selectionMode)
+            {
+                selectionMode = false;
+                selected = new List<ITarget>() { state };
+                return;
+            }
         }
         public void CharacterClicked(CharacterState state)
         {
-            Debug.Log("character was clicked " + state.weaponState.model.Get<TagName>().loc);
+            if (state.dead) return;
+            
+            if (selectionMode)
+            {
+                selectionMode = false;
+                selected = new List<ITarget>() { state };
+                return;
+            }
         }
         public void OnDiceClickInCharacterView(CharacterView view, DiceInteractiveObject dice)
         {
+            if (dice.state.owner.dead)
+                return;
+            
             switch (turnPhase)
             {
                 case TurnPhase.RE_ROLL:
@@ -503,21 +671,61 @@ namespace _game.rnk.Scripts.battleSystem
                     break;
 
                 case TurnPhase.PLAYER_TARGETING:
-                    
-                    //get dice face
-                    //get targets
-                    //highlight targets
-                    //wait for click target or elsewhere
-                    //if click target set dice target and throw dice
-                    //if dice is clicked in rollzone it resets target and returned to owner
-                    //
-                    
+                    StartCoroutine(SelectTargetForDice(dice));
                     break;
             }
         }
+
+        DiceInteractiveObject selectingTargetForDice;
+        bool selectionMode;
+        List<ITarget> selected;
+        IEnumerator SelectTargetForDice(DiceInteractiveObject dice)
+        {
+            if (selectingTargetForDice != null || dice.state.face.Get<TagAction>().action == ActionType.Blank)
+                yield break;
+            
+            G.hud.DisableHud();
+            
+            selectingTargetForDice = dice;
+            
+            dice.SetScaleOverride(1.25f);
+
+            var (allies, enemies) = GetAllTargets(typeof(CharacterState));
+            var targets = GetTargetsForAction(dice.state, enemies, allies);
+
+            if (targets.Count == 0)
+            {
+                selectingTargetForDice = null;
+                yield break;
+            }
+            
+            foreach (var target in targets)
+            {
+                target.GetView().GetComponent<Selectable>().EnableSelection(true);
+            }
+            selectionMode = true;
+
+            yield return new WaitUntil(() => !selectionMode);
+            
+            foreach (var target in targets)
+            {
+                target.GetView().GetComponent<Selectable>().EnableSelection(false);
+            }
+            
+            dice.SetTargets(selected);
+            
+            dice.SetScaleOverride(1.0f);
+
+            yield return ThrowDices(new List<DiceInteractiveObject>() {dice});
+            
+            G.hud.EnableHud();
+            
+            selectingTargetForDice = null;
+        }
         public void OnDiceClickInEnemyView(EnemyView enemyView, DiceInteractiveObject dice)
         {
-            
+            if (dice.state.owner.dead)
+                return;
         }
         
         public void EndTurnButton()

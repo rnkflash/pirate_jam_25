@@ -28,7 +28,7 @@ public static class SpriteUtil
         return Resources.LoadAll<Sprite>(glitchManager);
     }
 
-    public static void SetImageAlpha(Image img, float alpha)
+    public static void SetAlpha(this Image img, float alpha)
     {
         var tempColor = img.color;
         tempColor.a = alpha;
