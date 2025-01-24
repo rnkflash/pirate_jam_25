@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Enemy_Boss_Sprite_RatKing_0: 8605679991357756850
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

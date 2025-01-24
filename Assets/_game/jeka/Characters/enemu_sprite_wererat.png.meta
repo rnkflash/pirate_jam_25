@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      enemu_sprite_wererat_0: -8163422999537264691
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
