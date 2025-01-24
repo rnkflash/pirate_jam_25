@@ -240,6 +240,7 @@ namespace _game.rnk.Scripts.battleSystem
             lastRoll = state.rollValue;
             while (state.rollValue == lastRoll)
             {
+                lastRoll = state.rollValue;
                 state.rollValue = 1 + Random.Range(0, state.model.Get<TagSides>().sides);    
             }
             ChangeFace();

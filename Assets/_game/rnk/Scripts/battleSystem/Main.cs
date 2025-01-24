@@ -347,9 +347,10 @@ namespace _game.rnk.Scripts.battleSystem
                 {
                     if (dice.GetTargets().Count > 0)
                         dice.Punch();
-                    yield return DiceAction(dice);
                     if (dice.zone == rollDicesZone)
                         yield return ReturnDices(new List<DiceInteractiveObject>() { dice });
+                    yield return DiceAction(dice);
+                    
                 }
                 dice.ClearTargets();
             }
@@ -359,9 +360,9 @@ namespace _game.rnk.Scripts.battleSystem
                 {
                     if (dice.GetTargets().Count > 0)
                         dice.Punch();
-                    yield return DiceAction(dice);
                     if (dice.zone == rollDicesZone)
                         yield return ReturnDices(new List<DiceInteractiveObject>() { dice });
+                    yield return DiceAction(dice);
                 }
                 dice.ClearTargets();
             }
