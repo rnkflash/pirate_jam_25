@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Hero_1
   m_EditorClassIdentifier: 
   id: 1
-  sprite: {fileID: 6937817954938267909, guid: b5f53b66e17efca459edf56ede4f6312, type: 3}
+  sprite: {fileID: 21300000, guid: 6548c9e13e84e6746a73fe384f1a3d95, type: 3}

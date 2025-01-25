@@ -29,6 +29,7 @@ namespace _game
             {
                 _selected = !_selected;
                 _view.SetState(_selected);
+                _view.SetSelectedVariable(_selected);
             }
         }
 
@@ -36,6 +37,7 @@ namespace _game
         {
             _selected = !_selected;
             _view.SetState(_selected);
+            _view.SetSelectedVariable(_selected);
             _model.ClickOnWeapon(_index);
         }
 
