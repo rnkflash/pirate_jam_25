@@ -9,18 +9,18 @@ namespace _game.rnk.Scripts.dice
     {
         public DiceD6()
         {
-            Define<TagName>().loc = "Standart Dice";
-            Define<TagDescription>().loc = "atk 1 2 3, def 1 2, heal 3, blank";
+            Define<TagName>().loc = "Balanced Dice";
+            Define<TagDescription>().loc = "has everything";
             Define<TagSides>().sides = 6;
             
             Define<TagDefaultFaces>().faces = new Dictionary<int, FaceBase>()
             {
                 { 0, new AttackFace(1) },
                 { 1, new AttackFace(2) },
-                { 2, new AttackFace(3) },
-                { 3, new DefFace(1) },
-                { 4, new DefFace(2) },
-                { 5, new HealFace(3) },
+                { 2, new DefFace(1) },
+                { 3, new DefFace(2) },
+                { 4, new HealFace(1) },
+                { 5, new HealFace(2) },
                 { 6, new BlankFace() }
             };
         }

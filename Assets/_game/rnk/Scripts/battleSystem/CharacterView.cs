@@ -7,16 +7,14 @@ using UnityEngine.UI;
 
 namespace _game.rnk.Scripts.battleSystem
 {
-    public class CharacterView : MonoBehaviour, ISelectable, IPointerClickHandler
+    public class CharacterView : MonoBehaviour, IPointerClickHandler
     {
         public Image avatarImage;
         public TMP_Text nameText;
         public TMP_Text healthText;
         public DiceZone diceZone;
+        public Damageable damageable;
         
-        public GameObject selection;
-        
-        bool isSelected;
         [NonSerialized] public CharacterState state;
         
         public void SetState(CharacterState characterState)
@@ -32,6 +30,8 @@ namespace _game.rnk.Scripts.battleSystem
             }
 
             nameText.color = state.weaponState.model.Get<TagTint>().color;
+            
+            damageable.SetState(state);
             healthText.color = state.weaponState.model.Get<TagTint>().color;
 
             diceZone.OnClickDice += OnDiceClick;
@@ -40,17 +40,6 @@ namespace _game.rnk.Scripts.battleSystem
             characterState.view = this;
         }
 
-        public bool IsSelected()
-        {
-            return isSelected;
-        }
-
-        public void SetSelected(bool newValue)
-        {
-            isSelected = newValue;
-            selection.SetActive(isSelected);
-        }
-        
         void OnDestroy()
         {
             diceZone.OnClickDice -= OnDiceClick;

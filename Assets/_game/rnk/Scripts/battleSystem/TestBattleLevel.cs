@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using _game.rnk.Scripts.artefacts;
 using _game.rnk.Scripts.body;
@@ -13,7 +12,7 @@ namespace _game.rnk.Scripts.battleSystem
     {
         public TestBattleLevel()
         {
-            Define<TagExecuteScript>().toExecute = Script;
+            Define<tags.TagExecuteScript>().toExecute = Script;
         }
 
         IEnumerator Script()
@@ -27,22 +26,26 @@ namespace _game.rnk.Scripts.battleSystem
 
             G.run.characters.Add(CreateCharacter(
                 new AnimeTyan(),
-                new BetrayedSword()
+                new BetrayedSword(),
+                new NormalAggressiveDice()
             ));    
 
             G.run.characters.Add(CreateCharacter(
                 new AnimeTyan(),
-                new BrokenShield()
+                new BrokenShield(),
+                new DiceD6()
             ));
             
             G.run.characters.Add(CreateCharacter(
                 new AnimeTyan(),
-                new BadBow()
+                new BadBow(),
+                new DiceD6()
             ));
             
             G.run.characters.Add(CreateCharacter(
                 new AnimeTyan(),
-                new UselessStaff()
+                new UselessStaff(),
+                new NormalHealerDice()
             ));
 
             var enemyModel = new NakedMan();
@@ -54,7 +57,7 @@ namespace _game.rnk.Scripts.battleSystem
             });
             G.run.enemies[^1].diceStates.Add(new DiceState()
             {
-                model = new DiceD6(),
+                model = new AggressiveDice(),
                 owner = G.run.enemies[^1] 
             });
             G.run.enemies.Add(new EnemyState()
@@ -65,14 +68,26 @@ namespace _game.rnk.Scripts.battleSystem
             });
             G.run.enemies[^1].diceStates.Add(new DiceState()
             {
-                model = new DiceD6(),
+                model = new AggressiveDice(),
                 owner = G.run.enemies[^1] 
             });
-            
-            //G.run.inventory.Add(new ArtefactState() { model = new TestArtefact() });
+
+            var priestModel = new Healer();
+            G.run.enemies.Add(new EnemyState()
+            {
+                health = priestModel.Get<TagHealth>().health,
+                maxHealth = priestModel.Get<TagHealth>().health,
+                bodyState = new BodyState() { model = priestModel }
+            });
+            G.run.enemies[^1].diceStates.Add(new DiceState()
+            {
+                model = new HealerDice(),
+                owner = G.run.enemies[^1] 
+            });
+
         }
         
-        CharacterState CreateCharacter(BodyBase body, WeaponBase weapon)
+        CharacterState CreateCharacter(BodyBase body, WeaponBase weapon, DiceBase dice)
         {
             var character = new CharacterState
             {
@@ -83,19 +98,10 @@ namespace _game.rnk.Scripts.battleSystem
             };
             character.diceStates.Add(new DiceState()
             {
-                model = new DiceD6(),
+                model = dice,
                 owner = character
             });
             return character;
         }
-    }
-
-    public class TagExecuteScript : EntityComponentDefinition
-    {
-        public Func<IEnumerator> toExecute;
-    }
-
-    public class TagIsFinal : EntityComponentDefinition
-    {
     }
 }
