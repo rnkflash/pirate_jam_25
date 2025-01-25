@@ -13,29 +13,32 @@ namespace _game.HeroInfo
         private HeroHealthPresenter _heroHealthPresenter;
         private InventoryPresenter _inventoryPresenter;
         private Model _model;
+        private WeaponModel _currentWeaponModel;
+        private int _currentWeaponSelected;
 
-        public InfoPresenter(IInfoView view, Model model )
+        public InfoPresenter(IInfoView view, Model model, InventoryPresenter inventoryPresenter)
         {
             _view = view;
-            _view.OnInventoryClicked += OnInventoryClicked;
             _model = model;
-            _inventoryPresenter = new InventoryPresenter(_view.GetInventoryView(), _model);
+            _model.OnClickItem += OnClickItem;
+            _inventoryPresenter = inventoryPresenter;
         }
-
-        private void OnInventoryClicked()
-        {
-            _inventoryPresenter.Click();
-        }
-
+        
         public void Show(int index, WeaponModel weaponModel)
         {
             if (index != _index || (index == _index && !_state))
             {
+                _currentWeaponModel = weaponModel;
                 _heroHealthPresenter = new HeroHealthPresenter(_view.GetHeroHealthView(), weaponModel.body.health);
                 _index = index;
                 _view.SetWeaponName(weaponModel.name);
                 _view.SetWeaponImage(weaponModel.body.sprite);
                 _view.SetDiceFacesView(weaponModel.diceFaces);
+                foreach (var dicePresenter in _diceFacePresenters)
+                {
+                    dicePresenter.Release();
+                }
+                _diceFacePresenters.Clear();
                 for(int i = 0; i < weaponModel.diceFaces.Count; i++)
                 {
                     _diceFacePresenters.Add(new DiceFacePresenter(_view.GetDiceFaces()[i],weaponModel.diceFaces[i]));
@@ -43,13 +46,31 @@ namespace _game.HeroInfo
 
                 _state = true;
                 _view.SetShowState(true);
+                _inventoryPresenter.Click();
             }
             else
             {
+                foreach (var dicePresenter in _diceFacePresenters)
+                {
+                    dicePresenter.Release();
+                }
+                _diceFacePresenters.Clear();
                 _heroHealthPresenter = null;
                 _state = false;
-                _view.SetShowState(false);  
-                _inventoryPresenter.Close();
+                _view.SetShowState(false);
+                if (index == _index)
+                {
+                    _inventoryPresenter.Close();
+                }
+            }
+        }
+
+        private void OnClickItem(int indexItem)
+        {
+            var empties = _currentWeaponModel.diceFaces.FindAll(x => x.state == DiceFaceModel.FaceState.EMPTY);
+            foreach (var empty in empties)
+            {
+                empty.OnSelected?.Invoke();
             }
         }
     }

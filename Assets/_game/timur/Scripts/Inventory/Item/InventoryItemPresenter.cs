@@ -7,6 +7,7 @@ namespace _game.Inventory
         private IInventoryItemView _view;
         private Model _model;
         private int _id;
+        private bool _selected;
         public InventoryItemPresenter(IInventoryItemView view, Model model, int id)
         {
             _model = model;
@@ -19,10 +20,13 @@ namespace _game.Inventory
         private void OnItemClicked()
         {
             _model.ClickOnItem(_id);
+            _selected = !_selected;
+            _view.SetSelected(_selected);
         }
 
         public void Release()
         {
+            _view.SetSelected(false);
             _view.OnClick -= OnItemClicked;
         }
     }

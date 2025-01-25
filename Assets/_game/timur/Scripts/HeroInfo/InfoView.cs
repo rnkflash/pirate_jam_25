@@ -74,42 +74,35 @@ namespace _game.HeroInfo
         {
             if (state)
             {
-                // Смещаем панель вниз на 30 по оси Y относительно родителя
-                Vector2 loweredPosition = _originalAnchoredPosition + new Vector2(0f, -30f);
+                Vector2 loweredPosition = _originalAnchoredPosition + new Vector2(0f, -50f);
                 _rectTransform.anchoredPosition = loweredPosition;
 
                 _canvasGroup.interactable = true;
                 _canvasGroup.alpha = 1f;
 
-                _rectTransform.DOAnchorPosY(_originalAnchoredPosition.y, 0.18f)
+                _rectTransform.DOAnchorPosY(_originalAnchoredPosition.y, 0.2f)
                     .SetEase(Ease.OutBack)
                     .OnStart(() =>
                     {
-                        Debug.Log("Tween started (state true)");
                     })
                     .OnComplete(() =>
                     {
-                        // Гарантируем восстановление исходной позиции
                         _rectTransform.anchoredPosition = _originalAnchoredPosition;
                     });
             }
             else
             {
-                // Вычисляем целевую позицию по оси Y для опускания
-                float targetY = _rectTransform.anchoredPosition.y - 30f;
+                float targetY = _rectTransform.anchoredPosition.y - 50f;
 
-                // Запускаем параллельные tween: для движения и для затухания
                 Sequence sequence = DOTween.Sequence();
 
-                // Добавляем tween перемещения по оси Y используя RectTransform
                 sequence.Join(
-                    _rectTransform.DOAnchorPosY(targetY, 0.11f)
+                    _rectTransform.DOAnchorPosY(targetY, 0.05f)
                         .SetEase(Ease.OutBounce)
                 );
 
-                // Добавляем tween для изменения прозрачности CanvasGroup
                 sequence.Join(
-                    _canvasGroup.DOFade(0f, 0.11f)
+                    _canvasGroup.DOFade(0f, 0.05f)
                 );
 
                 sequence.OnStart(() =>
@@ -118,7 +111,6 @@ namespace _game.HeroInfo
                     })
                     .OnComplete(() =>
                     {
-                        // По завершении отключаем взаимодействие и восстанавливаем позицию
                         _canvasGroup.interactable = false;
                         _canvasGroup.alpha = 0f;
                         _rectTransform.anchoredPosition = _originalAnchoredPosition;
