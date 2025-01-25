@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6c9be451ea6aab04980d1904b93638be
+guid: 7840f1bdc8cf6614394564201497d294
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7043796941467001448
-    second: Mage_Sprite_0
+      213: 6571187285002963668
+    second: Mage_Sprite 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mage_Sprite_0
+      name: Mage_Sprite 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 500
-        height: 483
+        height: 488
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 89d50e950086f3e90800000000000000
-      internalID: -7043796941467001448
+      spriteID: 4da4a23250c813b50800000000000000
+      internalID: 6571187285002963668
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Mage_Sprite_0: -7043796941467001448
+      Mage_Sprite 1_0: 6571187285002963668
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f0e1eabb0b68e364ead31db8baf19ea6
+guid: 0d7ac6af69d14d442bb23ee8d68cfcc8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1273148846512437808
-    second: Barbarian_Sprite_0
+      213: 1549837830965283146
+    second: Barbarian_Sprite 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Barbarian_Sprite_0
+      name: Barbarian_Sprite 1_0
       rect:
         serializedVersion: 2
-        x: 14
+        x: 0
         y: 0
-        width: 470
-        height: 493
+        width: 500
+        height: 492
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 03a729661222ba110800000000000000
-      internalID: 1273148846512437808
+      spriteID: a49c52ebb41228510800000000000000
+      internalID: 1549837830965283146
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Barbarian_Sprite_0: 1273148846512437808
+      Barbarian_Sprite 1_0: 1549837830965283146
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

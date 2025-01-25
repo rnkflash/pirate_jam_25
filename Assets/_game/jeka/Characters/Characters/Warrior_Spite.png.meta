@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bdbf6b33b33c3894eb45c398c9c2c91f
+guid: e0d09488d65ac4f409e6e200541d4cb7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8070681477888380892
-    second: Warrior_Spite_0
+      213: 1481271409835034719
+    second: Warrior_Spite 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Warrior_Spite_0
+      name: Warrior_Spite 1_0
       rect:
         serializedVersion: 2
-        x: 15
+        x: 0
         y: 0
-        width: 485
-        height: 471
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cdf8cd83b02d00070800000000000000
-      internalID: 8070681477888380892
+      spriteID: f58c827cf788e8410800000000000000
+      internalID: 1481271409835034719
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Warrior_Spite_0: 8070681477888380892
+      Warrior_Spite 1_0: 1481271409835034719
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

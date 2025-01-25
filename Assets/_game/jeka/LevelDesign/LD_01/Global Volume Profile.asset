@@ -1,5 +1,61 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8778851028339325191
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1c62bdc7f018b43a75aef3da42496f, type: 3}
+  m_Name: TVEffect
+  m_EditorClassIdentifier: 
+  active: 1
+  enable:
+    m_OverrideState: 1
+    m_Value: 1
+  fade:
+    m_OverrideState: 0
+    m_Value: 1
+  maskDark:
+    m_OverrideState: 0
+    m_Value: 0.5
+  maskLight:
+    m_OverrideState: 0
+    m_Value: 1.5
+  hardScan:
+    m_OverrideState: 0
+    m_Value: -8
+  resScale:
+    m_OverrideState: 1
+    m_Value: 1
+  ScaleWithActualScreenSize:
+    m_OverrideState: 0
+    m_Value: 1
+  hardPix:
+    m_OverrideState: 1
+    m_Value: -3
+  warpMode:
+    m_OverrideState: 0
+    m_Value: 0
+  warp:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0}
+  scale:
+    m_OverrideState: 0
+    m_Value: 0.5
+  mask:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+    dimension: 1
+  maskChannel:
+    m_OverrideState: 0
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-5786166939886044894
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -15,20 +71,20 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 1.55
+    m_Value: 0
   contrast:
     m_OverrideState: 1
-    m_Value: 29
+    m_Value: 0
   colorFilter:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.7028302, g: 0.92270297, b: 1, a: 1}
   hueShift:
     m_OverrideState: 0
     m_Value: 0
   saturation:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-5131055901993768076
+--- !u!114 &-5401032724814482746
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,15 +93,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e021b4c809a781e468c2988c016ebbea, type: 3}
-  m_Name: ColorLookup
+  m_Script: {fileID: 11500000, guid: 84d5e41f92d0f43b8b6ff8cad98e0c16, type: 3}
+  m_Name: Fisheye
   m_EditorClassIdentifier: 
   active: 1
-  texture:
+  enable:
+    m_OverrideState: 1
+    m_Value: 1
+  fisheyeType:
+    m_OverrideState: 1
+    m_Value: 0
+  bend:
+    m_OverrideState: 1
+    m_Value: 1
+  cutOffX:
     m_OverrideState: 0
-    m_Value: {fileID: 0}
-    dimension: 1
-  contribution:
+    m_Value: 0.5
+  cutOffY:
+    m_OverrideState: 0
+    m_Value: 0.5
+  fadeX:
+    m_OverrideState: 0
+    m_Value: 1
+  fadeY:
+    m_OverrideState: 0
+    m_Value: 1
+  size:
+    m_OverrideState: 0
+    m_Value: 1
+  GlobalPostProcessingSettings:
     m_OverrideState: 0
     m_Value: 0
 --- !u!114 &11400000
@@ -64,7 +140,8 @@ MonoBehaviour:
   - {fileID: 431282406811514589}
   - {fileID: 7632242328829710062}
   - {fileID: -5786166939886044894}
-  - {fileID: -5131055901993768076}
+  - {fileID: -8778851028339325191}
+  - {fileID: -5401032724814482746}
 --- !u!114 &431282406811514589
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -77,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2db86121404754db890f4c8dfe81b2, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   skipIterations:
     m_OverrideState: 0
     m_Value: 1
@@ -124,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   color:
     m_OverrideState: 1
     m_Value: {r: 0, g: 0, b: 0, a: 1}
