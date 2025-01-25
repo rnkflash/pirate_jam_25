@@ -22,6 +22,7 @@ namespace _game
         private List<HeroPanelPresenter> _heroPanels = new();
         private Model _model;
         private InfoPresenter _infoPresenter;
+        private InventoryPresenter _inventoryPresenter;
 
         private void Awake()
         {
@@ -87,8 +88,9 @@ namespace _game
                 var heroPanelPresenter = new HeroPanelPresenter(_heroPanelViews[i], _model, i);
                 _heroPanels.Add(heroPanelPresenter);
             }
-
-            _infoPresenter = new InfoPresenter(infoView, _model);
+            
+            _inventoryPresenter = new InventoryPresenter(infoView.GetInventoryView(), _model);
+            _infoPresenter = new InfoPresenter(infoView, _model, _inventoryPresenter);
             _model.OnClickWeapon += OnClickWeapon;
         }
 

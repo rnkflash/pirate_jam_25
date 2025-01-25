@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace _game
 {
-    public class Model : ISquadModel
+    public class Model : IModel
     {
         public Model(List<WeaponModel> weapons, List<InventoryItem> inventory)
         {
@@ -29,11 +29,23 @@ namespace _game
 
         public event Action<int, WeaponModel> OnClickWeapon;
         public event Action<int> OnClickItem;
+        
+        public void SetHealth(int heroIndex, int value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EquipItem(int itemIndex, int heroIndex, int diceIndex)
+        {
+            throw new NotImplementedException();
+        }
     }
     
-    public interface ISquadModel
+    public interface IModel
     {
         //все изменения извне происходит через этот интерфейс
+        void SetHealth(int heroIndex, int value);
+        void EquipItem(int itemIndex, int heroIndex, int diceIndex);
     }
     
     [Serializable]
@@ -75,6 +87,7 @@ namespace _game
         public int? value;
         public Sprite sprite;
         public Color colorValue;
+        public Action OnSelected;
         
         public DiceFaceModel( Sprite sprite)
         {

@@ -20,14 +20,25 @@ namespace _game.Inventory
 
         public void Click()
         {
-            _selected = !_selected;
-            _view.SetState(_selected);
+            if (!_selected)
+            {
+                _selected = true;
+                _view.SetState(true);
+            }
         }
 
         public void Close()
         {
             _selected = false;
             _view.SetState(false);
+        }
+
+        public void Release()
+        {
+            foreach (var item in _items)
+            {
+                item.Release();
+            }   
         }
     }
 }
