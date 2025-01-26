@@ -7947,7 +7947,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoView: {fileID: 4168885539239646159}
-  inventoryView: {fileID: 1252925116113682692}
+  iventoryView: {fileID: 1252925116113682692}
+  _heroPanelViews: []
+  _heroesDatabase: {fileID: 0}
+  _weaponsDatabase: {fileID: 0}
+  _diceDatabase: {fileID: 0}
+  _heroesPanel: {fileID: 0}
+  _itemsDatabase: {fileID: 0}
 --- !u!1 &8601173280041187156
 GameObject:
   m_ObjectHideFlags: 0

@@ -74,7 +74,8 @@ namespace _game.HeroInfo
                 var ww = qq.model.Get<TagDefaultFaces>();
                 for(int i = 0; i < 6; i++)
                 {
-                    _diceFaces[i].SetIcon(ww.faces[i].Get<TagSprite>().sprite);
+                    if(ww.faces[i].Get<TagSprite>() != null)
+                        _diceFaces[i].SetIcon(ww.faces[i].Get<TagSprite>().sprite);
                     _diceFaces[i].SetText(ww.faces[i].Get<TagAction>().value.ToString());
                     i++;
                 }
