@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using _game.rnk.Scripts.battleSystem;
+using DG.Tweening;
 using UnityEngine;
 
 namespace _game.Inventory
@@ -10,8 +11,27 @@ namespace _game.Inventory
         [SerializeField] private CanvasGroup _canvasGroup;
         private RectTransform _rectTransform;
         private Vector2 _originalAnchoredPosition;
+        private CharacterState _state;
+        private bool _shown;
         public InventoryItemView GetItemPrefab() => _item;
         public Transform GetItemsParent() => _itemHolderTransform;
+
+        public void SetState(CharacterState state)
+        {
+            var similarClick = state == _state;
+            _state = state;
+            if (similarClick)
+            {
+                _shown = false;
+                SetState(false);
+            }
+            else if(!_shown)
+            {
+                _shown = true;
+                SetState(true);
+            }
+        }
+        
         public void SetState(bool state)
         {
             if (state)

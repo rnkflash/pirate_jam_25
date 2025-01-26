@@ -125,6 +125,7 @@ namespace _game
         public void SetState(CharacterState state)
         {
             infoView.SetState(state);
+            iventoryView.SetState(state);
         }
     }
 }
