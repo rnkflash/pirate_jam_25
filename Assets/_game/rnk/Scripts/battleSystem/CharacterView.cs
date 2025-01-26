@@ -11,17 +11,17 @@ namespace _game.rnk.Scripts.battleSystem
     {
         public Image avatarImage;
         public TMP_Text nameText;
-        public TMP_Text healthText;
+        public TextMeshProUGUI healthText;
         public DiceZone diceZone;
         public Damageable damageable;
-        
+
         [NonSerialized] public CharacterState state;
         
         public void SetState(CharacterState characterState)
         {
             state = characterState;
             avatarImage.sprite = state.bodyState.model.Get<TagSprite>().sprite;
-            nameText.text = state.weaponState.model.Get<TagName>().loc;
+            //nameText.text = state.weaponState.model.Get<TagName>().loc;
             healthText.text = state.health + "/" + state.maxHealth + " +" + state.armor;
 
             foreach (var diceState in state.diceStates)
@@ -29,7 +29,7 @@ namespace _game.rnk.Scripts.battleSystem
                 CreateDiceObject(diceState);
             }
 
-            nameText.color = state.weaponState.model.Get<TagTint>().color;
+            //nameText.color = state.weaponState.model.Get<TagTint>().color;
             
             damageable.SetState(state);
             healthText.color = state.weaponState.model.Get<TagTint>().color;
@@ -62,6 +62,7 @@ namespace _game.rnk.Scripts.battleSystem
         public void OnPointerClick(PointerEventData eventData)
         {
             G.main.CharacterClicked(state);
+            G.hud.EnableInfoWindow(state);
         }
     }
 }

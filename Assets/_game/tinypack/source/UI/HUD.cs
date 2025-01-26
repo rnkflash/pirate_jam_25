@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using _game;
 using _game.rnk.Scripts.battleSystem;
 using _game.tinypack.source.UI;
 using DG.Tweening;
@@ -20,6 +21,8 @@ public class HUD : MonoBehaviour
     public SpriteVFX meleeHit;
     public SpriteVFX armorHit;
     public SpriteVFX healHit;
+
+    public TimurHUD timurHUD;
     
     void Awake()
     {
@@ -116,5 +119,10 @@ public class HUD : MonoBehaviour
     public void PunchRollButton()
     {
         G.ui.Punch(RollButton.transform);
+    }
+
+    public void EnableInfoWindow(CharacterState state)
+    {
+        timurHUD.SetState(state);
     }
 }
