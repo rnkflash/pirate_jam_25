@@ -142,6 +142,7 @@ public class CMSEntity
     }
 }
 
+[Serializable]
 public class EntityComponentDefinition
 {
 }
