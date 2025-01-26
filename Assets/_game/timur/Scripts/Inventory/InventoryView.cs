@@ -16,20 +16,31 @@ namespace _game.Inventory
         public InventoryItemView GetItemPrefab() => _item;
         public Transform GetItemsParent() => _itemHolderTransform;
 
-        public void SetState(CharacterState state)
+        public void SetState(CharacterState state, GameObject bg)
         {
             var similarClick = state == _state;
             _state = state;
-            if (similarClick)
+            if (similarClick && _shown)
             {
                 _shown = false;
                 SetState(false);
+                bg.SetActive(false);
+                foreach (Transform child in _itemHolderTransform)
+                {
+                    Destroy(child.gameObject);
+                }
             }
             else if(!_shown)
             {
                 _shown = true;
                 SetState(true);
+                bg.SetActive(true);
+                for (int i = 0; i < G.run.inventory.Count; i++)
+                {
+                    Instantiate(_item, _itemHolderTransform);
+                }
             }
+
         }
         
         public void SetState(bool state)

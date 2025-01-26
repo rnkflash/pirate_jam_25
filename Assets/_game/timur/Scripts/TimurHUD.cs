@@ -25,6 +25,8 @@ namespace _game
         private InfoPresenter _infoPresenter;
         private InventoryPresenter _inventoryPresenter;
 
+        [SerializeField] private GameObject _bg;
+
         private void Awake()
         {
             // List<WeaponModel> testHeroes = new();
@@ -125,7 +127,7 @@ namespace _game
         public void SetState(CharacterState state)
         {
             infoView.SetState(state);
-            iventoryView.SetState(state);
+            iventoryView.SetState(state, _bg);
         }
     }
 }

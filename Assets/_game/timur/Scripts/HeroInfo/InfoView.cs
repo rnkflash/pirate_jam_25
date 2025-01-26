@@ -130,6 +130,7 @@ namespace _game.HeroInfo
 
                 _canvasGroup.interactable = true;
                 _canvasGroup.alpha = 1f;
+                _canvasGroup.blocksRaycasts = true;
 
                 _rectTransform.DOAnchorPosY(_originalAnchoredPosition.y, 0.2f)
                     .SetEase(Ease.OutBack)
@@ -158,12 +159,12 @@ namespace _game.HeroInfo
 
                 sequence.OnStart(() =>
                     {
-                        Debug.Log("Tween started (state false)");
                     })
                     .OnComplete(() =>
                     {
                         _canvasGroup.interactable = false;
                         _canvasGroup.alpha = 0f;
+                        _canvasGroup.blocksRaycasts = false;
                         _rectTransform.anchoredPosition = _originalAnchoredPosition;
                     });
             }
