@@ -1,42 +1,36 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace _game.HeroInfo
 {
-    public class DiceFaceView : MonoBehaviour, IDiceFaceView
+    public class DiceFaceView : MonoBehaviour
     {
         [SerializeField] private Image _image;
         [SerializeField] private Image _colorImage;
+        [SerializeField] private TextMeshProUGUI _text;
+        [SerializeField] private Image _iconImage;
 
         public void SetSelected(bool state)
         {
             if (state)
             {
-                Debug.Log("timur NOT RELEASE");
                 _image.color = Color.white;   
             }
             else
             {
-                Debug.Log("timur RELEASE");
                 _image.color = new Color32(0x65, 0x68, 0x97, 0xFF);
             }
         }
 
-        public void SetImage(Sprite image)
+        public void SetIcon(Sprite image)
         {
-            _image.sprite = image;
+            _iconImage.sprite = image;
         }
 
-        public void SetColor(Color color)
+        public void SetText(string text)
         {
-            _colorImage.color = color;
+            _text.text = text;
         }
-    }
-
-    public interface IDiceFaceView
-    {
-        void SetSelected(bool state);
-        void SetImage(Sprite image);
-        void SetColor(Color color);
     }
 }

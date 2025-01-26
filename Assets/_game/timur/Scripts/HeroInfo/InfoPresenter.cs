@@ -36,12 +36,12 @@ namespace _game.HeroInfo
                 _view.SetDiceFacesView(weaponModel.diceFaces);
                 foreach (var dicePresenter in _diceFacePresenters)
                 {
-                    dicePresenter.Release();
+                    //dicePresenter.Release();
                 }
                 _diceFacePresenters.Clear();
                 for(int i = 0; i < weaponModel.diceFaces.Count; i++)
                 {
-                    _diceFacePresenters.Add(new DiceFacePresenter(_view.GetDiceFaces()[i],weaponModel.diceFaces[i]));
+                    //_diceFacePresenters.Add(new DiceFacePresenter(_view.GetDiceFaces()[i],weaponModel.diceFaces[i]));
                 }
 
                 _state = true;
@@ -52,7 +52,7 @@ namespace _game.HeroInfo
             {
                 foreach (var dicePresenter in _diceFacePresenters)
                 {
-                    dicePresenter.Release();
+                    //dicePresenter.Release();
                 }
                 _diceFacePresenters.Clear();
                 _heroHealthPresenter = null;

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using _game.Inventory;
+using _game.rnk.Scripts.battleSystem;
+using _game.rnk.Scripts.tags;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -29,9 +31,16 @@ namespace _game.HeroInfo
 
         [Header("Inventory")] 
         [SerializeField] private InventoryView _view;
+
+        [SerializeField] private TextMeshProUGUI _healtText;
+        [SerializeField] private TextMeshProUGUI _nameText;
+        [SerializeField] private Image _heroIcon;
+        [SerializeField] private TextMeshProUGUI _loreText;
         
         private Vector2 _originalAnchoredPosition;
         private RectTransform _rectTransform;
+        private bool _show;
+        private CharacterState _state;
 
         private void Awake()
         {
@@ -39,6 +48,48 @@ namespace _game.HeroInfo
             _originalAnchoredPosition = _rectTransform.anchoredPosition;
         }
         
+        public void SetState(CharacterState state)
+        {
+            var similarClick = state == _state;
+            _state = state;
+            if (!similarClick)
+            {
+                ResetDiceIcons();
+                _show = false;
+            }
+            _show = !_show;
+            if (similarClick && !_show)
+            {
+                ResetDiceIcons();
+            }
+            SetShowState(_show);
+            _healtText.text = state.health + "/" + state.maxHealth + " +" + state.armor;
+            _healtText.color = state.weaponState.model.Get<TagTint>().color;
+            _nameText.text = state.weaponState.model.Get<TagName>().loc;
+            _loreText.text = state.weaponState.model.Get<TagDescription>().loc;
+            _heroIcon.sprite = state.bodyState.model.Get<TagSprite>().sprite;
+            var q = state.diceStates;
+            foreach (var qq in q)
+            {
+                var ww = qq.model.Get<TagDefaultFaces>();
+                for(int i = 0; i < 6; i++)
+                {
+                    _diceFaces[i].SetIcon(ww.faces[i].Get<TagSprite>().sprite);
+                    _diceFaces[i].SetText(ww.faces[i].Get<TagAction>().value.ToString());
+                    i++;
+                }
+            }
+        }
+
+        private void ResetDiceIcons()
+        {
+            foreach (var diceFaceView in _diceFaces)
+            {
+                diceFaceView.SetIcon(null);
+                diceFaceView.SetText("");
+            }
+        }
+
         public void SetWeaponName(string name)
         {
             _weaponNameText.text = name;
@@ -53,8 +104,8 @@ namespace _game.HeroInfo
         {
             for (int i = 0; i < diceFaces.Count; i++)
             {
-                _diceFaces[i].SetImage(diceFaces[i].sprite);
-                _diceFaces[i].SetColor(diceFaces[i].colorValue);
+                // _diceFaces[i].SetImage(diceFaces[i].sprite);
+                // _diceFaces[i].SetColor(diceFaces[i].colorValue);
             }
         }
 
@@ -125,6 +176,34 @@ namespace _game.HeroInfo
         public void OnInventoryButtonClicked()
         {
             OnInventoryClicked?.Invoke();
+        }
+        
+        [SerializeField] private Image _left;
+        [SerializeField] private Image _right;
+        [SerializeField] private CanvasGroup _leftCanvasGroup;
+        [SerializeField] private CanvasGroup _rightCanvasGroup;
+        public void OnClickLeft()
+        {
+            _leftCanvasGroup.alpha = 1;
+            _leftCanvasGroup.interactable = true;
+            _leftCanvasGroup.blocksRaycasts = true;
+            _rightCanvasGroup.alpha = 0;
+            _rightCanvasGroup.interactable = false;
+            _rightCanvasGroup.blocksRaycasts = false;
+            _left.gameObject.SetActive(true);
+            _right.gameObject.SetActive(false);
+        }
+
+        public void OnClickRight()
+        {
+            _rightCanvasGroup.alpha = 1;
+            _rightCanvasGroup.interactable = true;
+            _rightCanvasGroup.blocksRaycasts = true;
+            _leftCanvasGroup.alpha = 0;
+            _leftCanvasGroup.interactable = false;
+            _leftCanvasGroup.blocksRaycasts = false;
+            _left.gameObject.SetActive(false);
+            _right.gameObject.SetActive(true);
         }
     }
 

@@ -34,7 +34,7 @@ namespace _game.rnk.Scripts.battleSystem
         
         void Awake()
         {
-            characterViewPrefab = "prefab/CharacterView".Load<CharacterView>();
+            characterViewPrefab = "prefab/TimurCharacterView".Load<CharacterView>();
             enemyViewPrefab = "prefab/EnemyView".Load<EnemyView>();
             
             interactor = new Interactor();
