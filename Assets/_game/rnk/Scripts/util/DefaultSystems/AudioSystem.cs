@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _game.rnk.Scripts;
 using _game.rnk.Scripts.battleSystem;
 using Common;
 using UnityEngine;

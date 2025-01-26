@@ -169,7 +169,7 @@ public class AdvancedGridMovement : MonoBehaviour
         Ray downRay = new Ray(newPosition, -Vector3.up);
 
         // Cast a ray straight downwards.
-        if (Physics.Raycast(downRay, out hit))
+        if (Physics.Raycast(downRay, out hit) && !hit.collider.CompareTag("Player") && !hit.collider.CompareTag("Enemy"))
         {
             newPosition.y = (maximumStepHeight - hit.distance) + currentHeadBobValue;
         }

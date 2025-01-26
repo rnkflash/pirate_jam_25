@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using _game.Inventory;
+using _game.rnk.Scripts;
 using _game.rnk.Scripts.battleSystem;
 using _game.rnk.Scripts.tags;
 using DG.Tweening;

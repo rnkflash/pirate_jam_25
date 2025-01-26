@@ -1,3 +1,4 @@
+using _game.rnk.Scripts;
 using _game.rnk.Scripts.battleSystem;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -34,7 +35,7 @@ public class DraggableSmoothDamp : MonoBehaviour, IDragHandler, IBeginDragHandle
         if (interactiveObject && interactiveObject.zone && !interactiveObject.zone.canDrag)
             return;
         interactiveObject.OnPointerExit(null);
-        G.main.StartDrag(this);
+        G.battle.StartDrag(this);
         
         isDragging = true;
         
@@ -45,7 +46,7 @@ public class DraggableSmoothDamp : MonoBehaviour, IDragHandler, IBeginDragHandle
         transform.SetParent(parentAfterDrag);
         parentAfterDrag = null;
         
-        G.main.StopDrag();
+        G.battle.StopDrag();
         
         isDragging = false; 
         moveable.targetPosition = origin;

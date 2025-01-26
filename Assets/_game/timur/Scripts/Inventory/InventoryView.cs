@@ -1,4 +1,5 @@
-﻿using _game.rnk.Scripts.battleSystem;
+﻿using _game.rnk.Scripts;
+using _game.rnk.Scripts.battleSystem;
 using DG.Tweening;
 using UnityEngine;
 

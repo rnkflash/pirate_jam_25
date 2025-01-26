@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using _game.rnk.Scripts;
 using _game.rnk.Scripts.battleSystem;
 using UnityEngine;
 using Newtonsoft.Json;

@@ -40,7 +40,7 @@ namespace _game.rnk.Scripts.battleSystem
         
         void OnDiceClick(DiceInteractiveObject dice)
         {
-            G.main.OnDiceClickInEnemyView(this, dice);
+            G.battle.OnDiceClickInEnemyView(this, dice);
         }
 
         public DiceInteractiveObject CreateDiceObject(DiceState diceState)
@@ -54,7 +54,7 @@ namespace _game.rnk.Scripts.battleSystem
         }
         public void OnPointerClick(PointerEventData eventData)
         {
-            G.main.EnemyClicked(state);
+            G.battle.EnemyClicked(state);
         }
     }
 }

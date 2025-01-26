@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using _game.HeroInfo;
 using _game.Inventory;
+using _game.rnk.Scripts;
 using _game.rnk.Scripts.battleSystem;
 using _game.Utils;
 using DG.Tweening;

@@ -22,7 +22,7 @@ namespace _game.rnk.Scripts.battleSystem
             yield return G.main.SmartWait(5f);
             */
             yield return G.ui.Unsay();
-            G.main.ShowHud();
+            G.battle.ShowHud();
 
             G.run.characters.Add(CreateCharacter(
                 new AnimeTyan(),

@@ -18,7 +18,7 @@ namespace _game.rnk.Scripts.battleSystem
         {
             G.audio.Play<SFX_Win>();
             yield return G.ui.Say("Suddenly another two kolbaser appear...");
-            yield return G.main.SmartWait(5f);
+            yield return G.battle.SmartWait(5f);
             
             yield return G.ui.Unsay();
             

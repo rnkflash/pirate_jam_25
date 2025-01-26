@@ -8,7 +8,7 @@ namespace _game.rnk.Scripts.interactor
     {
         public IEnumerator OnReroll()
         {
-            foreach (var dice in G.main.rollDicesZone.objects)
+            foreach (var dice in G.battle.rollDicesZone.objects)
             {
                 dice.Roll();
             }
