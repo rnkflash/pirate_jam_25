@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65e6a0c61e34b90972e6439852b468f, type: 3}
+  m_Name: Attack
+  m_EditorClassIdentifier: 
+  components:
+  - rid: 1971844943657566304
+  - rid: 1971844943657566312
+  references:
+    version: 2
+    RefIds:
+    - rid: 1971844943657566304
+      type: {class: TagAction, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        action: 0
+        row: 0
+        side: 0
+        area: 0
+        value: 0
+    - rid: 1971844943657566312
+      type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        sprite: {fileID: -8950403893208083806, guid: c10bf228ce1640f48a5b47a6678b737a, type: 3}

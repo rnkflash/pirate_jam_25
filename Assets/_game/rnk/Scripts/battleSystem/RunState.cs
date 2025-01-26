@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using _game.rnk.Scripts.artefacts;
 using _game.rnk.Scripts.body;
 using _game.rnk.Scripts.dice;
@@ -72,7 +73,7 @@ namespace _game.rnk.Scripts.battleSystem
         public DiceBase model;
         public List<ArtefactState> artefacts = new List<ArtefactState>();
 
-        public FaceBase face => model.Get<TagDefaultFaces>().faces[rollValue] ?? new BlankFace();
+        public FaceBase face => model.Get<TagDefaultFaces>().faces.ElementAtOrDefault(rollValue) ?? new BlankFace();
     }
 
     public class ArtefactState

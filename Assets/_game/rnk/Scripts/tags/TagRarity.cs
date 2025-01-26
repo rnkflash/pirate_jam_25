@@ -6,4 +6,5 @@ namespace _game.rnk.Scripts.tags
     {
         public DiceRarity rarity;
     }
+
 }
