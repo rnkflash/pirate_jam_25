@@ -142,7 +142,7 @@ MonoBehaviour:
     m_Value: 1
   height:
     m_OverrideState: 1
-    m_Value: 101
+    m_Value: 213
   mask:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -266,10 +266,10 @@ MonoBehaviour:
     m_Value: 1
   pixelSize:
     m_OverrideState: 1
-    m_Value: 258
+    m_Value: 256
   opacity:
     m_OverrideState: 1
-    m_Value: 0.77
+    m_Value: 0.778
   dither:
     m_OverrideState: 0
     m_Value: 1
