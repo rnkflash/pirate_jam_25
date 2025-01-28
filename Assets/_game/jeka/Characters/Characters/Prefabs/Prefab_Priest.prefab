@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7631393739227373464}
   - component: {fileID: 6927958531036236565}
   - component: {fileID: 6128473099482617270}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Priest_Pose_Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 3393721080010798879}
   - component: {fileID: 4122211279782071185}
   - component: {fileID: 7218930477058046992}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Frame (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 5850736706925213339}
   - component: {fileID: 2723943566424825611}
   - component: {fileID: 497986042150745218}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Priest_Pose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 7484666652423097350}
   - component: {fileID: 2387506178893158384}
   - component: {fileID: 5418243310091421385}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Priest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 670455175544105922}
   - component: {fileID: 2548951630040121498}
   - component: {fileID: 5539845550893494408}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,7 +557,7 @@ GameObject:
   - component: {fileID: 9139776548874773511}
   - component: {fileID: 5629223470859296506}
   - component: {fileID: 4278145708741512683}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Priest (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,7 +663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5038884793189867043}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Prefab_Priest
   m_TagString: Untagged
   m_Icon: {fileID: 0}

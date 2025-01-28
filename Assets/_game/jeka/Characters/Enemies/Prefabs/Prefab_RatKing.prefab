@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1927109588995546782}
   - component: {fileID: 7768727516554879437}
   - component: {fileID: 7234679060274216122}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RatKing_Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 4597641755505096980}
   - component: {fileID: 5460226338637204690}
   - component: {fileID: 2622321930981878950}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RatKing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8194518212927737910}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Prefab_RatKing
   m_TagString: Untagged
   m_Icon: {fileID: 0}

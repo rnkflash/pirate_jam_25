@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 463800530747444580}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Prefab_GoblinScout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 5596601214587583272}
   - component: {fileID: 46466800957951651}
   - component: {fileID: 4158509369721837656}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GoblinScout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 2646280536010261898}
   - component: {fileID: 2332852821703125690}
   - component: {fileID: 7595030762311282895}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GoblinScout_Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

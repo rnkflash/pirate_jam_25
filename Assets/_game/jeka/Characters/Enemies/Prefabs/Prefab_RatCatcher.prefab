@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7313733309845334885}
   - component: {fileID: 8317802481354742592}
   - component: {fileID: 2065094337134493288}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RatCatcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 8275627851961483558}
   - component: {fileID: 3555997299455722440}
   - component: {fileID: 2728816309452321045}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RatCatcherShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5628100568770568329}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Prefab_RatCatcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}

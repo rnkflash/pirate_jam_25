@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5153693586205663267}
   - component: {fileID: 6663062278244148661}
   - component: {fileID: 1741484992605809153}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pose_Sorcerer_Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6691655671134721345}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Prefab_Sorcerer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 6130547809050689225}
   - component: {fileID: 6153561434461661178}
   - component: {fileID: 8783937621376736505}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pose_Sorcerer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

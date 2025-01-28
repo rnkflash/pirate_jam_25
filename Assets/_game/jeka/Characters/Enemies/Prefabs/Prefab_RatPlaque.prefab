@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6144058631352069290}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Prefab_RatPlaque
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 6292908732191375328}
   - component: {fileID: 2068975130595372548}
   - component: {fileID: 3232633996014400121}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plaque Rat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 1831064261542525054}
   - component: {fileID: 6998884246781544972}
   - component: {fileID: 6430459474539062211}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plaque Rat Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

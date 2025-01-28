@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8560968183229206084}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Prefab_Monke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8241895899561945486}
   - component: {fileID: 6167618563364164643}
   - component: {fileID: 1239490217748920696}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Monke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 2450934771213581323}
   - component: {fileID: 37758790668362233}
   - component: {fileID: 3536603530347564769}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Monk_Pose_Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 9009916143994037268}
   - component: {fileID: 7087941836910321554}
   - component: {fileID: 2424411073086361570}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Monk_Pose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 4928276503596399309}
   - component: {fileID: 5595287388768828893}
   - component: {fileID: 4991578605363117628}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}

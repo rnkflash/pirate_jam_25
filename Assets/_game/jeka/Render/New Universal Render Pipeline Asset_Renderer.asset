@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Name: LowRes_RLPRO
   m_EditorClassIdentifier: 
   m_Active: 1
-  Event: 550
+  Event: 500
 --- !u!114 &5817208072468906487
 MonoBehaviour:
   m_ObjectHideFlags: 0

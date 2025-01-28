@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7548890928460638831}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Prefab_Rat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 9109825811713545109}
   - component: {fileID: 50017126051164778}
   - component: {fileID: 4382981112741708909}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 5077905722115529011}
   - component: {fileID: 2366885701505156737}
   - component: {fileID: 5950564132578589421}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RatShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

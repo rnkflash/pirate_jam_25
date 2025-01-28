@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8798633196063603563}
   - component: {fileID: 6504101234372123036}
   - component: {fileID: 7738626519867555381}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GoblinMaradeur_Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6970797334078395756}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Prefab_GoblinMaradeur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 7952277559599009473}
   - component: {fileID: 830126312052725161}
   - component: {fileID: 259748827077149978}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GoblinMaradeur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
