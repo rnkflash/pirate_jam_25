@@ -6,7 +6,6 @@
         public TargetRow row = TargetRow.Front;
         public TargetSide side = TargetSide.Enemy;
         public TargetArea area = TargetArea.Single;
-        public int value;
     }
 
     public enum TargetSide

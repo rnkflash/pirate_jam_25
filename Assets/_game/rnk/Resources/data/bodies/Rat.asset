@@ -9,30 +9,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d65e6a0c61e34b90972e6439852b468f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e6bc35e05b44328a9c25be1f816b939, type: 3}
   m_Name: Rat
   m_EditorClassIdentifier: 
   components:
-  - rid: 1971844943657566316
-  - rid: 1971844943657566318
-  - rid: 1971844943657566320
-  - rid: 1971844943657566324
+  - rid: 1971845007490678957
+  - rid: 1971845007490678959
+  - rid: 1971845007490678961
+  - rid: 1971845007490678974
+  dices:
+  - {fileID: 11400000, guid: 4189fb1f182db78498f90faba2fb8dd6, type: 2}
   references:
     version: 2
     RefIds:
-    - rid: 1971844943657566316
+    - rid: 1971845007490678957
       type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
         loc: Rat
-    - rid: 1971844943657566318
-      type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
-      data:
-        sprite: {fileID: 98097735463921351, guid: 864e1afefaaae014783eb7059ca27fda, type: 3}
-    - rid: 1971844943657566320
+    - rid: 1971845007490678959
       type: {class: TagHealth, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
         health: 3
-    - rid: 1971844943657566324
-      type: {class: TagPrefab, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+    - rid: 1971845007490678961
+      type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        prefab: {fileID: 1991811275995945022, guid: f324681a9af9d8d488ea8e2cd6d9c7be, type: 3}
+        sprite: {fileID: 8658643342992796561, guid: a35f554264ed0bb40ac7c60e817fc95f, type: 3}
+    - rid: 1971845007490678974
+      type: {class: TagTint, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        color: {r: 1, g: 1, b: 1, a: 1}

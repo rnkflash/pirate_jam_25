@@ -77,7 +77,7 @@ namespace _game.HeroInfo
                 {
                     if(ww.faces[i].Get<TagSprite>() != null)
                         _diceFaces[i].SetIcon(ww.faces[i].Get<TagSprite>().sprite);
-                    _diceFaces[i].SetText(ww.faces[i].Get<TagAction>().value.ToString());
+                    _diceFaces[i].SetText(ww.faces[i].Get<TagValue>().value.ToString());
                 }
             }
         }
