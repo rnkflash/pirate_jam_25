@@ -56,6 +56,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   Event: 550
+--- !u!114 &-6604751307311020047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62c9c65cf3354c93be831c8bc075510, type: 3}
+  m_Name: ScreenSpaceAmbientOcclusion
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  m_Settings:
+    AOMethod: 0
+    Downsample: 0
+    AfterOpaque: 0
+    Source: 1
+    NormalSamples: 1
+    Intensity: 9.92
+    DirectLightingStrength: 0.445
+    Radius: 0.25
+    Samples: 1
+    BlurQuality: 0
+    Falloff: 100
+    SampleCount: -1
+  m_BlueNoise256Textures:
+  - {fileID: 2800000, guid: 36f118343fc974119bee3d09e2111500, type: 3}
+  - {fileID: 2800000, guid: 4b7b083e6b6734e8bb2838b0b50a0bc8, type: 3}
+  - {fileID: 2800000, guid: c06cc21c692f94f5fb5206247191eeee, type: 3}
+  - {fileID: 2800000, guid: cb76dd40fa7654f9587f6a344f125c9a, type: 3}
+  - {fileID: 2800000, guid: e32226222ff144b24bf3a5a451de54bc, type: 3}
+  - {fileID: 2800000, guid: 3302065f671a8450b82c9ddf07426f3a, type: 3}
+  - {fileID: 2800000, guid: 56a77a3e8d64f47b6afe9e3c95cb57d5, type: 3}
+  m_Shader: {fileID: 4800000, guid: 0849e84e3d62649e8882e9d6f056a017, type: 3}
 --- !u!114 &-5451394286497483606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +297,8 @@ MonoBehaviour:
   - {fileID: -3253095165781316979}
   - {fileID: -8664725538441440775}
   - {fileID: -6850736649556574738}
-  m_RendererFeatureMap: fcdb29f0222d58e7d7c93c53fda388ca4c6dd8e1bc0e1058aa64f1b4a3a318874cdd59511bd9067d14fc40f16f518eee6ec457e9ca1111762fa0d8cd1a9fcd46a048e2c088807ffa22f4d2bd1d353f49aa34b976c7c158b461e8ff5091f4851877e28540cfd7d4f56513e7a3640404fc298529271d1b512a272c9c417af716a0bfb1dfe84fd0b048d9ac1f93f9e945bdb000bce2a9a9a60ff7410bc8ebdfba5043ac48bf6ff9f667a2d98f9d5dbf544a9cad2858658994f0f9f3e71a2e64fcef8d6a10af2eafdad2f951f1cc07b6c087ee3d6e61504beda0
+  - {fileID: -6604751307311020047}
+  m_RendererFeatureMap: fcdb29f0222d58e7d7c93c53fda388ca4c6dd8e1bc0e1058aa64f1b4a3a318874cdd59511bd9067d14fc40f16f518eee6ec457e9ca1111762fa0d8cd1a9fcd46a048e2c088807ffa22f4d2bd1d353f49aa34b976c7c158b461e8ff5091f4851877e28540cfd7d4f56513e7a3640404fc298529271d1b512a272c9c417af716a0bfb1dfe84fd0b048d9ac1f93f9e945bdb000bce2a9a9a60ff7410bc8ebdfba5043ac48bf6ff9f667a2d98f9d5dbf544a9cad2858658994f0f9f3e71a2e64fcef8d6a10af2eafdad2f951f1cc07b6c087ee3d6e61504beda0f107eef1ad3557a4
   m_UseNativeRenderPass: 0
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
