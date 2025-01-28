@@ -53,8 +53,6 @@ namespace _game.rnk.Scripts
             {
                 yield return exs.toExecute();
             }
-
-            G.hud.EnableBattleHUD();
         }
 
         void Update()
@@ -102,9 +100,9 @@ namespace _game.rnk.Scripts
                     }
                     
                     reRolls = 2;
-                    G.hud.RollButtonText.text = "Reroll x " + reRolls;
-                    G.hud.EndTurnButtonText.text = "Next phase";
-                    G.hud.DisableHud();
+                    G.hud.battlehud.RollButtonText.text = "Reroll x " + reRolls;
+                    G.hud.battlehud.EndTurnButtonText.text = "Next phase";
+                    G.hud.battlehud.DisableHud();
                     SetTurnPhase(TurnPhase.ENEMY_ROLL);
                     break;
                 
@@ -117,7 +115,7 @@ namespace _game.rnk.Scripts
                     break;
 
                 case TurnPhase.RE_ROLL:
-                    G.hud.EnableHud();
+                    G.hud.battlehud.EnableHud();
                     break;
                 
                 case TurnPhase.ENEMY_TARGETING:
@@ -158,7 +156,7 @@ namespace _game.rnk.Scripts
         IEnumerator WinSequence()
         {
             
-            G.hud.DisableHud();
+            G.hud.battlehud.DisableHud();
 
             isWin = true;
 
@@ -207,7 +205,7 @@ namespace _game.rnk.Scripts
         
         IEnumerator EnemyPickTargets()
         {
-            G.hud.DisableHud();
+            G.hud.battlehud.DisableHud();
             var enemyDices = GetEnemyDices();
 
             yield return new WaitForSeconds(1.0f);
@@ -339,7 +337,7 @@ namespace _game.rnk.Scripts
         
         IEnumerator StartExecutePhase()
         {
-            G.hud.DisableHud();
+            G.hud.battlehud.DisableHud();
             
             foreach (var dice in GetPlayerDices())
             {
@@ -427,12 +425,12 @@ namespace _game.rnk.Scripts
 
         IEnumerator StartPlayDicesPhase()
         {
-            G.hud.EndTurnButtonText.text = "Execute";
-            G.hud.DisableHud();
+            G.hud.battlehud.EndTurnButtonText.text = "Execute";
+            G.hud.battlehud.DisableHud();
 
             yield return ReturnAllDices();
 
-            G.hud.Enable(G.hud.EndTurnButton);
+            G.hud.battlehud.EnableHud();
         }
 
         List<DiceInteractiveObject> GetPlayerDices()
@@ -461,9 +459,9 @@ namespace _game.rnk.Scripts
         IEnumerator ReRollWithCheck()
         {
             reRolls--;
-            G.hud.RollButtonText.text = "Reroll x " + reRolls;
+            G.hud.battlehud.RollButtonText.text = "Reroll x " + reRolls;
             if (reRolls <= 0)
-                G.hud.Disable(G.hud.RollButton);
+                G.hud.battlehud.DisableRerollButton();
             
             yield return RollDices(GetDicesOnRollZOne());
 
@@ -621,7 +619,7 @@ namespace _game.rnk.Scripts
             if (selectingTargetForDice != null || dice.state.face.Get<TagAction>().action == ActionType.Blank)
                 yield break;
             
-            G.hud.DisableHud();
+            G.hud.battlehud.DisableHud();
             
             selectingTargetForDice = dice;
             
@@ -655,7 +653,7 @@ namespace _game.rnk.Scripts
 
             yield return ThrowDices(new List<DiceInteractiveObject>() {dice});
             
-            G.hud.EnableHud();
+            G.hud.battlehud.EnableHud();
             
             selectingTargetForDice = null;
         }

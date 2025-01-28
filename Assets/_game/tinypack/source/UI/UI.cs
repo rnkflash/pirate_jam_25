@@ -38,7 +38,8 @@ public class UI : MonoBehaviour
 
     void Reset()
     {
-        
+        say_text.text = "";
+        say_text_shadow.text = "";
     }
 
     void Update()

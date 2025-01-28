@@ -24,10 +24,7 @@ namespace _game.rnk.Scripts.battleSystem
             //nameText.text = state.weaponState.model.Get<TagName>().loc;
             healthText.text = state.health + "/" + state.maxHealth + " +" + state.armor;
 
-            foreach (var diceState in state.diceStates)
-            {
-                CreateDiceObject(diceState);
-            }
+            
 
             //nameText.color = state.weaponState.model.Get<TagTint>().color;
             
@@ -38,6 +35,14 @@ namespace _game.rnk.Scripts.battleSystem
 
             characterState.diceZone = diceZone;
             characterState.view = this;
+        }
+
+        public void EnableBattleHUD()
+        {
+            foreach (var diceState in state.diceStates)
+            {
+                CreateDiceObject(diceState);
+            }
         }
 
         void OnDestroy()
