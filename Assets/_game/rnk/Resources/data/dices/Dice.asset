@@ -15,6 +15,7 @@ MonoBehaviour:
   components:
   - rid: 1971845007490678953
   - rid: 1971845007490678982
+  - rid: 1971845032096563288
   faces:
   - face: {fileID: 11400000, guid: a16e3ded43647b24cafe068b5a82242e, type: 2}
     value: 1
@@ -33,3 +34,7 @@ MonoBehaviour:
       type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
         loc: yeah whatever
+    - rid: 1971845032096563288
+      type: {class: TagSides, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        sides: 6

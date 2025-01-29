@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using _game.rnk.Scripts.crawler;
 using _game.rnk.Scripts.tags;
 using DG.Tweening;
@@ -18,6 +19,8 @@ namespace _game.rnk.Scripts.battleSystem
 
         [NonSerialized] public EnemyState state;
 
+        List<DiceInteractiveObject> dices;
+
         void Awake()
         {
             followTarget = GetComponent<AlwaysFollowWorldSpaceObject>();
@@ -33,36 +36,58 @@ namespace _game.rnk.Scripts.battleSystem
             state = enemyState;
             nameText.text = state.bodyState.model.Get<TagName>().loc;
 
+            dices = new List<DiceInteractiveObject>();
             foreach (var diceState in state.diceStates)
             {
-                CreateDiceObject(diceState);
+                dices.Add(CreateDiceObject(diceState));
             }
             damageable.SetState(state);
 
             diceZone.OnClickDice += OnDiceClick;
             diceZone.canDrag = false;
 
-            enemyState.diceZone = diceZone;
-            enemyState.view = this;
+            state.diceZone = diceZone;
+            state.view = this;
         }
+        
+        public void FreeState()
+        {
+            followTarget.followTarget = null;
+            followTarget.enabled = false;
+
+            state.diceStates.Clear();
+            foreach (var dice in dices)
+            {
+                dice.FreeState();
+                Destroy(dice.gameObject);
+            }
+            dices.Clear();
+
+            state.diceZone = null;
+            state.view = null;
+            state = null;
+            damageable.SetState(null);
+        }
+        
         void OnDestroy()
         {
             diceZone.OnClickDice -= OnDiceClick;
         }
-        
+
         void OnDiceClick(DiceInteractiveObject dice)
         {
             G.battle.OnDiceClickInEnemyView(this, dice);
         }
 
-        void CreateDiceObject(DiceState diceState)
+        DiceInteractiveObject CreateDiceObject(DiceState diceState)
         {
             var instance = Instantiate(G.hud.battle.dicePrefab, diceZone.transform);
             instance.SetState(diceState);
-            instance.transform.localScale = Vector3.one * 0.25f;
+            /*instance.transform.localScale = Vector3.one * 0.25f;
+            instance.transform.DOScale(1.0f, 0.15f);*/
             instance.moveable.targetPosition = instance.transform.position = diceZone.transform.position;
-            instance.transform.DOScale(1.0f, 0.15f);
             diceZone.Claim(instance);
+            return instance;
         }
         public void OnPointerClick(PointerEventData eventData)
         {

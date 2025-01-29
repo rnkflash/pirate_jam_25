@@ -17,6 +17,7 @@ namespace _game.rnk.Scripts
         public static ScreenFader fader;
         public static RunState run;
         public static bool IsPaused;
+        
         public static DiceInteractiveObject drag_dice;
         public static DiceInteractiveObject hover_dice;
     }

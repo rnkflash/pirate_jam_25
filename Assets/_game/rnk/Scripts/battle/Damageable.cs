@@ -18,7 +18,8 @@ namespace _game.rnk.Scripts.battleSystem
         public void SetState(BaseCharacterState newState)
         {
             state = newState;
-            SetDead(state.dead);
+            if (state != null)
+                SetDead(state.dead);
         }
         
         public void UpdateView()

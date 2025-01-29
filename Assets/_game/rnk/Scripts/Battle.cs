@@ -7,7 +7,6 @@ using _game.rnk.Scripts.crawler;
 using _game.rnk.Scripts.enums;
 using _game.rnk.Scripts.tags;
 using _game.rnk.Scripts.util;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,6 +29,9 @@ namespace _game.rnk.Scripts
 
             interactor = new Interactor();
             interactor.Init();
+            
+            G.ui.debug_text.text = "";
+
         }
         
         void Update()
@@ -42,22 +44,23 @@ namespace _game.rnk.Scripts
                 skip = true;
             }
 
-            G.ui.debug_text.text = "";
-
-            if (Input.GetKeyDown(KeyCode.W) && Input.GetKeyDown(KeyCode.LeftControl))
+            if (Input.GetKey(KeyCode.LeftControl))
             {
-                isWin = true;
-                EndTurn();
-            }
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    StartCoroutine(WinSequence());
+                }
             
-            if (Input.GetKeyDown(KeyCode.L) && Input.GetKeyDown(KeyCode.LeftControl))
-            {
-                StartCoroutine(LoseSequence());
+                if (Input.GetKeyDown(KeyCode.L))
+                {
+                    StartCoroutine(LoseSequence());
+                }    
             }
         }
         
         public void StartBattle(BattleEncounter encounter)
         {
+            isEnabled = true;
             G.run.battle = encounter;
             G.run.enemies.Clear();
             foreach (var enemy in encounter.enemies)
@@ -85,12 +88,24 @@ namespace _game.rnk.Scripts
             
             G.hud.ShowBattleHud();
             G.hud.battle.InitBattle();
-        }        
+            SetTurnPhase(TurnPhase.START_TURN);
+        }
+
+        public void FinishBattle()
+        {
+            G.run.enemies.Clear();
+            
+            isEnabled = false;
+            G.hud.battle.FinishBattle();
+            G.hud.HideBattleHud();
+            
+            G.crawler.OnFinishEncounter();
+            
+            //TODO do other shit rewards and shit
+        }
 
         void SetTurnPhase(TurnPhase newTurnPhase)
         {
-            Debug.Log("SetTurnPhase " + newTurnPhase);
-            
             turnPhase = newTurnPhase;
 
             switch (turnPhase)
@@ -140,30 +155,33 @@ namespace _game.rnk.Scripts
                     break;
 
                 case TurnPhase.CHECK_WIN:
-                    isWin = G.run.enemies.FindAll(state => !state.dead).Count == 0;
-                    if (G.run.characters.All(state => state.dead))
-                        StartCoroutine(LoseSequence());
-                    else
-                        EndTurn();
+                    StartCoroutine(CheckWin());
                     break;
             }
         }
 
-        void EndTurn()
+        IEnumerator CheckWin()
         {
-            if (!isWin)
-            {
-                SetTurnPhase(TurnPhase.START_TURN);
-            }
+            isWin = G.run.enemies.FindAll(state => !state.dead).Count == 0;
+            var allDead = G.run.characters.All(state => state.dead);
+
+            if (allDead)
+                yield return LoseSequence();
             else
             {
-                StartCoroutine(WinSequence());
+                if (!isWin)
+                {
+                    SetTurnPhase(TurnPhase.START_TURN);
+                }
+                else
+                {
+                    yield return WinSequence();
+                }
             }
         }
 
         IEnumerator WinSequence()
         {
-            
             G.hud.battle.DisableHud();
 
             isWin = true;
@@ -174,10 +192,9 @@ namespace _game.rnk.Scripts
 
             G.hud.battle.win.SetActive(false);
                 
-            G.fader.FadeIn();
-
             yield return new WaitForSeconds(1f);
-                
+            
+            FinishBattle();
         }
 
         IEnumerator LoseSequence()
@@ -381,7 +398,7 @@ namespace _game.rnk.Scripts
         {
             if (dice.state.face.Is<TagAction>(out var action))
             {
-                var value = dice.state.face.Get<TagValue>().value;
+                var value = dice.state.face.Get<TagValue>()?.value ?? 0;
                 switch (action.action)
                 {
                     case ActionType.Attack:

@@ -29,6 +29,7 @@ public class DraggableSmoothDamp : MonoBehaviour, IDragHandler, IBeginDragHandle
     {
         parentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
+        transform.SetParent(G.hud.transform);
         transform.SetAsLastSibling();
         
         var interactiveObject = GetComponent<DiceInteractiveObject>();

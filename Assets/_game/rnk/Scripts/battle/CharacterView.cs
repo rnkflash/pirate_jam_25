@@ -35,14 +35,6 @@ namespace _game.rnk.Scripts.battleSystem
             characterState.view = this;
         }
 
-        public void EnableBattleHUD()
-        {
-            foreach (var diceState in state.diceStates)
-            {
-                CreateDiceObject(diceState);
-            }
-        }
-
         void OnDestroy()
         {
             diceZone.OnClickDice -= OnDiceClick;
@@ -53,15 +45,6 @@ namespace _game.rnk.Scripts.battleSystem
             G.battle.OnDiceClickInCharacterView(this, dice);
         }
 
-        public DiceInteractiveObject CreateDiceObject(DiceState diceState)
-        {
-            var instance = Instantiate(diceState.model.Get<TagPrefab>().prefab, diceZone.transform);
-            instance.SetState(diceState);
-            instance.moveable.targetPosition = instance.transform.position = diceZone.transform.position;
-            //instance.transform.localScale = Vector3.one * 0.75f;
-            diceZone.Claim(instance);
-            return instance;
-        }
         public void OnPointerClick(PointerEventData eventData)
         {
             G.battle.CharacterClicked(state);

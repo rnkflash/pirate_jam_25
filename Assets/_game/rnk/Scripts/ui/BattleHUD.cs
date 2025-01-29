@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using _game.rnk.Scripts.battleSystem;
 using _game.rnk.Scripts.crawler;
 using _game.tinypack.source.UI;
@@ -30,6 +31,9 @@ namespace _game.rnk.Scripts
         [NonSerialized] public EnemyView enemyViewPrefab;
         [NonSerialized] public DiceInteractiveObject dicePrefab;
 
+        List<EnemyView> enemyViews;
+        List<DiceInteractiveObject> playerDices;
+
         void Awake()
         {
             enemyViewPrefab = "prefab/EnemyView".Load<EnemyView>();
@@ -52,21 +56,47 @@ namespace _game.rnk.Scripts
         
         public void InitBattle()
         {
+            enemyViews = new List<EnemyView>();
+            playerDices = new List<DiceInteractiveObject>();
+            
             foreach (var enemyState in G.run.enemies)
             {
-                CreateEnemyView(enemyState);
+                enemyViews.Add(CreateEnemyView(enemyState));
             }
             
             foreach (var character in G.run.characters)
             {
                 foreach (var diceState in character.diceStates)
                 {
-                    CreateCharacterDice(character, diceState);    
+                    playerDices.Add(CreateCharacterDice(character, diceState));    
                 }
                 
             }
         }
-        void CreateCharacterDice(CharacterState character, DiceState diceState)
+        
+        public void FinishBattle()
+        {
+            foreach (var enemyView in enemyViews)
+            {
+                enemyView.FreeState();
+                enemyView.transform.SetParent(null);
+                Destroy(enemyView.gameObject);
+            }
+            enemyViews.Clear();
+
+            rollDicesZone.ReleaseAll();
+            rollDicesZone.transform.DetachChildren();
+            
+
+            foreach (var dice in playerDices)
+            {
+                dice.FreeState();
+                Destroy(dice.gameObject);
+            }
+            playerDices.Clear();
+        }
+        
+        DiceInteractiveObject CreateCharacterDice(CharacterState character, DiceState diceState)
         {
             var instance = Instantiate(G.hud.battle.dicePrefab, character.view.diceZone.transform);
             instance.SetState(diceState);
@@ -74,9 +104,10 @@ namespace _game.rnk.Scripts
             instance.moveable.targetPosition = instance.transform.position = character.view.diceZone.transform.position;
             instance.transform.DOScale(1.0f, 0.15f);
             character.view.diceZone.Claim(instance);
+            return instance;
         }
 
-        public EnemyView CreateEnemyView(EnemyState enemyState)
+        EnemyView CreateEnemyView(EnemyState enemyState)
         {
             var enemy = Instantiate(enemyViewPrefab, enemiesRoot);
             enemy.SetState(enemyState);

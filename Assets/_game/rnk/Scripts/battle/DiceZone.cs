@@ -29,7 +29,10 @@ namespace _game.rnk.Scripts.battleSystem
             if (objects.Contains(toClaim))
                 objects.Remove(toClaim);
         }
-
+        public void ReleaseAll()
+        {
+            objects.Clear();
+        }
 
         void Update()
         {

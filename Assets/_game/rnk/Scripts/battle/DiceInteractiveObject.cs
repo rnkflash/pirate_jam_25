@@ -33,7 +33,7 @@ namespace _game.rnk.Scripts.battleSystem
 
         List<ITarget> targets = new List<ITarget>();
         List<LineRendererUI> lineRenderers = new List<LineRendererUI>();
-        
+
         void Awake()
         {
             draggable = GetComponent<DraggableSmoothDamp>();
@@ -52,6 +52,14 @@ namespace _game.rnk.Scripts.battleSystem
             view.bg.color = ownerColor;
 
             ChangeFace();
+        }
+        
+        public void FreeState()
+        {
+            G.hud.battle.rollDicesZone.Release(this);
+            zone.Release(this);
+            state.interactiveObject = null;
+            state = null;
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -254,7 +262,7 @@ namespace _game.rnk.Scripts.battleSystem
         {
             this.targets = targets;
         }
-        
+
         public void ClearTargets()
         {
             targets.Clear();
