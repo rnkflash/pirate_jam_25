@@ -1,61 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8778851028339325191
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1c62bdc7f018b43a75aef3da42496f, type: 3}
-  m_Name: TVEffect
-  m_EditorClassIdentifier: 
-  active: 0
-  enable:
-    m_OverrideState: 1
-    m_Value: 1
-  fade:
-    m_OverrideState: 0
-    m_Value: 1
-  maskDark:
-    m_OverrideState: 0
-    m_Value: 0.5
-  maskLight:
-    m_OverrideState: 0
-    m_Value: 1.5
-  hardScan:
-    m_OverrideState: 0
-    m_Value: -8
-  resScale:
-    m_OverrideState: 1
-    m_Value: 1
-  ScaleWithActualScreenSize:
-    m_OverrideState: 0
-    m_Value: 1
-  hardPix:
-    m_OverrideState: 1
-    m_Value: -3
-  warpMode:
-    m_OverrideState: 0
-    m_Value: 0
-  warp:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0}
-  scale:
-    m_OverrideState: 0
-    m_Value: 0.5
-  mask:
-    m_OverrideState: 0
-    m_Value: {fileID: 0}
-    dimension: 1
-  maskChannel:
-    m_OverrideState: 0
-    m_Value: 0
-  GlobalPostProcessingSettings:
-    m_OverrideState: 0
-    m_Value: 0
 --- !u!114 &-5786166939886044894
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -84,75 +28,6 @@ MonoBehaviour:
   saturation:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-5401032724814482746
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84d5e41f92d0f43b8b6ff8cad98e0c16, type: 3}
-  m_Name: Fisheye
-  m_EditorClassIdentifier: 
-  active: 0
-  enable:
-    m_OverrideState: 1
-    m_Value: 1
-  fisheyeType:
-    m_OverrideState: 1
-    m_Value: 0
-  bend:
-    m_OverrideState: 1
-    m_Value: 1
-  cutOffX:
-    m_OverrideState: 0
-    m_Value: 0.5
-  cutOffY:
-    m_OverrideState: 0
-    m_Value: 0.5
-  fadeX:
-    m_OverrideState: 0
-    m_Value: 1
-  fadeY:
-    m_OverrideState: 0
-    m_Value: 1
-  size:
-    m_OverrideState: 0
-    m_Value: 1
-  GlobalPostProcessingSettings:
-    m_OverrideState: 0
-    m_Value: 0
---- !u!114 &-3267845116374346351
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfffc298908164ce083c9c5e7137028d, type: 3}
-  m_Name: LowRes
-  m_EditorClassIdentifier: 
-  active: 0
-  enable:
-    m_OverrideState: 1
-    m_Value: 1
-  height:
-    m_OverrideState: 1
-    m_Value: 213
-  mask:
-    m_OverrideState: 0
-    m_Value: {fileID: 0}
-    dimension: 1
-  maskChannel:
-    m_OverrideState: 0
-    m_Value: 0
-  GlobalPostProcessingSettings:
-    m_OverrideState: 0
-    m_Value: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,60 +41,9 @@ MonoBehaviour:
   m_Name: Global Volume Profile
   m_EditorClassIdentifier: 
   components:
-  - {fileID: 431282406811514589}
   - {fileID: 7632242328829710062}
   - {fileID: -5786166939886044894}
-  - {fileID: -8778851028339325191}
-  - {fileID: -5401032724814482746}
-  - {fileID: -3267845116374346351}
   - {fileID: 9126373360881069219}
---- !u!114 &431282406811514589
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b2db86121404754db890f4c8dfe81b2, type: 3}
-  m_Name: Bloom
-  m_EditorClassIdentifier: 
-  active: 0
-  skipIterations:
-    m_OverrideState: 0
-    m_Value: 1
-  threshold:
-    m_OverrideState: 1
-    m_Value: 0.9
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.69
-  scatter:
-    m_OverrideState: 0
-    m_Value: 0.7
-  clamp:
-    m_OverrideState: 0
-    m_Value: 65472
-  tint:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
-  highQualityFiltering:
-    m_OverrideState: 0
-    m_Value: 0
-  downscale:
-    m_OverrideState: 0
-    m_Value: 0
-  maxIterations:
-    m_OverrideState: 0
-    m_Value: 6
-  dirtTexture:
-    m_OverrideState: 0
-    m_Value: {fileID: 0}
-    dimension: 1
-  dirtIntensity:
-    m_OverrideState: 0
-    m_Value: 0
 --- !u!114 &7632242328829710062
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -260,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97f4d109a8084623877cbceadbb3b74, type: 3}
   m_Name: ColormapPalette
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enable:
     m_OverrideState: 1
     m_Value: 1
