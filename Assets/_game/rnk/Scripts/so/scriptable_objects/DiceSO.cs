@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using _game.rnk.Scripts.tags;
 using UnityEngine;
 
 namespace _game.rnk.Scripts.so.scriptable_objects
@@ -7,6 +9,19 @@ namespace _game.rnk.Scripts.so.scriptable_objects
     public class DiceSO : EntitySO
     {
         public FaceSO[] faces;
+        
+        public CMSEntity GetEntity()
+        {
+            var entity = new CMSEntity
+            {
+                components = components.ToList()
+            };
+
+            var defaultFaces = entity.Define<TagDefaultFaces>();
+            defaultFaces.faces = faces.Select(so => so.GetEntity()).ToArray();
+            
+            return entity;
+        }
     }
 
     [Serializable]
@@ -14,5 +29,12 @@ namespace _game.rnk.Scripts.so.scriptable_objects
     {
         public EntitySO face;
         public int value;
+
+        public CMSEntity GetEntity()
+        {
+            var entity = face.GetEntity();
+            entity.Define<TagValue>().value = value;
+            return entity;
+        }
     }
 }

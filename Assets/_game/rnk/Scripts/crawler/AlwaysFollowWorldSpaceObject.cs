@@ -15,10 +15,12 @@ namespace _game.rnk.Scripts.crawler
         }
         void Update()
         {
-            Vector3 screenPos = camera.WorldToScreenPoint(followTarget.position);
-            Vector3 uiPos = new Vector3(screenPos.x, Screen.height - screenPos.y, screenPos.z);
-
-            transform.position = screenPos;
+            if (followTarget != null)
+            {
+                Vector3 screenPos = camera.WorldToScreenPoint(followTarget.position);
+                //Vector3 uiPos = new Vector3(screenPos.x, Screen.height - screenPos.y, screenPos.z);
+                transform.position = screenPos;
+            }
         }
     }
 }

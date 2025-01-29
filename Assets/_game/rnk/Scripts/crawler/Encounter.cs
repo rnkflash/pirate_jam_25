@@ -3,8 +3,9 @@ using UnityEngine;
 
 namespace _game.rnk.Scripts.crawler
 {
-    public class Encounter: MonoBehaviour
+    public abstract class Encounter: MonoBehaviour
     {
         
     }
+
 }

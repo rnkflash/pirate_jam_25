@@ -25,7 +25,6 @@ MonoBehaviour:
         row: 0
         side: 0
         area: 0
-        value: 0
     - rid: 1971844943657566312
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:

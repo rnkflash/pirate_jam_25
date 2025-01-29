@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace _game.rnk.Scripts.so.scriptable_objects
 {
@@ -7,5 +8,14 @@ namespace _game.rnk.Scripts.so.scriptable_objects
     {
         [SerializeReference, Subclass]
         public EntityComponentDefinition[] components;
+
+        public CMSEntity GetEntity()
+        {
+            var entity = new CMSEntity
+            {
+                components = components.ToList()
+            };
+            return entity;
+        }
     }
 }

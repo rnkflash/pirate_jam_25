@@ -22,13 +22,12 @@ namespace _game.rnk.Scripts.dice.face
             Define<TagName>().loc = "Attack";
             Define<TagDescription>().loc = "Deal " + attackValue.ToString().Color(TextStuff.Reddish) + " dmg to target";
             Define<TagSprite>().sprite = SpriteUtil.Load("art/dice_sprites", "dice_attack");
-
+            Define<TagValue>().value = attackValue;
             Define<TagAction>().With(t => {
                 t.action = ActionType.Attack;
                 t.side = TargetSide.Enemy;
                 t.area = TargetArea.Single;
                 t.row = TargetRow.Front;
-                t.value = attackValue;
             });
         }
     }

@@ -7,6 +7,6 @@ namespace _game.rnk.Scripts.tags
 {
     public class TagDefaultFaces : EntityComponentDefinition
     {
-        public FaceBase[] faces;
+        public CMSEntity[] faces;
     }
 }

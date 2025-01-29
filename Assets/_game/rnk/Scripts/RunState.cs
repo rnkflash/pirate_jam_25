@@ -2,7 +2,7 @@
 using System.Linq;
 using _game.rnk.Scripts.artefacts;
 using _game.rnk.Scripts.battleSystem;
-using _game.rnk.Scripts.body;
+using _game.rnk.Scripts.crawler;
 using _game.rnk.Scripts.dice;
 using _game.rnk.Scripts.dice.face;
 using _game.rnk.Scripts.tags;
@@ -13,7 +13,7 @@ namespace _game.rnk.Scripts
 {
     public class RunState
     {
-        public CMSEntity battleLevel;
+        public BattleEncounter battle;
         public List<CharacterState> characters = new List<CharacterState>();
         public List<ArtefactState> inventory = new List<ArtefactState>();
         public List<EnemyState> enemies = new List<EnemyState>();
@@ -29,6 +29,8 @@ namespace _game.rnk.Scripts
     
     public class EnemyState : BaseCharacterState
     {
+        public GameObject graphic;
+        public Transform uiPos;
         public EnemyView view;
         public override MonoBehaviour GetView() => view;
         public override BaseCharacterState GetState() => this;
@@ -63,18 +65,19 @@ namespace _game.rnk.Scripts
 
     public class BodyState
     {
-        public BodyBase model;
+        public CMSEntity model;
     }
 
     public class DiceState
     {
+        public BaseCharacterState owner;
+        public CMSEntity model;
+        
         public int rollValue;
         public DiceInteractiveObject interactiveObject;
-        public BaseCharacterState owner;
-        public DiceBase model;
         public List<ArtefactState> artefacts = new List<ArtefactState>();
 
-        public FaceBase face => model.Get<TagDefaultFaces>().faces.ElementAtOrDefault(rollValue) ?? new BlankFace();
+        public CMSEntity face => model.Get<TagDefaultFaces>().faces.ElementAtOrDefault(rollValue) ?? new BlankFace();
     }
 
     public class ArtefactState

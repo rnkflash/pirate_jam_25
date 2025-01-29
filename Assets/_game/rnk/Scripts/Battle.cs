@@ -3,20 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using _game.rnk.Scripts.battleSystem;
+using _game.rnk.Scripts.crawler;
 using _game.rnk.Scripts.enums;
 using _game.rnk.Scripts.tags;
 using _game.rnk.Scripts.util;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace _game.rnk.Scripts
 {
-
     public class Battle : MonoBehaviour
     {
-        public DiceZone rollDicesZone;
         public Interactor interactor;
-        public CMSEntity level;
         
         [NonSerialized] public int reRolls;
         [NonSerialized] public TurnPhase turnPhase;
@@ -31,32 +30,8 @@ namespace _game.rnk.Scripts
 
             interactor = new Interactor();
             interactor.Init();
-
-            rollDicesZone.OnClickDice += OnDiceClickedInRollzone;
-        }
-
-        void Start()
-        {
-            //SetTurnPhase(TurnPhase.START_TURN);
         }
         
-        void OnDestroy()
-        {
-            rollDicesZone.OnClickDice -= OnDiceClickedInRollzone;
-        }
-        
-        public IEnumerator LoadLevel(CMSEntity entity)
-        {
-            level = entity;
-
-            if (level.Is<tags.TagExecuteScript>(out var exs))
-            {
-                yield return exs.toExecute();
-            }
-
-            G.hud.EnableBattleHUD();
-        }
-
         void Update()
         {
             if (!isEnabled)
@@ -80,6 +55,37 @@ namespace _game.rnk.Scripts
                 StartCoroutine(LoseSequence());
             }
         }
+        
+        public void StartBattle(BattleEncounter encounter)
+        {
+            G.run.battle = encounter;
+            G.run.enemies.Clear();
+            foreach (var enemy in encounter.enemies)
+            {
+                var model = enemy.scriptableObject.GetEntity();
+                var enemyState = new EnemyState()
+                {
+                    graphic = enemy.graphic,
+                    uiPos = enemy.uiPos,
+                    armor = 0,
+                    health = model.Get<TagHealth>().health,
+                    maxHealth = model.Get<TagHealth>().health,
+                    bodyState = new BodyState() { model = model },
+                };
+                var dices = enemy.scriptableObject.dices.Select(so =>
+                    new DiceState()
+                    {
+                        owner = enemyState,
+                        model = so.GetEntity()
+                    }
+                ).ToList();
+                enemyState.diceStates = dices;
+                G.run.enemies.Add(enemyState);
+            }
+            
+            G.hud.ShowBattleHud();
+            G.hud.battle.InitBattle();
+        }        
 
         void SetTurnPhase(TurnPhase newTurnPhase)
         {
@@ -102,9 +108,9 @@ namespace _game.rnk.Scripts
                     }
                     
                     reRolls = 2;
-                    G.hud.RollButtonText.text = "Reroll x " + reRolls;
-                    G.hud.EndTurnButtonText.text = "Next phase";
-                    G.hud.DisableHud();
+                    G.hud.battle.RollButtonText.text = "Reroll x " + reRolls;
+                    G.hud.battle.EndTurnButtonText.text = "Next phase";
+                    G.hud.battle.DisableHud();
                     SetTurnPhase(TurnPhase.ENEMY_ROLL);
                     break;
                 
@@ -117,7 +123,7 @@ namespace _game.rnk.Scripts
                     break;
 
                 case TurnPhase.RE_ROLL:
-                    G.hud.EnableHud();
+                    G.hud.battle.EnableHud();
                     break;
                 
                 case TurnPhase.ENEMY_TARGETING:
@@ -158,30 +164,27 @@ namespace _game.rnk.Scripts
         IEnumerator WinSequence()
         {
             
-            G.hud.DisableHud();
+            G.hud.battle.DisableHud();
 
             isWin = true;
 
-            G.ui.win.SetActive(true);
+            G.hud.battle.win.SetActive(true);
 
             yield return new WaitForSeconds(1.22f);
 
-            G.ui.win.SetActive(false);
+            G.hud.battle.win.SetActive(false);
                 
             G.fader.FadeIn();
 
             yield return new WaitForSeconds(1f);
                 
-            G.run.battleLevel = new NextBattleLevel();
-                
-            SceneManager.LoadScene(GameSettings.MAIN_SCENE);
         }
 
         IEnumerator LoseSequence()
         {
             G.audio.Play<SFX_Lose>();
             G.camera.UIHit();
-            G.ui.defeat.SetActive(true);
+            G.hud.battle.defeat.SetActive(true);
             yield return new WaitForSeconds(5f);
             G.run = null;
             SceneManager.LoadScene(GameSettings.MAIN_SCENE);
@@ -207,7 +210,7 @@ namespace _game.rnk.Scripts
         
         IEnumerator EnemyPickTargets()
         {
-            G.hud.DisableHud();
+            G.hud.battle.DisableHud();
             var enemyDices = GetEnemyDices();
 
             yield return new WaitForSeconds(1.0f);
@@ -339,7 +342,7 @@ namespace _game.rnk.Scripts
         
         IEnumerator StartExecutePhase()
         {
-            G.hud.DisableHud();
+            G.hud.battle.DisableHud();
             
             foreach (var dice in GetPlayerDices())
             {
@@ -347,7 +350,7 @@ namespace _game.rnk.Scripts
                 {
                     if (dice.GetTargets().Count > 0)
                         dice.Punch();
-                    if (dice.zone == rollDicesZone)
+                    if (dice.zone == G.hud.battle.rollDicesZone)
                         yield return ReturnDices(new List<DiceInteractiveObject>() { dice });
                     yield return DiceAction(dice);
                     
@@ -360,7 +363,7 @@ namespace _game.rnk.Scripts
                 {
                     if (dice.GetTargets().Count > 0)
                         dice.Punch();
-                    if (dice.zone == rollDicesZone)
+                    if (dice.zone == G.hud.battle.rollDicesZone)
                         yield return ReturnDices(new List<DiceInteractiveObject>() { dice });
                     yield return DiceAction(dice);
                 }
@@ -378,6 +381,7 @@ namespace _game.rnk.Scripts
         {
             if (dice.state.face.Is<TagAction>(out var action))
             {
+                var value = dice.state.face.Get<TagValue>().value;
                 switch (action.action)
                 {
                     case ActionType.Attack:
@@ -386,7 +390,7 @@ namespace _game.rnk.Scripts
                             var damageable = target.GetView().GetComponent<Damageable>();
                             if (damageable)
                             {
-                                yield return damageable.Hit(action.value);
+                                yield return damageable.Hit(value);
                                 if (damageable.state.dead)
                                 {
                                     foreach (var diceState in damageable.state.diceStates)
@@ -404,7 +408,7 @@ namespace _game.rnk.Scripts
                             var damageable = target.GetView().GetComponent<Damageable>();
                             if (damageable)
                             {
-                                yield return damageable.Heal(action.value);
+                                yield return damageable.Heal(value);
                             }
                         }
                         break;
@@ -415,7 +419,7 @@ namespace _game.rnk.Scripts
                             var damageable = target.GetView().GetComponent<Damageable>();
                             if (damageable)
                             {
-                                yield return damageable.Armor(action.value);
+                                yield return damageable.Armor(value);
                             }
                         }
                         break;
@@ -427,12 +431,12 @@ namespace _game.rnk.Scripts
 
         IEnumerator StartPlayDicesPhase()
         {
-            G.hud.EndTurnButtonText.text = "Execute";
-            G.hud.DisableHud();
+            G.hud.battle.EndTurnButtonText.text = "Execute";
+            G.hud.battle.DisableHud();
 
             yield return ReturnAllDices();
 
-            G.hud.Enable(G.hud.EndTurnButton);
+            G.hud.battle.EnableHud();
         }
 
         List<DiceInteractiveObject> GetPlayerDices()
@@ -450,7 +454,7 @@ namespace _game.rnk.Scripts
         
         List<DiceInteractiveObject> GetDicesOnRollZOne()
         {
-            return G.battle.rollDicesZone.objects.Select(o => o).ToList();
+            return G.hud.battle.rollDicesZone.objects.Select(o => o).ToList();
         }
         
         public IEnumerator ReturnAllDices()
@@ -461,9 +465,9 @@ namespace _game.rnk.Scripts
         IEnumerator ReRollWithCheck()
         {
             reRolls--;
-            G.hud.RollButtonText.text = "Reroll x " + reRolls;
+            G.hud.battle.RollButtonText.text = "Reroll x " + reRolls;
             if (reRolls <= 0)
-                G.hud.Disable(G.hud.RollButton);
+                G.hud.battle.DisableRerollButton();
             
             yield return RollDices(GetDicesOnRollZOne());
 
@@ -488,7 +492,7 @@ namespace _game.rnk.Scripts
             G.drag_dice = null;
         }
         
-        void OnDiceClickedInRollzone(DiceInteractiveObject dice)
+        public void OnDiceClickedInRollzone(DiceInteractiveObject dice)
         {
             if (dice.state.owner.dead)
                 return;
@@ -514,7 +518,7 @@ namespace _game.rnk.Scripts
             G.audio.Play<SFX_DiceDraw>();
             foreach (var dice in dices)
             {
-                MoveDice(dice, rollDicesZone);
+                MoveDice(dice, G.hud.battle.rollDicesZone);
                 dice.Punch();
             }
             
@@ -621,7 +625,7 @@ namespace _game.rnk.Scripts
             if (selectingTargetForDice != null || dice.state.face.Get<TagAction>().action == ActionType.Blank)
                 yield break;
             
-            G.hud.DisableHud();
+            G.hud.battle.DisableHud();
             
             selectingTargetForDice = dice;
             
@@ -655,7 +659,7 @@ namespace _game.rnk.Scripts
 
             yield return ThrowDices(new List<DiceInteractiveObject>() {dice});
             
-            G.hud.EnableHud();
+            G.hud.battle.EnableHud();
             
             selectingTargetForDice = null;
         }

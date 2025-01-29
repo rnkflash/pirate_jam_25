@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using _game.rnk.Scripts.battleSystem;
+﻿using System.Collections;
 using _game.rnk.Scripts.body;
 using _game.rnk.Scripts.dice;
 using _game.rnk.Scripts.tags;
@@ -48,19 +46,11 @@ namespace _game.rnk.Scripts
             }
 
             G.hud.Init();
-
             CMS.Init();
 
-            G.hud.DisableHud();
-            G.ui.DisableInput();
-
-            G.fader.FadeOut();
-        
-            yield return G.ui.Unsay();
-
             G.ui.EnableInput();
-            G.hud.EnableHud();
-            G.hud.DisableBattleHUD();
+            
+            yield break;
         }
         
         CharacterState CreateCharacter(BodyBase body, WeaponBase weapon, DiceBase dice)
