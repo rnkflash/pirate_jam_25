@@ -7919,6 +7919,7 @@ GameObject:
   - component: {fileID: 1325582760788576648}
   - component: {fileID: 5341908500065300728}
   - component: {fileID: 5802775096795326885}
+  - component: {fileID: 907785662701641972}
   m_Layer: 5
   m_Name: Timur_HUD_2
   m_TagString: Untagged
@@ -8031,6 +8032,18 @@ MonoBehaviour:
   _heroesPanel: {fileID: 0}
   _itemsDatabase: {fileID: 0}
   _bg: {fileID: 516440917484866309}
+--- !u!225 &907785662701641972
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8570601337120608971}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &8601173280041187156
 GameObject:
   m_ObjectHideFlags: 0
