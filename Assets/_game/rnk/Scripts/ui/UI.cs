@@ -22,6 +22,8 @@ public class UI : MonoBehaviour
     public TMP_Text say_text;
     public TMP_Text say_text_shadow;
 
+    bool skip;
+    
     void Awake()
     {
         G.ui = this;
@@ -42,6 +44,11 @@ public class UI : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            skip = true;
+        }
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             pause.Toggle();
@@ -129,4 +136,15 @@ public class UI : MonoBehaviour
     {
         say_text.transform.DOMoveY(i, 0.25f);
     }
+    
+    public IEnumerator SmartWait(float f)
+    {
+        skip = false;
+        while (f > 0 && !skip)
+        {
+            f -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
 }

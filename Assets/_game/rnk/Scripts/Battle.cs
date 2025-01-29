@@ -20,7 +20,6 @@ namespace _game.rnk.Scripts
         [NonSerialized] public TurnPhase turnPhase;
         
         bool isWin;
-        bool skip;
         bool isEnabled;
         
         void Awake()
@@ -39,10 +38,7 @@ namespace _game.rnk.Scripts
             if (!isEnabled)
                 return;
             
-            if (Input.GetMouseButtonDown(0))
-            {
-                skip = true;
-            }
+
 
             if (Input.GetKey(KeyCode.LeftControl))
             {
@@ -57,9 +53,20 @@ namespace _game.rnk.Scripts
                 }    
             }
         }
-        
+
         public void StartBattle(BattleEncounter encounter)
         {
+            StartCoroutine(StartingBattle(encounter));
+        }
+        
+        IEnumerator StartingBattle(BattleEncounter encounter)
+        {
+            yield return G.ui.Say("Alas! We have been ambushed...");
+            yield return G.ui.SmartWait(3f);
+            yield return G.ui.Say("FIGHT!");
+            yield return G.ui.SmartWait(3f);
+            yield return G.ui.Unsay();
+            
             isEnabled = true;
             G.run.battle = encounter;
             G.run.enemies.Clear();
@@ -88,6 +95,8 @@ namespace _game.rnk.Scripts
             
             G.hud.ShowBattleHud();
             G.hud.battle.InitBattle();
+
+            yield return new WaitForSeconds(0.5f);
             SetTurnPhase(TurnPhase.START_TURN);
         }
 
@@ -583,16 +592,6 @@ namespace _game.rnk.Scripts
         public void HideHud()
         {
             G.hud.gameObject.SetActive(false);
-        }
-
-        public IEnumerator SmartWait(float f)
-        {
-            skip = false;
-            while (f > 0 && !skip)
-            {
-                f -= Time.deltaTime;
-                yield return new WaitForEndOfFrame();
-            }
         }
 
         public void EnemyClicked(EnemyState state)

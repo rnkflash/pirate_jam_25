@@ -16,7 +16,7 @@ public class Level0 : CMSEntity
     {
         G.battle.HideHud();
         
-        yield return G.ui.Say("Use spells to destroy the enemy kingdom.");
+        /*yield return G.ui.Say("Use spells to destroy the enemy kingdom.");
         yield return G.battle.SmartWait(5f);
         yield return G.ui.Say("Destroy the ice and conquer the lands to restore the former might of Frostland!");
         yield return G.battle.SmartWait(3f);
@@ -24,9 +24,11 @@ public class Level0 : CMSEntity
         yield return G.battle.SmartWait(3f);
         yield return G.ui.Say("Become the sole ruler of the kingdom!");
         yield return G.battle.SmartWait(3f);
-        yield return G.ui.Unsay();
+        yield return G.ui.Unsay();*/
         
         G.battle.ShowHud();
+        
+        yield break;
     }
 }
 
