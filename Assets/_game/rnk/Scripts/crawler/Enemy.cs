@@ -1,5 +1,6 @@
 ﻿using _game.rnk.Scripts.so.scriptable_objects;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _game.rnk.Scripts.crawler
 {
@@ -7,6 +8,6 @@ namespace _game.rnk.Scripts.crawler
     {
         public Transform uiPos;
         public GameObject graphic;
-        public BodySO scriptableObject;
+        [FormerlySerializedAs("scriptableObject")] public BodySO body;
     }
 }

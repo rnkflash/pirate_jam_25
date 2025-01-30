@@ -21,10 +21,10 @@ namespace _game.rnk.Scripts.battleSystem
         {
             state = characterState;
             avatarImage.sprite = state.bodyState.model.Get<TagSprite>().sprite;
-            //nameText.text = state.weaponState.model.Get<TagName>().loc;
+            nameText.text = state.weaponState.model.Get<TagName>().loc;
             healthText.text = state.health + "/" + state.maxHealth + " +" + state.armor;
 
-            //nameText.color = state.weaponState.model.Get<TagTint>().color;
+            nameText.color = state.weaponState.model.Get<TagTint>().color;
             
             damageable.SetState(state);
             healthText.color = state.weaponState.model.Get<TagTint>().color;

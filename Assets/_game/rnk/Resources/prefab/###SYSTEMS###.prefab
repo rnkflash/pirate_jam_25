@@ -44,6 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440c3a471ebe4a7ba75ddca75c40cead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingCharacters:
+  - weapon: {fileID: 11400000, guid: f6928edd77d5c60468b64fb1e97c0bc5, type: 2}
+    body: {fileID: 11400000, guid: 02d1d65938e6579488eca59ae4f6858c, type: 2}
+  - weapon: {fileID: 11400000, guid: f6928edd77d5c60468b64fb1e97c0bc5, type: 2}
+    body: {fileID: 11400000, guid: 02d1d65938e6579488eca59ae4f6858c, type: 2}
+  - weapon: {fileID: 11400000, guid: f6928edd77d5c60468b64fb1e97c0bc5, type: 2}
+    body: {fileID: 11400000, guid: 02d1d65938e6579488eca59ae4f6858c, type: 2}
+  - weapon: {fileID: 11400000, guid: f6928edd77d5c60468b64fb1e97c0bc5, type: 2}
+    body: {fileID: 11400000, guid: 02d1d65938e6579488eca59ae4f6858c, type: 2}
 --- !u!1 &3940050840323171082
 GameObject:
   m_ObjectHideFlags: 0

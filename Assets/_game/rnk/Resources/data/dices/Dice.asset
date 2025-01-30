@@ -17,9 +17,15 @@ MonoBehaviour:
   - rid: 1971845007490678982
   - rid: 1971845032096563288
   faces:
-  - face: {fileID: 11400000, guid: a16e3ded43647b24cafe068b5a82242e, type: 2}
+  - face: {fileID: 11400000, guid: ba4a5d856680cdf4aa7e802baf4d302a, type: 2}
     value: 1
   - face: {fileID: 11400000, guid: 5d88a2df337fe7e4ba2ecffc769786a5, type: 2}
+    value: 1
+  - face: {fileID: 11400000, guid: 5d88a2df337fe7e4ba2ecffc769786a5, type: 2}
+    value: 2
+  - face: {fileID: 11400000, guid: a16e3ded43647b24cafe068b5a82242e, type: 2}
+    value: 1
+  - face: {fileID: 11400000, guid: a16e3ded43647b24cafe068b5a82242e, type: 2}
     value: 2
   - face: {fileID: 11400000, guid: a16e3ded43647b24cafe068b5a82242e, type: 2}
     value: 3
@@ -29,7 +35,7 @@ MonoBehaviour:
     - rid: 1971845007490678953
       type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: Rat dice
+        loc: Normal dice
     - rid: 1971845007490678982
       type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:

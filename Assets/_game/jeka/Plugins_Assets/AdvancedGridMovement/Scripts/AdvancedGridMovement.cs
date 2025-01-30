@@ -74,6 +74,8 @@ public class AdvancedGridMovement : MonoBehaviour
     private AnimationCurve currentHeadBobCurve;
     private float currentSpeed;
 
+    LayerMask layerMask;
+
     void Start()
     {
         moveTowardsPosition = transform.position;
@@ -82,6 +84,8 @@ public class AdvancedGridMovement : MonoBehaviour
         currentHeadBobCurve = walkHeadBobCurve;
         currentSpeed = walkSpeed;
         stepTime = 1.0f / gridSize;
+        
+        layerMask = ~(1 << LayerMask.NameToLayer("PlayerCollider"));
     }
 
     void Update()
@@ -169,7 +173,7 @@ public class AdvancedGridMovement : MonoBehaviour
         Ray downRay = new Ray(newPosition, -Vector3.up);
 
         // Cast a ray straight downwards.
-        if (Physics.Raycast(downRay, out hit) && !hit.collider.CompareTag("Player") && !hit.collider.CompareTag("Enemy"))
+        if (Physics.Raycast(downRay, out hit, layerMask))
         {
             newPosition.y = (maximumStepHeight - hit.distance) + currentHeadBobValue;
         }

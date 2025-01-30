@@ -29,8 +29,7 @@ namespace _game.rnk.Scripts
     
     public class EnemyState : BaseCharacterState
     {
-        public GameObject graphic;
-        public Transform uiPos;
+        public Enemy objInScene;
         public EnemyView view;
         public override MonoBehaviour GetView() => view;
         public override BaseCharacterState GetState() => this;
@@ -60,7 +59,7 @@ namespace _game.rnk.Scripts
 
     public class WeaponState
     {
-        public WeaponBase model;
+        public CMSEntity model;
     }
 
     public class BodyState
@@ -77,7 +76,7 @@ namespace _game.rnk.Scripts
         public DiceInteractiveObject interactiveObject;
         public List<ArtefactState> artefacts = new List<ArtefactState>();
 
-        public CMSEntity face => model.Get<TagDefaultFaces>().faces.ElementAtOrDefault(rollValue) ?? new BlankFace();
+        public CMSEntity face => model.Get<TagDefaultFaces>().faces.ElementAtOrDefault(rollValue) ?? model.Get<TagDefaultFaces>().faces.Last();
     }
 
     public class ArtefactState

@@ -18,7 +18,7 @@ MonoBehaviour:
   - rid: 1971845007490678961
   - rid: 1971845007490678974
   dices:
-  - {fileID: 11400000, guid: 4189fb1f182db78498f90faba2fb8dd6, type: 2}
+  - {fileID: 11400000, guid: f9b230026c6243b4a9589f5791ca072a, type: 2}
   references:
     version: 2
     RefIds:

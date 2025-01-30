@@ -27,6 +27,10 @@ namespace _game.rnk.Scripts.crawler
 
         public void OnEncounter(Encounter encounter)
         {
+            if (encounter.isTriggered)
+                return;
+            
+            encounter.isTriggered = true;
             G.crawler.OnEncounter(encounter);
         }
     }

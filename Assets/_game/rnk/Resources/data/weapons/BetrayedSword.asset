@@ -9,25 +9,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d65e6a0c61e34b90972e6439852b468f, type: 3}
+  m_Script: {fileID: 11500000, guid: 076c09624bc642d5ad2d42412b40c9b4, type: 3}
   m_Name: BetrayedSword
   m_EditorClassIdentifier: 
   components:
-  - rid: 1971844943657566326
-  - rid: 1971844943657566328
-  - rid: 1971844943657566330
+  - rid: 1971845032096563355
+  - rid: 1971845032096563357
+  - rid: 1971845032096563359
+  - rid: 1971845032096563361
   references:
     version: 2
     RefIds:
-    - rid: 1971844943657566326
+    - rid: 1971845032096563355
       type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
         loc: Betrayed Sword
-    - rid: 1971844943657566328
+    - rid: 1971845032096563357
+      type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: blablabla
+    - rid: 1971845032096563359
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
         sprite: {fileID: 156116257, guid: 17d96a732d17e8b4bb2071522c09cd05, type: 3}
-    - rid: 1971844943657566330
-      type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+    - rid: 1971845032096563361
+      type: {class: TagTint, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: asdasd
+        color: {r: 1, g: 0, b: 0, a: 1}

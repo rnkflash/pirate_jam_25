@@ -15,5 +15,12 @@ namespace _game.rnk.Scripts.crawler
             enemies = GetComponentsInChildren<Enemy>().ToList();
             GetComponent<Collider>().isTrigger = true;
         }
+        public override void CleanUp()
+        {
+            foreach (var enemy in enemies)
+            {
+                enemy.graphic.SetActive(false);
+            }
+        }
     }
 }

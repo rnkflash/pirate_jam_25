@@ -3,6 +3,7 @@ using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace _game.rnk.Scripts.battleSystem
@@ -14,6 +15,9 @@ namespace _game.rnk.Scripts.battleSystem
         [NonSerialized] public BaseCharacterState state;
         
         Tween punchTween;
+        
+        public UnityAction<int> OnHit;
+        public UnityAction OnDead;
 
         public void SetState(BaseCharacterState newState)
         {
@@ -32,6 +36,8 @@ namespace _game.rnk.Scripts.battleSystem
             deadge.SetActive(orly);
             state.dead = orly;
             UpdateView();
+            if (orly)
+                OnDead?.Invoke();
         }
 
         public IEnumerator Hit(int dmg)
@@ -54,6 +60,7 @@ namespace _game.rnk.Scripts.battleSystem
             
             UpdateView();
             Punch();
+            OnHit?.Invoke(dmg);
             yield return new WaitUntil(() => punchTween == null);
         }
         

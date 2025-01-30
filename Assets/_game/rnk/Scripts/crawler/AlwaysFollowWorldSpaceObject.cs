@@ -11,7 +11,6 @@ namespace _game.rnk.Scripts.crawler
         void Start()
         {
             camera = Camera.main;
-            Debug.Log("hookup with " + camera.gameObject.name);
         }
         void Update()
         {

@@ -154,7 +154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2589013255870661148
 RectTransform:
   m_ObjectHideFlags: 0
@@ -800,7 +800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatarImage: {fileID: 1587877724809127648}
-  nameText: {fileID: 0}
+  nameText: {fileID: 3917503417433002206}
   healthText: {fileID: 5195204946812491225}
   diceZone: {fileID: 148293501568183727}
   damageable: {fileID: 3766997689834146414}
@@ -831,7 +831,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deadge: {fileID: 7864739363282467247}
   healthText: {fileID: 5195204946812491225}
-  avatarImage: {fileID: 1587877724809127648}
 --- !u!1 &6795685980250145898
 GameObject:
   m_ObjectHideFlags: 0

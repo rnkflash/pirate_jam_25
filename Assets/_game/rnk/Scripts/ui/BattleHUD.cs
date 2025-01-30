@@ -158,5 +158,12 @@ namespace _game.rnk.Scripts
         {
             RollButton.interactable = false;
         }
+        public void HideEnemies()
+        {
+            foreach (var enemyView in enemyViews)
+            {
+                enemyView.gameObject.SetActive(false);
+            }
+        }
     }
 }

@@ -8,6 +8,8 @@ namespace _game.rnk.Scripts
     public class Crawler : MonoBehaviour
     {
         public Player player;
+
+        Encounter currentEncounter;
         
         void Awake()
         {
@@ -16,6 +18,7 @@ namespace _game.rnk.Scripts
 
         public void OnEncounter(Encounter encounter)
         {
+            currentEncounter = encounter;
             switch (encounter)
             {
                 case BattleEncounter battleEncounter:
@@ -31,6 +34,8 @@ namespace _game.rnk.Scripts
 
         public void OnFinishEncounter()
         {
+            currentEncounter.CleanUp();
+            currentEncounter = null;
             player.EnableControls();
         }
     }

@@ -29,16 +29,12 @@ namespace _game.rnk.Scripts
             interactor = new Interactor();
             interactor.Init();
             
-            G.ui.debug_text.text = "";
-
         }
         
         void Update()
         {
             if (!isEnabled)
                 return;
-            
-
 
             if (Input.GetKey(KeyCode.LeftControl))
             {
@@ -63,6 +59,8 @@ namespace _game.rnk.Scripts
         {
             yield return G.ui.Say("Alas! We have been ambushed...");
             yield return G.ui.SmartWait(3f);
+            yield return G.ui.Unsay();
+            yield return G.ui.SmartWait(0.25f);
             yield return G.ui.Say("FIGHT!");
             yield return G.ui.SmartWait(3f);
             yield return G.ui.Unsay();
@@ -72,17 +70,16 @@ namespace _game.rnk.Scripts
             G.run.enemies.Clear();
             foreach (var enemy in encounter.enemies)
             {
-                var model = enemy.scriptableObject.GetEntity();
+                var model = enemy.body.GetEntity();
                 var enemyState = new EnemyState()
                 {
-                    graphic = enemy.graphic,
-                    uiPos = enemy.uiPos,
+                    objInScene = enemy,
                     armor = 0,
                     health = model.Get<TagHealth>().health,
                     maxHealth = model.Get<TagHealth>().health,
                     bodyState = new BodyState() { model = model },
                 };
-                var dices = enemy.scriptableObject.dices.Select(so =>
+                var dices = enemy.body.dices.Select(so =>
                     new DiceState()
                     {
                         owner = enemyState,
@@ -188,13 +185,16 @@ namespace _game.rnk.Scripts
                 }
             }
         }
-
+        
         IEnumerator WinSequence()
         {
+            G.audio.Play<SFX_Win>();
+            
             G.hud.battle.DisableHud();
+            G.hud.battle.HideEnemies();
 
             isWin = true;
-
+            
             G.hud.battle.win.SetActive(true);
 
             yield return new WaitForSeconds(1.22f);
@@ -205,6 +205,7 @@ namespace _game.rnk.Scripts
             
             FinishBattle();
         }
+
 
         IEnumerator LoseSequence()
         {

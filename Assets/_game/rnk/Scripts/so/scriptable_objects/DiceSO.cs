@@ -16,10 +16,7 @@ namespace _game.rnk.Scripts.so.scriptable_objects
             {
                 components = components.ToList()
             };
-
-            var defaultFaces = entity.Define<TagDefaultFaces>();
-            defaultFaces.faces = faces.Select(so => so.GetEntity()).ToArray();
-            
+            entity.Define<TagDefaultFaces>().faces = faces.Select(so => so.GetEntity()).ToArray();
             return entity;
         }
     }

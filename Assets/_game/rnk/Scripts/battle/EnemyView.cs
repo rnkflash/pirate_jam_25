@@ -4,6 +4,7 @@ using _game.rnk.Scripts.crawler;
 using _game.rnk.Scripts.tags;
 using DG.Tweening;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -26,11 +27,24 @@ namespace _game.rnk.Scripts.battleSystem
             followTarget = GetComponent<AlwaysFollowWorldSpaceObject>();
             followTarget.enabled = false;
             followTarget.followTarget = null;
+
+            damageable.OnDead += OnDead;
+        }
+
+        void OnDestroy()
+        {
+            diceZone.OnClickDice -= OnDiceClick;
+            damageable.OnDead -= OnDead;
+        }
+        
+        void OnDead()
+        {
+            state.objInScene.graphic.SetActive(false);
         }
 
         public void SetState(EnemyState enemyState)
         {
-            followTarget.followTarget = enemyState.uiPos;
+            followTarget.followTarget = enemyState.objInScene.uiPos;
             followTarget.enabled = true;
             
             state = enemyState;
@@ -49,7 +63,7 @@ namespace _game.rnk.Scripts.battleSystem
             state.diceZone = diceZone;
             state.view = this;
         }
-        
+
         public void FreeState()
         {
             followTarget.followTarget = null;
@@ -68,11 +82,7 @@ namespace _game.rnk.Scripts.battleSystem
             state = null;
             damageable.SetState(null);
         }
-        
-        void OnDestroy()
-        {
-            diceZone.OnClickDice -= OnDiceClick;
-        }
+
 
         void OnDiceClick(DiceInteractiveObject dice)
         {
