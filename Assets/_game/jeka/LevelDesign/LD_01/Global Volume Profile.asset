@@ -102,7 +102,7 @@ MonoBehaviour:
     m_Value: {fileID: 11400000, guid: dd7382c28c09da7428be888044bba323, type: 2}
   presetIndex:
     m_OverrideState: 1
-    m_Value: 8
+    m_Value: 0
   bluenoise:
     m_OverrideState: 0
     m_Value: {fileID: 0}
