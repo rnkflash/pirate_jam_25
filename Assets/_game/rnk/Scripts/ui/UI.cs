@@ -1,6 +1,7 @@
 using System.Collections;
 using _game.rnk.Scripts;
 using _game.rnk.Scripts.battleSystem;
+using _game.tinypack.source.UI;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -23,6 +24,10 @@ public class UI : MonoBehaviour
     public TMP_Text say_text_shadow;
 
     bool skip;
+    
+    public SpriteVFX meleeHit;
+    public SpriteVFX armorHit;
+    public SpriteVFX healHit;
     
     void Awake()
     {

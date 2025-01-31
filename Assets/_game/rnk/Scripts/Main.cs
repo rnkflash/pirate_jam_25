@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using _game.rnk.Scripts.body;
 using _game.rnk.Scripts.crawler;
-using _game.rnk.Scripts.dice;
 using _game.rnk.Scripts.tags;
-using _game.rnk.Scripts.weapons;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +11,7 @@ namespace _game.rnk.Scripts
     public class Main : MonoBehaviour
     {
         public List<Character> startingCharacters = new List<Character>();
+        public List<Item> startingInventory = new List<Item>();
         
         void Awake()
         {
@@ -31,12 +28,23 @@ namespace _game.rnk.Scripts
                 {
                     G.run.characters.Add(CreateCharacter(startingCharacter));
                 }
+
+                G.run.inventory = new List<ArtefactState>();
+                foreach (var item in startingInventory)
+                {
+                    G.run.inventory.Add(new ArtefactState()
+                    {
+                        model = item.artefact.GetEntity()
+                    });
+                }
             }
 
             G.hud.Init();
             CMS.Init();
 
             G.ui.EnableInput();
+            G.hud.HideBattleHud();
+            G.hud.HideInventory();
             
             yield break;
         }

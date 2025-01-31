@@ -42,7 +42,7 @@ namespace _game.rnk.Scripts.battleSystem
 
         public IEnumerator Hit(int dmg)
         {
-            G.hud.battle.meleeHit.Bahni(transform.position);
+            G.ui.meleeHit.Bahni(transform.position);
             G.audio.Play<SFX_GetDamage>();
             var initialArmor = state.armor;
             state.armor -= dmg;
@@ -66,7 +66,7 @@ namespace _game.rnk.Scripts.battleSystem
         
         public IEnumerator Heal(int hp)
         {
-            G.hud.battle.healHit.Bahni(transform.position);
+            G.ui.healHit.Bahni(transform.position);
             G.audio.Play<SFX_Heal>();
             
             state.health += hp;
@@ -81,7 +81,7 @@ namespace _game.rnk.Scripts.battleSystem
         
         public IEnumerator Armor(int armor)
         {
-            G.hud.battle.armorHit.Bahni(transform.position);
+            G.ui.armorHit.Bahni(transform.position);
             G.audio.Play<SFX_Armor>();
             
             state.armor += armor;

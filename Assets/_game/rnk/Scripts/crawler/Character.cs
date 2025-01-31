@@ -11,4 +11,10 @@ namespace _game.rnk.Scripts.crawler
         public WeaponSO weapon;
         public BodySO body;
     }
+    
+    [Serializable]
+    public class Item
+    {
+        public ArtefactSO artefact;
+    }
 }

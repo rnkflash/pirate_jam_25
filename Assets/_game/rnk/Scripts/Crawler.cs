@@ -38,5 +38,28 @@ namespace _game.rnk.Scripts
             currentEncounter = null;
             player.EnableControls();
         }
+        
+        public void CharacterClicked(CharacterState state)
+        {
+            if (state.dead) return;
+            if (!G.hud.inventory.gameObject.activeSelf)
+            {
+                player.DisableControls();
+                G.hud.ShowInventory(state);
+            }
+            else
+            {
+                if (G.hud.inventory.state == state)
+                {
+                    G.hud.HideInventory();
+                    player.EnableControls();
+                }
+                else
+                {
+                    G.hud.HideInventory();
+                    G.hud.ShowInventory(state);
+                }
+            }
+        }
     }
 }

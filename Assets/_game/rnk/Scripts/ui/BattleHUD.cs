@@ -21,10 +21,6 @@ namespace _game.rnk.Scripts
         public TMP_Text EndTurnButtonText;
         public Button EndTurnButton;
         
-        public SpriteVFX meleeHit;
-        public SpriteVFX armorHit;
-        public SpriteVFX healHit;
-        
         public DiceZone rollDicesZone;
         
         public Transform enemiesRoot;
@@ -66,6 +62,7 @@ namespace _game.rnk.Scripts
             
             foreach (var character in G.run.characters)
             {
+                character.view.EnterBattleMode();
                 foreach (var diceState in character.diceStates)
                 {
                     playerDices.Add(CreateCharacterDice(character, diceState));    
@@ -86,7 +83,6 @@ namespace _game.rnk.Scripts
 
             rollDicesZone.ReleaseAll();
             rollDicesZone.transform.DetachChildren();
-            
 
             foreach (var dice in playerDices)
             {
@@ -94,6 +90,11 @@ namespace _game.rnk.Scripts
                 Destroy(dice.gameObject);
             }
             playerDices.Clear();
+
+            foreach (var character in G.run.characters)
+            {
+                character.view.FinishBattleMode();
+            }
         }
         
         DiceInteractiveObject CreateCharacterDice(CharacterState character, DiceState diceState)

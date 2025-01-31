@@ -221,7 +221,9 @@ namespace _game.rnk.Scripts.battleSystem
 
         public void ChangeFace()
         {
-            var face = state.face;
+            var artefact = state.artefactOnFace();
+            var face = artefact?.face ?? state.face;
+            
             if (face.Is<TagSprite>(out var sprite))
             {
                 view.sprite.SetAlpha(1f);

@@ -52,6 +52,7 @@ namespace _game.rnk.Scripts
 
         public void StartBattle(BattleEncounter encounter)
         {
+            G.IsInBattle = true;
             StartCoroutine(StartingBattle(encounter));
         }
         
@@ -105,6 +106,7 @@ namespace _game.rnk.Scripts
             G.hud.battle.FinishBattle();
             G.hud.HideBattleHud();
             
+            G.IsInBattle = false;
             G.crawler.OnFinishEncounter();
             
             //TODO do other shit rewards and shit
@@ -289,7 +291,8 @@ namespace _game.rnk.Scripts
         List<ITarget> GetTargetsForAction(DiceState diceState, List<ITarget> enemies, List<ITarget> allies)
         {
             var targets = new List<ITarget>();
-            var face = diceState.face;
+            var artefact = diceState.artefactOnFace();
+            var face = artefact?.face ?? diceState.face;
             if (face.Is<TagAction>(out var action) && action.action != ActionType.Blank)
             {
                 switch (action.side)
@@ -406,9 +409,12 @@ namespace _game.rnk.Scripts
         }
         IEnumerator DiceAction(DiceInteractiveObject dice)
         {
-            if (dice.state.face.Is<TagAction>(out var action))
+            var artefact = dice.state.artefactOnFace(); 
+            var face = artefact?.face ?? dice.state.face; 
+            
+            if (face.Is<TagAction>(out var action))
             {
-                var value = dice.state.face.Get<TagValue>()?.value ?? 0;
+                var value = face.Get<TagValue>()?.value ?? 0;
                 switch (action.action)
                 {
                     case ActionType.Attack:
@@ -602,8 +608,24 @@ namespace _game.rnk.Scripts
             if (selectionMode)
             {
                 selectionMode = false;
-                selected = new List<ITarget>() { state };
-                return;
+                var face = state.diceStates.First().overridenFace;
+                switch (face.Get<TagAction>().area)
+                {
+
+                    case TargetArea.Single:
+                        selected = new List<ITarget>() { state };
+                        break;
+
+                    case TargetArea.Row:
+                        selected = new List<ITarget>();
+                        selected.AddRange(G.run.enemies);
+                        break;
+
+                    case TargetArea.All:
+                        selected = new List<ITarget>();
+                        selected.AddRange(G.run.enemies);
+                        break;
+                }
             }
         }
         public void CharacterClicked(CharacterState state)
@@ -613,8 +635,25 @@ namespace _game.rnk.Scripts
             if (selectionMode)
             {
                 selectionMode = false;
-                selected = new List<ITarget>() { state };
-                return;
+
+                var face = state.diceStates.First().overridenFace;
+                switch (face.Get<TagAction>().area)
+                {
+
+                    case TargetArea.Single:
+                        selected = new List<ITarget>() { state };
+                        break;
+
+                    case TargetArea.Row:
+                        selected = new List<ITarget>();
+                        selected.AddRange(G.run.characters);
+                        break;
+
+                    case TargetArea.All:
+                        selected = new List<ITarget>();
+                        selected.AddRange(G.run.characters);
+                        break;
+                }
             }
         }
         public void OnDiceClickInCharacterView(CharacterView view, DiceInteractiveObject dice)

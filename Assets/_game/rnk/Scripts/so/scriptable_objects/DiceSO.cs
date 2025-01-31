@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using _game.rnk.Scripts.tags;
 using UnityEngine;
 
@@ -17,20 +16,6 @@ namespace _game.rnk.Scripts.so.scriptable_objects
                 components = components.ToList()
             };
             entity.Define<TagDefaultFaces>().faces = faces.Select(so => so.GetEntity()).ToArray();
-            return entity;
-        }
-    }
-
-    [Serializable]
-    public class FaceSO
-    {
-        public EntitySO face;
-        public int value;
-
-        public CMSEntity GetEntity()
-        {
-            var entity = face.GetEntity();
-            entity.Define<TagValue>().value = value;
             return entity;
         }
     }

@@ -1,5 +1,6 @@
 using _game.rnk.Scripts;
 using _game.rnk.Scripts.battleSystem;
+using _game.rnk.Scripts.inventory;
 using UnityEngine;
 
 public class HUD : MonoBehaviour
@@ -7,7 +8,8 @@ public class HUD : MonoBehaviour
     public BattleHUD battle;
     public UITooltip tooltip;
     public Transform charactersRoot;
-
+    public InventoryScreen inventory;
+    
     CharacterView characterViewPrefab;
     
     void Awake()
@@ -64,5 +66,17 @@ public class HUD : MonoBehaviour
     public void HideBattleHud()
     {
         battle.gameObject.SetActive(false);
+    }
+    
+    public void ShowInventory(CharacterState characterState)
+    {
+        inventory.gameObject.SetActive(true);
+        inventory.SetState(characterState);
+    }
+    
+    public void HideInventory()
+    {
+        inventory.FreeState();
+        inventory.gameObject.SetActive(false);
     }
 }

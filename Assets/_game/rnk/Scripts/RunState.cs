@@ -3,10 +3,7 @@ using System.Linq;
 using _game.rnk.Scripts.artefacts;
 using _game.rnk.Scripts.battleSystem;
 using _game.rnk.Scripts.crawler;
-using _game.rnk.Scripts.dice;
-using _game.rnk.Scripts.dice.face;
 using _game.rnk.Scripts.tags;
-using _game.rnk.Scripts.weapons;
 using UnityEngine;
 
 namespace _game.rnk.Scripts
@@ -76,12 +73,22 @@ namespace _game.rnk.Scripts
         public DiceInteractiveObject interactiveObject;
         public List<ArtefactState> artefacts = new List<ArtefactState>();
 
-        public CMSEntity face => model.Get<TagDefaultFaces>().faces.ElementAtOrDefault(rollValue) ?? model.Get<TagDefaultFaces>().faces.Last();
+        public int sides => model.Get<TagSides>().sides;
+        public CMSEntity face => GetFace(rollValue);
+        public CMSEntity[] faces => Enumerable.Range(0, sides).Select(i => GetFace(i)).ToArray();
+        public CMSEntity GetFace(int index) => model.Get<TagDefaultFaces>().faces.ElementAtOrDefault(index) ?? model.Get<TagDefaultFaces>().faces.Last();
+
+        public ArtefactState artefactOnFace() => artefactOnFace(rollValue);
+        public ArtefactState artefactOnFace(int index) => artefacts.FirstOrDefault(state => state.slot == index);
+
+        public CMSEntity overridenFace => artefactOnFace()?.face ?? face;
     }
 
     public class ArtefactState
     {
-        public int slotIdx;
-        public ArtefactBase model;
+        public int slot;
+        public CMSEntity model;
+
+        public CMSEntity face => model.Get<TagOverrideFace>()?.face;
     }
 }

@@ -47,7 +47,20 @@ namespace _game.rnk.Scripts.battleSystem
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            G.battle.CharacterClicked(state);
+            if (G.IsInBattle)
+                G.battle.CharacterClicked(state);
+            else
+                G.crawler.CharacterClicked(state);
+        }
+
+        public void EnterBattleMode()
+        {
+            diceZone.gameObject.SetActive(true);
+        }
+        
+        public void FinishBattleMode()
+        {
+            diceZone.gameObject.SetActive(false);
         }
     }
 }

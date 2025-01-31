@@ -9,4 +9,5 @@ namespace _game.rnk.Scripts.tags
     {
         public CMSEntity[] faces;
     }
+
 }
