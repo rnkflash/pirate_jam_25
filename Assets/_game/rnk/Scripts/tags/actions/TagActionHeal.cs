@@ -12,7 +12,7 @@ namespace _game.rnk.Scripts.tags.actions
 
     public class TagActionHealInteractor : BaseInteraction, IDiceFaceAction
     {
-        public  IEnumerator OnAction(List<ITarget> targets, CMSEntity face)
+        public IEnumerator OnAction(List<ITarget> targets, CMSEntity face, BaseCharacterState owner)
         {
             if (face.Is<TagActionHeal>(out var action))
             {

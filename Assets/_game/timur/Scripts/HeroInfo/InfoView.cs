@@ -73,12 +73,12 @@ namespace _game.HeroInfo
             var q = state.diceStates;
             foreach (var qq in q)
             {
-                var ww = qq.model.Get<TagDefaultFaces>();
+                var ww = qq.faces;
                 for(int i = 0; i < 6; i++)
                 {
-                    if(ww.faces[i].Get<TagSprite>() != null)
-                        _diceFaces[i].SetIcon(ww.faces[i].Get<TagSprite>().sprite);
-                    _diceFaces[i].SetText(ww.faces[i].WithTagValues());
+                    if(ww[i].Get<TagSprite>() != null)
+                        _diceFaces[i].SetIcon(ww[i].Get<TagSprite>().sprite);
+                    _diceFaces[i].SetText(ww[i].WithTagValues());
                 }
             }
         }

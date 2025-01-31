@@ -51,7 +51,7 @@ namespace _game.rnk.Scripts
     public class BuffState
     {
         public int turnsLeft;
-        public BaseCharacterState target;
+        public ITarget target;
         public BaseCharacterState castedBy;
         public CMSEntity model;
     }

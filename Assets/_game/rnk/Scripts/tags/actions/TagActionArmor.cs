@@ -13,7 +13,7 @@ namespace _game.rnk.Scripts.tags.actions
 
     public class TagActionArmorInteractor : BaseInteraction, IDiceFaceAction
     {
-        public IEnumerator OnAction(List<ITarget> targets, CMSEntity face)
+        public IEnumerator OnAction(List<ITarget> targets, CMSEntity face, BaseCharacterState owner)
         {
             if (face.Is<TagActionArmor>(out var action))
             {

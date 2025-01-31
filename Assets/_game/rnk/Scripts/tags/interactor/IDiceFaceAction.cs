@@ -5,6 +5,6 @@ namespace _game.rnk.Scripts.tags.interactor
 {
     public interface IDiceFaceAction
     {
-        public IEnumerator OnAction(List<ITarget> targets, CMSEntity face);
+        public IEnumerator OnAction(List<ITarget> targets, CMSEntity face, BaseCharacterState owner);
     }
 }

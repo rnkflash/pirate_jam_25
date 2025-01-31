@@ -7,6 +7,7 @@ using _game.rnk.Scripts.crawler;
 using _game.rnk.Scripts.enums;
 using _game.rnk.Scripts.tags;
 using _game.rnk.Scripts.tags.actions;
+using _game.rnk.Scripts.tags.buffs;
 using _game.rnk.Scripts.tags.interactor;
 using _game.rnk.Scripts.util;
 using UnityEngine;
@@ -161,6 +162,11 @@ namespace _game.rnk.Scripts
 
                 case TurnPhase.EXECUTE_DICES:
                     StartCoroutine(StartExecutePhase());
+                    
+                    break;
+                
+                case TurnPhase.EXECUTE_BUFFS:
+                    StartCoroutine(StartExecuteBuffs());
                     
                     break;
 
@@ -409,12 +415,13 @@ namespace _game.rnk.Scripts
         }
         IEnumerator DiceAction(DiceInteractiveObject dice)
         {
-            var artefact = dice.state.artefactOnFace(); 
+            var artefact = dice.state.artefactOnFace();
+            var owner = dice.state.owner;
             var face = artefact?.face ?? dice.state.face;
             var targets = dice.GetTargets();
             var interactors = interactor.FindAll<IDiceFaceAction>();
             foreach (var f in interactors)
-                yield return f.OnAction(targets, face);
+                yield return f.OnAction(targets, face, owner);
             
             foreach (var target in targets)
             {
@@ -429,6 +436,16 @@ namespace _game.rnk.Scripts
             }
 
             yield return new WaitForSeconds(0.25f);
+        }
+        
+        IEnumerator StartExecuteBuffs()
+        {
+            var interactors = interactor.FindAll<IBuffAction>();
+            foreach (var buffState in G.run.buffs)
+            {
+                foreach (var f in interactors)
+                    yield return f.OnBuffAction(buffState);
+            }
         }
 
         IEnumerator StartPlayDicesPhase()
@@ -717,6 +734,20 @@ namespace _game.rnk.Scripts
                     break;
                 }
             }
+        }
+        public IEnumerator AddBuff(ITarget target, CMSEntity face, BaseCharacterState owner)
+        {
+            G.run.buffs.Add(new BuffState()
+            {
+                model = face,
+                turnsLeft = face.Get<TagDuration>()?.turns ?? 99,
+                target = target,
+                castedBy = owner
+            });
+            
+            //TODO update buffs views
+            
+            yield return new WaitForSeconds(0.25f);
         }
     }
 

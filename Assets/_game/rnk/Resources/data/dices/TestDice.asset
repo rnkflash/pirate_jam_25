@@ -17,8 +17,8 @@ MonoBehaviour:
   - rid: 1971845007490678982
   - rid: 1971845032096563288
   faces:
-  - face: {fileID: 11400000, guid: 0eeec14d1a1bf0a4bbaab55a499e15ac, type: 2}
-    values: 0100000002000000
+  - face: {fileID: 11400000, guid: 023460095508f0144b1c316affcd58b9, type: 2}
+    values: 01000000
   references:
     version: 2
     RefIds:
