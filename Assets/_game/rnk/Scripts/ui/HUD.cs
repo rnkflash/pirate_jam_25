@@ -9,6 +9,9 @@ public class HUD : MonoBehaviour
     public UITooltip tooltip;
     public Transform charactersRoot;
     public InventoryScreen inventory;
+    public GameObject help;
+
+    private bool helpVisible = false;
     
     CharacterView characterViewPrefab;
     
@@ -78,5 +81,11 @@ public class HUD : MonoBehaviour
     {
         inventory.FreeState();
         inventory.gameObject.SetActive(false);
+    }
+
+    public void ShowHelp()
+    {
+        helpVisible = !helpVisible;
+        help.SetActive(helpVisible);
     }
 }
