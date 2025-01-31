@@ -140,8 +140,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4309679977427760150, guid: c56e1a8beb3325841aaad1501f652805, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: be8815a1e9139024b95779bba9756b82, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -751,6 +751,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selection: {fileID: 3306523508120473145}
+  minScale: 0.9
+  maxScale: 1.2
+  duration: 1
 --- !u!114 &7672065750848274821
 MonoBehaviour:
   m_ObjectHideFlags: 0
