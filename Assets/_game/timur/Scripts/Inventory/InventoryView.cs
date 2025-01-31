@@ -17,7 +17,7 @@ namespace _game.Inventory
         public InventoryItemView GetItemPrefab() => _item;
         public Transform GetItemsParent() => _itemHolderTransform;
 
-        public void SetState(CharacterState state, GameObject bg)
+        public void SetState(CharacterState state)
         {
             var similarClick = state == _state;
             _state = state;
@@ -25,7 +25,6 @@ namespace _game.Inventory
             {
                 _shown = false;
                 SetState(false);
-                bg.SetActive(false);
                 foreach (Transform child in _itemHolderTransform)
                 {
                     Destroy(child.gameObject);
@@ -35,13 +34,17 @@ namespace _game.Inventory
             {
                 _shown = true;
                 SetState(true);
-                bg.SetActive(true);
-                for (int i = 0; i < G.run.inventory.Count; i++)
-                {
-                    Instantiate(_item, _itemHolderTransform);
-                }
+                // for (int i = 0; i < G.run.inventory.Count; i++)
+                // {
+                //     Instantiate(_item, _itemHolderTransform);
+                // }
             }
 
+        }
+
+        public void Hide()
+        {
+            _shown = false;
         }
         
         public void SetState(bool state)
@@ -68,30 +71,33 @@ namespace _game.Inventory
             }
             else
             {
-                float targetY = _rectTransform.anchoredPosition.x - 30f;
-
-                Sequence sequence = DOTween.Sequence();
-
-                sequence.Join(
-                    _rectTransform.DOAnchorPosX(targetY, 0.05f)
-                        .SetEase(Ease.OutBounce)
-                );
-
-                sequence.Join(
-                    _canvasGroup.DOFade(0f, 0.05f)
-                );
-
-                sequence.OnStart(() =>
-                    {
-                        Debug.Log("Tween started (state false)");
-                    })
-                    .OnComplete(() =>
-                    {
-                        _canvasGroup.interactable = false;
-                        _canvasGroup.blocksRaycasts = false;
-                        _canvasGroup.alpha = 0f;
-                        _rectTransform.anchoredPosition = _originalAnchoredPosition;
-                    });
+                _canvasGroup.interactable = false;
+                _canvasGroup.blocksRaycasts = false;
+                _canvasGroup.alpha = 0f;
+                // float targetY = _rectTransform.anchoredPosition.x - 30f;
+                //
+                // Sequence sequence = DOTween.Sequence();
+                //
+                // sequence.Join(
+                //     _rectTransform.DOAnchorPosX(targetY, 0.05f)
+                //         .SetEase(Ease.OutBounce)
+                // );
+                //
+                // sequence.Join(
+                //     _canvasGroup.DOFade(0f, 0.05f)
+                // );
+                //
+                // sequence.OnStart(() =>
+                //     {
+                //         Debug.Log("Tween started (state false)");
+                //     })
+                //     .OnComplete(() =>
+                //     {
+                //         _canvasGroup.interactable = false;
+                //         _canvasGroup.blocksRaycasts = false;
+                //         _canvasGroup.alpha = 0f;
+                //         _rectTransform.anchoredPosition = _originalAnchoredPosition;
+                //     });
             }
         }
 
