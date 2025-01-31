@@ -104,6 +104,7 @@ namespace _game.rnk.Scripts
         public void FinishBattle()
         {
             G.run.enemies.Clear();
+            G.run.buffs.Clear();
             
             isEnabled = false;
             G.hud.battle.FinishBattle();
@@ -137,7 +138,12 @@ namespace _game.rnk.Scripts
                     G.hud.battle.RollButtonText.text = "Reroll x " + reRolls;
                     G.hud.battle.EndTurnButtonText.text = "Next phase";
                     G.hud.battle.DisableHud();
-                    SetTurnPhase(TurnPhase.ENEMY_ROLL);
+                    SetTurnPhase(TurnPhase.EXECUTE_BUFFS);
+                    break;
+                
+                case TurnPhase.EXECUTE_BUFFS:
+                    StartCoroutine(StartExecuteBuffs());
+                    
                     break;
                 
                 case TurnPhase.ENEMY_ROLL:
@@ -165,18 +171,13 @@ namespace _game.rnk.Scripts
                     
                     break;
                 
-                case TurnPhase.EXECUTE_BUFFS:
-                    StartCoroutine(StartExecuteBuffs());
-                    
-                    break;
-
                 case TurnPhase.CHECK_WIN:
-                    StartCoroutine(CheckWin());
+                    StartCoroutine(CheckWin(TurnPhase.START_TURN));
                     break;
             }
         }
 
-        IEnumerator CheckWin()
+        IEnumerator CheckWin(TurnPhase nextPhase)
         {
             isWin = G.run.enemies.FindAll(state => !state.dead).Count == 0;
             var allDead = G.run.characters.All(state => state.dead);
@@ -187,7 +188,7 @@ namespace _game.rnk.Scripts
             {
                 if (!isWin)
                 {
-                    SetTurnPhase(TurnPhase.START_TURN);
+                    SetTurnPhase(nextPhase);
                 }
                 else
                 {
@@ -441,11 +442,26 @@ namespace _game.rnk.Scripts
         IEnumerator StartExecuteBuffs()
         {
             var interactors = interactor.FindAll<IBuffAction>();
+            var expiredBuffs = new List<BuffState>();
             foreach (var buffState in G.run.buffs)
             {
                 foreach (var f in interactors)
+                {
                     yield return f.OnBuffAction(buffState);
+                }
+                buffState.turnsLeft -= 1;
+                if (buffState.turnsLeft <= 0)
+                    expiredBuffs.Add(buffState);
             }
+
+            foreach (var expiredBuff in expiredBuffs)
+            {
+                G.run.buffs.Remove(expiredBuff);
+            }
+
+            yield return new WaitForSeconds(0.25f);
+            
+            StartCoroutine(CheckWin(TurnPhase.ENEMY_ROLL));
         }
 
         IEnumerator StartPlayDicesPhase()
