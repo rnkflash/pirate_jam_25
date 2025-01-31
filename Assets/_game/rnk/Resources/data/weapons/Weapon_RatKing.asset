@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076c09624bc642d5ad2d42412b40c9b4, type: 3}
+  m_Name: Weapon_RatKing
+  m_EditorClassIdentifier: 
+  components:
+  - rid: 1971845032096563355
+  - rid: 1971845032096563357
+  - rid: 1971845032096563359
+  - rid: 1971845032096563361
+  references:
+    version: 2
+    RefIds:
+    - rid: 1971845032096563355
+      type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: Rat King
+    - rid: 1971845032096563357
+      type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: A legendary rat leader consumed by the dungeon's darkness. His body
+          mutated into a massive, terrifying form. Likely a leader of an ancient
+          cult, sacrificed to the darkness to become its servant.
+    - rid: 1971845032096563359
+      type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        sprite: {fileID: 156116257, guid: 17d96a732d17e8b4bb2071522c09cd05, type: 3}
+    - rid: 1971845032096563361
+      type: {class: TagTint, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        color: {r: 0.5518868, g: 0.6871597, b: 1, a: 1}

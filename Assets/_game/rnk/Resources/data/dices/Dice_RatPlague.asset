@@ -19,16 +19,16 @@ MonoBehaviour:
   faces:
   - face: {fileID: 11400000, guid: ba4a5d856680cdf4aa7e802baf4d302a, type: 2}
     value: 1
-  - face: {fileID: 11400000, guid: 5d88a2df337fe7e4ba2ecffc769786a5, type: 2}
+  - face: {fileID: 11400000, guid: 77ee893312395ba4c85118a4fafb8f69, type: 2}
     value: 1
-  - face: {fileID: 11400000, guid: 5d88a2df337fe7e4ba2ecffc769786a5, type: 2}
-    value: 2
-  - face: {fileID: 11400000, guid: a16e3ded43647b24cafe068b5a82242e, type: 2}
+  - face: {fileID: 11400000, guid: 77ee893312395ba4c85118a4fafb8f69, type: 2}
     value: 1
   - face: {fileID: 11400000, guid: a16e3ded43647b24cafe068b5a82242e, type: 2}
-    value: 2
+    value: 1
   - face: {fileID: 11400000, guid: a16e3ded43647b24cafe068b5a82242e, type: 2}
-    value: 3
+    value: 1
+  - face: {fileID: 11400000, guid: a16e3ded43647b24cafe068b5a82242e, type: 2}
+    value: 2
   references:
     version: 2
     RefIds:

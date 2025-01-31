@@ -17,6 +17,7 @@ namespace _game.rnk.Scripts.inventory
 
         [SerializeField] private InfoView _infoView;
         [SerializeField] private InventoryView _inventoryView;
+        [SerializeField] private GameObject _bg;
 
         void Awake()
         {
@@ -81,9 +82,11 @@ namespace _game.rnk.Scripts.inventory
             
             _infoView.SetState(characterState);
             _inventoryView.SetState(characterState);
+            _bg.SetActive(true);
         }
         public void FreeState()
         {
+            _bg.SetActive(false);
             _infoView.Hide();
             _inventoryView.Hide();
             foreach (var slot in slots)
