@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e6bc35e05b44328a9c25be1f816b939, type: 3}
-  m_Name: PlagueRat
+  m_Name: Hero_Mage
   m_EditorClassIdentifier: 
   components:
   - rid: 1971845007490678957
@@ -18,22 +18,22 @@ MonoBehaviour:
   - rid: 1971845007490678961
   - rid: 1971845007490678974
   dices:
-  - {fileID: 11400000, guid: f9b230026c6243b4a9589f5791ca072a, type: 2}
+  - {fileID: 11400000, guid: ee1da463f29ccbc4cbb7717061f32fb3, type: 2}
   references:
     version: 2
     RefIds:
     - rid: 1971845007490678957
       type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: Plague Rat
+        loc: Mage
     - rid: 1971845007490678959
       type: {class: TagHealth, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        health: 4
+        health: 5
     - rid: 1971845007490678961
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        sprite: {fileID: -2570180814250682918, guid: 78550d5a33234bb4e81d675f891c7f4f, type: 3}
+        sprite: {fileID: 6571187285002963668, guid: 7840f1bdc8cf6614394564201497d294, type: 3}
     - rid: 1971845007490678974
       type: {class: TagTint, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:

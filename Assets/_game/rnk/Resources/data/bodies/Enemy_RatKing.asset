@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e6bc35e05b44328a9c25be1f816b939, type: 3}
-  m_Name: RatKing
+  m_Name: Enemy_RatKing
   m_EditorClassIdentifier: 
   components:
   - rid: 1971845007490678957
@@ -18,7 +18,7 @@ MonoBehaviour:
   - rid: 1971845007490678961
   - rid: 1971845007490678974
   dices:
-  - {fileID: 11400000, guid: f9b230026c6243b4a9589f5791ca072a, type: 2}
+  - {fileID: 11400000, guid: 692a679cd2e69ff4ba1267fb55fc1b3e, type: 2}
   references:
     version: 2
     RefIds:
@@ -29,7 +29,7 @@ MonoBehaviour:
     - rid: 1971845007490678959
       type: {class: TagHealth, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        health: 10
+        health: 30
     - rid: 1971845007490678961
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
