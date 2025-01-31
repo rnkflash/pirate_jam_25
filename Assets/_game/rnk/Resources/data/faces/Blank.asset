@@ -28,4 +28,4 @@ MonoBehaviour:
     - rid: 1971844943657566310
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        sprite: {fileID: 613435604629981061, guid: bc4ab1fecbef4bc46872e51f8488507d, type: 3}
+        sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
