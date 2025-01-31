@@ -1,4 +1,5 @@
 using _game.Note;
+using _game.rnk.Scripts.crawler;
 using UnityEngine;
 
 public class Note : MonoBehaviour
@@ -6,6 +7,7 @@ public class Note : MonoBehaviour
     public string text;
     private Collider leverCollider;
     private bool isActivated = false;
+    public Player player;
 
     private void Start()
     {
@@ -17,9 +19,11 @@ public class Note : MonoBehaviour
         isActivated = !isActivated;
         if (isActivated) {
             FindObjectOfType<NoteView>().Show(text);
+            player.DisableControls();
         }
         else {
             FindObjectOfType<NoteView>().Hide();
+            player.EnableControls();
         }
     }
 }

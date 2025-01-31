@@ -35,10 +35,11 @@ namespace _game.Note
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            
+            /*if (Input.GetKeyDown(KeyCode.Space))
             {
                 Show("Здарова, тварына");
-            }
+            }*/
         }
 
         public void Hide()
