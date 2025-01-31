@@ -9,6 +9,7 @@
         ENEMY_TARGETING, 
         PLAYER_TARGETING, 
         EXECUTE_DICES, 
+        EXECUTE_BUFFS,
         CHECK_WIN
     }
 }
