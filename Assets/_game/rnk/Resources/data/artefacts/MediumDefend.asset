@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1646eb1675d4cd4b1ca8fdff10b8292, type: 3}
+  m_Name: MediumDefend
+  m_EditorClassIdentifier: 
+  components:
+  - rid: 1971845052642361435
+  - rid: 1971845052642361437
+  - rid: 1971845052642361439
+  face:
+    face: {fileID: 11400000, guid: 5d88a2df337fe7e4ba2ecffc769786a5, type: 2}
+    values: 05000000
+  references:
+    version: 2
+    RefIds:
+    - rid: 1971845052642361435
+      type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: Small Stick
+    - rid: 1971845052642361437
+      type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: A small stick you can smack with it
+    - rid: 1971845052642361439
+      type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        sprite: {fileID: 5811538498805445843, guid: a0448a366e8bf524ca53fe396b6b41a7, type: 3}
