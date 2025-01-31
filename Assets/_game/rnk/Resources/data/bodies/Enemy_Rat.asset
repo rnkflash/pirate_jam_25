@@ -29,7 +29,7 @@ MonoBehaviour:
     - rid: 1971845007490678959
       type: {class: TagHealth, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        health: 6
+        health: 3
     - rid: 1971845007490678961
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:

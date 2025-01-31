@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 076c09624bc642d5ad2d42412b40c9b4, type: 3}
-  m_Name: Weapon_Warrior
+  m_Name: Weapon_RatPlague
   m_EditorClassIdentifier: 
   components:
   - rid: 1971845032096563355
@@ -23,13 +23,13 @@ MonoBehaviour:
     - rid: 1971845032096563355
       type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: Warrior
+        loc: Plague Rat
     - rid: 1971845032096563357
       type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: Rein, a young warrior who fled the battlefield, is cursed by the shadows
-          of fallen comrades. In the dungeon, he seeks redemption, but with each
-          step, he feels his fate is to become part of the lurking horror.
+        loc: Common rats corrupted by an ancient curse within the dungeon. Their
+          bodies are twisted by disease, and their minds consumed by madness. Likely
+          part of a ritual gone wrong, turning them into carriers of plague.
     - rid: 1971845032096563359
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:

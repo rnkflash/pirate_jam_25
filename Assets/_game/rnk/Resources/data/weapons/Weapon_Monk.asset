@@ -27,7 +27,9 @@ MonoBehaviour:
     - rid: 1971845032096563357
       type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: blablabla
+        loc: Shin, a monk skilled in martial arts, trembles before death. He entered
+          the dungeon hoping to conquer his fear, but with each battle, he realizes
+          more and more that he just wants to survive.
     - rid: 1971845032096563359
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:

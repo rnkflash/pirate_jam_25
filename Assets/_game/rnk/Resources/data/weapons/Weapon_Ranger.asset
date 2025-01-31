@@ -27,7 +27,8 @@ MonoBehaviour:
     - rid: 1971845032096563357
       type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: blablabla
+        loc: Lyra, raised in the deep forests, where she learned to survive and hunt.
+          Her family vanished under mysterious circumstances linked to the dungeon.
     - rid: 1971845032096563359
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:

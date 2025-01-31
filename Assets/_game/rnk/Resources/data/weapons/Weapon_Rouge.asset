@@ -27,7 +27,9 @@ MonoBehaviour:
     - rid: 1971845032096563357
       type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: blablabla
+        loc: Loren, a rogue who betrayed all who trusted him. He seeks treasure in
+          the dungeon, but the shadows whisper the names of those he killed. With
+          each step, he wonders if he's the hunter or the prey.
     - rid: 1971845032096563359
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:

@@ -27,7 +27,8 @@ MonoBehaviour:
     - rid: 1971845032096563357
       type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: blablabla
+        loc: Elira, born into a family of mages, her magic was deemed dangerous and
+          forbidden. Exiled, she found refuge in ancient ruins.
     - rid: 1971845032096563359
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:

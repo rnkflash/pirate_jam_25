@@ -27,7 +27,9 @@ MonoBehaviour:
     - rid: 1971845032096563357
       type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: blablabla
+        loc: Elian, a priest, rejected the gods' light after hearing whispers from
+          the depths. In the dungeon, he seeks the truth, but with each step, he
+          feels an alien will tightening around his soul.
     - rid: 1971845032096563359
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:

@@ -27,7 +27,9 @@ MonoBehaviour:
     - rid: 1971845032096563357
       type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: blablabla
+        loc: Morkan, an old wizard, lost his mind chasing forbidden knowledge. The
+          dungeon calls to him with whispers of forgotten magic, but each secret
+          he uncovers strips away more of his humanity.
     - rid: 1971845032096563359
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
