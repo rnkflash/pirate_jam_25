@@ -23,11 +23,11 @@ MonoBehaviour:
     values: 01000000
   - face: {fileID: 11400000, guid: a16e3ded43647b24cafe068b5a82242e, type: 2}
     values: 02000000
-  - face: {fileID: 11400000, guid: 77ee893312395ba4c85118a4fafb8f69, type: 2}
+  - face: {fileID: 11400000, guid: a16e3ded43647b24cafe068b5a82242e, type: 2}
     values: 01000000
-  - face: {fileID: 11400000, guid: 77ee893312395ba4c85118a4fafb8f69, type: 2}
+  - face: {fileID: 11400000, guid: a16e3ded43647b24cafe068b5a82242e, type: 2}
     values: 01000000
-  - face: {fileID: 11400000, guid: 77ee893312395ba4c85118a4fafb8f69, type: 2}
+  - face: {fileID: 11400000, guid: 5d88a2df337fe7e4ba2ecffc769786a5, type: 2}
     values: 01000000
   references:
     version: 2
