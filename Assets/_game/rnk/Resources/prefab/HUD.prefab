@@ -1275,7 +1275,7 @@ MonoBehaviour:
   battle: {fileID: 1002931316302765641}
   tooltip: {fileID: 8355482692281178123}
   charactersRoot: {fileID: 6860512326085513320}
-  inventory: {fileID: 6934225851481271656}
+  inventory: {fileID: 0}
 --- !u!1 &2773116329288287094
 GameObject:
   m_ObjectHideFlags: 0
@@ -3479,15 +3479,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.48235294, g: 0.69803923, b: 0.4117647, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1697500139, guid: bc4ab1fecbef4bc46872e51f8488507d, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 4839348528545371620, guid: 7345e47306582b843b786f5d6b02b624, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4419,7 +4419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1364712124457187609
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4447,7 +4447,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7042664440758541404}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed9e2f852ed840e5a055cc701f2d06dc, type: 3}
   m_Name: 
@@ -5851,7 +5851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2149561004624865168
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5957,15 +5957,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.43137255, g: 0.6627451, b: 0.7607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1697500139, guid: bc4ab1fecbef4bc46872e51f8488507d, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: -1701978366418710632, guid: 0f360bf1ddd1ac142ab4dec40d823253, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
