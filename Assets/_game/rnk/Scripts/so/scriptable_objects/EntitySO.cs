@@ -6,7 +6,7 @@ namespace _game.rnk.Scripts.so.scriptable_objects
     [CreateAssetMenu(fileName = "Entity", menuName = "ScriptableObjects/rnk/Entity", order = 1)]
     public class EntitySO : ScriptableObject
     {
-        [SerializeReference, Subclass]
+        [SerializeReference, Subclass(IsList = false)]
         public EntityComponentDefinition[] components;
 
         public CMSEntity GetEntity()
