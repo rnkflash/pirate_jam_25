@@ -82,6 +82,11 @@ namespace _game.HeroInfo
             }
         }
 
+        public void Hide()
+        {
+            _show = false;
+        }
+
         private void ResetDiceIcons()
         {
             foreach (var diceFaceView in _diceFaces)

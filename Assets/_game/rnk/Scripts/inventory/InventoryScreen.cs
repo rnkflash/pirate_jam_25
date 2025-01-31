@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using _game.HeroInfo;
+using _game.Inventory;
 using UnityEngine;
 
 namespace _game.rnk.Scripts.inventory
@@ -12,6 +14,9 @@ namespace _game.rnk.Scripts.inventory
         [NonSerialized] public InventoryItem inventoryItemPrefab;
         
         [NonSerialized] public CharacterState state;
+
+        [SerializeField] private InfoView _infoView;
+        [SerializeField] private InventoryView _inventoryView;
 
         void Awake()
         {
@@ -73,9 +78,14 @@ namespace _game.rnk.Scripts.inventory
             {
                 CreateInventoryItem(artefactState, itemsPanel.transform);
             }
+            
+            _infoView.SetState(characterState);
+            _inventoryView.SetState(characterState);
         }
         public void FreeState()
         {
+            _infoView.Hide();
+            _inventoryView.Hide();
             foreach (var slot in slots)
             {
                 slot.Free();
