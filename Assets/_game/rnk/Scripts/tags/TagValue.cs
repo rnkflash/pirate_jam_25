@@ -2,6 +2,7 @@
 {
     public class TagValue : EntityComponentDefinition
     {
-        public int value;
+        public int[] values;
     }
+
 }

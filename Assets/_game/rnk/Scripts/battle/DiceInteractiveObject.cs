@@ -169,9 +169,9 @@ namespace _game.rnk.Scripts.battleSystem
             if (state == null) return null;
             var desc = "";
             var face = state.overridenFace;
-            var value = face.Get<TagValue>()?.value ?? 0;
+            var values = face.Get<TagValue>()?.values ?? Array.Empty<int>();
             if (face.Is<TagName>(out var tn)) desc += tn.loc + ". \n";
-            if (face.Is<TagDescription>(out var td)) desc += td.loc.WithValue(value.ToString());
+            if (face.Is<TagDescription>(out var td)) desc += td.loc.WithValues(values);
             return desc;
         }
 
@@ -245,7 +245,7 @@ namespace _game.rnk.Scripts.battleSystem
                 
                 if (face.Is<TagValue>(out var tagValue))
                 {
-                    view.valueText.text = tagValue.value.ToString();
+                    view.valueText.text = face.WithTagValues();
                 }
                 else
                 {

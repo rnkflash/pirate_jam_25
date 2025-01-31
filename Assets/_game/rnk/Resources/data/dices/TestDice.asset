@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6449c1be3f5467cb916b88514e851c5, type: 3}
+  m_Name: TestDice
+  m_EditorClassIdentifier: 
+  components:
+  - rid: 1971845007490678953
+  - rid: 1971845007490678982
+  - rid: 1971845032096563288
+  faces:
+  - face: {fileID: 11400000, guid: 0eeec14d1a1bf0a4bbaab55a499e15ac, type: 2}
+    values: 0100000002000000
+  references:
+    version: 2
+    RefIds:
+    - rid: 1971845007490678953
+      type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: Rat dice
+    - rid: 1971845007490678982
+      type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: yeah whatever
+    - rid: 1971845032096563288
+      type: {class: TagSides, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        sides: 6

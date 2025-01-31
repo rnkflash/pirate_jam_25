@@ -4,6 +4,7 @@ using _game.Inventory;
 using _game.rnk.Scripts;
 using _game.rnk.Scripts.battleSystem;
 using _game.rnk.Scripts.tags;
+using _game.rnk.Scripts.util;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -77,7 +78,7 @@ namespace _game.HeroInfo
                 {
                     if(ww.faces[i].Get<TagSprite>() != null)
                         _diceFaces[i].SetIcon(ww.faces[i].Get<TagSprite>().sprite);
-                    _diceFaces[i].SetText(ww.faces[i].Get<TagValue>().value.ToString());
+                    _diceFaces[i].SetText(ww.faces[i].WithTagValues());
                 }
             }
         }

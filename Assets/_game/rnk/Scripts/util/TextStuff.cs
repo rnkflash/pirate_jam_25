@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using _game.rnk.Scripts.battleSystem;
 using _game.rnk.Scripts.enums;
 using _game.rnk.Scripts.tags;
@@ -41,11 +42,6 @@ namespace _game.rnk.Scripts.util
                 default:
                     throw new ArgumentOutOfRangeException(nameof(r), r, null);
             }
-        }
-        
-        public static string WithValue(this string r, string value)
-        {
-            return r.Replace("%value%", value);
         }
     }
 }

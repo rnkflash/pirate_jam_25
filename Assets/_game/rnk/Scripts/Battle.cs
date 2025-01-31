@@ -410,11 +410,23 @@ namespace _game.rnk.Scripts
         IEnumerator DiceAction(DiceInteractiveObject dice)
         {
             var artefact = dice.state.artefactOnFace(); 
-            var face = artefact?.face ?? dice.state.face; 
-            
+            var face = artefact?.face ?? dice.state.face;
+            var targets = dice.GetTargets();
             var interactors = interactor.FindAll<IDiceFaceAction>();
             foreach (var f in interactors)
-                yield return f.OnAction(dice.GetTargets(), face);
+                yield return f.OnAction(targets, face);
+            
+            foreach (var target in targets)
+            {
+                var damageable = target.GetView().GetComponent<Damageable>();
+                if (damageable != null && damageable.state.dead)
+                {
+                    foreach (var diceState in damageable.state.diceStates)
+                    {
+                        diceState.interactiveObject.ClearTargets();
+                    }
+                }
+            }
 
             yield return new WaitForSeconds(0.25f);
         }

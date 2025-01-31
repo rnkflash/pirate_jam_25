@@ -1,6 +1,7 @@
 ﻿using System;
 using _game.rnk.Scripts.tags;
 using _game.rnk.Scripts.tags.actions;
+using _game.rnk.Scripts.util;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -60,7 +61,7 @@ namespace _game.rnk.Scripts.inventory
                 
                 if (face.Is<TagValue>(out var tagValue))
                 {
-                    view.valueText.text = tagValue.value.ToString();
+                    view.valueText.text = face.WithTagValues();
                 }
                 else
                 {

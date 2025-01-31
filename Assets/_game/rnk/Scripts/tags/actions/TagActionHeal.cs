@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using _game.rnk.Scripts.battleSystem;
 using _game.rnk.Scripts.tags.interactor;
 
@@ -15,7 +16,7 @@ namespace _game.rnk.Scripts.tags.actions
         {
             if (face.Is<TagActionHeal>(out var action))
             {
-                var value = face.Get<TagValue>()?.value ?? 0;
+                var value = face.Get<TagValue>()?.values.FirstOrDefault() ?? 0;
                 foreach (var target in targets)
                 {
                     var damageable = target.GetView().GetComponent<Damageable>();

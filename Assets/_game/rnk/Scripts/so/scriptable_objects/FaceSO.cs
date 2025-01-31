@@ -7,12 +7,12 @@ namespace _game.rnk.Scripts.so.scriptable_objects
     public class FaceSO
     {
         public EntitySO face;
-        public int value;
+        public int[] values;
 
         public CMSEntity GetEntity()
         {
             var entity = face.GetEntity();
-            entity.Define<TagValue>().value = value;
+            entity.Define<TagValue>().values = values;
             return entity;
         }
     }

@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   components:
   - rid: 1971845068808519826
-  - rid: 1971845068808519824
   - rid: 1971845068808519822
   - rid: 1971845068808519828
   - rid: 1971845068808519830
+  - rid: 1971845068808519875
   references:
     version: 2
     RefIds:
@@ -25,12 +25,6 @@ MonoBehaviour:
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
         sprite: {fileID: -1304168633, guid: bc4ab1fecbef4bc46872e51f8488507d, type: 3}
-    - rid: 1971845068808519824
-      type: {class: TagActionTargeting, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
-      data:
-        row: 0
-        side: 4
-        area: 0
     - rid: 1971845068808519826
       type: {class: TagActionBlank, ns: _game.rnk.Scripts.tags.actions, asm: Assembly-CSharp}
       data: 
@@ -42,3 +36,7 @@ MonoBehaviour:
       type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
         loc: Do nothing
+    - rid: 1971845068808519875
+      type: {class: TagValueText, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: Nope
