@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; // Подключаем для загрузки сцен
 
 namespace _game.Intro
 {
@@ -16,8 +16,10 @@ namespace _game.Intro
         [SerializeField] private CanvasGroup _canvasGroup; // Для эффекта затемнения
         [SerializeField] private TextMeshProUGUI _text;
         [SerializeField] private List<int> _seconds;
+
         private int _currentIndex = 0;
         private Coroutine _currentCoroutine;
+        private bool _canClick = true; // Флаг для блокировки клика
 
         private void Start()
         {
@@ -28,7 +30,12 @@ namespace _game.Intro
 
         public void OnClicked()
         {
+            if (!_canClick) return; // Блокируем клик
+
             Debug.Log("Timur clicked");
+
+            _canClick = false; // Блокируем повторный клик
+            StartCoroutine(EnableClickAfterDelay(2f)); // Разблокируем клик через 2 секунды
 
             if (_currentCoroutine != null)
             {
@@ -46,12 +53,18 @@ namespace _game.Intro
             _currentCoroutine = StartCoroutine(ShowNextImage());
         }
 
+        private IEnumerator EnableClickAfterDelay(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            _canClick = true; // Разрешаем снова кликать
+        }
+
         private IEnumerator ShowImagesWithFade()
         {
             while (_currentIndex < _images.Count)
             {
                 yield return StartCoroutine(ShowNextImage());
-                yield return new WaitForSeconds(_seconds[_currentIndex]);   
+                yield return new WaitForSeconds(_seconds[_currentIndex]);
                 _currentIndex++;
             }
         }
@@ -59,7 +72,7 @@ namespace _game.Intro
         private IEnumerator ShowNextImage()
         {
             // 🔻 Плавное затемнение
-            if(_currentIndex != 0)
+            if (_currentIndex != 0)
                 yield return StartCoroutine(FadeOut());
 
             _imageDisplay.sprite = _images[_currentIndex]; // Меняем изображение
