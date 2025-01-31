@@ -14,6 +14,8 @@ namespace _game.rnk.Scripts.crawler
         {
             enemies = GetComponentsInChildren<Enemy>().ToList();
             GetComponent<Collider>().isTrigger = true;
+            int ignoreRaycast = LayerMask.NameToLayer("Ignore Raycast");
+            gameObject.layer = ignoreRaycast;
         }
         public override void CleanUp()
         {
