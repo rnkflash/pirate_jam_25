@@ -1,5 +1,6 @@
 ﻿using System;
 using _game.rnk.Scripts.tags;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,7 +8,7 @@ using UnityEngine.UI;
 
 namespace _game.rnk.Scripts.battleSystem
 {
-    public class CharacterView : MonoBehaviour, IPointerClickHandler
+    public class CharacterView : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
     {
         public Image avatarImage;
         public TMP_Text nameText;
@@ -16,7 +17,15 @@ namespace _game.rnk.Scripts.battleSystem
         public Damageable damageable;
 
         [NonSerialized] public CharacterState state;
-        
+        private Tween _currentTween;
+        private Vector2 _originalAnchoredPosition;
+        private RectTransform _rectTransform;
+
+        private void Start()
+        {
+            _rectTransform = GetComponent<RectTransform>();
+        }
+
         public void SetState(CharacterState characterState)
         {
             state = characterState;
@@ -61,6 +70,27 @@ namespace _game.rnk.Scripts.battleSystem
         public void FinishBattleMode()
         {
             diceZone.gameObject.SetActive(false);
+        }
+        
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            transform.parent.GetComponent<HorizontalLayoutGroup>().enabled = false;
+            _originalAnchoredPosition = _rectTransform.anchoredPosition;
+            _currentTween?.Kill();
+            Vector2 targetPosition = new Vector2(
+                _originalAnchoredPosition.x - 8,
+                _originalAnchoredPosition.y - 16
+            );
+            _currentTween = _rectTransform.DOAnchorPos(targetPosition, 0.2f);
+        }
+        
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            _currentTween?.Kill();
+            _currentTween = _rectTransform.DOAnchorPos(_originalAnchoredPosition, 0.1f).OnComplete(() =>
+            {
+                transform.parent.GetComponent<HorizontalLayoutGroup>().enabled = true;
+            });
         }
     }
 }
