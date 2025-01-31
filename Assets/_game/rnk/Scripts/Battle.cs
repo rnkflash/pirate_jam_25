@@ -608,7 +608,8 @@ namespace _game.rnk.Scripts
             if (selectionMode)
             {
                 selectionMode = false;
-                var face = state.diceStates.First().overridenFace;
+                var character = selectingTargetForDice.state.owner;
+                var face = character.diceStates.First().overridenFace;
                 switch (face.Get<TagAction>().area)
                 {
 
@@ -635,8 +636,8 @@ namespace _game.rnk.Scripts
             if (selectionMode)
             {
                 selectionMode = false;
-
-                var face = state.diceStates.First().overridenFace;
+                var character = selectingTargetForDice.state.owner;
+                var face = character.diceStates.First().overridenFace;
                 switch (face.Get<TagAction>().area)
                 {
 
