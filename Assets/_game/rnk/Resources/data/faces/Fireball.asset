@@ -13,19 +13,32 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   components:
-  - rid: 1971844943657566304
-  - rid: 1971844943657566312
+  - rid: 1971845068808519842
+  - rid: 1971845068808519844
+  - rid: 1971845068808519846
+  - rid: 1971845068808519848
+  - rid: 1971845068808519850
   references:
     version: 2
     RefIds:
-    - rid: 1971844943657566304
-      type: {class: TagAction, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+    - rid: 1971845068808519842
+      type: {class: TagActionAttack, ns: _game.rnk.Scripts.tags.actions, asm: Assembly-CSharp}
+      data: 
+    - rid: 1971845068808519844
+      type: {class: TagActionTargeting, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        action: 0
-        row: 0
+        row: 2
         side: 0
-        area: 1
-    - rid: 1971844943657566312
+        area: 0
+    - rid: 1971845068808519846
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
         sprite: {fileID: -101265227, guid: c10bf228ce1640f48a5b47a6678b737a, type: 3}
+    - rid: 1971845068808519848
+      type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: Fireball
+    - rid: 1971845068808519850
+      type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: Deal %value% damage to target

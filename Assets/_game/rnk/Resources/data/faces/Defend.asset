@@ -13,20 +13,32 @@ MonoBehaviour:
   m_Name: Defend
   m_EditorClassIdentifier: 
   components:
-  - rid: 1971844943657566308
-  - rid: 1971844943657566310
+  - rid: 1971845068808519832
+  - rid: 1971845068808519834
+  - rid: 1971845068808519836
+  - rid: 1971845068808519838
+  - rid: 1971845068808519840
   references:
     version: 2
     RefIds:
-    - rid: 1971844943657566308
-      type: {class: TagAction, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+    - rid: 1971845068808519832
+      type: {class: TagActionArmor, ns: _game.rnk.Scripts.tags.actions, asm: Assembly-CSharp}
+      data: 
+    - rid: 1971845068808519834
+      type: {class: TagActionTargeting, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        action: 2
         row: 0
         side: 1
         area: 0
-        value: 0
-    - rid: 1971844943657566310
+    - rid: 1971845068808519836
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
         sprite: {fileID: 6469043848763271064, guid: c10bf228ce1640f48a5b47a6678b737a, type: 3}
+    - rid: 1971845068808519838
+      type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: Defend
+    - rid: 1971845068808519840
+      type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: give %value% armor to target this turn

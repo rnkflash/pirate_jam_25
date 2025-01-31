@@ -13,19 +13,32 @@ MonoBehaviour:
   m_Name: Heal
   m_EditorClassIdentifier: 
   components:
-  - rid: 1971844943657566308
-  - rid: 1971844943657566310
+  - rid: 1971845068808519852
+  - rid: 1971845068808519854
+  - rid: 1971845068808519856
+  - rid: 1971845068808519858
+  - rid: 1971845068808519860
   references:
     version: 2
     RefIds:
-    - rid: 1971844943657566308
-      type: {class: TagAction, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+    - rid: 1971845068808519852
+      type: {class: TagActionHeal, ns: _game.rnk.Scripts.tags.actions, asm: Assembly-CSharp}
+      data: 
+    - rid: 1971845068808519854
+      type: {class: TagActionTargeting, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        action: 1
-        row: 0
+        row: 2
         side: 1
         area: 0
-    - rid: 1971844943657566310
+    - rid: 1971845068808519856
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
         sprite: {fileID: -9213766036112935347, guid: c10bf228ce1640f48a5b47a6678b737a, type: 3}
+    - rid: 1971845068808519858
+      type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: Eel
+    - rid: 1971845068808519860
+      type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: Heal %value% amount of hp

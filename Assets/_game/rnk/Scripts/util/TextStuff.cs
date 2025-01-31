@@ -42,5 +42,10 @@ namespace _game.rnk.Scripts.util
                     throw new ArgumentOutOfRangeException(nameof(r), r, null);
             }
         }
+        
+        public static string WithValue(this string r, string value)
+        {
+            return r.Replace("%value%", value);
+        }
     }
 }

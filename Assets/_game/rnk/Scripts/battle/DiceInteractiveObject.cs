@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using _game.rnk.Scripts.tags;
+using _game.rnk.Scripts.tags.actions;
+using _game.rnk.Scripts.util;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -165,11 +167,11 @@ namespace _game.rnk.Scripts.battleSystem
         string TryGetSomethingDesc()
         {
             if (state == null) return null;
-            
             var desc = "";
-            var face = state.face;
+            var face = state.overridenFace;
+            var value = face.Get<TagValue>()?.value ?? 0;
             if (face.Is<TagName>(out var tn)) desc += tn.loc + ". \n";
-            if (face.Is<TagDescription>(out var td)) desc += td.loc;
+            if (face.Is<TagDescription>(out var td)) desc += td.loc.WithValue(value.ToString());
             return desc;
         }
 
@@ -224,22 +226,31 @@ namespace _game.rnk.Scripts.battleSystem
             var artefact = state.artefactOnFace();
             var face = artefact?.face ?? state.face;
             
-            if (face.Is<TagSprite>(out var sprite))
+            if (face.Is<TagActionBlank>(out var blank))
             {
-                view.sprite.SetAlpha(1f);
-                view.sprite.sprite = sprite.sprite;
+                view.valueText.text = "X";
+                view.sprite.SetAlpha(0f);
             }
             else
             {
-                view.sprite.SetAlpha(0f);
-            }
-            
-            if (face.Is<TagAction>(out var action))
-            {
-                if (action.action == ActionType.Blank)
-                    view.valueText.text = "X";
+                if (face.Is<TagSprite>(out var sprite))
+                {
+                    view.sprite.SetAlpha(1f);
+                    view.sprite.sprite = sprite.sprite;
+                }
                 else
-                    view.valueText.text = face.Get<TagValue>().value.ToString();
+                {
+                    view.sprite.SetAlpha(0f);
+                }
+                
+                if (face.Is<TagValue>(out var tagValue))
+                {
+                    view.valueText.text = tagValue.value.ToString();
+                }
+                else
+                {
+                    view.valueText.text = "X";
+                }
             }
         }
 

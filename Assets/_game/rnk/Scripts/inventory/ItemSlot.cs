@@ -1,5 +1,6 @@
 ﻿using System;
 using _game.rnk.Scripts.tags;
+using _game.rnk.Scripts.tags.actions;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -38,25 +39,33 @@ namespace _game.rnk.Scripts.inventory
 
         public void SetFace(CMSEntity face)
         {
-            this.index = index;
             var view = slot.GetComponent<FaceView>();
-                
-            if (face.Is<TagSprite>(out var sprite))
+
+            if (face.Is<TagActionBlank>(out var blank))
             {
-                view.image.SetAlpha(1f);
-                view.image.sprite = sprite.sprite;
+                view.valueText.text = "X";
+                view.image.SetAlpha(0f);
             }
             else
             {
-                view.image.SetAlpha(0f);
-            }
-            
-            if (face.Is<TagAction>(out var action))
-            {
-                if (action.action == ActionType.Blank)
-                    view.valueText.text = "X";
+                if (face.Is<TagSprite>(out var sprite))
+                {
+                    view.image.SetAlpha(1f);
+                    view.image.sprite = sprite.sprite;
+                }
                 else
-                    view.valueText.text = face.Get<TagValue>().value.ToString();
+                {
+                    view.image.SetAlpha(0f);
+                }
+                
+                if (face.Is<TagValue>(out var tagValue))
+                {
+                    view.valueText.text = tagValue.value.ToString();
+                }
+                else
+                {
+                    view.valueText.text = "X";
+                }
             }
         }
         public void Free()

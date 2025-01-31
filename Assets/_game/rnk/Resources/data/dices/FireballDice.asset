@@ -20,8 +20,8 @@ MonoBehaviour:
   - face: {fileID: 11400000, guid: c875641eef5399747b4479bb722005d9, type: 2}
     value: 1
   - face: {fileID: 11400000, guid: c875641eef5399747b4479bb722005d9, type: 2}
-    value: 1
-  - face: {fileID: 11400000, guid: c875641eef5399747b4479bb722005d9, type: 2}
+    value: 2
+  - face: {fileID: 11400000, guid: 05d6bdea8deeef04393b22da50bc54e1, type: 2}
     value: 1
   - face: {fileID: 11400000, guid: 77ee893312395ba4c85118a4fafb8f69, type: 2}
     value: 1

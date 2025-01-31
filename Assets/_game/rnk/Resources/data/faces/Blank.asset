@@ -13,19 +13,32 @@ MonoBehaviour:
   m_Name: Blank
   m_EditorClassIdentifier: 
   components:
-  - rid: 1971844943657566308
-  - rid: 1971844943657566310
+  - rid: 1971845068808519826
+  - rid: 1971845068808519824
+  - rid: 1971845068808519822
+  - rid: 1971845068808519828
+  - rid: 1971845068808519830
   references:
     version: 2
     RefIds:
-    - rid: 1971844943657566308
-      type: {class: TagAction, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
-      data:
-        action: 3
-        row: 0
-        side: 4
-        area: 2
-    - rid: 1971844943657566310
+    - rid: 1971845068808519822
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        sprite: {fileID: 613435604629981061, guid: bc4ab1fecbef4bc46872e51f8488507d, type: 3}
+        sprite: {fileID: -1304168633, guid: bc4ab1fecbef4bc46872e51f8488507d, type: 3}
+    - rid: 1971845068808519824
+      type: {class: TagActionTargeting, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        row: 0
+        side: 4
+        area: 0
+    - rid: 1971845068808519826
+      type: {class: TagActionBlank, ns: _game.rnk.Scripts.tags.actions, asm: Assembly-CSharp}
+      data: 
+    - rid: 1971845068808519828
+      type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: Blank
+    - rid: 1971845068808519830
+      type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: Do nothing

@@ -6,6 +6,8 @@ using _game.rnk.Scripts.battleSystem;
 using _game.rnk.Scripts.crawler;
 using _game.rnk.Scripts.enums;
 using _game.rnk.Scripts.tags;
+using _game.rnk.Scripts.tags.actions;
+using _game.rnk.Scripts.tags.interactor;
 using _game.rnk.Scripts.util;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -250,22 +252,20 @@ namespace _game.rnk.Scripts
             foreach (var dice in dices)
             {
                 var face = dice.state.face;
-                if (face.Is<TagAction>(out var action))
+                if (face.Is<TagActionTargeting>(out var targeting))
                 {
-                    if (action.action == ActionType.Blank)
-                        continue;
                     var targets = GetTargetsForAction(dice.state, enemies, allies);
 
                     if (targets.Count > 0)
                     {
-                        switch (action.area)
+                        switch (targeting.area)
                         {
                             case TargetArea.Single:
                                 targets = new List<ITarget>() { targets[UnityEngine.Random.Range(0, targets.Count)] };
                                 break;
 
                             case TargetArea.Row:
-                                if (action.row == TargetRow.Both)
+                                if (targeting.row == TargetRow.Both)
                                 {
                                     var rows = targets.Select(target => target.IsBackLine()).Distinct().Count();
                                     if (rows > 1)
@@ -293,9 +293,9 @@ namespace _game.rnk.Scripts
             var targets = new List<ITarget>();
             var artefact = diceState.artefactOnFace();
             var face = artefact?.face ?? diceState.face;
-            if (face.Is<TagAction>(out var action) && action.action != ActionType.Blank)
+            if (face.Is<TagActionTargeting>(out var targeting))
             {
-                switch (action.side)
+                switch (targeting.side)
                 {
                     case TargetSide.Enemy:
                         targets.AddRange(enemies);
@@ -320,7 +320,7 @@ namespace _game.rnk.Scripts
 
                 var frontline = targets.FindAll(target => !target.IsBackLine());
                 var backline = targets.FindAll(target => target.IsBackLine());
-                switch (action.row)
+                switch (targeting.row)
                 {
                     case TargetRow.Front:
                         targets = frontline.Count == 0 ? backline : frontline;
@@ -412,52 +412,9 @@ namespace _game.rnk.Scripts
             var artefact = dice.state.artefactOnFace(); 
             var face = artefact?.face ?? dice.state.face; 
             
-            if (face.Is<TagAction>(out var action))
-            {
-                var value = face.Get<TagValue>()?.value ?? 0;
-                switch (action.action)
-                {
-                    case ActionType.Attack:
-                        foreach (var target in dice.GetTargets())
-                        {
-                            var damageable = target.GetView().GetComponent<Damageable>();
-                            if (damageable)
-                            {
-                                yield return damageable.Hit(value);
-                                if (damageable.state.dead)
-                                {
-                                    foreach (var diceState in damageable.state.diceStates)
-                                    {
-                                        diceState.interactiveObject.ClearTargets();
-                                    }
-                                }
-                            }
-                        }
-                        break;
-
-                    case ActionType.Heal:
-                        foreach (var target in dice.GetTargets())
-                        {
-                            var damageable = target.GetView().GetComponent<Damageable>();
-                            if (damageable)
-                            {
-                                yield return damageable.Heal(value);
-                            }
-                        }
-                        break;
-
-                    case ActionType.Def:
-                        foreach (var target in dice.GetTargets())
-                        {
-                            var damageable = target.GetView().GetComponent<Damageable>();
-                            if (damageable)
-                            {
-                                yield return damageable.Armor(value);
-                            }
-                        }
-                        break;
-                }
-            }
+            var interactors = interactor.FindAll<IDiceFaceAction>();
+            foreach (var f in interactors)
+                yield return f.OnAction(dice.GetTargets(), face);
 
             yield return new WaitForSeconds(0.25f);
         }
@@ -589,8 +546,6 @@ namespace _game.rnk.Scripts
             zone.Claim(dice);
         }
 
-        
-        
         public void ShowHud()
         {
             G.hud.gameObject.SetActive(true);
@@ -610,9 +565,8 @@ namespace _game.rnk.Scripts
                 selectionMode = false;
                 var character = selectingTargetForDice.state.owner;
                 var face = character.diceStates.First().overridenFace;
-                switch (face.Get<TagAction>().area)
+                switch (face.Get<TagActionTargeting>().area)
                 {
-
                     case TargetArea.Single:
                         selected = new List<ITarget>() { state };
                         break;
@@ -638,7 +592,7 @@ namespace _game.rnk.Scripts
                 selectionMode = false;
                 var character = selectingTargetForDice.state.owner;
                 var face = character.diceStates.First().overridenFace;
-                switch (face.Get<TagAction>().area)
+                switch (face.Get<TagActionTargeting>().area)
                 {
 
                     case TargetArea.Single:
@@ -679,7 +633,7 @@ namespace _game.rnk.Scripts
         List<ITarget> selected;
         IEnumerator SelectTargetForDice(DiceInteractiveObject dice)
         {
-            if (selectingTargetForDice != null || dice.state.face.Get<TagAction>().action == ActionType.Blank)
+            if (selectingTargetForDice != null || dice.state.face.Get<TagActionBlank>() != null)
                 yield break;
             
             G.hud.battle.DisableHud();
@@ -754,16 +708,4 @@ namespace _game.rnk.Scripts
         }
     }
 
-    public class Lifetime : MonoBehaviour
-    {
-        public float ttl = 5f;
-
-        void Update()
-        {
-            ttl -= Time.deltaTime;
-
-            if (ttl < 0)
-                Destroy(gameObject);
-        }
-    }
 }

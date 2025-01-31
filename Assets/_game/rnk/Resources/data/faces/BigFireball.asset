@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65e6a0c61e34b90972e6439852b468f, type: 3}
+  m_Name: BigFireball
+  m_EditorClassIdentifier: 
+  components:
+  - rid: 1971845068808519842
+  - rid: 1971845068808519844
+  - rid: 1971845068808519846
+  - rid: 1971845068808519848
+  - rid: 1971845068808519850
+  references:
+    version: 2
+    RefIds:
+    - rid: 1971845068808519842
+      type: {class: TagActionAttack, ns: _game.rnk.Scripts.tags.actions, asm: Assembly-CSharp}
+      data: 
+    - rid: 1971845068808519844
+      type: {class: TagActionTargeting, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        row: 2
+        side: 0
+        area: 1
+    - rid: 1971845068808519846
+      type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        sprite: {fileID: 848873850, guid: 17d96a732d17e8b4bb2071522c09cd05, type: 3}
+    - rid: 1971845068808519848
+      type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: Fireball
+    - rid: 1971845068808519850
+      type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: Deal %value% damage to all targets in a row

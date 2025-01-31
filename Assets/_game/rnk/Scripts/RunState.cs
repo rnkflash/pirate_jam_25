@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using _game.rnk.Scripts.artefacts;
 using _game.rnk.Scripts.battleSystem;
 using _game.rnk.Scripts.crawler;
 using _game.rnk.Scripts.tags;
@@ -14,6 +13,7 @@ namespace _game.rnk.Scripts
         public List<CharacterState> characters = new List<CharacterState>();
         public List<ArtefactState> inventory = new List<ArtefactState>();
         public List<EnemyState> enemies = new List<EnemyState>();
+        public List<BuffState> buffs = new List<BuffState>();
     }
     
     public class CharacterState : BaseCharacterState
@@ -42,9 +42,18 @@ namespace _game.rnk.Scripts
         public DiceZone diceZone;
         public BodyState bodyState;
         public List<DiceState> diceStates = new List<DiceState>();
+        
         public abstract MonoBehaviour GetView();
         public abstract BaseCharacterState GetState();
         public bool IsBackLine() => backLine;
+    }
+
+    public class BuffState
+    {
+        public int turnsLeft;
+        public BaseCharacterState target;
+        public BaseCharacterState castedBy;
+        public CMSEntity model;
     }
 
     public interface ITarget
