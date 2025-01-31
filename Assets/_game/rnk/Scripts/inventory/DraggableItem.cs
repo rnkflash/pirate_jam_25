@@ -10,7 +10,7 @@ namespace _game.rnk.Scripts.inventory
     {
         RectTransform rectTransform;
         CanvasGroup canvasGroup;
-        Canvas mainCanvas;
+        public Canvas mainCanvas;
         Vector2 originalPosition;
         Transform originalParent;
         int originalSiblingIndex;
@@ -20,7 +20,7 @@ namespace _game.rnk.Scripts.inventory
         {
             rectTransform = GetComponent<RectTransform>();
             canvasGroup = GetComponent<CanvasGroup>();
-            mainCanvas = GetComponentInParent<Canvas>();
+            mainCanvas = FindObjectOfType<InventoryScreen>().GetComponent<Canvas>();
         }
 
         public void OnBeginDrag(PointerEventData eventData)
