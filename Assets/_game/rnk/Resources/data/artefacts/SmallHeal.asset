@@ -25,7 +25,7 @@ MonoBehaviour:
     - rid: 1971845052642361435
       type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: Small Stick
+        loc: Small Heal
     - rid: 1971845052642361437
       type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
@@ -33,4 +33,4 @@ MonoBehaviour:
     - rid: 1971845052642361439
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        sprite: {fileID: 5811538498805445843, guid: a0448a366e8bf524ca53fe396b6b41a7, type: 3}
+        sprite: {fileID: -9213766036112935347, guid: c10bf228ce1640f48a5b47a6678b737a, type: 3}
