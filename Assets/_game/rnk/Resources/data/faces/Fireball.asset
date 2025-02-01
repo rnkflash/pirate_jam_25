@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   components:
-  - rid: 1971845068808519842
+  - rid: 99808196059201660
   - rid: 1971845068808519844
   - rid: 1971845068808519846
   - rid: 1971845068808519848
@@ -21,9 +21,10 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 1971845068808519842
-      type: {class: TagActionAttack, ns: _game.rnk.Scripts.tags.actions, asm: Assembly-CSharp}
-      data: 
+    - rid: 99808196059201660
+      type: {class: TagActionFireball, ns: _game.rnk.Scripts.tags.actions, asm: Assembly-CSharp}
+      data:
+        valueIndex: 0
     - rid: 1971845068808519844
       type: {class: TagActionTargeting, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:

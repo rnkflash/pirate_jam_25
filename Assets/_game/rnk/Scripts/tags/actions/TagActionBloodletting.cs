@@ -13,19 +13,19 @@ namespace _game.rnk.Scripts.tags.actions
 
     public class TagActionBloodLettingInteractor : BaseInteraction, IDiceFaceAction
     {
-        public IEnumerator OnAction(List<ITarget> targets, CMSEntity face, BaseCharacterState owner)
+        public IEnumerator OnAction(List<ITarget> targets, CMSEntity face, BaseCharacterState owner, int[] values)
         {
             if (face.Is<TagActionBloodLetting>(out var action))
             {
-                var value1 = face.Get<TagValue>()?.values[0] ?? 0;
-                var value2 = face.Get<TagValue>()?.values[1] ?? 0;
+                var value1 = values.ElementAtOrDefault(0);
+                var value2 = values.ElementAtOrDefault(1);
                 
                 foreach (var target in targets)
                 {
+                    yield return G.battle.Damage(target, owner, value1);
                     var damageable = target.GetView().GetComponent<Damageable>();
                     if (damageable)
                     {
-                        yield return damageable.Hit(value1);
                         yield return damageable.Heal(value2);
                     }
                 }

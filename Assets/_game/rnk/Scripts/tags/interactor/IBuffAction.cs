@@ -6,4 +6,6 @@ namespace _game.rnk.Scripts.tags.buffs
     {
         public IEnumerator OnBuffAction(BuffState buffState);
     }
+
+
 }

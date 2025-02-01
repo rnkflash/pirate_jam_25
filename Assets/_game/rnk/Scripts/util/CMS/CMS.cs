@@ -119,6 +119,14 @@ public class CMSEntity
         components.Add(entity_component);
         return entity_component;
     }
+    
+    public void UnDefine<T>() where T : EntityComponentDefinition, new()
+    {
+        var t = Get<T>();
+        if (t == null)
+            return;
+        components.Remove(t);
+    }
 
     public bool Is<T>(out T unknown) where T : EntityComponentDefinition, new()
     {

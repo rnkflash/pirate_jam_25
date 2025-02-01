@@ -28,6 +28,9 @@ public class UI : MonoBehaviour
     public SpriteVFX meleeHit;
     public SpriteVFX armorHit;
     public SpriteVFX healHit;
+    public SpriteVFX poisonHit;
+    public SpriteVFX fireballHit;
+    
     
     void Awake()
     {

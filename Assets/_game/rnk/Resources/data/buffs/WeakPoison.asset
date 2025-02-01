@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cef069cb3f7420ab23e64e9fcf20026, type: 3}
+  m_Name: WeakPoison
+  m_EditorClassIdentifier: 
+  components:
+  - rid: 99808196059201670
+  - rid: 99808196059201650
+  - rid: 99808196059201652
+  - rid: 99808196059201654
+  - rid: 99808196059201656
+  - rid: 99808196059201658
+  references:
+    version: 2
+    RefIds:
+    - rid: 99808196059201650
+      type: {class: TagDuration, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        turns: 3
+    - rid: 99808196059201652
+      type: {class: TagValue, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        values: 01000000
+    - rid: 99808196059201654
+      type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: Poison
+    - rid: 99808196059201656
+      type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: Target will receive %value% damage each turn
+    - rid: 99808196059201658
+      type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        sprite: {fileID: -1304168633, guid: bc4ab1fecbef4bc46872e51f8488507d, type: 3}
+    - rid: 99808196059201670
+      type: {class: TagBuffPoison, ns: _game.rnk.Scripts.tags.buffs, asm: Assembly-CSharp}
+      data: 

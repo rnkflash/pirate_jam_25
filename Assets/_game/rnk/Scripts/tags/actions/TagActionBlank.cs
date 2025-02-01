@@ -10,9 +10,9 @@ namespace _game.rnk.Scripts.tags.actions
 
     public class TagActionBlankInteractor : BaseInteraction, IDiceFaceAction
     {
-        public IEnumerator OnAction(List<ITarget> targets, CMSEntity face, BaseCharacterState owner)
+        public IEnumerator OnAction(List<ITarget> targets, CMSEntity face, BaseCharacterState owner, int[] values)
         {
-            if (face.Is<TagActionAttack>(out var action))
+            if (face.Is<TagActionBlank>(out var action))
             {
                 yield break;
             }

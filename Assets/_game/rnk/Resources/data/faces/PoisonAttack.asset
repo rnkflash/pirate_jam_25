@@ -13,22 +13,18 @@ MonoBehaviour:
   m_Name: PoisonAttack
   m_EditorClassIdentifier: 
   components:
-  - rid: 1971845068808519898
+  - rid: 99808196059201663
   - rid: 1971845068808519908
-  - rid: 1971845068808519900
   - rid: 1971845068808519902
   - rid: 1971845068808519904
   - rid: 1971845068808519906
   references:
     version: 2
     RefIds:
-    - rid: 1971845068808519898
-      type: {class: TagBuffPoison, ns: _game.rnk.Scripts.tags.buffs, asm: Assembly-CSharp}
-      data: 
-    - rid: 1971845068808519900
-      type: {class: TagDuration, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+    - rid: 99808196059201663
+      type: {class: TagActionAddBuffSO, ns: _game.rnk.Scripts.tags.actions, asm: Assembly-CSharp}
       data:
-        turns: 3
+        buffSO: {fileID: 11400000, guid: 82d2cc0fc427fd848961b727f91f6000, type: 2}
     - rid: 1971845068808519902
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
@@ -40,7 +36,7 @@ MonoBehaviour:
     - rid: 1971845068808519906
       type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: Deal %value% dmg each turn
+        loc: Inflict poison debuff
     - rid: 1971845068808519908
       type: {class: TagActionTargeting, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:

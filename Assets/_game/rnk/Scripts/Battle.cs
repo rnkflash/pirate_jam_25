@@ -416,13 +416,25 @@ namespace _game.rnk.Scripts
         }
         IEnumerator DiceAction(DiceInteractiveObject dice)
         {
-            var artefact = dice.state.artefactOnFace();
             var owner = dice.state.owner;
-            var face = artefact?.face ?? dice.state.face;
+            var face = dice.state.overridenFace;
             var targets = dice.GetTargets();
-            var interactors = interactor.FindAll<IDiceFaceAction>();
-            foreach (var f in interactors)
-                yield return f.OnAction(targets, face, owner);
+            var values = face.Get<TagValue>().values;
+
+            var modifiedValues = new int[values.Length];
+            values.CopyTo(modifiedValues , 0);
+            var buffsOnOwner = GetBuffsOnCharacter(owner);
+            foreach (var buff in buffsOnOwner)
+            {
+                var dmgMods = interactor.FindAll<IDamageModifier>();
+                foreach (var f in dmgMods)
+                    for (int i = 0; i < values.Length; i++)
+                        modifiedValues[i] = f.ModifyDamage(buff.model, modifiedValues[i]);
+            }
+            
+            var diceActions = interactor.FindAll<IDiceFaceAction>();
+            foreach (var f in diceActions)
+                yield return f.OnAction(targets, face, owner, modifiedValues);
             
             foreach (var target in targets)
             {
@@ -437,6 +449,11 @@ namespace _game.rnk.Scripts
             }
 
             yield return new WaitForSeconds(0.25f);
+        }
+
+        List<BuffState> GetBuffsOnCharacter(BaseCharacterState character)
+        {
+            return G.run.buffs.FindAll(state => state.target.GetState() == character);
         }
         
         IEnumerator StartExecuteBuffs()
@@ -751,19 +768,36 @@ namespace _game.rnk.Scripts
                 }
             }
         }
-        public IEnumerator AddBuff(ITarget target, CMSEntity face, BaseCharacterState owner)
+        public IEnumerator AddBuff(ITarget target, CMSEntity buff, BaseCharacterState owner)
         {
             G.run.buffs.Add(new BuffState()
             {
-                model = face,
-                turnsLeft = face.Get<TagDuration>()?.turns ?? 99,
+                model = buff,
+                turnsLeft = buff.Get<TagDuration>()?.turns ?? 99,
                 target = target,
                 castedBy = owner
             });
-            
             //TODO update buffs views
-            
             yield return new WaitForSeconds(0.25f);
+        }
+
+        public IEnumerator Damage(ITarget target, BaseCharacterState owner, int damage)
+        {
+            var damageable = target.GetView().GetComponent<Damageable>();
+            if (damageable)
+            {
+                var modifiedValue = damage;
+                var buffsOnOwner = GetBuffsOnCharacter(owner);
+                foreach (var buff in buffsOnOwner)
+                {
+                    var dmgMods = interactor.FindAll<IReceiveDamageModifier>();
+                    foreach (var f in dmgMods)
+                        modifiedValue = f.ModifyDamage(buff.model, modifiedValue);
+
+                }
+                
+                yield return damageable.Hit(modifiedValue);
+            }
         }
     }
 

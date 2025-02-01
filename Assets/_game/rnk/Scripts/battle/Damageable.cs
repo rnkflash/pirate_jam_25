@@ -42,8 +42,6 @@ namespace _game.rnk.Scripts.battleSystem
 
         public IEnumerator Hit(int dmg)
         {
-            G.ui.meleeHit.Bahni(transform.position);
-            G.audio.Play<SFX_GetDamage>();
             var initialArmor = state.armor;
             state.armor -= dmg;
             if (state.armor <= 0)
