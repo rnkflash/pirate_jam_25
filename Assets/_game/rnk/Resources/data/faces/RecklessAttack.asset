@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d65e6a0c61e34b90972e6439852b468f, type: 3}
-  m_Name: PoisonAttack
+  m_Name: RecklessAttack
   m_EditorClassIdentifier: 
   components:
   - rid: 99808204973408385
@@ -25,8 +25,8 @@ MonoBehaviour:
     - rid: 99808196059201663
       type: {class: TagActionAddBuffSO, ns: _game.rnk.Scripts.tags.actions, asm: Assembly-CSharp}
       data:
-        self: 0
-        buffSO: {fileID: 11400000, guid: 82d2cc0fc427fd848961b727f91f6000, type: 2}
+        self: 1
+        buffSO: {fileID: 11400000, guid: ad33e6420e62c384a82c81f1d9c27fca, type: 2}
     - rid: 99808204973408385
       type: {class: TagActionAttack, ns: _game.rnk.Scripts.tags.actions, asm: Assembly-CSharp}
       data:
@@ -34,18 +34,18 @@ MonoBehaviour:
     - rid: 1971845068808519902
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        sprite: {fileID: 1927794604, guid: 8e4fb01936b376a4b9a7da0777b66677, type: 3}
+        sprite: {fileID: -1809118591949593759, guid: 8e4fb01936b376a4b9a7da0777b66677, type: 3}
     - rid: 1971845068808519904
       type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: Poison Attack
+        loc: Reckless Attack
     - rid: 1971845068808519906
       type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: Inflict poison debuff
+        loc: Deal %value% damage then receive double damage this turn
     - rid: 1971845068808519908
       type: {class: TagActionTargeting, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        row: 2
+        row: 0
         side: 0
         area: 0

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cef069cb3f7420ab23e64e9fcf20026, type: 3}
-  m_Name: WeakPoison
+  m_Name: DebuffWeakPoison
   m_EditorClassIdentifier: 
   components:
   - rid: 99808196059201670
@@ -41,7 +41,7 @@ MonoBehaviour:
     - rid: 99808196059201658
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        sprite: {fileID: -1304168633, guid: bc4ab1fecbef4bc46872e51f8488507d, type: 3}
+        sprite: {fileID: 45573045, guid: 8e4fb01936b376a4b9a7da0777b66677, type: 3}
     - rid: 99808196059201670
       type: {class: TagBuffPoison, ns: _game.rnk.Scripts.tags.buffs, asm: Assembly-CSharp}
       data: 

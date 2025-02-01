@@ -104,8 +104,9 @@ namespace _game.rnk.Scripts
         public void FinishBattle()
         {
             G.run.enemies.Clear();
+            RemoveBuffsAll();
             G.run.buffs.Clear();
-            
+
             isEnabled = false;
             G.hud.battle.FinishBattle();
             G.hud.HideBattleHud();
@@ -802,9 +803,28 @@ namespace _game.rnk.Scripts
             return G.run.buffs.FindAll(state => state.target.GetState() == character);
         }
         
-        public void RemoveBuffs(BaseCharacterState character)
+        void RemoveBuffs(BaseCharacterState character)
         {
-            G.run.buffs.RemoveAll(state => state.target.GetState() == character);
+            var removedBuffs = G.run.buffs.FindAll(state => state.target.GetState() == character);
+            foreach (var buff in removedBuffs)
+            {
+                RemoveBuff(buff);
+            }
+        }
+
+        void RemoveBuffsAll()
+        {
+            var removedBuffs = new List<BuffState>(G.run.buffs);
+            foreach (var buff in removedBuffs)
+            {
+                RemoveBuff(buff);
+            }
+        }
+        
+        void RemoveBuff(BuffState buff)
+        {
+            buff.view.Remove();
+            G.run.buffs.Remove(buff);
         }
 
         public IEnumerator Damage(ITarget target, BaseCharacterState owner, int damage)
@@ -813,8 +833,7 @@ namespace _game.rnk.Scripts
             if (damageable && !damageable.state.dead)
             {
                 var modifiedValue = damage;
-                var buffsOnOwner = GetBuffsOnCharacter(owner);
-                foreach (var buff in buffsOnOwner)
+                foreach (var buff in GetBuffsOnCharacter(target.GetState()))
                 {
                     var dmgMods = interactor.FindAll<IReceiveDamageModifier>();
                     foreach (var f in dmgMods)

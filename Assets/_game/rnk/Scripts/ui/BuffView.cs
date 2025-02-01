@@ -3,11 +3,12 @@ using _game.rnk.Scripts.tags;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace _game.rnk.Scripts.ui
 {
-    public class BuffView : MonoBehaviour
+    public class BuffView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         public Image image;
         public TMP_Text text;
@@ -47,6 +48,24 @@ namespace _game.rnk.Scripts.ui
         public void Remove()
         {
             buffList.DestroyView(this);
+        }
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            G.hud.tooltip.Show(TryGetSomethingDesc());
+        }
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            G.hud.tooltip.Hide();
+        }
+        
+        string TryGetSomethingDesc()
+        {
+            if (state == null) return null;
+            var desc = "";
+            var model = state.model;
+            if (model.Is<TagName>(out var tn)) desc += tn.loc + ". \n";
+            if (model.Is<TagDescription>(out var td)) desc += td.loc;
+            return desc;
         }
     }
 }

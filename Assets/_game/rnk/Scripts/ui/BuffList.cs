@@ -35,7 +35,7 @@ namespace _game.rnk.Scripts.ui
         {
             foreach (var buffView in buffList)
             {
-                DestroyView(buffView);
+                DestroyView(buffView, false);
             }
             buffList.Clear();
         }
@@ -47,9 +47,10 @@ namespace _game.rnk.Scripts.ui
             return obj;
         }
 
-        public void DestroyView(BuffView view)
+        public void DestroyView(BuffView view, bool removeFromList = true)
         {
-            buffList.Remove(view);
+            if (removeFromList)
+                buffList.Remove(view);
             view.FreeState();
             Destroy(view.gameObject);
         }

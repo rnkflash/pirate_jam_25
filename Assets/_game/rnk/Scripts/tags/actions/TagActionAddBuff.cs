@@ -15,7 +15,6 @@ namespace _game.rnk.Scripts.tags.actions
     public class TagActionAddBuffSO : EntityComponentDefinition
     {
         public bool self;
-        public bool dontAddIfAleadyHas;
         public BuffSO buffSO;
 
         public void Convert(CMSEntity cms)
