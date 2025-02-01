@@ -19,6 +19,10 @@ namespace _game.rnk.Scripts.util
                 if (i == 0)
                     r = r.Replace("%value%", values[i].ToString());
             }
+
+            if (values.Length == 0)
+                r = r.Replace("%value%", "");
+            
             return r;
         }
         

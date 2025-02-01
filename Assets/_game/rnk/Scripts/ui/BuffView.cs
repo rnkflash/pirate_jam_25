@@ -1,5 +1,6 @@
 ﻿using System;
 using _game.rnk.Scripts.tags;
+using _game.rnk.Scripts.util;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -43,7 +44,7 @@ namespace _game.rnk.Scripts.ui
         public void Punch()
         {
             punchTween.Kill(true);
-            punchTween = transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0.2f), 0.2f);
+            punchTween = transform.DOPunchScale(new Vector3(1.0f, 1.0f, 1.0f), 0.2f);
         }
         public void Remove()
         {
@@ -63,8 +64,9 @@ namespace _game.rnk.Scripts.ui
             if (state == null) return null;
             var desc = "";
             var model = state.model;
+            var values = model.Get<TagValue>()?.values ?? Array.Empty<int>();
             if (model.Is<TagName>(out var tn)) desc += tn.loc + ". \n";
-            if (model.Is<TagDescription>(out var td)) desc += td.loc;
+            if (model.Is<TagDescription>(out var td)) desc += td.loc.WithValues(values);
             return desc;
         }
     }

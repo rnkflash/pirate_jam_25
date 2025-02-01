@@ -50,7 +50,7 @@ namespace _game.rnk.Scripts.tags.buffs
                     break;
 
                 case Operation.DIVIDE:
-                    damage = Round(damage / value, rounding);
+                    damage = Round(damage / (float)value, rounding);
                     break;
             }
                 

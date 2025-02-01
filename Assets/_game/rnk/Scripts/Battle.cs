@@ -103,6 +103,7 @@ namespace _game.rnk.Scripts
 
         public void FinishBattle()
         {
+            G.hud.tooltip.Hide();
             G.run.enemies.Clear();
             RemoveBuffsAll();
             G.run.buffs.Clear();
@@ -506,9 +507,16 @@ namespace _game.rnk.Scripts
 
         List<DiceInteractiveObject> GetPlayerDices()
         {
-            return G.run.characters.FindAll(state => !state.dead).SelectMany(
+            var unordered = G.run.characters.FindAll(state => !state.dead).SelectMany(
                 cs => cs.diceStates.Select(ds => ds.interactiveObject)
-            ).Reverse().ToList();
+            ).ToList();
+
+            var originalOrdered = G.hud.battle.rollDicesZone.objects;
+            var ordered = unordered.OrderBy(o => originalOrdered.IndexOf(o)).ToList();
+
+            ordered.Reverse();
+            
+            return ordered;
         }
         
         List<DiceInteractiveObject> GetEnemyDices()

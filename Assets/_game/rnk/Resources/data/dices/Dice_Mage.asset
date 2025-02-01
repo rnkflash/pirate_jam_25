@@ -17,18 +17,18 @@ MonoBehaviour:
   - rid: 1971845007490678982
   - rid: 1971845032096563288
   faces:
+  - face: {fileID: 11400000, guid: 642beaf2140a0044391f05101616a61b, type: 2}
+    values: 01000000
+  - face: {fileID: 11400000, guid: c875641eef5399747b4479bb722005d9, type: 2}
+    values: 01000000
+  - face: {fileID: 11400000, guid: c875641eef5399747b4479bb722005d9, type: 2}
+    values: 02000000
+  - face: {fileID: 11400000, guid: 05d6bdea8deeef04393b22da50bc54e1, type: 2}
+    values: 01000000
   - face: {fileID: 11400000, guid: ba4a5d856680cdf4aa7e802baf4d302a, type: 2}
-    values: 01000000
-  - face: {fileID: 11400000, guid: 77ee893312395ba4c85118a4fafb8f69, type: 2}
-    values: 01000000
-  - face: {fileID: 11400000, guid: 77ee893312395ba4c85118a4fafb8f69, type: 2}
-    values: 01000000
-  - face: {fileID: 11400000, guid: a16e3ded43647b24cafe068b5a82242e, type: 2}
     values: 02000000
-  - face: {fileID: 11400000, guid: c875641eef5399747b4479bb722005d9, type: 2}
-    values: 01000000
-  - face: {fileID: 11400000, guid: c875641eef5399747b4479bb722005d9, type: 2}
-    values: 02000000
+  - face: {fileID: 11400000, guid: ba4a5d856680cdf4aa7e802baf4d302a, type: 2}
+    values: 03000000
   references:
     version: 2
     RefIds:

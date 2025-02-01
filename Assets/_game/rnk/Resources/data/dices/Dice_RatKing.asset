@@ -19,15 +19,15 @@ MonoBehaviour:
   faces:
   - face: {fileID: 11400000, guid: c875641eef5399747b4479bb722005d9, type: 2}
     values: 01000000
-  - face: {fileID: 11400000, guid: 023460095508f0144b1c316affcd58b9, type: 2}
+  - face: {fileID: 11400000, guid: bf71a76bd74599d499f5f1a986fe14d6, type: 2}
     values: 02000000
   - face: {fileID: 11400000, guid: 5d88a2df337fe7e4ba2ecffc769786a5, type: 2}
     values: 02000000
-  - face: {fileID: 11400000, guid: a16e3ded43647b24cafe068b5a82242e, type: 2}
+  - face: {fileID: 11400000, guid: 05d6bdea8deeef04393b22da50bc54e1, type: 2}
+    values: 03000000
+  - face: {fileID: 11400000, guid: 5d63ad71c6841184695eab8cd449ae9f, type: 2}
     values: 05000000
-  - face: {fileID: 11400000, guid: a16e3ded43647b24cafe068b5a82242e, type: 2}
-    values: 05000000
-  - face: {fileID: 11400000, guid: a16e3ded43647b24cafe068b5a82242e, type: 2}
+  - face: {fileID: 11400000, guid: 5d63ad71c6841184695eab8cd449ae9f, type: 2}
     values: 05000000
   references:
     version: 2

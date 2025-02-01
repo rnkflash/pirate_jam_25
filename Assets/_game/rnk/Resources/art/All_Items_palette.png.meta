@@ -895,7 +895,7 @@ TextureImporter:
         width: 28
         height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -917,7 +917,7 @@ TextureImporter:
         width: 28
         height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -926,6 +926,28 @@ TextureImporter:
       bones: []
       spriteID: 4032a760f7b939949a3205b1a9ac370f
       internalID: 1664903988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poison_potion
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 2870
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f353c5d72fc8ffa4995d15e2632f6b57
+      internalID: -1963800718
       vertices: []
       indices: 
       edges: []
@@ -958,6 +980,7 @@ TextureImporter:
       parry: 1449409116
       poison_arrow: 1927794604
       poison_buff: 45573045
+      poison_potion: -1963800718
       poison_vfx: 1664903988
       range_attack: -587652991
       reckless_attack: -1809118591949593759

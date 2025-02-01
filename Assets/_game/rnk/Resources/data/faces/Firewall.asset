@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d65e6a0c61e34b90972e6439852b468f, type: 3}
-  m_Name: Fireball
+  m_Name: Firewall
   m_EditorClassIdentifier: 
   components:
-  - rid: 99808196059201660
+  - rid: 99808196059201659
   - rid: 1971845068808519844
   - rid: 1971845068808519846
   - rid: 1971845068808519848
@@ -21,7 +21,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 99808196059201660
+    - rid: 99808196059201659
       type: {class: TagActionFireball, ns: _game.rnk.Scripts.tags.actions, asm: Assembly-CSharp}
       data:
         valueIndex: 0
@@ -30,16 +30,16 @@ MonoBehaviour:
       data:
         row: 2
         side: 0
-        area: 0
+        area: 1
     - rid: 1971845068808519846
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        sprite: {fileID: -982440049, guid: 8e4fb01936b376a4b9a7da0777b66677, type: 3}
+        sprite: {fileID: -1911449559, guid: 8e4fb01936b376a4b9a7da0777b66677, type: 3}
     - rid: 1971845068808519848
       type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: Fireball
+        loc: Firewall
     - rid: 1971845068808519850
       type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: Deal %value% damage to target
+        loc: Deal %value% damage to all targets in a row
