@@ -1,4 +1,5 @@
 ﻿using System;
+using _game.rnk.Scripts.tags;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,7 @@ namespace _game.rnk.Scripts.inventory
         public void SetState(ArtefactState state)
         {
             this.state = state;
+            image.sprite = state.face.Get<TagSprite>().sprite;
         }
 
         public void FreeState()

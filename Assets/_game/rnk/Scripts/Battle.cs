@@ -438,6 +438,9 @@ namespace _game.rnk.Scripts
             
             foreach (var target in targets)
             {
+                if (target.GetState().dead)
+                    RemoveBuffs(target.GetState());
+                
                 var damageable = target.GetView().GetComponent<Damageable>();
                 if (damageable != null && damageable.state.dead)
                 {
@@ -695,7 +698,7 @@ namespace _game.rnk.Scripts
         List<ITarget> selected;
         IEnumerator SelectTargetForDice(DiceInteractiveObject dice)
         {
-            if (selectingTargetForDice != null || dice.state.face.Get<TagActionBlank>() != null)
+            if (selectingTargetForDice != null || dice.state.overridenFace.Get<TagActionBlank>() != null)
                 yield break;
             
             G.hud.battle.DisableHud();
@@ -780,11 +783,16 @@ namespace _game.rnk.Scripts
             //TODO update buffs views
             yield return new WaitForSeconds(0.25f);
         }
+        
+        void RemoveBuffs(BaseCharacterState character)
+        {
+            G.run.buffs.RemoveAll(state => state.target.GetState() == character);
+        }
 
         public IEnumerator Damage(ITarget target, BaseCharacterState owner, int damage)
         {
             var damageable = target.GetView().GetComponent<Damageable>();
-            if (damageable)
+            if (damageable && !damageable.state.dead)
             {
                 var modifiedValue = damage;
                 var buffsOnOwner = GetBuffsOnCharacter(owner);
