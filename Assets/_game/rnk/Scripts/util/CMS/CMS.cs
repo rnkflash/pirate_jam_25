@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Common;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -122,12 +123,22 @@ public class CMSEntity
     
     public void UnDefine<T>() where T : EntityComponentDefinition, new()
     {
-        var t = Get<T>();
-        if (t == null)
+        var t = GetAll<T>();
+        if (t.Length == 0)
             return;
-        components.Remove(t);
+        foreach (var d in t)
+        {
+            components.Remove(d);    
+        }
     }
 
+    public T DefineNew<T>() where T : EntityComponentDefinition, new()
+    {
+        var entity_component = new T();
+        components.Add(entity_component);
+        return entity_component;
+    }
+    
     public bool Is<T>(out T unknown) where T : EntityComponentDefinition, new()
     {
         unknown = Get<T>();
@@ -147,6 +158,17 @@ public class CMSEntity
     public T Get<T>() where T : EntityComponentDefinition, new()
     {
         return components.Find(m => m is T) as T;
+    }
+    
+    public bool IsAll<T>(out T[] unknown) where T : EntityComponentDefinition, new()
+    {
+        unknown = GetAll<T>();
+        return unknown.Length > 0;
+    }
+    
+    public T[] GetAll<T>() where T : EntityComponentDefinition, new()
+    {
+        return components.FindAll(m => m is T).Select(definition => definition as T).ToArray();
     }
 }
 

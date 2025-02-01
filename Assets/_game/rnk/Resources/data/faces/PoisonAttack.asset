@@ -24,6 +24,8 @@ MonoBehaviour:
     - rid: 99808196059201663
       type: {class: TagActionAddBuffSO, ns: _game.rnk.Scripts.tags.actions, asm: Assembly-CSharp}
       data:
+        self: 0
+        dontAddIfAleadyHas: 1
         buffSO: {fileID: 11400000, guid: 82d2cc0fc427fd848961b727f91f6000, type: 2}
     - rid: 1971845068808519902
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}

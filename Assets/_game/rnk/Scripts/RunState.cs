@@ -3,6 +3,7 @@ using System.Linq;
 using _game.rnk.Scripts.battleSystem;
 using _game.rnk.Scripts.crawler;
 using _game.rnk.Scripts.tags;
+using _game.rnk.Scripts.ui;
 using UnityEngine;
 
 namespace _game.rnk.Scripts
@@ -54,6 +55,8 @@ namespace _game.rnk.Scripts
         public ITarget target;
         public BaseCharacterState castedBy;
         public CMSEntity model;
+
+        public BuffView view;
     }
 
     public interface ITarget
@@ -77,7 +80,7 @@ namespace _game.rnk.Scripts
     {
         public BaseCharacterState owner;
         public CMSEntity model;
-        
+
         public int rollValue;
         public DiceInteractiveObject interactiveObject;
         public List<ArtefactState> artefacts = new List<ArtefactState>();

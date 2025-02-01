@@ -385,11 +385,13 @@ namespace _game.rnk.Scripts
             {
                 if (!dice.state.owner.dead)
                 {
-                    if (dice.GetTargets().Count > 0)
-                        dice.Punch();
+                    dice.Punch();
+                    
                     if (dice.zone == G.hud.battle.rollDicesZone)
+                    {
                         yield return ReturnDices(new List<DiceInteractiveObject>() { dice });
-                    yield return DiceAction(dice);
+                        yield return DiceAction(dice);
+                    }
                     
                 }
                 dice.ClearTargets();
@@ -470,12 +472,19 @@ namespace _game.rnk.Scripts
                     yield return f.OnBuffAction(buffState);
                 }
                 buffState.turnsLeft -= 1;
+                
+                buffState.view.UpdateState();
+                buffState.view.Punch();
+
+                yield return new WaitForSeconds(0.25f);
+                
                 if (buffState.turnsLeft <= 0)
                     expiredBuffs.Add(buffState);
             }
 
             foreach (var expiredBuff in expiredBuffs)
             {
+                expiredBuff.view.Remove();
                 G.run.buffs.Remove(expiredBuff);
             }
 
@@ -773,18 +782,27 @@ namespace _game.rnk.Scripts
         }
         public IEnumerator AddBuff(ITarget target, CMSEntity buff, BaseCharacterState owner)
         {
-            G.run.buffs.Add(new BuffState()
+            var buffState = new BuffState()
             {
                 model = buff,
                 turnsLeft = buff.Get<TagDuration>()?.turns ?? 99,
                 target = target,
                 castedBy = owner
-            });
-            //TODO update buffs views
+            };
+            
+            G.run.buffs.Add(buffState);
+
+            target.GetView().GetBuffList().AddBuff(buffState);
+            
             yield return new WaitForSeconds(0.25f);
         }
         
-        void RemoveBuffs(BaseCharacterState character)
+        public List<BuffState> GetBuffs(BaseCharacterState character)
+        {
+            return G.run.buffs.FindAll(state => state.target.GetState() == character);
+        }
+        
+        public void RemoveBuffs(BaseCharacterState character)
         {
             G.run.buffs.RemoveAll(state => state.target.GetState() == character);
         }

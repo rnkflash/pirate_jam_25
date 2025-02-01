@@ -14,9 +14,11 @@ namespace _game.rnk.Scripts.so.scriptable_objects
         {
             var entity = face.GetEntity();
             entity.Define<TagValue>().values = values;
-            if (entity.Is<TagActionAddBuffSO>(out var buffSo))
+            if (entity.IsAll<TagActionAddBuffSO>(out var buffSoArr))
             {
-                entity.Define<TagActionAddBuff>().buff = buffSo.buffSO.GetEntity();
+                foreach (var buffSo in buffSoArr)
+                    buffSo.Convert(entity);
+                
                 entity.UnDefine<TagActionAddBuffSO>();
             }
             return entity;
