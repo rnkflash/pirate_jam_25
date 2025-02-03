@@ -25,7 +25,7 @@ MonoBehaviour:
     - rid: 1971845007490678957
       type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: Rouge
+        loc: Rogue
     - rid: 1971845007490678959
       type: {class: TagHealth, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
