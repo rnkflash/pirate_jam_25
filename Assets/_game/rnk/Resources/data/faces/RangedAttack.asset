@@ -10,36 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d65e6a0c61e34b90972e6439852b468f, type: 3}
-  m_Name: BigFireball
+  m_Name: RangedAttack
   m_EditorClassIdentifier: 
   components:
-  - rid: 99808196059201659
-  - rid: 1971845068808519844
-  - rid: 1971845068808519846
-  - rid: 1971845068808519848
-  - rid: 1971845068808519850
+  - rid: 1971845068808519810
+  - rid: 1971845068808519808
+  - rid: 1971845068808519814
+  - rid: 1971845068808519816
+  - rid: 1971845068808519818
   references:
     version: 2
     RefIds:
-    - rid: 99808196059201659
-      type: {class: TagActionFireball, ns: _game.rnk.Scripts.tags.actions, asm: Assembly-CSharp}
-      data:
-        valueIndex: 0
-    - rid: 1971845068808519844
+    - rid: 1971845068808519808
       type: {class: TagActionTargeting, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
         row: 2
         side: 0
-        area: 1
-    - rid: 1971845068808519846
+        area: 0
+    - rid: 1971845068808519810
+      type: {class: TagActionAttack, ns: _game.rnk.Scripts.tags.actions, asm: Assembly-CSharp}
+      data:
+        valueIndex: 0
+    - rid: 1971845068808519814
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        sprite: {fileID: 848873850, guid: 17d96a732d17e8b4bb2071522c09cd05, type: 3}
-    - rid: 1971845068808519848
+        sprite: {fileID: -1562021474, guid: c10bf228ce1640f48a5b47a6678b737a, type: 3}
+    - rid: 1971845068808519816
       type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: Fireball
-    - rid: 1971845068808519850
+        loc: Ranged attack
+    - rid: 1971845068808519818
       type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: Deal %value% damage to all targets in a row
+        loc: do %value% dmg on any row

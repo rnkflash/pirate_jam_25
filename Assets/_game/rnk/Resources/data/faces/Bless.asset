@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65e6a0c61e34b90972e6439852b468f, type: 3}
+  m_Name: Bless
+  m_EditorClassIdentifier: 
+  components:
+  - rid: 99808210100682847
+  - rid: 1971845068808519808
+  - rid: 1971845068808519814
+  - rid: 1971845068808519816
+  - rid: 1971845068808519818
+  references:
+    version: 2
+    RefIds:
+    - rid: 99808210100682847
+      type: {class: TagActionAddBuffSO, ns: _game.rnk.Scripts.tags.actions, asm: Assembly-CSharp}
+      data:
+        self: 0
+        buffSO: {fileID: 11400000, guid: 1353f8e09cd61554c84375d1569f8cab, type: 2}
+    - rid: 1971845068808519808
+      type: {class: TagActionTargeting, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        row: 2
+        side: 1
+        area: 1
+    - rid: 1971845068808519814
+      type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        sprite: {fileID: -2066419124, guid: 8e4fb01936b376a4b9a7da0777b66677, type: 3}
+    - rid: 1971845068808519816
+      type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: Bless
+    - rid: 1971845068808519818
+      type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: All party does double damage this turn

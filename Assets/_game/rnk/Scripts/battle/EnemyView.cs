@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using _game.rnk.Scripts.crawler;
 using _game.rnk.Scripts.tags;
+using _game.rnk.Scripts.ui;
 using DG.Tweening;
 using TMPro;
 using Unity.VisualScripting;
@@ -11,11 +12,13 @@ using UnityEngine.UI;
 
 namespace _game.rnk.Scripts.battleSystem
 {
-    public class EnemyView : MonoBehaviour, IPointerClickHandler
+
+    public class EnemyView : MonoBehaviour, IPointerClickHandler, IHasBuffList
     {
         public TMP_Text nameText;
         public DiceZone diceZone;
         public Damageable damageable;
+        public BuffList buffList;
         AlwaysFollowWorldSpaceObject followTarget;
 
         [NonSerialized] public EnemyState state;
@@ -36,6 +39,8 @@ namespace _game.rnk.Scripts.battleSystem
             diceZone.OnClickDice -= OnDiceClick;
             damageable.OnDead -= OnDead;
         }
+
+        public BuffList GetBuffList() => buffList;
         
         void OnDead()
         {
@@ -81,6 +86,8 @@ namespace _game.rnk.Scripts.battleSystem
             state.view = null;
             state = null;
             damageable.SetState(null);
+            
+            buffList.Clear();
         }
 
 

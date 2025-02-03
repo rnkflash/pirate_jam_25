@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PoisonAttack
   m_EditorClassIdentifier: 
   components:
+  - rid: 99808204973408385
   - rid: 99808196059201663
   - rid: 1971845068808519908
   - rid: 1971845068808519902
@@ -24,11 +25,16 @@ MonoBehaviour:
     - rid: 99808196059201663
       type: {class: TagActionAddBuffSO, ns: _game.rnk.Scripts.tags.actions, asm: Assembly-CSharp}
       data:
+        self: 0
         buffSO: {fileID: 11400000, guid: 82d2cc0fc427fd848961b727f91f6000, type: 2}
+    - rid: 99808204973408385
+      type: {class: TagActionAttack, ns: _game.rnk.Scripts.tags.actions, asm: Assembly-CSharp}
+      data:
+        valueIndex: 0
     - rid: 1971845068808519902
       type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        sprite: {fileID: -1304168633, guid: bc4ab1fecbef4bc46872e51f8488507d, type: 3}
+        sprite: {fileID: 1927794604, guid: 8e4fb01936b376a4b9a7da0777b66677, type: 3}
     - rid: 1971845068808519904
       type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
@@ -40,6 +46,6 @@ MonoBehaviour:
     - rid: 1971845068808519908
       type: {class: TagActionTargeting, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        row: 0
+        row: 2
         side: 0
         area: 0

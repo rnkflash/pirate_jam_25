@@ -6,7 +6,7 @@ namespace _game.rnk.Scripts.tags.buffs
 {
     public class TagBuffDamageModifier : EntityComponentDefinition
     {
-        public float value;
+        public int value;
         public Operation operation = Operation.SUM;
         public Rounding rounding = Rounding.CEIL;
     }
@@ -21,42 +21,40 @@ namespace _game.rnk.Scripts.tags.buffs
         MULTIPLY, SUM, PERCENT, DIVIDE
     }
     
-    public class TagBuffDamageModifierInteractor : IDamageModifier
+    public class TagBuffDamageModifierInteractor : BaseInteraction, IDamageModifier
     {
         public int ModifyDamage(CMSEntity model, int damage)
         {
             var mod = damage;
             if (model.Is<TagBuffDamageModifier>(out var tag))
             {
-                mod = Modify(tag.operation, damage, tag.rounding);
+                mod = Modify(tag.operation, damage, tag.rounding, tag.value);
             }
             return mod;
         }
         
-        public static int Modify(Operation operation, int value, Rounding rounding)
+        public static int Modify(Operation operation, int damage, Rounding rounding, int value)
         {
-            var modifiedDamage = value;
-
             switch (operation)
             {
                 case Operation.MULTIPLY:
-                    modifiedDamage = Round(modifiedDamage * value, rounding);
+                    damage = Round(damage * value, rounding);
                     break;
 
                 case Operation.SUM:
-                    modifiedDamage = Round(modifiedDamage + value, rounding);
+                    damage = Round(damage + value, rounding);
                     break;
 
                 case Operation.PERCENT:
-                    modifiedDamage = Round(modifiedDamage * value / 100.0f, rounding);
+                    damage = Round(damage * value / 100.0f, rounding);
                     break;
 
                 case Operation.DIVIDE:
-                    modifiedDamage = Round(modifiedDamage / value, rounding);
+                    damage = Round(damage / (float)value, rounding);
                     break;
             }
                 
-            return modifiedDamage;
+            return damage;
         }
 
         static int Round(float value, Rounding rounding)

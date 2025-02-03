@@ -19,8 +19,23 @@ namespace _game.rnk.Scripts.tags.actions
                 var value = values.FirstOrDefault();
                 foreach (var target in targets)
                 {
-                    G.ui.meleeHit.Bahni(target.GetView().transform.position);
-                    G.audio.Play<SFX_GetDamage>();
+                    var meleeAttack = true;
+                    
+                    if (face.Is<TagActionTargeting>(out var targeting))
+                    {
+                        meleeAttack = targeting.row == TargetRow.Front;
+                    } 
+                    
+                    if (meleeAttack)
+                    {
+                        G.ui.meleeHit.Bahni(target.GetView().transform.position);
+                        G.audio.Play<SFX_GetDamage>();
+                    }
+                    else
+                    {
+                        G.ui.rangeHit.Bahni(target.GetView().transform.position);
+                        G.audio.Play<SFX_RangeDamage>();
+                    }
                     
                     yield return G.battle.Damage(target, owner, value);
                 }

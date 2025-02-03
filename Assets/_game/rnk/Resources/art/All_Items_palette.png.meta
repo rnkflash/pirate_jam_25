@@ -1,0 +1,991 @@
+fileFormatVersion: 2
+guid: 8e4fb01936b376a4b9a7da0777b66677
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1809118591949593759
+    second: All_Items_palette_0
+  - first:
+      213: 1107910856003794168
+    second: All_Items_palette_1
+  - first:
+      213: 4237598456282393662
+    second: All_Items_palette_2
+  - first:
+      213: -2504942825440646587
+    second: All_Items_palette_3
+  - first:
+      213: -792589083773567302
+    second: All_Items_palette_4
+  - first:
+      213: 1635390336238232138
+    second: All_Items_palette_5
+  - first:
+      213: 6982320508178782186
+    second: All_Items_palette_6
+  - first:
+      213: -2397388961636143429
+    second: All_Items_palette_7
+  - first:
+      213: 2354627275489460378
+    second: All_Items_palette_8
+  - first:
+      213: -59060994917899959
+    second: All_Items_palette_9
+  - first:
+      213: 8855644463965610210
+    second: All_Items_palette_10
+  - first:
+      213: 2158845584382557168
+    second: All_Items_palette_11
+  - first:
+      213: 495167530364913021
+    second: All_Items_palette_12
+  - first:
+      213: -1844874458830772270
+    second: All_Items_palette_13
+  - first:
+      213: -2348590802713400056
+    second: All_Items_palette_14
+  - first:
+      213: -898199197527563665
+    second: All_Items_palette_15
+  - first:
+      213: -8035710696885264013
+    second: All_Items_palette_16
+  - first:
+      213: -6448901165606568931
+    second: All_Items_palette_17
+  - first:
+      213: -5569275410834686306
+    second: All_Items_palette_18
+  - first:
+      213: 2213738967498082353
+    second: All_Items_palette_19
+  - first:
+      213: 3306628630139315237
+    second: All_Items_palette_20
+  - first:
+      213: -81206505245578359
+    second: All_Items_palette_21
+  - first:
+      213: -8332131180482617066
+    second: All_Items_palette_22
+  - first:
+      213: 2216663126407437608
+    second: All_Items_palette_23
+  - first:
+      213: 5405443326097561339
+    second: All_Items_palette_24
+  - first:
+      213: 942109656634805647
+    second: All_Items_palette_25
+  - first:
+      213: -6430571207649058208
+    second: All_Items_palette_26
+  - first:
+      213: -5354297956888801978
+    second: All_Items_palette_27
+  - first:
+      213: -7253387056321897201
+    second: All_Items_palette_28
+  - first:
+      213: 4250932823185787081
+    second: All_Items_palette_29
+  - first:
+      213: -7725632613546636440
+    second: All_Items_palette_30
+  - first:
+      213: 6974174811406896378
+    second: All_Items_palette_31
+  - first:
+      213: -8213294509580504883
+    second: All_Items_palette_32
+  - first:
+      213: 2967701437861775101
+    second: All_Items_palette_33
+  - first:
+      213: 7785294913839849141
+    second: All_Items_palette_34
+  - first:
+      213: 5555352657990679686
+    second: All_Items_palette_35
+  - first:
+      213: -8169554384791894659
+    second: All_Items_palette_36
+  - first:
+      213: 1802396256373870473
+    second: All_Items_palette_37
+  - first:
+      213: 6362507662100583680
+    second: All_Items_palette_38
+  - first:
+      213: 8415737709563384299
+    second: All_Items_palette_39
+  - first:
+      213: 6160138759677282912
+    second: All_Items_palette_40
+  - first:
+      213: -3855921657142473703
+    second: All_Items_palette_41
+  - first:
+      213: -4703885840726898189
+    second: All_Items_palette_42
+  - first:
+      213: 3705512053858094452
+    second: All_Items_palette_43
+  - first:
+      213: 5754042254943649643
+    second: All_Items_palette_44
+  - first:
+      213: -4977932023507843367
+    second: All_Items_palette_45
+  - first:
+      213: 1428343365186146373
+    second: All_Items_palette_46
+  - first:
+      213: -1571192972606857797
+    second: All_Items_palette_47
+  - first:
+      213: 5986820376080150078
+    second: All_Items_palette_48
+  - first:
+      213: -822433474604325289
+    second: All_Items_palette_49
+  - first:
+      213: -4499074403262946866
+    second: All_Items_palette_50
+  - first:
+      213: -9022648902398014818
+    second: All_Items_palette_51
+  - first:
+      213: 1822873309137470095
+    second: All_Items_palette_52
+  - first:
+      213: -7882808872764087078
+    second: All_Items_palette_53
+  - first:
+      213: 2471230739358687171
+    second: All_Items_palette_54
+  - first:
+      213: -8132141954742609306
+    second: All_Items_palette_55
+  - first:
+      213: -2820371366497287545
+    second: All_Items_palette_56
+  - first:
+      213: -3728386466783940791
+    second: All_Items_palette_57
+  - first:
+      213: -3437896421735806027
+    second: All_Items_palette_58
+  - first:
+      213: -2921035498304863363
+    second: All_Items_palette_59
+  - first:
+      213: 1426709353649083119
+    second: All_Items_palette_60
+  - first:
+      213: 7670458491065006585
+    second: All_Items_palette_61
+  - first:
+      213: -3710653146123927873
+    second: All_Items_palette_62
+  - first:
+      213: 1765642568175663690
+    second: All_Items_palette_63
+  - first:
+      213: -6765159544745830952
+    second: All_Items_palette_64
+  - first:
+      213: 2457524593959837387
+    second: All_Items_palette_65
+  - first:
+      213: -1206434012656221310
+    second: All_Items_palette_66
+  - first:
+      213: 8491542088286664877
+    second: All_Items_palette_67
+  - first:
+      213: -7309720033964197343
+    second: All_Items_palette_68
+  - first:
+      213: 4972567267885875064
+    second: All_Items_palette_69
+  - first:
+      213: 8109026078657435459
+    second: All_Items_palette_70
+  - first:
+      213: 2326856030978807807
+    second: All_Items_palette_71
+  - first:
+      213: 3141419777378939267
+    second: All_Items_palette_72
+  - first:
+      213: -778550971524548329
+    second: All_Items_palette_73
+  - first:
+      213: 4201481271817322460
+    second: All_Items_palette_74
+  - first:
+      213: 2817809817233190890
+    second: All_Items_palette_75
+  - first:
+      213: -987793028536693222
+    second: All_Items_palette_76
+  - first:
+      213: -6692539691356524088
+    second: All_Items_palette_77
+  - first:
+      213: 2084793981706693927
+    second: All_Items_palette_78
+  - first:
+      213: 7515690249988800846
+    second: All_Items_palette_79
+  - first:
+      213: -2988609216387432966
+    second: All_Items_palette_80
+  - first:
+      213: -887198553399340426
+    second: All_Items_palette_81
+  - first:
+      213: -6145632707922820053
+    second: All_Items_palette_82
+  - first:
+      213: 511658116109054848
+    second: All_Items_palette_83
+  - first:
+      213: 4672798030721637309
+    second: All_Items_palette_84
+  - first:
+      213: 4330138701003127465
+    second: All_Items_palette_85
+  - first:
+      213: -7246173176777988232
+    second: All_Items_palette_86
+  - first:
+      213: -333057972957209773
+    second: All_Items_palette_87
+  - first:
+      213: 3566489196744718874
+    second: All_Items_palette_88
+  - first:
+      213: -1069488383845536984
+    second: All_Items_palette_89
+  - first:
+      213: -8083543187619245190
+    second: All_Items_palette_90
+  - first:
+      213: -3066718761619505944
+    second: All_Items_palette_91
+  - first:
+      213: -7006771622990115106
+    second: All_Items_palette_92
+  - first:
+      213: 27519049681370875
+    second: All_Items_palette_93
+  - first:
+      213: -2862379562755938736
+    second: All_Items_palette_94
+  - first:
+      213: 6333744291911808895
+    second: All_Items_palette_95
+  - first:
+      213: -50517972027490417
+    second: All_Items_palette_96
+  - first:
+      213: 8009209911120496421
+    second: All_Items_palette_97
+  - first:
+      213: 367149334850724989
+    second: All_Items_palette_98
+  - first:
+      213: -2154186018304767549
+    second: All_Items_palette_99
+  - first:
+      213: 293140626618912096
+    second: All_Items_palette_100
+  - first:
+      213: -6783936761479497963
+    second: All_Items_palette_101
+  - first:
+      213: -2824431024937421757
+    second: All_Items_palette_102
+  - first:
+      213: -5878682914494924714
+    second: All_Items_palette_103
+  - first:
+      213: 8731459520187719664
+    second: All_Items_palette_104
+  - first:
+      213: 1861804703533117
+    second: All_Items_palette_105
+  - first:
+      213: 8160402797011659804
+    second: All_Items_palette_106
+  - first:
+      213: -2715915008242825939
+    second: All_Items_palette_107
+  - first:
+      213: -8283573181327050614
+    second: All_Items_palette_108
+  - first:
+      213: 272363025324372537
+    second: All_Items_palette_109
+  - first:
+      213: 7552403932088324314
+    second: All_Items_palette_110
+  - first:
+      213: 7777541638892657657
+    second: All_Items_palette_111
+  - first:
+      213: -1462019245941357532
+    second: All_Items_palette_112
+  - first:
+      213: -6359196116028766691
+    second: All_Items_palette_113
+  - first:
+      213: -736031227430781719
+    second: All_Items_palette_114
+  - first:
+      213: 5198570148112744694
+    second: All_Items_palette_115
+  - first:
+      213: -2464405743963076675
+    second: All_Items_palette_116
+  - first:
+      213: -2673358597301126694
+    second: All_Items_palette_117
+  - first:
+      213: -8838658682847846788
+    second: All_Items_palette_118
+  - first:
+      213: 916330821800214493
+    second: All_Items_palette_119
+  - first:
+      213: -243081094258716088
+    second: All_Items_palette_120
+  - first:
+      213: 7558987573534811266
+    second: All_Items_palette_121
+  - first:
+      213: 875931641393783635
+    second: All_Items_palette_122
+  - first:
+      213: 4028931940128339660
+    second: All_Items_palette_123
+  - first:
+      213: -7195651283920801472
+    second: All_Items_palette_124
+  - first:
+      213: 5879865507052290006
+    second: All_Items_palette_125
+  - first:
+      213: 5167072130767943259
+    second: All_Items_palette_126
+  - first:
+      213: -7548135616046674802
+    second: All_Items_palette_127
+  - first:
+      213: 7203371446432402519
+    second: All_Items_palette_128
+  - first:
+      213: -2051174677871520548
+    second: All_Items_palette_129
+  - first:
+      213: 8447500840268682099
+    second: All_Items_palette_130
+  - first:
+      213: 1787099949714458758
+    second: All_Items_palette_131
+  - first:
+      213: -8179224480690940352
+    second: All_Items_palette_132
+  - first:
+      213: -6083855279087170069
+    second: All_Items_palette_133
+  - first:
+      213: -3969020676933645654
+    second: All_Items_palette_134
+  - first:
+      213: 6341070918419811401
+    second: All_Items_palette_135
+  - first:
+      213: 2997184190088002558
+    second: All_Items_palette_136
+  - first:
+      213: -2488389813003310135
+    second: All_Items_palette_137
+  - first:
+      213: -6823495920797704742
+    second: All_Items_palette_138
+  - first:
+      213: 9083650920551824610
+    second: All_Items_palette_139
+  - first:
+      213: -3385811130954149715
+    second: All_Items_palette_140
+  - first:
+      213: 4973999093446382449
+    second: All_Items_palette_141
+  - first:
+      213: 4741193079083691617
+    second: All_Items_palette_142
+  - first:
+      213: -5077907118979485794
+    second: All_Items_palette_143
+  - first:
+      213: 3709536372707002369
+    second: All_Items_palette_144
+  - first:
+      213: 1409603283489226307
+    second: All_Items_palette_145
+  - first:
+      213: 6866950323527101714
+    second: All_Items_palette_146
+  - first:
+      213: -7993989958573801594
+    second: All_Items_palette_147
+  - first:
+      213: -9216990005659485828
+    second: All_Items_palette_148
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: reckless_attack
+      rect:
+        serializedVersion: 2
+        x: 1819
+        y: 1753
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1632a4ac938b4e6e0800000000000000
+      internalID: -1809118591949593759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berserk
+      rect:
+        serializedVersion: 2
+        x: 2041
+        y: 1721
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c0972179dd96d74baeb8cd2695571c8
+      internalID: 1399678806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage_armor
+      rect:
+        serializedVersion: 2
+        x: 1658
+        y: 1561
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ae8620e239682142bed2a4619ac7d32
+      internalID: 1199713923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firewall
+      rect:
+        serializedVersion: 2
+        x: 2074
+        y: 1753
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6db49e0ceb57cea4084d0f499c30c234
+      internalID: -1911449559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireball
+      rect:
+        serializedVersion: 2
+        x: 2010
+        y: 1753
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4f618a1702a9d345b79e3427e253247
+      internalID: -982440049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_ray
+      rect:
+        serializedVersion: 2
+        x: 1593
+        y: 1529
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 477de31aa6c458e468712841416ae54b
+      internalID: -703542300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: parry
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 1046
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a3035c5789fec14db5eaed04945c4f9
+      internalID: 1449409116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paralyze
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 3161
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3486cf4b0b3c098499c64f7d1f39b7dc
+      internalID: 1525142843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bless
+      rect:
+        serializedVersion: 2
+        x: 1593
+        y: 1495
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90584bc4b473179419288cae70874fa2
+      internalID: -2066419124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic_melee
+      rect:
+        serializedVersion: 2
+        x: 1689
+        y: 1465
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8cbf58cad6d65f4a9216ebf38ae12a8
+      internalID: -809975379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: holy_shield
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 3449
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fae1365378d19144388a57a6fd5a6440
+      internalID: -1477331596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunter_mark
+      rect:
+        serializedVersion: 2
+        x: 1818
+        y: 951
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c869efb4999c65740bfc28240c793e75
+      internalID: -405085315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poison_arrow
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 3866
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a10ff9d5a6066042a179ffd5afac63a
+      internalID: 1927794604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poison_buff
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 2873
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c770e871605b3e4bbbd44bf44fdd35d
+      internalID: 45573045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heal_effect
+      rect:
+        serializedVersion: 2
+        x: 2010
+        y: 985
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97be83e9f5a68f14896138af220fd982
+      internalID: 1303208448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: range_attack
+      rect:
+        serializedVersion: 2
+        x: 1624
+        y: 1015
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bd6108c24a71dc4699b6bbe57815523
+      internalID: -587652991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poison_vfx
+      rect:
+        serializedVersion: 2
+        x: 2106
+        y: 2873
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4032a760f7b939949a3205b1a9ac370f
+      internalID: 1664903988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poison_potion
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 2870
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f353c5d72fc8ffa4995d15e2632f6b57
+      internalID: -1963800718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d52090d2d2e29ae4f9c93ca90d5295c5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      berserk: 1399678806
+      bless: -2066419124
+      fireball: -982440049
+      firewall: -1911449559
+      heal_effect: 1303208448
+      holy_shield: -1477331596
+      hunter_mark: -405085315
+      ice_ray: -703542300
+      mage_armor: 1199713923
+      magic_melee: -809975379
+      paralyze: 1525142843
+      parry: 1449409116
+      poison_arrow: 1927794604
+      poison_buff: 45573045
+      poison_potion: -1963800718
+      poison_vfx: 1664903988
+      range_attack: -587652991
+      reckless_attack: -1809118591949593759
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

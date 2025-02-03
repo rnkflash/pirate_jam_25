@@ -1,5 +1,6 @@
 ﻿using System;
 using _game.rnk.Scripts.tags;
+using _game.rnk.Scripts.ui;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -8,13 +9,14 @@ using UnityEngine.UI;
 
 namespace _game.rnk.Scripts.battleSystem
 {
-    public class CharacterView : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
+    public class CharacterView : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IHasBuffList
     {
         public Image avatarImage;
         public TMP_Text nameText;
         public TextMeshProUGUI healthText;
         public DiceZone diceZone;
         public Damageable damageable;
+        public BuffList buffList;
 
         [NonSerialized] public CharacterState state;
         private Tween _currentTween;
@@ -46,6 +48,7 @@ namespace _game.rnk.Scripts.battleSystem
 
         void OnDestroy()
         {
+            buffList.Clear();
             diceZone.OnClickDice -= OnDiceClick;
         }
         
@@ -92,5 +95,6 @@ namespace _game.rnk.Scripts.battleSystem
                 transform.parent.GetComponent<HorizontalLayoutGroup>().enabled = true;
             });
         }
+        public BuffList GetBuffList() => buffList;
     }
 }

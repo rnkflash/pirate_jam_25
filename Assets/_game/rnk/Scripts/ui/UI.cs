@@ -26,6 +26,7 @@ public class UI : MonoBehaviour
     bool skip;
     
     public SpriteVFX meleeHit;
+    public SpriteVFX rangeHit;
     public SpriteVFX armorHit;
     public SpriteVFX healHit;
     public SpriteVFX poisonHit;
