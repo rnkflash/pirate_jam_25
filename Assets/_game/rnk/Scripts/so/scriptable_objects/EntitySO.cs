@@ -13,6 +13,7 @@ namespace _game.rnk.Scripts.so.scriptable_objects
         {
             var entity = new CMSEntity
             {
+                id = name,
                 components = components.ToList()
             };
             return entity;

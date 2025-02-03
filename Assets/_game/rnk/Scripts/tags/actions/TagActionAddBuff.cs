@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using _game.rnk.Scripts.so.scriptable_objects;
 using _game.rnk.Scripts.tags.buffs;
 using _game.rnk.Scripts.tags.interactor;
+using UnityEngine;
 
 namespace _game.rnk.Scripts.tags.actions
 {
@@ -33,11 +34,14 @@ namespace _game.rnk.Scripts.tags.actions
             {
                 foreach (var buffTag in buffTags)
                 {
-                    G.audio.Play<SFX_AddBuff>();
-                    
+                    if (buffTag.buff.Is<SFXArray>() && buffTag.buff.Is<SFXArray>())
+                    {
+                        G.audio.Play(buffTag.buff);
+                    }
+            
                     if (buffTag.self)
                     {
-                        yield return G.battle.AddBuff(owner, buffTag.buff, owner);
+                        G.battle.AddBuff(owner, buffTag.buff, owner);
                     }
                     else
                     {
@@ -53,9 +57,11 @@ namespace _game.rnk.Scripts.tags.actions
                             }*/
                             
                             if (dobro)
-                                yield return G.battle.AddBuff(target, buffTag.buff, owner);
+                                G.battle.AddBuff(target, buffTag.buff, owner);
                         }
                     }
+                    
+                    yield return new WaitForSeconds(0.25f);
                 }
             }
         }

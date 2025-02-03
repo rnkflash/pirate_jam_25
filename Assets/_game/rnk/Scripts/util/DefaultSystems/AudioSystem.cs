@@ -115,7 +115,8 @@ public class AudioSystem : MonoBehaviour
             return true;
 
         float lastTimePlayed = lastPlayTime[sfxId];
-        float cooldown = CMS.Get<CMSEntity>(sfxId).Get<SFXTag>().Cooldown;
+        //float cooldown = CMS.Get<CMSEntity>(sfxId).Get<SFXTag>().Cooldown;
+        float cooldown = 0.1f;
 
         return (Time.time - lastTimePlayed >= cooldown);
     }

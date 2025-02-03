@@ -28,6 +28,11 @@ namespace _game.Intro
             _currentCoroutine = StartCoroutine(ShowImagesWithFade());
         }
 
+        public void OnSkipClicked()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        
         public void OnClicked()
         {
             if (!_canClick) return; // Блокируем клик

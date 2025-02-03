@@ -29,12 +29,19 @@ namespace _game.rnk.Scripts.tags.actions
                     if (meleeAttack)
                     {
                         G.ui.meleeHit.Bahni(target.GetView().transform.position);
-                        G.audio.Play<SFX_GetDamage>();
+                        
+                        if (target.GetState().armor > 0)
+                            G.audio.Play<SFX_HitArmor>();
+                        else
+                            G.audio.Play<SFX_GetDamage>();
                     }
                     else
                     {
                         G.ui.rangeHit.Bahni(target.GetView().transform.position);
-                        G.audio.Play<SFX_RangeDamage>();
+                        if (target.GetState().armor > 0)
+                            G.audio.Play<SFX_HitArmor>();
+                        else
+                            G.audio.Play<SFX_RangeDamage>();
                     }
                     
                     yield return G.battle.Damage(target, owner, value);

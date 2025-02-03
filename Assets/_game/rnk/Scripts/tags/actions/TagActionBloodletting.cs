@@ -23,7 +23,10 @@ namespace _game.rnk.Scripts.tags.actions
                 foreach (var target in targets)
                 {
                     G.ui.meleeHit.Bahni(target.GetView().transform.position);
-                    G.audio.Play<SFX_GetDamage>();
+                    if (target.GetState().armor > 0)
+                        G.audio.Play<SFX_HitArmor>();
+                    else
+                        G.audio.Play<SFX_RangeDamage>();
                     yield return G.battle.Damage(target, owner, value1);
                     
                     var damageable = target.GetView().GetComponent<Damageable>();

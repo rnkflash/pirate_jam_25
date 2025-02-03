@@ -3,13 +3,15 @@
     public enum TurnPhase
     {
         START_TURN,
-        EXECUTE_BUFFS,
+        EXECUTE_PLAYER_BUFFS,
         ENEMY_ROLL,
         FREE_ROLL,
         RE_ROLL,
         ENEMY_TARGETING,
         PLAYER_TARGETING,
-        EXECUTE_DICES,
-        CHECK_WIN
+        EXECUTE_PLAYER_DICES,
+        EXECUTE_ENEMY_BUFFS,
+        EXECUTE_ENEMY_DICES,
+        END_TURN,
     }
 }

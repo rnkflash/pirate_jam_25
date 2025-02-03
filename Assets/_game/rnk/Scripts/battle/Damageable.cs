@@ -15,6 +15,7 @@ namespace _game.rnk.Scripts.battleSystem
         [NonSerialized] public BaseCharacterState state;
         
         Tween punchTween;
+        Tween punchTextTween;
         
         public UnityAction<int> OnHit;
         public UnityAction OnDead;
@@ -94,6 +95,14 @@ namespace _game.rnk.Scripts.battleSystem
             punchTween?.Kill(true);
             punchTween=transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0.2f), 0.2f).OnComplete(() => {
                 punchTween = null;
+            });
+        }
+        
+        public void PunchText()
+        {
+            punchTextTween?.Kill(true);
+            punchTextTween = healthText.transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0.2f), 0.2f).OnComplete(() => {
+                punchTextTween = null;
             });
         }
     }

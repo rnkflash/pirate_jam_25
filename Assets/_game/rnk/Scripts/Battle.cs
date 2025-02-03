@@ -17,17 +17,16 @@ namespace _game.rnk.Scripts
 {
     public class Battle : MonoBehaviour
     {
-        public Interactor interactor;
-        
+        [NonSerialized] public Interactor interactor;
         [NonSerialized] public int reRolls;
         [NonSerialized] public TurnPhase turnPhase;
         
-        bool isWin;
         bool isEnabled;
         
         void Awake()
         {
             G.battle = this;
+            G.IsInBattle = false;
 
             interactor = new Interactor();
             interactor.Init();
@@ -51,6 +50,11 @@ namespace _game.rnk.Scripts
                     StartCoroutine(LoseSequence());
                 }    
             }
+        }
+
+        void NextTurnPhase()
+        {
+            SetTurnPhase(turnPhase.Next());
         }
 
         public void StartBattle(BattleEncounter encounter)
@@ -118,6 +122,13 @@ namespace _game.rnk.Scripts
             //TODO do other shit rewards and shit
         }
 
+        void ResetRerolls()
+        {
+            reRolls = 2;
+            G.hud.battle.RollButtonText.text = "Reroll x " + reRolls;
+            G.hud.battle.EndTurnButtonText.text = "Next phase";
+        }
+
         void SetTurnPhase(TurnPhase newTurnPhase)
         {
             turnPhase = newTurnPhase;
@@ -125,27 +136,13 @@ namespace _game.rnk.Scripts
             switch (turnPhase)
             {
                 case TurnPhase.START_TURN:
-                    foreach (var c in G.run.characters)
-                    {
-                        c.armor = 0;
-                        c.GetView().GetComponent<Damageable>().UpdateView();
-                    }
-                    foreach (var c in G.run.enemies)
-                    {
-                        c.armor = 0;
-                        c.GetView().GetComponent<Damageable>().UpdateView();
-                    }
-                    
-                    reRolls = 2;
-                    G.hud.battle.RollButtonText.text = "Reroll x " + reRolls;
-                    G.hud.battle.EndTurnButtonText.text = "Next phase";
+                    ResetRerolls();
                     G.hud.battle.DisableHud();
-                    SetTurnPhase(TurnPhase.EXECUTE_BUFFS);
+                    NextTurnPhase();
                     break;
                 
-                case TurnPhase.EXECUTE_BUFFS:
-                    StartCoroutine(StartExecuteBuffs());
-                    
+                case TurnPhase.EXECUTE_PLAYER_BUFFS:
+                    StartCoroutine(StartExecuteBuffs(G.run.characters));
                     break;
                 
                 case TurnPhase.ENEMY_ROLL:
@@ -168,29 +165,36 @@ namespace _game.rnk.Scripts
                     StartCoroutine(StartPlayDicesPhase());
                     break;
 
-                case TurnPhase.EXECUTE_DICES:
-                    StartCoroutine(StartExecutePhase());
-                    
+                case TurnPhase.EXECUTE_PLAYER_DICES:
+                    StartCoroutine(StartExecutePhase(G.run.characters, true));
                     break;
                 
-                case TurnPhase.CHECK_WIN:
-                    StartCoroutine(CheckWin(TurnPhase.START_TURN));
+                case TurnPhase.EXECUTE_ENEMY_BUFFS:
+                    StartCoroutine(StartExecuteBuffs(G.run.enemies));
+                    break;
+                
+                case TurnPhase.EXECUTE_ENEMY_DICES:
+                    StartCoroutine(StartExecutePhase(G.run.enemies));
+                    break;
+                
+                case TurnPhase.END_TURN:
+                    SetTurnPhase(TurnPhase.START_TURN);
                     break;
             }
         }
 
-        IEnumerator CheckWin(TurnPhase nextPhase)
+        IEnumerator CheckWin()
         {
-            isWin = G.run.enemies.FindAll(state => !state.dead).Count == 0;
+            var enemiesDead = G.run.enemies.FindAll(state => !state.dead).Count == 0;
             var allDead = G.run.characters.All(state => state.dead);
 
             if (allDead)
                 yield return LoseSequence();
             else
             {
-                if (!isWin)
+                if (!enemiesDead)
                 {
-                    SetTurnPhase(nextPhase);
+                    NextTurnPhase();
                 }
                 else
                 {
@@ -206,15 +210,11 @@ namespace _game.rnk.Scripts
             G.hud.battle.DisableHud();
             G.hud.battle.HideEnemies();
 
-            isWin = true;
-            
             G.hud.battle.win.SetActive(true);
 
             yield return new WaitForSeconds(1.22f);
 
             G.hud.battle.win.SetActive(false);
-                
-            yield return new WaitForSeconds(1f);
             
             FinishBattle();
         }
@@ -251,11 +251,10 @@ namespace _game.rnk.Scripts
         IEnumerator EnemyPickTargets()
         {
             G.hud.battle.DisableHud();
-            var enemyDices = GetEnemyDices();
-
-            yield return new WaitForSeconds(1.0f);
             
-            var dices = GetEnemyDices();
+            yield return new WaitForSeconds(0.25f);
+            
+            var dices = GetDices(G.run.enemies);
             var (allies, enemies) = GetAllTargets(typeof(EnemyState));
 
             foreach (var dice in dices)
@@ -291,10 +290,11 @@ namespace _game.rnk.Scripts
                         dice.SetTargets(targets);
                 }
             }
+            
+            yield return new WaitForSeconds(0.25f);
 
             //next phase
-            SetTurnPhase(TurnPhase.PLAYER_TARGETING);
-            
+            NextTurnPhase();
         }
 
         List<ITarget> GetTargetsForAction(DiceState diceState, List<ITarget> enemies, List<ITarget> allies)
@@ -345,7 +345,7 @@ namespace _game.rnk.Scripts
         
         IEnumerator PlayerFreeRoll()
         {
-            var dices = GetPlayerDices();
+            var dices = GetDices(G.run.characters);
 
             yield return ThrowDices(dices);
 
@@ -355,12 +355,12 @@ namespace _game.rnk.Scripts
             
             yield return new WaitForSeconds(0.2f);
             
-            SetTurnPhase(TurnPhase.RE_ROLL);
+            NextTurnPhase();
         }
 
         IEnumerator EnemyTurn()
         {
-            var enemyDices = GetEnemyDices();
+            var enemyDices = GetDices(G.run.enemies);
 
             yield return ThrowDices(enemyDices);
 
@@ -375,38 +375,25 @@ namespace _game.rnk.Scripts
             //each enemy dice plays with random target
 
             //next phase
-            SetTurnPhase(TurnPhase.FREE_ROLL);
-
+            NextTurnPhase();
         }
         
-        IEnumerator StartExecutePhase()
+        IEnumerator StartExecutePhase<T>(List<T> characters, bool onRollDiceZone = false) where T : BaseCharacterState
         {
             G.hud.battle.DisableHud();
-            
-            foreach (var dice in GetPlayerDices())
+            var dices = GetDices(characters, onRollDiceZone);
+            foreach (var dice in dices)
             {
                 if (!dice.state.owner.dead)
                 {
-                    dice.Punch();
-                    
-                    if (dice.zone == G.hud.battle.rollDicesZone)
+                    if (!onRollDiceZone || dice.zone == G.hud.battle.rollDicesZone)
                     {
-                        yield return ReturnDices(new List<DiceInteractiveObject>() { dice });
+                        dice.Punch();
+                        if (dice.zone == G.hud.battle.rollDicesZone)
+                            yield return ReturnDices(new List<DiceInteractiveObject>() { dice });
+                        
                         yield return DiceAction(dice);
                     }
-                    
-                }
-                dice.ClearTargets();
-            }
-            foreach (var dice in GetEnemyDices())
-            {
-                if (!dice.state.owner.dead)
-                {
-                    if (dice.GetTargets().Count > 0)
-                        dice.Punch();
-                    if (dice.zone == G.hud.battle.rollDicesZone)
-                        yield return ReturnDices(new List<DiceInteractiveObject>() { dice });
-                    yield return DiceAction(dice);
                 }
                 dice.ClearTargets();
             }
@@ -415,16 +402,12 @@ namespace _game.rnk.Scripts
 
             yield return new WaitForSeconds(0.5f);
             
-            SetTurnPhase(TurnPhase.CHECK_WIN);
+            yield return CheckWin();
 
         }
-        IEnumerator DiceAction(DiceInteractiveObject dice)
-        {
-            var owner = dice.state.owner;
-            var face = dice.state.overridenFace;
-            var targets = dice.GetTargets();
-            var values = face.Get<TagValue>().values;
 
+        int[] ApplyDamageModifiers(int[] values, BaseCharacterState owner)
+        {
             var modifiedValues = new int[values.Length];
             values.CopyTo(modifiedValues , 0);
             var buffsOnOwner = GetBuffsOnCharacter(owner);
@@ -435,6 +418,17 @@ namespace _game.rnk.Scripts
                     for (int i = 0; i < values.Length; i++)
                         modifiedValues[i] = f.ModifyDamage(buff.model, modifiedValues[i]);
             }
+            return modifiedValues;
+        }
+        
+        IEnumerator DiceAction(DiceInteractiveObject dice)
+        {
+            var owner = dice.state.owner;
+            var face = dice.state.overridenFace;
+            var targets = dice.GetTargets();
+            var values = face.Get<TagValue>().values;
+
+            var modifiedValues = ApplyDamageModifiers(values, owner);
             
             var diceActions = interactor.FindAll<IDiceFaceAction>();
             foreach (var f in diceActions)
@@ -458,16 +452,22 @@ namespace _game.rnk.Scripts
             yield return new WaitForSeconds(0.25f);
         }
 
-        List<BuffState> GetBuffsOnCharacter(BaseCharacterState character)
+        List<BuffState> GetBuffsOnCharacter<T>(T character) where T : BaseCharacterState
         {
             return G.run.buffs.FindAll(state => state.target.GetState() == character);
         }
         
-        IEnumerator StartExecuteBuffs()
+        List<BuffState> GetBuffsOnCharacters<T>(List<T> characters) where T : BaseCharacterState
+        {
+            return G.run.buffs.FindAll(state => characters.Contains(state.target.GetState()));
+        }
+        
+        IEnumerator StartExecuteBuffs<T>(List<T> baseCharacterStates) where T : BaseCharacterState
         {
             var interactors = interactor.FindAll<IBuffAction>();
             var expiredBuffs = new List<BuffState>();
-            foreach (var buffState in G.run.buffs)
+            var buffs = GetBuffsOnCharacters(baseCharacterStates);
+            foreach (var buffState in buffs)
             {
                 foreach (var f in interactors)
                 {
@@ -478,8 +478,6 @@ namespace _game.rnk.Scripts
                 buffState.view.UpdateState();
                 buffState.view.Punch();
 
-                yield return new WaitForSeconds(0.25f);
-                
                 if (buffState.turnsLeft <= 0)
                     expiredBuffs.Add(buffState);
             }
@@ -492,7 +490,9 @@ namespace _game.rnk.Scripts
 
             yield return new WaitForSeconds(0.25f);
             
-            StartCoroutine(CheckWin(TurnPhase.ENEMY_ROLL));
+            yield return ResetArmor(baseCharacterStates);
+
+            yield return CheckWin();
         }
 
         IEnumerator StartPlayDicesPhase()
@@ -504,27 +504,25 @@ namespace _game.rnk.Scripts
 
             G.hud.battle.EnableHud();
         }
-
-        List<DiceInteractiveObject> GetPlayerDices()
+        
+        List<DiceInteractiveObject> GetDices<T>(List<T> characters, bool orderedByRollZone = false) where T : BaseCharacterState
         {
-            var unordered = G.run.characters.FindAll(state => !state.dead).SelectMany(
+            var unordered = characters.FindAll(state => !state.dead).SelectMany(
                 cs => cs.diceStates.Select(ds => ds.interactiveObject)
             ).ToList();
 
-            var originalOrdered = G.hud.battle.rollDicesZone.objects;
-            var ordered = unordered.OrderBy(o => originalOrdered.IndexOf(o)).ToList();
-
-            ordered.Reverse();
+            if (orderedByRollZone)
+            {
+                var originalOrdered = G.hud.battle.rollDicesZone.objects;
+                var orderedDices = unordered.OrderBy(o => originalOrdered.IndexOf(o)).ToList();
+                orderedDices.Reverse();
+                return orderedDices;
+            }
             
-            return ordered;
+            unordered.Reverse();
+            return unordered;
         }
-        
-        List<DiceInteractiveObject> GetEnemyDices()
-        {
-            return G.run.enemies.FindAll(state => !state.dead).SelectMany(
-                cs => cs.diceStates.Select(ds => ds.interactiveObject)).Reverse().ToList();
-        }
-        
+
         List<DiceInteractiveObject> GetDicesOnRollZOne()
         {
             return G.hud.battle.rollDicesZone.objects.Select(o => o).ToList();
@@ -550,7 +548,7 @@ namespace _game.rnk.Scripts
             {
                 yield return ReturnAllDices();
                 
-                SetTurnPhase(TurnPhase.ENEMY_TARGETING);                            
+                NextTurnPhase();                            
             }
         }
 
@@ -768,11 +766,11 @@ namespace _game.rnk.Scripts
             switch (turnPhase)
             {
                 case TurnPhase.RE_ROLL:
-                    SetTurnPhase(TurnPhase.ENEMY_TARGETING);
+                    NextTurnPhase();
                     break;
 
                 case TurnPhase.PLAYER_TARGETING:
-                    SetTurnPhase(TurnPhase.EXECUTE_DICES);
+                    NextTurnPhase();
                     break;
             }
         }
@@ -789,7 +787,7 @@ namespace _game.rnk.Scripts
                 }
             }
         }
-        public IEnumerator AddBuff(ITarget target, CMSEntity buff, BaseCharacterState owner)
+        public void AddBuff(ITarget target, CMSEntity buff, BaseCharacterState owner)
         {
             var buffState = new BuffState()
             {
@@ -802,8 +800,6 @@ namespace _game.rnk.Scripts
             G.run.buffs.Add(buffState);
 
             target.GetView().GetBuffList().AddBuff(buffState);
-            
-            yield return new WaitForSeconds(0.25f);
         }
         
         public List<BuffState> GetBuffs(BaseCharacterState character)
@@ -851,6 +847,21 @@ namespace _game.rnk.Scripts
                 
                 yield return damageable.Hit(modifiedValue);
             }
+        }
+        
+        IEnumerator ResetArmor<T>(List<T> characters) where T : BaseCharacterState
+        {
+            foreach (var c in characters)
+            {
+                if (c.armor != 0)
+                {
+                    c.GetView().GetComponent<Damageable>().PunchText();
+                    c.armor = 0;
+                    c.GetView().GetComponent<Damageable>().UpdateView();
+                    
+                }
+            }
+            yield return new WaitForSeconds(0.25f);
         }
     }
 

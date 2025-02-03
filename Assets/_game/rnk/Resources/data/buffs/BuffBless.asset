@@ -18,6 +18,8 @@ MonoBehaviour:
   - rid: 99808196059201654
   - rid: 99808196059201656
   - rid: 99808196059201658
+  - rid: 99808252451618918
+  - rid: 99808252451618920
   references:
     version: 2
     RefIds:
@@ -43,3 +45,15 @@ MonoBehaviour:
         value: 2
         operation: 0
         rounding: 1
+    - rid: 99808252451618918
+      type: {class: SFXArray, ns: , asm: Assembly-CSharp}
+      data:
+        files:
+        - {fileID: 8300000, guid: 12a13227ba5878d44a04746b32ce7eda, type: 3}
+        volume: 1
+    - rid: 99808252451618920
+      type: {class: SFXTag, ns: Common, asm: Assembly-CSharp}
+      data:
+        sfx_id: 
+        Cooldown: 0.1
+        VaryPitch: 0
