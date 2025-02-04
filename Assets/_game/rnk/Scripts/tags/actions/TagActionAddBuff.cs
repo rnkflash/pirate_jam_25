@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using _game.rnk.Scripts.so.scriptable_objects;
 using _game.rnk.Scripts.tags.buffs;
 using _game.rnk.Scripts.tags.interactor;
@@ -42,6 +43,13 @@ namespace _game.rnk.Scripts.tags.actions
                     if (buffTag.self)
                     {
                         G.battle.AddBuff(owner, buffTag.buff, owner);
+                        
+                        //хардкод для аггро бафа
+                        if (buffTag.buff.Is<TagBuffAggro>())
+                        {
+                            var enemyDices = G.battle.GetEnemies(owner).SelectMany(target => target.GetState().diceStates).ToList();
+                            G.battle.RetargetDices(enemyDices, owner as ITarget);
+                        }
                     }
                     else
                     {

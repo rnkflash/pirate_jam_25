@@ -98,6 +98,8 @@ namespace _game.rnk.Scripts
                 G.run.enemies.Add(enemyState);
             }
             
+            G.audio.Play<SFX_DiceDraw>();
+            
             G.hud.ShowBattleHud();
             G.hud.battle.InitBattle();
 
@@ -302,12 +304,20 @@ namespace _game.rnk.Scripts
             var targets = new List<ITarget>();
             var artefact = diceState.artefactOnFace();
             var face = artefact?.face ?? diceState.face;
+            
+            var interactors = interactor.FindAll<IModifyTargetList>();
+            var modifiedEnemyList = new List<ITarget>();
+            foreach (var interactor in interactors)
+            {
+                modifiedEnemyList = interactor.ModifyTargetList(enemies);
+            }
+            
             if (face.Is<TagActionTargeting>(out var targeting))
             {
                 switch (targeting.side)
                 {
                     case TargetSide.Enemy:
-                        targets.AddRange(enemies);
+                        targets.AddRange(modifiedEnemyList);
                         break;
 
                     case TargetSide.Ally:
@@ -315,7 +325,7 @@ namespace _game.rnk.Scripts
                         break;
 
                     case TargetSide.Both:
-                        targets.AddRange(enemies);
+                        targets.AddRange(modifiedEnemyList);
                         targets.AddRange(allies);
                         break;
 
@@ -586,7 +596,7 @@ namespace _game.rnk.Scripts
             if (dices.Count == 0) yield break;
             
             yield return new WaitForEndOfFrame();
-            G.audio.Play<SFX_DiceDraw>();
+            G.audio.Play<SFX_Woosh>();
             foreach (var dice in dices)
             {
                 MoveDice(dice, G.hud.battle.rollDicesZone);
@@ -603,7 +613,7 @@ namespace _game.rnk.Scripts
             if (dices.Count == 0) yield break;
             
             yield return new WaitForEndOfFrame();
-            G.audio.Play<SFX_DiceDraw>();
+            G.audio.Play<SFX_Woosh>();
             foreach (var dice in dices)
             {
                 MoveDice(dice, dice.state.owner.diceZone);
@@ -862,6 +872,23 @@ namespace _game.rnk.Scripts
                 }
             }
             yield return new WaitForSeconds(0.25f);
+        }
+        public List<ITarget> GetEnemies(BaseCharacterState owner)
+        {
+            return GetAllTargets(owner.GetType()).enemies;
+        }
+        
+        public List<ITarget> GetAllies(BaseCharacterState owner)
+        {
+            return GetAllTargets(owner.GetType()).allies;
+        }
+        public void RetargetDices(List<DiceState> enemyDices, ITarget target)
+        {
+            foreach (var dice in enemyDices)
+            {
+                if (dice.interactiveObject.GetTargets().Count > 0)
+                    dice.interactiveObject.SetTargets(new List<ITarget>() {target} );
+            }
         }
     }
 

@@ -63,6 +63,7 @@ namespace _game.rnk.Scripts
     {
         public MonoBehaviour GetView();
         public BaseCharacterState GetState();
+        public List<BuffState> GetBuffs() => G.battle.GetBuffs(GetState());
         public bool IsBackLine();
     }
 
