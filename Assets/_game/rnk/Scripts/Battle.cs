@@ -144,7 +144,7 @@ namespace _game.rnk.Scripts
                     break;
                 
                 case TurnPhase.EXECUTE_PLAYER_BUFFS:
-                    StartCoroutine(StartExecuteBuffs(G.run.characters));
+                    StartCoroutine(StartExecuteBuffs(G.run.characters, G.run.enemies));
                     break;
                 
                 case TurnPhase.ENEMY_ROLL:
@@ -172,7 +172,7 @@ namespace _game.rnk.Scripts
                     break;
                 
                 case TurnPhase.EXECUTE_ENEMY_BUFFS:
-                    StartCoroutine(StartExecuteBuffs(G.run.enemies));
+                    StartCoroutine(StartExecuteBuffs(G.run.enemies, G.run.characters));
                     break;
                 
                 case TurnPhase.EXECUTE_ENEMY_DICES:
@@ -476,7 +476,7 @@ namespace _game.rnk.Scripts
             return G.run.buffs.FindAll(state => characters.Contains(state.target.GetState()));
         }
         
-        IEnumerator StartExecuteBuffs<T>(List<T> baseCharacterStates) where T : BaseCharacterState
+        IEnumerator StartExecuteBuffs<T, Y>(List<T> baseCharacterStates, List<Y> oppositeSide) where T : BaseCharacterState where Y : BaseCharacterState
         {
             var interactors = interactor.FindAll<IBuffAction>();
             var expiredBuffs = new List<BuffState>();
@@ -499,8 +499,6 @@ namespace _game.rnk.Scripts
                     expiredBuffs.Add(buffState);
             }
             
-            
-            
             CheckIfDead(baseCharacterStates.Select(state => state as BaseCharacterState).ToList());
 
             foreach (var expiredBuff in expiredBuffs.FindAll(state => G.run.buffs.Contains(state)))
@@ -512,6 +510,18 @@ namespace _game.rnk.Scripts
             yield return new WaitForSeconds(0.25f);
             
             yield return ResetArmor(baseCharacterStates);
+            
+            var interactorsOppositeSide = interactor.FindAll<IBuffActionOppositeSide>();
+            var buffsOppositeSide = GetBuffsOnCharacters(oppositeSide);
+            foreach (var buffState in buffsOppositeSide)
+            {
+                buffState.view.Punch();
+                yield return new WaitForSeconds(0.1f);
+                foreach (var f in interactorsOppositeSide)
+                {
+                    yield return f.OnBuffAction(buffState);
+                }
+            }
 
             yield return CheckWin();
         }

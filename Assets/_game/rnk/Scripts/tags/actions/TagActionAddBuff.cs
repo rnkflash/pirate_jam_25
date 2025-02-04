@@ -4,6 +4,7 @@ using System.Linq;
 using _game.rnk.Scripts.so.scriptable_objects;
 using _game.rnk.Scripts.tags.buffs;
 using _game.rnk.Scripts.tags.interactor;
+using Common;
 using UnityEngine;
 
 namespace _game.rnk.Scripts.tags.actions
@@ -35,7 +36,7 @@ namespace _game.rnk.Scripts.tags.actions
             {
                 foreach (var buffTag in buffTags)
                 {
-                    if (buffTag.buff.Is<SFXArray>() && buffTag.buff.Is<SFXArray>())
+                    if (buffTag.buff.Is<SFXTag>() && buffTag.buff.Is<SFXArray>())
                     {
                         G.audio.Play(buffTag.buff);
                     }
@@ -48,7 +49,7 @@ namespace _game.rnk.Scripts.tags.actions
                         if (buffTag.buff.Is<TagBuffAggro>())
                         {
                             var enemyDices = G.battle.GetEnemies(owner).SelectMany(target => target.GetState().diceStates).ToList();
-                            G.battle.RetargetDices(enemyDices, owner as ITarget);
+                            G.battle.RetargetDices(enemyDices, owner);
                         }
                     }
                     else

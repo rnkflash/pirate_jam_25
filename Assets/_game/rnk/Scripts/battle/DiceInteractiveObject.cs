@@ -171,7 +171,7 @@ namespace _game.rnk.Scripts.battleSystem
             var face = state.overridenFace;
             var values = face.Get<TagValue>()?.values ?? Array.Empty<int>();
             if (face.Is<TagName>(out var tn)) desc += tn.loc + ". \n";
-            if (face.Is<TagDescription>(out var td)) desc += td.loc.WithValues(values);
+            if (face.Is<TagDescription>(out var td)) desc += td.loc.WithValues(values).WithTagDuration(face.Get<TagActionAddBuff>()?.buff);
             return desc;
         }
 

@@ -17,9 +17,5 @@ namespace _game.rnk.Scripts.tags.buffs
             return targets;
         }
     }
-    
-    public interface IModifyTargetList
-    {
-        public List<ITarget> ModifyTargetList(List<ITarget> targets);
-    }
+
 }

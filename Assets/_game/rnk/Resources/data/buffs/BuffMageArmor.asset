@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cef069cb3f7420ab23e64e9fcf20026, type: 3}
+  m_Name: BuffMageArmor
+  m_EditorClassIdentifier: 
+  components:
+  - rid: 99808268191268980
+  - rid: 99808196059201650
+  - rid: 99808268191268986
+  - rid: 99808196059201654
+  - rid: 99808196059201656
+  - rid: 99808196059201658
+  - rid: 99808268191268988
+  - rid: 99808268191268990
+  references:
+    version: 2
+    RefIds:
+    - rid: 99808196059201650
+      type: {class: TagDuration, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        turns: 2
+    - rid: 99808196059201654
+      type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: Mage Armor
+    - rid: 99808196059201656
+      type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        loc: Cast %value% armor on target before enemy attack
+    - rid: 99808196059201658
+      type: {class: TagSprite, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        sprite: {fileID: 1199713923, guid: 8e4fb01936b376a4b9a7da0777b66677, type: 3}
+    - rid: 99808268191268980
+      type: {class: TagBuffMageArmor, ns: _game.rnk.Scripts.tags.buffs, asm: Assembly-CSharp}
+      data: 
+    - rid: 99808268191268986
+      type: {class: TagValue, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
+      data:
+        values: 02000000
+    - rid: 99808268191268988
+      type: {class: SFXArray, ns: , asm: Assembly-CSharp}
+      data:
+        files:
+        - {fileID: 8300000, guid: b44225334b2693a4e8ac5f3308750dcd, type: 3}
+        volume: 1
+    - rid: 99808268191268990
+      type: {class: SFXTag, ns: Common, asm: Assembly-CSharp}
+      data:
+        sfx_id: 
+        Cooldown: 0.1
+        VaryPitch: 0

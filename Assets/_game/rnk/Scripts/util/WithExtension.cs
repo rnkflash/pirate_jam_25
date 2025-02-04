@@ -30,7 +30,13 @@ namespace _game.rnk.Scripts.util
         {
             var tagValue = face.Get<TagValue>();
             var loc = face.Get<TagValueText>()?.loc ?? "%value%";
-            return loc.WithValues(tagValue.values);
+            return loc.WithValues(tagValue.values).WithTagDuration(face);
+        }
+        
+        public static string WithTagDuration(this string loc, CMSEntity face)
+        {
+            var tagDuration = face?.Get<TagDuration>()?.turns ?? 0;
+            return loc.Replace("%duration%", tagDuration.ToString());
         }
     }
 }
