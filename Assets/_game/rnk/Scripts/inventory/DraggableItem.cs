@@ -10,7 +10,7 @@ namespace _game.rnk.Scripts.inventory
     {
         RectTransform rectTransform;
         CanvasGroup canvasGroup;
-        public Canvas mainCanvas;
+        [NonSerialized] public Transform rootTransform;
         Vector2 originalPosition;
         Transform originalParent;
         int originalSiblingIndex;
@@ -20,7 +20,7 @@ namespace _game.rnk.Scripts.inventory
         {
             rectTransform = GetComponent<RectTransform>();
             canvasGroup = GetComponent<CanvasGroup>();
-            mainCanvas = FindObjectOfType<InventoryScreen>().GetComponent<Canvas>();
+            rootTransform = GetComponentInParent<InventoryScreen>().transform;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
@@ -33,7 +33,7 @@ namespace _game.rnk.Scripts.inventory
             if (originalParent.GetComponent<GridLayoutGroup>())
                 originalParent.GetComponent<GridLayoutGroup>().enabled = false;
             
-            transform.SetParent(mainCanvas.transform); // Move to the top of the hierarchy
+            transform.SetParent(rootTransform); // Move to the top of the hierarchy
             canvasGroup.blocksRaycasts = false;
             canvasGroup.alpha = 0.5f;
         }
