@@ -6,6 +6,7 @@ https://opensource.org/licenses/MIT.
 */
 
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -247,9 +248,37 @@ public class AdvancedGridMovement : MonoBehaviour
             else
             {
                 blockedEvent?.Invoke();
+                StartCoroutine(AttemptMove(movementDirection));
             }
         }
     }
+    
+    private IEnumerator AttemptMove(Vector3 direction)
+    {
+        float attemptDistance = gridSize * 0.05f;
+        float attemptTime = 0.1f;
+        Vector3 initialPosition = transform.position;
+        Vector3 blockedPosition = initialPosition + (direction.normalized * attemptDistance);
+
+        float elapsedTime = 0f;
+        while (elapsedTime < attemptTime)
+        {
+            transform.position = Vector3.Lerp(initialPosition, blockedPosition, elapsedTime / attemptTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        elapsedTime = 0f;
+        while (elapsedTime < attemptTime)
+        {
+            transform.position = Vector3.Lerp(blockedPosition, initialPosition, elapsedTime / attemptTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = initialPosition;
+    }
+
 
     // should be refactored into an new class
     private bool FreeSpace(Vector3 targetPosition)
