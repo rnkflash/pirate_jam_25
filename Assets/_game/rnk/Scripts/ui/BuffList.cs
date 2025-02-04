@@ -16,9 +16,11 @@ namespace _game.rnk.Scripts.ui
             buffList = new List<BuffView>();
         }
 
-        public void AddBuff(BuffState buffState)
+        public BuffView AddBuff(BuffState buffState)
         {
-            buffList.Add(CreateView(buffState));
+            var view = CreateView(buffState);
+            buffList.Add(view);
+            return view;
         }
 
         public void RemoveBuff(BuffState buffState)

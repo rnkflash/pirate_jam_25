@@ -444,12 +444,18 @@ namespace _game.rnk.Scripts
             foreach (var f in diceActions)
                 yield return f.OnAction(targets, face, owner, modifiedValues);
             
-            foreach (var target in targets)
+            CheckIfDead(targets.Select(target => target.GetState()).ToList());
+
+            yield return new WaitForSeconds(0.25f);
+        }
+        void CheckIfDead(List<BaseCharacterState> baseCharacterStates)
+        {
+            foreach (var baseCharacter in baseCharacterStates)
             {
-                if (target.GetState().dead)
-                    RemoveBuffs(target.GetState());
+                if (baseCharacter.dead)
+                    RemoveBuffs(baseCharacter);
                 
-                var damageable = target.GetView().GetComponent<Damageable>();
+                var damageable = baseCharacter.GetView().GetComponent<Damageable>();
                 if (damageable != null && damageable.state.dead)
                 {
                     foreach (var diceState in damageable.state.diceStates)
@@ -458,8 +464,6 @@ namespace _game.rnk.Scripts
                     }
                 }
             }
-
-            yield return new WaitForSeconds(0.25f);
         }
 
         List<BuffState> GetBuffsOnCharacter<T>(T character) where T : BaseCharacterState
@@ -479,22 +483,27 @@ namespace _game.rnk.Scripts
             var buffs = GetBuffsOnCharacters(baseCharacterStates);
             foreach (var buffState in buffs)
             {
-                buffState.view.UpdateState();
                 buffState.view.Punch();
-
+                
                 yield return new WaitForSeconds(0.1f);
+                
+                buffState.turnsLeft -= 1;
+                buffState.view.UpdateState();
                 
                 foreach (var f in interactors)
                 {
                     yield return f.OnBuffAction(buffState);
                 }
-                buffState.turnsLeft -= 1;
-
+                
                 if (buffState.turnsLeft <= 0)
                     expiredBuffs.Add(buffState);
             }
+            
+            
+            
+            CheckIfDead(baseCharacterStates.Select(state => state as BaseCharacterState).ToList());
 
-            foreach (var expiredBuff in expiredBuffs)
+            foreach (var expiredBuff in expiredBuffs.FindAll(state => G.run.buffs.Contains(state)))
             {
                 expiredBuff.view.Remove();
                 G.run.buffs.Remove(expiredBuff);
@@ -811,7 +820,7 @@ namespace _game.rnk.Scripts
             
             G.run.buffs.Add(buffState);
 
-            target.GetView().GetBuffList().AddBuff(buffState);
+            target.GetView().GetBuffList().AddBuff(buffState).Punch();
         }
         
         public List<BuffState> GetBuffs(BaseCharacterState character)

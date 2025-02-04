@@ -38,7 +38,6 @@ namespace _game.rnk.Scripts.ui
         public void UpdateState()
         {
             text.text = state.turnsLeft.ToString();
-            Punch();
         }
 
         public void Punch()
