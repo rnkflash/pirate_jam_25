@@ -479,14 +479,16 @@ namespace _game.rnk.Scripts
             var buffs = GetBuffsOnCharacters(baseCharacterStates);
             foreach (var buffState in buffs)
             {
+                buffState.view.UpdateState();
+                buffState.view.Punch();
+
+                yield return new WaitForSeconds(0.1f);
+                
                 foreach (var f in interactors)
                 {
                     yield return f.OnBuffAction(buffState);
                 }
                 buffState.turnsLeft -= 1;
-                
-                buffState.view.UpdateState();
-                buffState.view.Punch();
 
                 if (buffState.turnsLeft <= 0)
                     expiredBuffs.Add(buffState);
