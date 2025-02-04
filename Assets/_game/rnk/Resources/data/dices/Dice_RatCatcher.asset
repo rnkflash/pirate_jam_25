@@ -25,8 +25,8 @@ MonoBehaviour:
     values: 02000000
   - face: {fileID: 11400000, guid: 642beaf2140a0044391f05101616a61b, type: 2}
     values: 02000000
-  - face: {fileID: 11400000, guid: a16e3ded43647b24cafe068b5a82242e, type: 2}
-    values: 03000000
+  - face: {fileID: 11400000, guid: 694bd9a2f61cfa84494d915715a9358b, type: 2}
+    values: 01000000
   - face: {fileID: 11400000, guid: a16e3ded43647b24cafe068b5a82242e, type: 2}
     values: 03000000
   references:
