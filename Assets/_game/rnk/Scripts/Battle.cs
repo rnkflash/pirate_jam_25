@@ -65,7 +65,7 @@ namespace _game.rnk.Scripts
         
         IEnumerator StartingBattle(BattleEncounter encounter)
         {
-            yield return G.ui.Say("Alas! We have been ambushed...");
+            yield return G.ui.Say("We have been ambushed!");
             yield return G.ui.SmartWait(3f);
             yield return G.ui.Unsay();
             yield return G.ui.SmartWait(0.25f);
