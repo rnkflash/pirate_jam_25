@@ -1,4 +1,4 @@
-/* Copyright 2021-2022 Lutz Großhennig
+/* Copyright 2021-2022 Lutz Groï¿½hennig
 
 Use of this source code is governed by an MIT-style
 license that can be found in the LICENSE file or at
@@ -33,25 +33,25 @@ public class FootstepSystem : MonoBehaviour
 
     public void Step()
     {
-        if (nextStepLeft)
-        {
-            leftFoot.pitch = Random.Range(leftMinimumPitch, 1f);
-            leftFoot.PlayOneShot(leftFootClip);
-            nextStepLeft = !nextStepLeft;
-        }
-        else
-        {
-            rightFoot.pitch = Random.Range(rightMinimumPitch, 1f);
-            rightFoot.PlayOneShot(rightFootClip);
-            nextStepLeft = !nextStepLeft;
-        }
+        // if (nextStepLeft)
+        // {
+        //     leftFoot.pitch = Random.Range(leftMinimumPitch, 1f);
+        //     leftFoot.PlayOneShot(leftFootClip);
+        //     nextStepLeft = !nextStepLeft;
+        // }
+        // else
+        // {
+        //     rightFoot.pitch = Random.Range(rightMinimumPitch, 1f);
+        //     rightFoot.PlayOneShot(rightFootClip);
+        //     nextStepLeft = !nextStepLeft;
+        // }
     }
 
     public void Turn()
     {
-        leftFoot.pitch = Random.Range(turnMinimumPitch, 1f);
-        rightFoot.pitch = Random.Range(turnMinimumPitch, 1f);
-        leftFoot.PlayOneShot(turnClip);
-        rightFoot.PlayOneShot(turnClip);
+        // leftFoot.pitch = Random.Range(turnMinimumPitch, 1f);
+        // rightFoot.pitch = Random.Range(turnMinimumPitch, 1f);
+        // leftFoot.PlayOneShot(turnClip);
+        // rightFoot.PlayOneShot(turnClip);
     }
 }
