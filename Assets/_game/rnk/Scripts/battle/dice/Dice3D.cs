@@ -1,11 +1,12 @@
 ﻿using System;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 namespace _game.rnk.Scripts.battle.dice
 {
-    public class Dice3D : MonoBehaviour
+    public class Dice3D : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
         public enum State
         {
@@ -22,6 +23,7 @@ namespace _game.rnk.Scripts.battle.dice
         [NonSerialized] public int rollValue;
         [NonSerialized] public Vector3 targetPosition;
         [NonSerialized] public bool isRolled;
+        [NonSerialized] public DiceDockZone zone;
 
         Rigidbody body;
         AudioSource audioSource;
@@ -159,6 +161,18 @@ namespace _game.rnk.Scripts.battle.dice
 
             //transform.rotation = parentRotation;
             transform.DORotate(parentRotation.eulerAngles, 0.25f);
+        }
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            zone?.onClickDice?.Invoke(this);
+        }
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            //Debug.Log("OnPointerEnter " + gameObject.name);
+        }
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            //Debug.Log("OnPointerExit " + gameObject.name);
         }
     }
 }
