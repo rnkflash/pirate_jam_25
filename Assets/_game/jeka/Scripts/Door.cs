@@ -11,6 +11,7 @@ public class Door : MonoBehaviour
 
     public void OpenDoor()
     {
+        GetComponent<AudioSource>().Play();
         animator.SetTrigger("Open"); // Запускаем анимацию открытия двери
         Invoke("DisableDoor", 1f);   // Выключаем объект через 2 секунды
     }
