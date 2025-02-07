@@ -38,11 +38,11 @@ MonoBehaviour:
     - rid: 1971845068808519904
       type: {class: TagName, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: Poison Attack
+        loc: Monster Attack
     - rid: 1971845068808519906
       type: {class: TagDescription, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
-        loc: Inflict weak poison
+        loc: Deal %value% damage and Inflict weak poison
     - rid: 1971845068808519908
       type: {class: TagActionTargeting, ns: _game.rnk.Scripts.tags, asm: Assembly-CSharp}
       data:
