@@ -487,7 +487,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 23
+    m_Bits: 799
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -662,6 +662,9 @@ GameObject:
   - component: {fileID: 7438342462134291436}
   - component: {fileID: 9197242473882914172}
   - component: {fileID: 4434474825175556205}
+  - component: {fileID: 3766547031964695873}
+  - component: {fileID: 2292785771914903812}
+  - component: {fileID: 1648545383267146850}
   m_Layer: 0
   m_Name: '###Player###'
   m_TagString: Player
@@ -922,38 +925,6 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 7438342462134291436}
           m_TargetAssemblyTypeName: MovementQueue, Assembly-CSharp
-          m_MethodName: StrafeLeft
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - key: 100
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7438342462134291436}
-          m_TargetAssemblyTypeName: MovementQueue, Assembly-CSharp
-          m_MethodName: StrafeRight
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - key: 113
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7438342462134291436}
-          m_TargetAssemblyTypeName: MovementQueue, Assembly-CSharp
           m_MethodName: TurnLeft
           m_Mode: 1
           m_Arguments:
@@ -964,7 +935,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - key: 101
+  - key: 100
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -1028,12 +999,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftFoot: {fileID: 792526876702248062}
   leftFootClip: {fileID: 8300000, guid: 03abc06de1e112f4cbd8856cc395339a, type: 3}
-  leftMinimumPitch: 0.5
+  leftMinimumPitch: 1
   rightFoot: {fileID: 803448111361342722}
   rightFootClip: {fileID: 8300000, guid: 03abc06de1e112f4cbd8856cc395339a, type: 3}
-  rightMinimumPitch: 0.5
+  rightMinimumPitch: 1
   turnClip: {fileID: 8300000, guid: 03abc06de1e112f4cbd8856cc395339a, type: 3}
-  turnMinimumPitch: 0.5
+  turnMinimumPitch: 1
 --- !u!114 &4434474825175556205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1046,6 +1017,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e986362607404090ac34587d31d9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3766547031964695873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4398127384535887030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f2a3cdd23ee26429913db33ed1c6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorLayerName: MAP
+  rayDistance: 5
+--- !u!114 &2292785771914903812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4398127384535887030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c82af95c65a7c40abeb6a3e46bae6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leverLayerName: Lever
+  noteLayerName: Note
+  rayDistance: 3
+  interactKey: 102
+--- !u!114 &1648545383267146850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4398127384535887030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdf228548e0c4c589c1cd0714330f4f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ambientSounds:
+  - {fileID: 8300000, guid: 843ebf09e9d4cde4d9a46ad0b5c7cd51, type: 3}
+  - {fileID: 8300000, guid: 290961491b7658143a6c0f50f82a6819, type: 3}
+  - {fileID: 8300000, guid: dad16a03d29935a44bc644104702e5b0, type: 3}
+  - {fileID: 8300000, guid: ce1b57b66183be14b8abb80862aa84e9, type: 3}
+  - {fileID: 8300000, guid: 71d5479acb34abb418fab773c25b13cc, type: 3}
+  - {fileID: 8300000, guid: 960fa705c21d39448aae0c9feeeb6077, type: 3}
+  - {fileID: 8300000, guid: 0bb256b3b13bb1b499f607bd56be58a7, type: 3}
+  - {fileID: 8300000, guid: e08456211365c9746bb045537ea42ced, type: 3}
+  - {fileID: 8300000, guid: 2dccdb99776cf0b41b1d83046e74b9ee, type: 3}
+  - {fileID: 8300000, guid: 1dda0402e7a886542bef709b68140534, type: 3}
+  - {fileID: 8300000, guid: 2bb88cde909696a4aa8acc23f0db8e3b, type: 3}
+  - {fileID: 8300000, guid: 70ccee958efb0c641b06b6fddbd32e24, type: 3}
+  - {fileID: 8300000, guid: 04d66d38e7f5a4041bc4268b29a1d552, type: 3}
+  - {fileID: 8300000, guid: 9efc71ae073f95a41ac175a60d297165, type: 3}
+  - {fileID: 8300000, guid: c20b63e79e2f548438f44d842b36eca5, type: 3}
+  - {fileID: 8300000, guid: b27415576f1e4cc41a45d688a26cfdcc, type: 3}
+  - {fileID: 8300000, guid: 2e2719892af126e4db02c6e83647af39, type: 3}
+  - {fileID: 8300000, guid: ba6b6addbcb35c544907c1a1663b6ae1, type: 3}
 --- !u!1 &5514414015403445663
 GameObject:
   m_ObjectHideFlags: 0
