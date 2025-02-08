@@ -1,6 +1,7 @@
 using _game.rnk.Scripts;
 using _game.rnk.Scripts.battleSystem;
 using _game.rnk.Scripts.inventory;
+using DG.Tweening;
 using UnityEngine;
 
 public class HUD : MonoBehaviour
@@ -10,6 +11,7 @@ public class HUD : MonoBehaviour
     public Transform charactersRoot;
     public InventoryScreen inventory;
     public GameObject help;
+    public RectTransform mapRectTransform;
 
     private bool helpVisible = false;
     
@@ -33,7 +35,15 @@ public class HUD : MonoBehaviour
                 CreateCharacterView(characterState);
         }
     }
-    
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            MoveMap();
+        }
+    }
+
     public CharacterView CreateCharacterView(CharacterState characterState)
     {
         var character = Instantiate(characterViewPrefab, charactersRoot);
@@ -87,5 +97,10 @@ public class HUD : MonoBehaviour
     {
         helpVisible = !helpVisible;
         help.SetActive(helpVisible);
+    }
+
+    public void MoveMap()
+    {
+        mapRectTransform.DOAnchorPosX(-mapRectTransform.anchoredPosition.x, 0.2f).SetEase(Ease.InQuad );
     }
 }
