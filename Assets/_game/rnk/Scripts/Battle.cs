@@ -101,6 +101,7 @@ namespace _game.rnk.Scripts
             G.audio.Play<SFX_DiceDraw>();
             
             G.hud.ShowBattleHud();
+            G.hud.MoveMap();
             G.hud.battle.InitBattle();
 
             yield return new WaitForSeconds(0.5f);
@@ -117,6 +118,7 @@ namespace _game.rnk.Scripts
             isEnabled = false;
             G.hud.battle.FinishBattle();
             G.hud.HideBattleHud();
+            G.hud.MoveMap();
             
             G.IsInBattle = false;
             G.crawler.OnFinishEncounter();
