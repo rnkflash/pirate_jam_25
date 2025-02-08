@@ -36,14 +36,6 @@ public class HUD : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            MoveMap();
-        }
-    }
-
     public CharacterView CreateCharacterView(CharacterState characterState)
     {
         var character = Instantiate(characterViewPrefab, charactersRoot);
