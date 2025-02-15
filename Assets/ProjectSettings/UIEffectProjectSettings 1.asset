@@ -28,4 +28,18 @@ ShaderVariantCollection:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ShaderVariants
-  m_Shaders: {}
+  m_Shaders:
+  - first: {fileID: 17, guid: 0000000000000000e000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 96246b1ead49a4c5a996fd477bc5a117, type: 3}
+    second:
+      variants:
+      - keywords: SAMPLING_PIXELATION
+        passType: 0
+      - keywords: SAMPLING_PIXELATION SHADOW_COLOR_REPLACE
+        passType: 0
+      - keywords: TRANSITION_COLOR_MULTIPLY_LUMINANCE TRANSITION_PATTERN
+        passType: 0
